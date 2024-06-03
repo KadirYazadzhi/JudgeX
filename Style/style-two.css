@@ -1308,7 +1308,12 @@ ul {
     width: 100%;
     height: 100%;
 }
-
+.phone {
+    display: none;
+}
+.desktop {
+    display: block;
+}
 
 
 
@@ -1397,8 +1402,28 @@ ul {
         width: 163px!important;
     }
     .swiper-slide {
-        height: 250px!important;
-        width: 300px!important;
+        height: 300px!important;
+    }
+    .swiper-wrapper {
+        padding-left: 35px;
+        align-items: center;
+    }
+    main {
+        align-items: start!important;
+        justify-content: start!important;
+    }
+    .language-cards {
+        transition: transform 0.3s ease;
+    }
+    .phone {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .desktop {
+        display: none;
+    }
+    .faq, .faq-question-text-box {
+        width: 80%;
     }
 
 }
