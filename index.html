@@ -1,34 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
+    <link rel="stylesheet" type="text/css" href="Style/style-two.css">
+    <link rel="stylesheet" type="text/css" href="Style/footer.css">
     <link rel="stylesheet" type="text/css" href="Style/cards.css">
-    <link rel="stylesheet" type="text/css" href="Style/style.css">
+    <link rel="stylesheet" type="text/css" href="Style/features.css">
+    <link rel="stylesheet" type="text/css" href="Style/feedback.css">
+    <link rel="stylesheet" type="text/css" href="Style/leaderboard.css">
+    <link rel="stylesheet" type="text/css" href="Style/scroll-driven.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
+<section class="header-section">
+    <header class="header">
+        <h2><a href="" target="_blank" rel="noopener noreferrer"></a></h2>
+        <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
 
+        <button class="contact-btn one">
+            <span class="glow"></span>
+            <span class="contact-btn-content">Contact Us</span>
+        </button>
+
+        <button class="contact-btn three">
+            <span class="glow"></span>
+            <span class="contact-btn-content">About Us</span>
+        </button>
+
+        <button class="contact-btn two">
+            <span class="glow"></span>
+            <span class="contact-btn-content">Home</span>
+        </button>
+
+        <button class="contact-btn four">
+            <span class="glow"></span>
+            <span class="contact-btn-content">System</span>
+        </button>
+
+        <div class="spotlight">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="accent-lines">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="heroSubP">
+        <p>Introducing</p>
+    </div>
+
+    <div class="hero">
+        <div class="heroT">
+            <h2>JudgeX</h2>
+            <h2>JudgeX</h2>
+        </div>
+    </div>
+    <p class="heroP">Welcome to JudgeX, the ultimate platform for enhancing your coding <br>
+        skills through automated problem-solving and real-time feedback.
+    </p>
+    <div class="mountains">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="hero-spacer"></div>
+
+</section>
 <body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const swiper = new Swiper('.swiper-container', {
-            loop: true, // Enable looping
-            autoplay: {
-                delay: 3000, // Auto-slide every 3 seconds
-                disableOnInteraction: false, // Continue auto-slide after interaction
-            },
-            grabCursor: true, // Enable dragging with the mouse
-            slidesPerView: 1, // Number of slides to show
-            spaceBetween: 10, // Space between slides in px
-        });
-    });
-</script>
+
+<section class="content-section">
+    <div>
+        <div class="content-acc">
+            <div></div>
+            <div></div>
+        </div>
+        <p class="subt">Master Coding Challenges</p>
+        <h3 class="title">Learn. Compete.<br>
+            Improve Your Skills.</h3>
+        <p class="subp">Our platform offers a dynamic environment, <br>providing real-time feedback and a wide variety of coding problems to enhance your programming abilities.</p>
+    </div>
+</section>
+
+
+<section class="content-section sp-color">
+    <div class="about-us">
+        <div class="left-section">
+            <img class="about-us-image" src="Image/about-us-picture.png">
+        </div>
+
+        <div class="right-section">
+            <h3 class="title">Why Choose Us?</h3>
+            <p class="subp">Discover why our platform stands out with its innovative features, interactive learning experience, and comprehensive support for your coding journey. Here's what sets us apart:</p>
+
+            <div class="why-us">
+        <span>
+          <svg class="green-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" ><path d="M20.995 6.9a.998.998 0 0 0-.548-.795l-8-4a1 1 0 0 0-.895 0l-8 4a1.002 1.002 0 0 0-.547.795c-.011.107-.961 10.767 8.589 15.014a.987.987 0 0 0 .812 0c9.55-4.247 8.6-14.906 8.589-15.014zM12 19.897C5.231 16.625 4.911 9.642 4.966 7.635L12 4.118l7.029 3.515c.037 1.989-.328 9.018-7.029 12.264z"></path><path d="m11 12.586-2.293-2.293-1.414 1.414L11 15.414l5.707-5.707-1.414-1.414z"></path></svg>
+          Comprehensive Learning Platform
+        </span>
+
+                <span>
+          <svg class="green-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M20.995 6.9a.998.998 0 0 0-.548-.795l-8-4a1 1 0 0 0-.895 0l-8 4a1.002 1.002 0 0 0-.547.795c-.011.107-.961 10.767 8.589 15.014a.987.987 0 0 0 .812 0c9.55-4.247 8.6-14.906 8.589-15.014zM12 19.897C5.231 16.625 4.911 9.642 4.966 7.635L12 4.118l7.029 3.515c.037 1.989-.328 9.018-7.029 12.264z"></path><path d="m11 12.586-2.293-2.293-1.414 1.414L11 15.414l5.707-5.707-1.414-1.414z"></path></svg>
+          Multi-Language Support
+        </span>
+
+                <span>
+          <svg class="green-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M20.995 6.9a.998.998 0 0 0-.548-.795l-8-4a1 1 0 0 0-.895 0l-8 4a1.002 1.002 0 0 0-.547.795c-.011.107-.961 10.767 8.589 15.014a.987.987 0 0 0 .812 0c9.55-4.247 8.6-14.906 8.589-15.014zM12 19.897C5.231 16.625 4.911 9.642 4.966 7.635L12 4.118l7.029 3.515c.037 1.989-.328 9.018-7.029 12.264z"></path><path d="m11 12.586-2.293-2.293-1.414 1.414L11 15.414l5.707-5.707-1.414-1.414z"></path></svg>
+          Community Support
+        </span>
+
+                <span>
+          <svg class="green-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M20.995 6.9a.998.998 0 0 0-.548-.795l-8-4a1 1 0 0 0-.895 0l-8 4a1.002 1.002 0 0 0-.547.795c-.011.107-.961 10.767 8.589 15.014a.987.987 0 0 0 .812 0c9.55-4.247 8.6-14.906 8.589-15.014zM12 19.897C5.231 16.625 4.911 9.642 4.966 7.635L12 4.118l7.029 3.515c.037 1.989-.328 9.018-7.029 12.264z"></path><path d="m11 12.586-2.293-2.293-1.414 1.414L11 15.414l5.707-5.707-1.414-1.414z"></path></svg>
+          Secure and Reliable
+        </span>
+            </div>
+
+            <div class="about-us-buttons">
+
+                <div class="button-box">
+                    <button class="btn-17">
+          <span class="text-container">
+            <span class="text">Learn more</span>
+          </span>
+                    </button>
+                </div>
+
+                <div class="about-icons">
+                    <ul class="example-1">
+                        <li class="icon-content">
+                            <a class="link" data-social="spotify" aria-label="Spotify" href="https://www.spotify.com/">
+                                <svg viewBox="0 0 100 100" version="1.1">
+                                    <path fill="currentColor" d="M50,4C24.7,4,4,24.7,4,50s20.6,46,46,46s46-20.6,46-46S75.4,4,50,4z M71.6,71.5c0,0,0,0.1-0.1,0.1c-0.8,1.2-2,1.8-3.2,1.8  c-0.7,0-1.4-0.2-2-0.6c-10.2-6.3-23.3-7.7-38.8-4.1c-2.1,0.6-4-0.9-4.5-2.7c-0.6-2.3,0.9-4.1,2.7-4.6c17.7-4,32.6-2.3,44.4,5  c0.9,0.4,1.5,1,1.8,1.9C72.2,69.3,72.1,70.5,71.6,71.5z M76.9,59.3L76.9,59.3c-0.8,1.1-1.9,1.9-3.2,2.1c-0.2,0-0.5,0.1-0.7,0.1  c-0.8,0-1.6-0.3-2.3-0.7c-12-7.3-30.1-9.4-43.9-5c-2.5,0.6-5-0.7-5.6-3c-0.6-2.5,0.7-4.9,3-5.5c16.5-5,37.2-2.5,51.4,6.2  c0.8,0.4,1.5,1.3,1.8,2.5C77.9,57,77.6,58.3,76.9,59.3z M83.2,45.6c-1,1.4-2.7,2.1-4.4,2.1c-0.9,0-1.9-0.2-2.7-0.7c0,0,0,0,0,0  c-13.9-8.3-37.8-9.3-51.4-5.1c-2.7,0.8-5.5-0.7-6.4-3.3c-0.8-2.7,0.7-5.6,3.3-6.4c16.2-4.8,43-3.8,59.8,6.2  C83.8,39.6,84.7,42.9,83.2,45.6C83.3,45.5,83.3,45.5,83.2,45.6z"></path>
+                                </svg>
+                            </a>
+                            <div class="tooltip">Spotify</div>
+                        </li>
+
+                        <li class="icon-content">
+                            <a class="link" data-social="pinterest" aria-label="Pinterest" href="https://www.pinterest.com/">
+                                <svg xml:space="preserve" viewBox="0 0 100 100" version="1.1">
+                  <path fill="currentColor" d="M83,17.8C74.5,8.9,63.4,4.3,50,4.1C37.7,4.2,26.8,8.6,17.9,17.3C8.9,26,4.3,37,4.1,50c0,0,0,0,0,0c0,9.1,2.5,17.4,7.4,24.9  c4.9,7.4,11.6,13.2,20.1,17.1c0.3,0.1,0.7,0.1,1-0.1c0.3-0.2,0.5-0.5,0.5-0.8l0-4.9c0.1-2.1,0.7-5.3,1.7-9.5c1-4,1.7-6.7,1.9-7.6  c0.7-3,1.7-7.2,3-12.6c0.1-0.2,0-0.5-0.1-0.7c-0.4-0.8-1-2.6-1.5-6.6c0.1-2.7,0.8-5.2,2.1-7.3c1.2-2,3.1-3.1,5.7-3.5  c2,0.1,4.7,0.8,5.1,5.9c-0.1,1.8-0.8,4.5-1.9,8.1c-1.2,3.8-1.9,6.3-2.1,7.6c-0.7,2.5-0.2,4.8,1.5,6.8c1.6,1.9,3.8,2.9,6.5,3.1  c4.3-0.1,8.1-2.6,11.2-7.5c1.7-3,2.9-6.3,3.5-9.7c0.7-3.4,0.7-7.1,0-10.8c-0.7-3.8-2.2-7.1-4.5-9.8c0,0-0.1-0.1-0.1-0.1  c-4.3-3.7-9.5-5.3-15.6-5c-6,0.4-11.3,2.6-15.9,6.6c-2.9,3.2-4.8,7.1-5.7,11.6c-0.9,4.6,0,9.1,2.6,13.3c0.3,0.5,0.5,0.8,0.6,1  c0,0.3,0,1-0.5,2.8c-0.5,1.8-0.9,2.2-0.9,2.2c0,0-0.1,0-0.1,0.1c0,0-0.2,0-0.4-0.1c-2.2-1-3.9-2.4-5.2-4.2c-1.3-1.9-2.1-4-2.5-6.3  c-0.3-2.5-0.4-5-0.3-7.5c0.2-2.5,0.7-5.1,1.4-7.7c3-6.9,8.5-11.9,16.3-14.8c7.8-2.9,16-3.2,24.3-0.8c6.5,2.8,11,7.4,13.6,13.7  c2.5,6.4,2.8,13.4,0.8,20.8c-2.2,7.1-6.4,12.4-12.1,15.7c-5.6,2.8-10.8,3-15.7,0.7c-1.8-1.1-3.1-2.3-3.9-3.5c-0.2-0.3-0.6-0.5-1-0.5  c-0.4,0.1-0.7,0.3-0.8,0.7c-0.7,2.7-1.3,4.7-1.6,6.2c-1.4,5.4-2.6,9.2-3.4,11c-0.8,1.6-1.6,3.1-2.4,4.3c-0.2,0.3-0.2,0.6-0.1,0.9  s0.3,0.5,0.6,0.6c4.3,1.3,8.7,2,13,2c12.4-0.1,23.2-4.6,32.1-13.4C91.1,73.9,95.8,62.9,96,50C95.9,37.5,91.5,26.7,83,17.8z"></path>
+                </svg>
+                            </a>
+                            <div class="tooltip">Pinterest</div>
+                        </li>
+
+                        <li class="icon-content">
+                            <a class="link" data-social="dribbble" aria-label="Dribbble" href="https://dribbble.com/">
+                                <svg viewBox="0 0 100 100" version="1.1">
+                                    <path fill="currentColor" d="M83.5,18.5C74.9,9.3,62.8,4,50.2,4c-6.1,0-12,1.1-17.6,3.4C15.2,14.5,4,31.3,4,50c0,13.9,6.2,26.9,17,35.7  C29.2,92.3,39.4,96,50,96c6.6,0,13.2-1.5,19.2-4.2c12.5-5.7,21.7-16.6,25.2-29.8C95.5,57.9,96,53.8,96,50  C96,38.3,91.6,27.1,83.5,18.5z M75,22.3c-0.7,0.9-1.4,1.8-2.1,2.6c-1.4,1.6-2.8,3-4.4,4.3c-0.3,0.3-0.6,0.6-1,0.8  c-1,0.9-2.1,1.7-3.2,2.5l-0.3,0.2c-1.1,0.7-2.2,1.5-3.5,2.2c-0.4,0.3-0.9,0.5-1.4,0.8c-0.8,0.5-1.7,0.9-2.7,1.4  c-0.6,0.3-1.2,0.5-1.8,0.8L54.3,38c-0.1,0-0.2,0.1-0.3,0.1c0,0,0,0,0,0c-1.3-2.6-2.4-4.9-3.5-7l-0.3-0.5c-1.1-2-2.2-4-3.3-6  l-0.7-1.3c-1.1-1.9-2.2-3.7-3.2-5.4l-0.7-1.1c-0.7-1.2-1.4-2.3-2.2-3.5c3.2-0.8,6.5-1.3,9.8-1.3c9.4,0,18.4,3.5,25.4,9.8  C75.3,21.9,75.2,22.1,75,22.3z M46.4,40.6c-1.4,0.4-2.9,0.8-4.4,1.1c-0.3,0-0.7,0.1-0.9,0.2c-6,1-12.5,1.4-19.4,1.1  c-0.3,0-0.6,0-0.9,0c-0.3,0-0.5,0-0.7,0c-2.5-0.2-4.9-0.4-7.2-0.7c2.3-11.2,9.6-20.9,19.8-26.1c2.1,3.3,4.2,6.7,6.3,10.3l0.4,0.7  c0.9,1.6,1.9,3.4,3.2,5.8l0.6,1.2C44.4,36.6,45.4,38.6,46.4,40.6z M24.4,51.1c2.2,0.1,4.2,0,6.2-0.1l0.7,0c0.4,0,0.9,0,1.3,0  c2.8-0.2,5.5-0.5,8.5-1c0.5-0.1,1-0.2,1.6-0.3l0.5-0.1c2.2-0.4,4.2-0.9,6.1-1.4c0.1,0,0.3-0.1,0.4-0.1l0.5,1.1  c1.2,2.8,2.3,5.5,3.3,8.1c0,0,0,0,0,0c-0.2,0.1-0.5,0.2-0.7,0.2c-2,0.6-4,1.4-5.9,2.2c-0.6,0.3-1.3,0.5-1.9,0.8  c-1.4,0.6-2.7,1.3-4.1,2.1l-0.3,0.2c-0.2,0.1-0.5,0.2-0.6,0.4c-1.5,0.9-3.1,1.9-4.7,3c-0.2,0.1-0.4,0.3-0.6,0.4  c-0.2,0.1-0.4,0.3-0.6,0.5c-1,0.7-2,1.5-3,2.3c-0.4,0.3-0.7,0.6-1.1,0.9l-0.3,0.3c-0.7,0.6-1.5,1.3-2.2,1.9l-0.2,0.2  c-0.4,0.4-0.7,0.7-1.1,1.1l-0.2,0.2c-0.6,0.6-1.3,1.3-2,2l-0.4,0.4c-0.2,0.2-0.4,0.4-0.5,0.6C16.1,69.9,12,60.2,12,50.3  c0,0,0.1,0,0.1,0c0.4,0,0.7,0,1.1,0.1c3.5,0.4,6.9,0.6,10.3,0.7C23.8,51,24.1,51.1,24.4,51.1z M29.5,81.9c0.2-0.2,0.3-0.4,0.5-0.5  c1-1.1,2-2.1,3-3c1.9-1.8,3.8-3.3,5.7-4.8c0.2-0.1,0.4-0.3,0.6-0.4c0.2-0.2,0.5-0.4,0.8-0.6c1.1-0.8,2.2-1.5,3.4-2.2  c0.1-0.1,0.2-0.1,0.3-0.2c0.1-0.1,0.2-0.1,0.3-0.2c1.4-0.8,2.9-1.6,4.5-2.3c0.3-0.1,0.6-0.2,0.8-0.4l0.6-0.3  c1.1-0.5,2.2-0.9,3.5-1.4c0.5-0.2,1.1-0.4,1.7-0.6l0.2-0.1c0.4-0.1,0.7-0.2,1.1-0.3c0,0,0,0,0,0c1.1,3.2,2.3,6.4,3.3,9.8l0.1,0.4  c1.1,3.6,2,7.3,2.9,10.8C51.7,89.8,39.3,88.3,29.5,81.9C29.4,81.9,29.4,81.9,29.5,81.9z M65.6,62.9c0.7-0.1,1.3-0.2,2-0.2  c2-0.2,4-0.2,5.9-0.2c0.2,0,0.4,0,0.6,0l0.2,0c2.2,0.1,4.6,0.3,6.9,0.6c0.4,0.1,0.9,0.1,1.3,0.2l0.6,0.1c0.7,0.1,1.5,0.3,2.2,0.4  c-3,7.6-8.3,14-15.2,18.3c-0.8-3.1-1.7-6.2-2.6-9.2l-0.1-0.4c-0.9-3-1.9-6.1-3.1-9.5C64.8,63.1,65.2,63,65.6,62.9z M81.6,55.2  C80,55,78.4,54.9,77,54.8l-0.9-0.1c-0.9-0.1-1.9-0.1-2.8-0.2c-0.2,0-0.3,0-0.5,0c-0.2,0-0.4,0-0.6,0c-2,0-3.9,0.1-5.9,0.3  c-0.2,0-0.3,0-0.5,0.1c-0.1,0-0.2,0-0.3,0c-1.3,0.1-2.6,0.3-3.9,0.5c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.5-0.3-0.7  c-1.1-2.9-2.3-5.7-3.2-7.8l-0.3-0.6c-0.1-0.1-0.1-0.3-0.2-0.4c0,0,0,0,0.1,0c0.2-0.1,0.5-0.2,0.7-0.3c0.6-0.2,1.2-0.5,1.8-0.8  c1.2-0.5,2.4-1.2,3.6-1.8c0.1-0.1,0.3-0.2,0.5-0.2c0.2-0.1,0.5-0.2,0.7-0.4c1.5-0.9,2.9-1.8,4.2-2.7l0.3-0.2  c0.2-0.1,0.4-0.3,0.6-0.4c0.9-0.6,1.9-1.4,2.8-2.2c1.5-1.2,2.9-2.5,4.3-4c0.8-0.8,1.5-1.6,2.2-2.4l0.4-0.5c0.5-0.5,0.9-1.1,1.3-1.6  C85.5,34.3,88,42.1,88,50c0,2-0.2,4.1-0.5,6.1c-0.3,0-0.6-0.1-0.8-0.1c-0.4-0.1-0.7-0.1-1.1-0.2l-1.1-0.2  C83.5,55.5,82.5,55.3,81.6,55.2z"></path>
+                                </svg>
+                            </a>
+                            <div class="tooltip">Dribbble</div>
+                        </li>
+
+                        <li class="icon-content">
+                            <a class="link" data-social="telegram" aria-label="Telegram" href="https://telegram.org/">
+                                <svg viewBox="0 0 100 100" version="1.1">
+                                    <path fill="currentColor" d="M95,9.9c-1.3-1.1-3.4-1.2-7-0.1c0,0,0,0,0,0c-2.5,0.8-24.7,9.2-44.3,17.3c-17.6,7.3-31.9,13.7-33.6,14.5  c-1.9,0.6-6,2.4-6.2,5.2c-0.1,1.8,1.4,3.4,4.3,4.7c3.1,1.6,16.8,6.2,19.7,7.1c1,3.4,6.9,23.3,7.2,24.5c0.4,1.8,1.6,2.8,2.2,3.2  c0.1,0.1,0.3,0.3,0.5,0.4c0.3,0.2,0.7,0.3,1.2,0.3c0.7,0,1.5-0.3,2.2-0.8c3.7-3,10.1-9.7,11.9-11.6c7.9,6.2,16.5,13.1,17.3,13.9  c0,0,0.1,0.1,0.1,0.1c1.9,1.6,3.9,2.5,5.7,2.5c0.6,0,1.2-0.1,1.8-0.3c2.1-0.7,3.6-2.7,4.1-5.4c0-0.1,0.1-0.5,0.3-1.2  c3.4-14.8,6.1-27.8,8.3-38.7c2.1-10.7,3.8-21.2,4.8-26.8c0.2-1.4,0.4-2.5,0.5-3.2C96.3,13.5,96.5,11.2,95,9.9z M30,58.3l47.7-31.6  c0.1-0.1,0.3-0.2,0.4-0.3c0,0,0,0,0,0c0.1,0,0.1-0.1,0.2-0.1c0.1,0,0.1,0,0.2-0.1c-0.1,0.1-0.2,0.4-0.4,0.6L66,38.1  c-8.4,7.7-19.4,17.8-26.7,24.4c0,0,0,0,0,0.1c0,0-0.1,0.1-0.1,0.1c0,0,0,0.1-0.1,0.1c0,0.1,0,0.1-0.1,0.2c0,0,0,0.1,0,0.1  c0,0,0,0,0,0.1c-0.5,5.6-1.4,15.2-1.8,19.5c0,0,0,0,0-0.1C36.8,81.4,31.2,62.3,30,58.3z"></path>
+                                </svg>
+                            </a>
+                            <div class="tooltip">Telegram</div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section">
+    <div>
+        <p class="subt">Climb the Ranks</p>
+        <h3 class="title">Leaderboard</h3>
+        <p class="subp">Compete with fellow coders and track your progress. See how you stack up against others and aim for the top of the leaderboard with your coding skills.</p>
+    </div>
+
+    <div class="scroll-driven">
+        <div class="box box1">
+            <input type="range" value="1" min="1" max="2" id="range">
+            <ul class="tab-name">
+                <li value="1">Monthly</li>
+                <li value="2">Yearly</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="containers">
+        <div class="big-container">
+            <div class="container second">
+                <div class="cube">
+                    <div class="side front"></div>
+                    <div class="side top"></div>
+                </div>
+
+                <div class="user-info">
+                    <img class="user-image-leag silverIMG" src="Image/icon-user-1.png">
+                    <p class="user-name">Ultralexx</p>
+
+                    <div class="box-trophy silver">
+                        <svg class="trophy-icon silverBox" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" ><path d="M21 4h-3V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v3c0 4.31 1.8 6.91 4.82 7A6 6 0 0 0 11 17.91V20H9v2h6v-2h-2v-2.09A6 6 0 0 0 17.18 15c3-.1 4.82-2.7 4.82-7V5a1 1 0 0 0-1-1zM4 8V6h2v6.83C4.22 12.08 4 9.3 4 8zm14 4.83V6h2v2c0 1.3-.22 4.08-2 4.83z"></path></svg>
+                    </div>
+
+                    <p class="point-text">Earn 500 points</p>
+
+                    <div class="diamond-box">
+                        <i class="fas fa-solid fa-gem"></i>
+                        <p>5 000</p>
+                    </div>
+
+                    <p class="price-text">Prize</p>
+                </div>
+            </div>
+
+            <div class="container first activeBox">
+                <div class="cube">
+                    <div class="side front"></div>
+                    <div class="side top"></div>
+                </div>
+
+                <div class="user-info">
+                    <img class="user-image-leag goldIMG" src="Image/icon-user-2.png">
+                    <p class="user-name">Klaronn</p>
+
+                    <div class="box-trophy gold">
+                        <svg class="trophy-icon goldBox" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" ><path d="M21 4h-3V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v3c0 4.31 1.8 6.91 4.82 7A6 6 0 0 0 11 17.91V20H9v2h6v-2h-2v-2.09A6 6 0 0 0 17.18 15c3-.1 4.82-2.7 4.82-7V5a1 1 0 0 0-1-1zM4 8V6h2v6.83C4.22 12.08 4 9.3 4 8zm14 4.83V6h2v2c0 1.3-.22 4.08-2 4.83z"></path></svg>
+                    </div>
+
+                    <p class="point-text">Earn 1500 points</p>
+
+                    <div class="diamond-box">
+                        <i class="fas fa-solid fa-gem"></i>
+                        <p>10 000</p>
+                    </div>
+
+                    <p class="price-text">Prize</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="cube">
+                    <div class="side front"></div>
+                    <div class="side top"></div>
+                </div>
+
+                <div class="user-info">
+                    <img class="user-image-leag bronzeIMG" src="Image/icon-user-3.png">
+                    <p class="user-name">Skull</p>
+
+                    <div class="box-trophy bronze">
+                        <svg class="trophy-icon bronzeBox" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path d="M21 4h-3V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v3c0 4.31 1.8 6.91 4.82 7A6 6 0 0 0 11 17.91V20H9v2h6v-2h-2v-2.09A6 6 0 0 0 17.18 15c3-.1 4.82-2.7 4.82-7V5a1 1 0 0 0-1-1zM4 8V6h2v6.83C4.22 12.08 4 9.3 4 8zm14 4.83V6h2v2c0 1.3-.22 4.08-2 4.83z"></path></svg>
+                    </div>
+
+                    <p class="point-text">Earn 250 points</p>
+
+                    <div class="diamond-box">
+                        <i class="fas fa-solid fa-gem"></i>
+                        <p>2 500</p>
+                    </div>
+
+                    <p class="price-text">Prize</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clock">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgb(90,117,190);transform: ;msFilter:;"><path d="M12 4c-4.878 0-9 4.122-9 9s4.122 9 9 9c4.879 0 9-4.122 9-9s-4.121-9-9-9zm5 10h-6V8h2v4h4v2zm3.292-7.292-3.01-3 1.412-1.417 3.01 3zM5.282 2.294 6.7 3.706l-2.99 3-1.417-1.413z"></path></svg>
+            <p class="time-text">Ends in</p>
+            <p class="days-text">00d 00h 43m 05s</p>
+        </div>
+
+        <div class="bottom-box">
+            <p class="text-bottom-box">
+                You earned
+                <i style="font-size: 14px;" class="fas fa-solid fa-gem"></i>
+                50 today and are ranked - out of <b>13868 users</b>
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<section class="content-section sp-color">
+    <div>
+        <p class="subt">Discover Our Features</p>
+        <h3 class="title">Innovative. Interactive.<br>
+            Comprehensive Learning Experience.</h3>
+        <p class="subp">Explore the key features of our platform that provide a robust environment for coding practice, real-time feedback, and continuous improvement.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <svg class="first-icon" xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 24 24"><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
+            <p class="heading">Real-Time Code Compilation and Testing</p>
+        </div>
+
+        <div class="card">
+            <svg class="second-icon" xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 24 24" ><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"></path><path d="M7 7h10v2H7zm0 4h7v2H7z"></path></svg>
+            <p class="heading">Instant Feedback and Detailed Reports</p>
+        </div>
+
+        <div class="card">
+            <svg class="third-icon" xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 24 24"><path d="M12 10c1.151 0 2-.848 2-2s-.849-2-2-2c-1.15 0-2 .848-2 2s.85 2 2 2zm0 1c-2.209 0-4 1.612-4 3.6v.386h8V14.6c0-1.988-1.791-3.6-4-3.6z"></path><path d="M19 2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h4l3 3 3-3h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-5 15-2 2-2-2H5V4h14l.002 13H14z"></path></svg>
+            <p class="heading">User-Friendly Interface</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="content-section">
+    <div>
+        <p class="subt">Master Programming Levels</p>
+        <h3 class="title">Choose Your Difficulty Level</h3>
+        <p class="subp">Tackle challenges and enhance your coding skills by selecting a difficulty level that matches your experience.</p>
+    </div>
+
+    <div class="buttons-box">
+
+        <div class="button basic">
+            <div class="tooltip">
+                <div class="tooltiptext basc">Perfect for beginners, this level covers fundamental concepts and easy challenges to get you started.</div>
+                <span class="fa fa-star"></span>
+                <label>Basic</label>
+            </div>
+        </div>
+
+        <div class="button medium">
+            <div class="tooltip">
+                <div class="tooltiptext med">Designed for those with some experience, these challenges require a deeper understanding and problem-solving skills.</div>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <label>Medium</label>
+            </div>
+        </div>
+
+        <div class="button hard">
+            <div class="tooltip">
+                <div class="tooltiptext hrd">For advanced users, this level includes complex problems that demand strong coding skills and algorithmic thinking.</div>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <label>Hard</label>
+            </div>
+        </div>
+
+        <div class="button veryHard">
+            <div class="tooltip">
+                <div class="tooltiptext vhrd">The ultimate test, featuring extremely challenging tasks for expert programmers looking to push their limits.</div>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <label>Insane</label>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 
 <section class="content-section sp-color">
     <div>
@@ -40,7 +396,7 @@
     <main class="language-cards swiper-container">
         <div class="swiper-wrapper">
 
-            <article data-start-slide class="swiper-slide" data-glow>
+            <article class="swiper-slide oneIndex" data-glow>
                 <svg class="cplusplus" xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 24 24"><path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92zm5.92-5.59h-.66V13h-.65v-.66H16v-.66h.66V11h.65v.66h.66zm2.47 0h-.66V13h-.66v-.66h-.65v-.66h.65V11h.66v.66h.66z"></path></svg>
                 <div data-glow></div>
             </article>
@@ -79,11 +435,167 @@
                 <svg class="go" xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 24 24"><path d="M3.79 10.17a.18.18 0 0 0-.11 0l-.2.27H7a.15.15 0 0 0 .1-.06l.17-.26v-.05zm-1.47.89a.14.14 0 0 0-.11 0l-.2.26v.05h4.6a.09.09 0 0 0 .09-.06l.08-.23v-.06zM4.6 12a.13.13 0 0 0-.1.06l-.13.24v.06h2.15a.08.08 0 0 0 .07-.07v-.23s0-.07-.06-.07zm15.99-3.07a3.62 3.62 0 0 0-2.78-.5 4.09 4.09 0 0 0-2.72 1.63 4 4 0 0 0-.67 1.26h-3.14a.25.25 0 0 0-.24.16c-.14.25-.37.76-.5 1.06s0 .29.18.29h1.88a2.8 2.8 0 0 1-.26.36 1.81 1.81 0 0 1-1.65.65 1.53 1.53 0 0 1-1.32-1.53 2.07 2.07 0 0 1 1-1.85 1.71 1.71 0 0 1 1.77-.15 1.36 1.36 0 0 1 .45.37c.13.15.14.14.29.1l1.63-.43c.12 0 .16-.08.1-.16a3 3 0 0 0-1.13-1.38 3.35 3.35 0 0 0-2.58-.47A4.31 4.31 0 0 0 8.16 10a3.81 3.81 0 0 0-.82 2.85A3 3 0 0 0 8.57 15a3.46 3.46 0 0 0 2.62.65A4.06 4.06 0 0 0 14 14a4.33 4.33 0 0 0 .41-.69 3 3 0 0 0 1 1.55 3.68 3.68 0 0 0 2.38.86c.25 0 .51 0 .78-.09a4.51 4.51 0 0 0 2.33-1.25A3.72 3.72 0 0 0 22 11.1a3 3 0 0 0-1.41-2.17zm-1.78 4.73a1.81 1.81 0 0 1-1.59.06 1.61 1.61 0 0 1-.9-1.84A2.12 2.12 0 0 1 18 10.19a1.59 1.59 0 0 1 2 1.29 2.91 2.91 0 0 1 0 .32 2.11 2.11 0 0 1-1.19 1.86z"></path></svg>
             </article>
         </div>
-
-        <div class="swiper-pagination"></div>
     </main>
+    <div class="swiper-pagination"></div>
+
 </section>
 
-</body>
 
+<section class="content-section">
+    <div class="about-us">
+        <div class="left-section">
+            <img class="faq-image" src="Image/FAQ-image.png">
+        </div>
+
+        <div class="right-section">
+            <h3 class="title">Frequently Asked Questions</h3>
+            <p class="subp">Find answers to some of the most common questions about our platform. If you have any other questions, feel free to reach out to us.</p>
+
+            <div class="faq-box">
+                <div class="faq active-faq">
+                    <p class="faq-title">What programming languages are supported on your platform?</p>
+                    <span class="faq-icon">&#43;</span>
+                </div>
+                <div class="faq-question-text-box">
+                    <p class="faq-question-text">Our platform supports a wide range of programming languages, including Python, Java, C++, JavaScript, TypeScript, and many more. You can choose your preferred language to solve coding challenges.</p>
+                </div>
+
+                <div class="faq">
+                    <p class="faq-title">How does the real-time feedback system work?</p>
+                    <span class="faq-icon">&#43;</span>
+                </div>
+                <div class="faq-question-text-box">
+                    <p class="faq-question-text">When you submit your code, our real-time feedback system immediately evaluates it against a set of test cases. You'll receive instant feedback on any errors or issues, along with suggestions for improvement.</p>
+                </div>
+
+                <div class="faq">
+                    <p class="faq-title">Can I track my progress over time?</p>
+                    <span class="faq-icon">&#43;</span>
+                </div>
+                <div class="faq-question-text-box">
+                    <p class="faq-question-text">Yes, our platform includes detailed progress tracking. You can view your performance history, see which challenges you've completed, and track your improvement over time.</p>
+                </div>
+
+                <div class="faq">
+                    <p class="faq-title">Is there a community or forum where I can ask for help?</p>
+                    <span class="faq-icon">&#43;</span>
+                </div>
+                <div class="faq-question-text-box">
+                    <p class="faq-question-text">Absolutely! We have a vibrant community forum where you can ask questions, share knowledge, and collaborate with other learners and experienced programmers.</p>
+                </div>
+
+                <div class="faq">
+                    <p class="faq-title">Are there different difficulty levels for the coding challenges?</p>
+                    <span class="faq-icon">&#43;</span>
+                </div>
+                <div class="faq-question-text-box">
+                    <p class="faq-question-text">Yes, we offer challenges at various difficulty levels, from Basic to Insane. You can select the level that matches your experience and gradually tackle more challenging problems as you improve.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="content-section sp-color">
+    <h3 class="title">Contact Us</h3>
+    <p class="subp">We're here to help! If you have any questions, feedback, or inquiries, please don't hesitate to contact us. Our team is ready to assist you.</p>
+
+    <div class="about-us">
+        <div class="left-section">
+            <h3>Get in Touch</h3>
+            <p class="text-left-box">If you are interested in working together? Please fill out the form aside with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.</p>
+
+            <div class="info-box">
+                <div class="background-info-icon">
+                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" ><path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"></path></svg>
+                </div>
+
+                <div class="box-one-row">
+                    <p class="info-title">Name</p>
+                    <p class="info-text">Kadir Yazadzhi</p>
+                </div>
+
+            </div>
+
+            <div class="info-box">
+                <div class="background-info-icon">
+                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+                </div>
+
+                <div class="box-one-row">
+                    <p class="info-title">Address</p>
+                    <p class="info-text">Kadir Yazadzhi</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="background-info-icon">
+                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64z"></path></svg>
+                </div>
+
+                <div class="box-one-row">
+                    <p class="info-title">Email</p>
+                    <p class="info-text">Kadir Yazadzhi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="contact-inputs">
+                <div class="one-row-inputs">
+                    <input type="text" class="name-input" placeholder="Name">
+                    <input type="email" class="email-input" placeholder="Email">
+                </div>
+                <input type="text" class="subject-input" placeholder="Subject">
+
+                <textarea class="message-textarea" placeholder="Message..."></textarea>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+    </ul>
+    <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script rel="script" src="Script/script.js"></script>
+<script rel="script" src="Script/pointer.js"></script>
+<script rel="script" src="Script/slider.js"></script>
+<script rel="script" src="Script/faq-section.js"></script>
+<script rel="script" src="Script/features.js"></script>
+<script rel="script" src="Script/feedback.js"></script>
+<script rel="script" src="Script/scroll-driven.js"></script>
 </html>
