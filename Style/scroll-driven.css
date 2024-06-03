@@ -1,0 +1,141 @@
+:root {
+    --offset: 2px;
+    --range-min: 1;
+    --range-max: 2;
+    --range: var(--range-min);
+    --slider-thumb-size: 32px;
+    --track-height: 45px;
+    --progress-bg: linear-gradient(
+            90deg,
+            rgb(35, 46, 68) 0%,
+            rgb(32, 42, 61) 25%,
+            rgb(32, 41, 59) 51%,
+            rgb(35, 46, 68) 100%
+    );
+}
+
+.scroll-driven {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    resize: none;
+    width: 550px;
+    margin-bottom: 20px;
+    container-name: change-datalist;
+    animation: range-observer linear reverse;
+    animation-timeline: --range-thumb;
+    animation-range: contain;
+    timeline-scope: --range-thumb;
+    font-weight: 600;
+}
+
+@property --range {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: true;
+}
+@supports (timeline-scope: --foo) {
+    input[type=range]::-webkit-slider-thumb {
+        view-timeline: --range-thumb inline;
+    }
+
+    @keyframes range-observer {
+        0% {
+            --range: var(--range-min);
+        }
+        100% {
+            --range: var(--range-max);
+        }
+    }
+}
+input[type=range] {
+    --tab-track-width: calc((100% - var(--offset) * 2));
+    --tab-size: calc(var(--tab-track-width) / 2);
+    --progress: (var(--range) - var(--range-min)) / (var(--range-max) - var(--range-min));
+    --progress-length: calc(
+            (var(--tab-track-width) - var(--tab-size)) * var(--progress) + var(--offset)
+    );
+    position: relative;
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+}
+input[type=range]::after {
+    pointer-events: none;
+    content: "";
+    border-radius: 6px;
+    background: var(--progress-bg) no-repeat;
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: var(--tab-size);
+    top: 2px;
+    bottom: 2px;
+    transition: left 0.4s, scale 0.3s, top 0.3s, bottom 0.3s;
+    left: var(--progress-length);
+}
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    cursor: pointer;
+    width: calc(100% / 3);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 7px;
+    opacity: 0;
+    background: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    appearance: none;
+    height: var(--track-height);
+    border-radius: 6px;
+    padding: 2px var(--offset);
+    background-color: #161c28;
+}
+
+.tab-name {
+    appearance: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    padding: 2px var(--offset);
+    pointer-events: none;
+    list-style: none;
+}
+
+.tab-name li {
+    flex: 1;
+    text-align: center;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+input[type=range]:active::after {
+    scale: 0.95;
+}
+
+@container change-datalist style(--range: 1) {
+    .box1 li[value="1"] {
+        color: #fff;
+    }
+}
+@container change-datalist style(--range: 2) {
+    .box1 li:nth-child(2) {
+        color: #fff;
+    }
+}

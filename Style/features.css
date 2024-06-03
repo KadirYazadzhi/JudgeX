@@ -1,0 +1,103 @@
+.cards {
+    padding-top: 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.card {
+    margin-right: 50px;
+    position: relative;
+    width: 280px;
+    height: 310px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-content: center;
+    color: #757575;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 285px;
+    height: 315px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card:hover {
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+
+.card:hover .first-icon {
+    fill: rgb(0, 137, 255);
+    transition: ease-in-out 0.1s;
+}
+.first-icon {
+    fill: rgb(0, 54, 101);
+}
+
+
+.card:hover .second-icon {
+    fill: rgb(124, 0, 255);
+    transition: ease-in-out 0.1s;
+}
+.second-icon {
+    fill: rgb(54, 0, 110);
+}
+
+
+.card:hover .third-icon {
+    fill: rgb(0,255,217);
+    transition: ease-in-out 0.1s;
+}
+.third-icon {
+    fill: rgb(0, 107, 91);
+}
+
+.card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.card p:not(.heading) {
+    font-size: 14px;
+}
+
+
+.card:hover::after {
+    filter: blur(30px);
+}
+
+.card:hover::before {
+    transform: rotate(-90deg) scaleX(1.15) scaleY(0.92);
+}
+
+
+
+
