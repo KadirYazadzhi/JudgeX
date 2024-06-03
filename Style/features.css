@@ -98,6 +98,26 @@
     transform: rotate(-90deg) scaleX(1.15) scaleY(0.92);
 }
 
+@media (max-width: 768px) {
+    .first-icon {
+        fill: rgb(0, 137, 255);
+        transition: ease-in-out 0.1s;
+    }
+
+    .second-icon {
+        fill: rgb(124, 0, 255);
+        transition: ease-in-out 0.1s;
+    }
+
+    .third-icon {
+        fill: rgb(0,255,217);
+        transition: ease-in-out 0.1s;
+    }
+
+    .card {
+        color: white;
+    }
+}
 
 
 

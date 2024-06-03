@@ -1321,7 +1321,27 @@ ul {
     display: none;
 }
 
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ababab;
+}
 
+.dots {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-top: 335px;
+    margin-bottom: 10px;
+}
+.dot.active {
+    background: #5a81ec;
+}
 
 
 @media (max-width: 768px) {
@@ -1349,14 +1369,14 @@ ul {
         padding: 0!important;
     }
     .btn-17 {
-        padding: 0.6rem 4.3rem;
+        padding: 0.7rem 6.3rem;
     }
     .box {
         width: 90%!important;
         justify-content: center!important;
     }
     .activeBox {
-        display: flex!important;
+        display: flex;
     }
     .user-info {
         height: 500px!important;
@@ -1369,10 +1389,10 @@ ul {
         margin-left: 10px!important;
     }
     .clock {
-        bottom: 8rem!important;
+        bottom: 5rem!important;
     }
     .bottom-box {
-        bottom: 5rem!important;
+        bottom: 2rem!important;
         width: 100%;
     }
     .side {
@@ -1452,6 +1472,21 @@ ul {
     .content-section .content-acc div:nth-child(2) {
         translate: 14em 4em;
     }
+    .container {
+        opacity: 0;
+        transition: opacity 0.5s, transform 0.5s;
+        transform: rotateY(90deg);
+
+    }
+    .container.show {
+        display: flex;
+    }
+    .container.active {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+
+
 }
 
 
