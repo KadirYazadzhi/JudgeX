@@ -1308,14 +1308,18 @@ ul {
     width: 100%;
     height: 100%;
 }
+
 .phone {
     display: none;
 }
+
 .desktop {
     display: block;
 }
 
-
+.phone-burger-menu, .phone-search-icon, .phone-user-icon {
+    display: none;
+}
 
 
 
@@ -1425,7 +1429,29 @@ ul {
     .faq, .faq-question-text-box {
         width: 80%;
     }
-
+    .contact-btn {
+        display: none;
+    }
+    .phone-burger-menu, .phone-search-icon, .phone-user-icon {
+        position: absolute;
+        fill: white;
+        display: block;
+    }
+    .phone-burger-menu {
+        left: min(2em, 60vw);
+    }
+    .phone-search-icon {
+        right: min(6em, 60vw);
+    }
+    .phone-user-icon {
+        right: min(2em, 60vw);
+    }
+    .content-section .content-acc div {
+        translate: -14em -4em;
+    }
+    .content-section .content-acc div:nth-child(2) {
+        translate: 14em 4em;
+    }
 }
 
 
