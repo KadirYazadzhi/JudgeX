@@ -261,3 +261,9 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@media (min-width: 768px) {
+    .dots {
+        display: none;
+    }
+}
