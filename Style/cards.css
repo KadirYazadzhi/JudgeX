@@ -121,7 +121,6 @@ main {
     mask-composite: intersect;
 }
 
-/* This is the emphasis light */
 [data-glow]::before {
     background-image: radial-gradient(
             calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
