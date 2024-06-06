@@ -41,7 +41,7 @@
 .carousel {
     display: flex;
     align-items: center;
-    animation: slide var(--ani-speed) linear infinite;
+    animation: slide-animation 10s linear infinite;
 }
 .item{
     flex: 1 0 var(--width);
@@ -54,10 +54,9 @@
     object-fit: cover;
 }
 
-@keyframes slide {
-    100% {
-        transform: translateX(var(--ani-offset));
-    }
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 .queue-text {

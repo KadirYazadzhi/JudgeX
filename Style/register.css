@@ -39,21 +39,21 @@
 }
 .ring i:nth-child(1) {
     border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-    animation: animate 6s linear infinite;
+    animation: animateS 6s linear infinite;
 }
 .ring i:nth-child(2) {
     border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
-    animation: animate 4s linear infinite;
+    animation: animateS 4s linear infinite;
 }
 .ring i:nth-child(3) {
     border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
-    animation: animate2 10s linear infinite;
+    animation: animate2S 10s linear infinite;
 }
 .ring:hover i {
     border: 6px solid var(--clr);
     filter: drop-shadow(0 0 20px var(--clr));
 }
-@keyframes animate {
+@keyframes animateS {
     0% {
         transform: rotate(0deg);
     }
@@ -61,7 +61,7 @@
         transform: rotate(360deg);
     }
 }
-@keyframes animate2 {
+@keyframes animate2S {
     0% {
         transform: rotate(360deg);
     }
