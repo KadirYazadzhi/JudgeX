@@ -665,10 +665,10 @@ p {
     z-index: 1;
     filter: brightness(0.8);
     background: repeating-radial-gradient( at 50% 50%, transparent 0%, #c2ccff22 2px, transparent 4px);
-    translate: -18em -4em;
+    translate: -16em -6em;
 }
 .content-section .content-acc div:nth-child(2){
-    translate: 18em 6em;
+    translate: 18em 3em;
     border-radius: 2em;
     box-shadow:
             -1em -0.2em 0.4em -1.1em #c2ccff,
@@ -958,6 +958,18 @@ ul {
 
 .buttons-box {
     height: 50%;
+}
+
+@media (min-width: 1700px) {
+    .btn-17 {
+        padding: 0.4rem 6rem!important;
+    }
+
+    .about-us-buttons {
+        justify-content: left!important;
+        gap: 50px!important;
+        padding-left: 10%;
+    }
 }
 .btn-17,
 .btn-17 *,
