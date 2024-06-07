@@ -1,0 +1,72 @@
+.blur-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    width: 100%;
+}
+
+.first-blur:hover {
+    transition: 0.4s;
+    background: linear-gradient(0deg, #bfe3f8 0, #8abdfa 100%)!important;
+}
+
+.third-blur:hover {
+    transition: 0.5s;
+    background: linear-gradient(0deg, #b7e2fc 0, #83bafc 100%)!important;
+}
+
+.second-blur:hover {
+    transition: 0.5s;
+    background: linear-gradient(0deg, #acdefc 0, #80baff 100%)!important;
+}
+
+
+.blur-cards .blur-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    text-align: center;
+    height: 100px;
+    width: 280px;
+    border-radius: 10px;
+    color: #000000;
+    cursor: pointer;
+    transition: 400ms;
+    background: linear-gradient(0deg, #d8ecf8 0, #98c0ef 100%);
+
+    box-shadow:
+            -1em -0.2em 0.4em -1.1em #c2ccff,
+            inset 0em 0em 0em 2px #c2ccff,
+            inset 0.2em 0.3em 0.2em -0.2em #c2ccff,
+            inset -1.2em 2.3em 2em -0.5em #d4e6ff2f;
+
+}
+
+.blur-cards .blur-card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.blur-cards .blur-card p.second-text {
+    font-size: .7em;
+}
+
+.blur-cards .blur-card:hover {
+    transform: scale(1.15, 1.15);
+}
+
+.blur-cards:hover > .blur-card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}
+
+.icon-blur-icon {
+    fill: #4f6aff;
+    width: 70px;
+    height: 70px;
+}
