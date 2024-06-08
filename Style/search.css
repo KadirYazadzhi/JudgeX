@@ -18,6 +18,12 @@
     transition: top 0.6s ease-in-out;
 }
 
+@media (min-width: 768px) {
+    .search-bar {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .search-bar {
         top: -100%;
