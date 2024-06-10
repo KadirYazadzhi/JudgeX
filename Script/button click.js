@@ -11,6 +11,7 @@ class ButtonManager {
     }
 
     onButtonClick(clickedButton) {
+
         this.buttons.forEach(button => {
             button.classList.remove('hover-active');
             const tooltip = button.querySelector('.tooltiptext');
@@ -24,10 +25,21 @@ class ButtonManager {
         if (tooltip) {
             tooltip.classList.add('active');
         }
+
+
+        const buttonNumber = Array.from(this.buttons).indexOf(clickedButton) + 1;
+        localStorage.setItem('selectedButton', buttonNumber);
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new ButtonManager('.button');
-});
+    const buttonManager = new ButtonManager('.button');
 
+    const selectedButtonNumber = localStorage.getItem('selectedButton');
+    if (selectedButtonNumber) {
+        const selectedButton = document.querySelectorAll('.button')[selectedButtonNumber - 1];
+        if (selectedButton) {
+            selectedButton.click();
+        }
+    }
+});
