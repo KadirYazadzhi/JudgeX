@@ -43,6 +43,9 @@ article {
     align-content: center;
 }
 
+.swiper-slide.active {
+    border-color: #1b8500;
+}
 .swiper-slide.activeBasic {
     border-color: #1e8a00;
 }
