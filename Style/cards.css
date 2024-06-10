@@ -43,6 +43,22 @@ article {
     align-content: center;
 }
 
+.swiper-slide.active {
+    border-color: #1b8500;
+}
+.swiper-slide.activeBasic {
+    border-color: #1e8a00;
+}
+.swiper-slide.activeMedium {
+    border-color: #e18100;
+}
+.swiper-slide.activeHard {
+    border-color: #ff0000;
+}
+.swiper-slide.activeVeryHard {
+    border-color: #a60000;
+}
+
 @media (min-width: 1700px) {
     article {
         width: 300px;
@@ -96,7 +112,26 @@ main {
 }
 
 @media (min-width: 768px) {
-    /* Glow specific styles */
+    .special-card-slider {
+        display: none;
+    }
+    .more-language-text {
+        display: flex;
+        font-weight: 600;
+        font-size: 14px;
+        color: #646464;
+        cursor: pointer;
+    }
+    .more-language-text:hover {
+        color: #ffffff;
+    }
+    .more-text {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     [data-glow] {
         --border-size: calc(var(--border, 2) * 1px);
         --spotlight-size: calc(var(--size, 150) * 1px);

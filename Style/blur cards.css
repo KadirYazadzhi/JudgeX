@@ -8,6 +8,12 @@
     width: 100%;
 }
 
+@media(max-width: 768px) {
+    .blur-cards {
+        flex-direction: column;
+    }
+}
+
 .first-blur:hover {
     transition: 0.4s;
     background: linear-gradient(0deg, #bfe3f8 0, #8abdfa 100%)!important;
