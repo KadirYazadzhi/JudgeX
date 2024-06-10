@@ -17,6 +17,9 @@ class CardManager {
             const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
             clickedCard.classList.add(activeClass);
         }
+
+        const cardIndex = Array.from(this.cards).indexOf(clickedCard);
+        localStorage.setItem('selectedCardIndex', cardIndex);
     }
 
     removeActiveClasses() {
@@ -36,12 +39,21 @@ class CardManager {
             case '4':
                 return 'VeryHard';
             default:
-                return ''; 
+                return '';
         }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const cardManager = new CardManager('.swiper-slide');
+
+    const selectedCardIndex = localStorage.getItem('selectedCardIndex');
+    if (selectedCardIndex) {
+        const selectedCard = document.querySelectorAll('.swiper-slide')[selectedCardIndex];
+        if (selectedCard) {
+            selectedCard.click();
+        }
+    }
 });
+
 
