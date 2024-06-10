@@ -8,12 +8,6 @@
     width: 100%;
 }
 
-@media(max-width: 768px) {
-    .blur-cards {
-        flex-direction: column;
-    }
-}
-
 .first-blur:hover {
     transition: 0.4s;
     background: linear-gradient(0deg, #bfe3f8 0, #8abdfa 100%)!important;
@@ -75,4 +69,55 @@
     fill: #4f6aff;
     width: 70px;
     height: 70px;
+}
+
+
+
+
+@media(max-width: 768px) {
+    .blur-card {
+        width: calc(100% - 100px)!important;
+        position: absolute;
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    .blur-card.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .navigation-dots {
+
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: gray;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #9dc3f7;
+    }
+
+    .icon-blur-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .blur-cards .blur-card p.tip {
+        font-size: 1.8em;
+    }
+
+    .blur-cards .blur-card p.second-text {
+        font-size: 1.2em;
+    }
+
 }
