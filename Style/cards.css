@@ -43,8 +43,17 @@ article {
     align-content: center;
 }
 
-.swiper-slide.active {
-    border-color: #ff0000; /* Червен цвят за активната карта */
+.swiper-slide.activeBasic {
+    border-color: #1e8a00;
+}
+.swiper-slide.activeMedium {
+    border-color: #e18100;
+}
+.swiper-slide.activeHard {
+    border-color: #ff0000;
+}
+.swiper-slide.activeVeryHard {
+    border-color: #a60000;
 }
 
 @media (min-width: 1700px) {

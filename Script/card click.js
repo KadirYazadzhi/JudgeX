@@ -1,5 +1,5 @@
 class CardManager {
-    constructor(cardSelector) {
+    constructor(cardSelector, tooltips) {
         this.cards = document.querySelectorAll(cardSelector);
         this.init();
     }
