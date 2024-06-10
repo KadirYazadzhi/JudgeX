@@ -43,6 +43,10 @@ article {
     align-content: center;
 }
 
+.swiper-slide.active {
+    border-color: #ff0000; /* Червен цвят за активната карта */
+}
+
 @media (min-width: 1700px) {
     article {
         width: 300px;
@@ -96,7 +100,26 @@ main {
 }
 
 @media (min-width: 768px) {
-    /* Glow specific styles */
+    .special-card-slider {
+        display: none;
+    }
+    .more-language-text {
+        display: flex;
+        font-weight: 600;
+        font-size: 14px;
+        color: #646464;
+        cursor: pointer;
+    }
+    .more-language-text:hover {
+        color: #ffffff;
+    }
+    .more-text {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     [data-glow] {
         --border-size: calc(var(--border, 2) * 1px);
         --spotlight-size: calc(var(--size, 150) * 1px);
