@@ -1,5 +1,5 @@
 class CardManager {
-    constructor(cardSelector, tooltips) {
+    constructor(cardSelector) {
         this.cards = document.querySelectorAll(cardSelector);
         this.init();
     }
@@ -11,11 +11,37 @@ class CardManager {
     }
 
     onCardClick(clickedCard) {
-        this.cards.forEach(card => card.classList.remove('active'));
-        clickedCard.classList.add('active');
+        this.removeActiveClasses();
+        const selectedButton = localStorage.getItem('selectedButton');
+        if (selectedButton) {
+            const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
+            clickedCard.classList.add(activeClass);
+        }
+    }
+
+    removeActiveClasses() {
+        this.cards.forEach(card => {
+            card.classList.remove('activeBasic', 'activeMedium', 'activeHard', 'activeVeryHard');
+        });
+    }
+
+    mapButtonToDifficulty(buttonNumber) {
+        switch (buttonNumber) {
+            case '1':
+                return 'Basic';
+            case '2':
+                return 'Medium';
+            case '3':
+                return 'Hard';
+            case '4':
+                return 'VeryHard';
+            default:
+                return ''; 
+        }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const cardManager = new CardManager('.swiper-slide');
 });
+
