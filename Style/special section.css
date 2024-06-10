@@ -1,11 +1,10 @@
 .special-section {
     width: 100%;
-    height: 280px;
-    padding: 0!important;
+    height: 340px;
 
     --s: 200px; /* control the size */
     --c1: #0c1217;
-    --c2: #171f2c;
+    --c2: #121b23;
     --c3: #0e131a;
 
     background: repeating-conic-gradient(
@@ -22,21 +21,42 @@
     );
     background-size: var(--s) calc(var(--s) * 0.577);
 
+    padding: 0!important;
 }
 
+@media (max-width: 768px) {
 
+    .special-section {
+        height: 720px!important;
+    }
+    .special-div-content {
+        height: 700px!important;
+        flex-direction: column!important;
+    }
+    .left-special-content {
+        width: 100%!important;
+        float: none!important;
+    }
+    .right-special-content {
+        width: 100%!important;
+        float: none!important;
+    }
+    .right-content-text {
+        padding: 0 20px !important;
+    }
+}
 
 
 .special-div-content {
     width: 100%;
-    height: 280px;
+    height: 340px;
     display: flex;
     flex-direction: row;
 }
 
 .left-special-content {
     width: 50%;
-    height: 280px;
+    height: 340px;
     display: flex;
     float: left;
 }
@@ -46,8 +66,12 @@
 }
 .right-special-content {
     width: 50%;
-    height: 280px;
+    height: 340px;
     float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .right-content-title {
     font-size: 40px!important;
@@ -57,4 +81,53 @@
     font-weight: 550;
     font-size: 16px;
     padding: 0 100px;
+}
+
+
+
+
+
+
+
+
+.special-button {
+    display: flex;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 19px;
+    padding: 0.6em 3.2em 0.6em 1.6em;
+    color: #ffffff;
+    background: #001ffd;
+    background: linear-gradient(to right, #69aed9, #3d90c4, #096ba8);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #9dc3f7;
+    transition: ease-in-out 0.5s;
+    margin-top: 25px;
+}
+
+.special-button svg {
+    margin-right: 5px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.special-button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.special-button:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+.special-button:hover span {
+    transform: translateX(7px);
+}
+.special-button:hover {
+    color: #00255e;
+    background: linear-gradient(to right, #84cfff, #4fb9ff, #009fff);
+    transform: translateY(10px);
+    box-shadow: 1px 1px 20px #9dc3f7;
 }
