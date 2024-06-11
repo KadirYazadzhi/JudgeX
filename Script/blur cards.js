@@ -44,8 +44,8 @@ class Carousel {
 
     showCard(index) {
         this.cards.forEach((card, i) => {
-            card.classList.toggle('active', i === index);
-            this.dots[i].classList.toggle('active', i === index);
+            card.classList.toggle('activeCard', i === index);
+            this.dots[i].classList.toggle('activeCard', i === index);
         });
         this.currentIndex = index;
     }
@@ -66,5 +66,7 @@ class Carousel {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Carousel('.blur-card', '.dot');
+    if (window.innerWidth < 768) {
+        new Carousel('.blur-card', '.dot');
+    }
 });
