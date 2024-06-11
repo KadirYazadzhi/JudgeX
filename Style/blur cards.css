@@ -82,7 +82,7 @@
         transform: translateX(100%);
     }
 
-    .blur-card.active {
+    .blur-card.activeCard {
         opacity: 1;
         transform: translateX(0);
     }
