@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Script/special-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/leaderboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Style/leaderboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/leaderboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/navbar phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/navbar phone.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/style-two.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/style-two.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/HPPavilion/Documents/JudgeX/Image",
+    "last_opened_file_path": "C:/Users/HPPavilion/Documents/JudgeX",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,6 +68,7 @@
       <workItem from="1717407913635" duration="759000" />
       <workItem from="1717420777373" duration="10833000" />
       <workItem from="1717486846898" duration="13080000" />
+      <workItem from="1718142988505" duration="6271000" />
     </task>
     <servers />
   </component>
