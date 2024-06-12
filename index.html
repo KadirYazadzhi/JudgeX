@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="Style/search.css">
     <link rel="stylesheet" type="text/css" href="Style/blur%20cards.css">
     <link rel="stylesheet" type="text/css" href="Style/special%20section.css">
+    <link rel="stylesheet" type="text/css" href="Style/contact.css">
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
@@ -26,6 +27,7 @@
 
     <link id="specialLink" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script id="specialScript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 </head>
 
@@ -56,6 +58,19 @@
 
 </div>
 
+
+
+<div class="contact-form">
+
+    <div class="forms">
+        <input class="contact-input" type="text" placeholder="Name">
+        <input class="contact-input" type="text" placeholder="Email">
+        <input class="contact-input" type="text" placeholder="Subject">
+
+        <textarea class="contact-txt" placeholder="Message..."></textarea>
+    </div>
+
+</div>
 
 
 <section class="header-section">
@@ -422,7 +437,7 @@
                 </div>
             </div>
 
-            <div id="cardOne" class="container first">
+            <div id="cardOne" class="container first active">
                 <div class="cube">
                     <div class="side front"></div>
                     <div class="side top"></div>
@@ -478,6 +493,7 @@
             <div id="dotOne" class="dot active"></div>
             <div id="dotThree" class="dot"></div>
         </div>
+
         <div class="clock">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgb(90,117,190);transform: ;msFilter:;"><path d="M12 4c-4.878 0-9 4.122-9 9s4.122 9 9 9c4.879 0 9-4.122 9-9s-4.121-9-9-9zm5 10h-6V8h2v4h4v2zm3.292-7.292-3.01-3 1.412-1.417 3.01 3zM5.282 2.294 6.7 3.706l-2.99 3-1.417-1.413z"></path></svg>
             <p class="time-text">Ends in</p>
@@ -522,7 +538,7 @@
 
 </section>
 
-<section class="content-section">
+<section class="content-section" id="difficult">
     <div>
         <p class="subt">Master Programming Levels</p>
         <h3 class="title">Choose Your Difficulty Level</h3>
@@ -574,7 +590,7 @@
 </section>
 
 
-<section class="content-section sp-color">
+<section class="content-section sp-color" id="languages">
     <div>
         <p class="subt">Master Coding Challenges</p>
         <h3 class="title">Choose Your Language</h3>
@@ -645,7 +661,7 @@
             <h3 class="right-content-title">Start learning now</h3>
             <p class="right-content-text">Begin your journey into the world of knowledge with our comprehensive courses. From programming to art, we have something for everyone. Dive into our interactive lessons and start learning today!</p>
 
-            <button class="special-button">
+            <button id="special-button" class="special-button">
                 <svg height="30" width="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"></path>
                 </svg>
@@ -726,55 +742,30 @@
     <h3 class="title">Contact Us</h3>
     <p class="subp">We're here to help! If you have any questions, feedback, or inquiries, please don't hesitate to contact us. Our team is ready to assist you.</p>
 
-    <div class="about-us">
-        <div class="left-section">
-            <h3>Get in Touch</h3>
-            <p class="text-left-box">If you are interested in working together? Please fill out the form aside with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.</p>
-
-            <div class="info-box">
-                <div class="background-info-icon">
-                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" ><path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"></path></svg>
-                </div>
-
-                <div class="box-one-row">
-                    <p class="info-title">Name</p>
-                    <p class="info-text">Kadir Yazadzhi</p>
-                </div>
-
-            </div>
-
-            <div class="info-box">
-                <div class="background-info-icon">
-                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
-                </div>
-
-                <div class="box-one-row">
-                    <p class="info-title">Address</p>
-                    <p class="info-text">Kadir Yazadzhi</p>
+    <div class="contact-us">
+        <div class="contact-info">
+            <div class="contact-card">
+                <i class="contact-icon fas fa-envelope"></i>
+                <div class="card-content">
+                    <h3>Email</h3>
+                    <span>judge_x@gmail.com</span>
                 </div>
             </div>
 
-            <div class="info-box">
-                <div class="background-info-icon">
-                    <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64z"></path></svg>
-                </div>
-
-                <div class="box-one-row">
-                    <p class="info-title">Email</p>
-                    <p class="info-text">Kadir Yazadzhi</p>
+            <div class="contact-card">
+                <i class="contact-icon fas fa-phone"></i>
+                <div class="card-content">
+                    <h3>Phone Number</h3>
+                    <span class="rd">No information about</span>
                 </div>
             </div>
-        </div>
 
-        <div class="right-section">
-            <div class="contact-inputs">
-                <div class="one-row-inputs">
-                    <input type="text" class="name-input" placeholder="Name">
-                    <input type="email" class="email-input" placeholder="Email">
+            <div class="contact-card">
+                <i class="contact-icon fas fa-map-marker-alt"></i>
+                <div class="card-content">
+                    <h3>Location</h3>
+                    <span>Bulgaria</span>
                 </div>
-                <input type="text" class="subject-input" placeholder="Subject">
-
-                <textarea class="message-textarea" placeholder="Message..."></textarea>
             </div>
         </div>
     </div>
@@ -904,5 +895,6 @@
 <script rel="script" src="Script/card%20click.js"></script>
 <script rel="script" src="Script/button%20click.js"></script>
 <script rel="script" src="Script/blur%20cards.js"></script>
+<script rel="script" src="Script/special-button.js"></script>
 
 </html>

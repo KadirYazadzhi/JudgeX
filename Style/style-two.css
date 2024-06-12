@@ -1379,6 +1379,12 @@ ul {
     background: #5a81ec;
 }
 
+@media(min-width: 768px) {
+    .dots {
+        display: none;
+    }
+}
+
 
 @media (max-width: 768px) {
     .accent-lines {
@@ -1507,19 +1513,6 @@ ul {
     }
     .content-section .content-acc div:nth-child(2) {
         translate: 14em 4em;
-    }
-    .container {
-        opacity: 0;
-        transition: opacity 0.5s, transform 0.5s;
-        transform: rotateY(90deg);
-
-    }
-    .container.show {
-        display: flex;
-    }
-    .container.active {
-        opacity: 1;
-        transform: rotateY(0deg);
     }
 
 
