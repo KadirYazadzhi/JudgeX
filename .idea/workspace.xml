@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Script/special-button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Style/contact.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Script/404.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/404.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/leaderboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/leaderboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/leaderboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/style-two.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/style-two.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/button click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/button click.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/card click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/card click.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/special-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/special-button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/contact.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +23,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -40,6 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -68,7 +72,7 @@
       <workItem from="1717407913635" duration="759000" />
       <workItem from="1717420777373" duration="10833000" />
       <workItem from="1717486846898" duration="13080000" />
-      <workItem from="1718142988505" duration="6271000" />
+      <workItem from="1718142988505" duration="10454000" />
     </task>
     <servers />
   </component>

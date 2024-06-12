@@ -11,15 +11,27 @@ class CardManager {
     }
 
     onCardClick(clickedCard) {
-        this.removeActiveClasses();
         const selectedButton = localStorage.getItem('selectedButton');
-        if (selectedButton) {
-            const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
-            clickedCard.classList.add(activeClass);
+        if (!selectedButton) {
+            this.showAlert("Please choose difficulty level!");
+            window.location.href = "#difficult";
+            return;
         }
 
-        const cardIndex = Array.from(this.cards).indexOf(clickedCard);
-        localStorage.setItem('selectedCardIndex', cardIndex);
+        const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
+        if (clickedCard.classList.contains(activeClass)) {
+            clickedCard.classList.remove(activeClass);
+            localStorage.removeItem('selectedCardIndex');
+        } else {
+            this.removeActiveClasses();
+            clickedCard.classList.add(activeClass);
+            const cardIndex = Array.from(this.cards).indexOf(clickedCard);
+            localStorage.setItem('selectedCardIndex', cardIndex);
+        }
+    }
+
+    showAlert(message) {
+        alert(message);
     }
 
     removeActiveClasses() {
@@ -48,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardManager = new CardManager('.swiper-slide');
 
     const selectedCardIndex = localStorage.getItem('selectedCardIndex');
-    if (selectedCardIndex) {
+    if (selectedCardIndex !== null) {
         const selectedCard = document.querySelectorAll('.swiper-slide')[selectedCardIndex];
-        if (selectedCard) {
-            selectedCard.click();
+        const selectedButton = localStorage.getItem('selectedButton');
+        if (selectedCard && selectedButton) {
+            const activeClass = `active${cardManager.mapButtonToDifficulty(selectedButton)}`;
+            selectedCard.classList.add(activeClass);
         }
     }
 });
-
-

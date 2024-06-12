@@ -32,7 +32,6 @@ class ButtonHandler {
 
 }
 
-
 const specialButtonHandler = new ButtonHandler('special-button');
 
 
