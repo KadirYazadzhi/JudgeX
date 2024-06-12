@@ -111,9 +111,11 @@
     justify-content: center;
     position: fixed;
     z-index: 100000;
+    bottom: -100%;
+    transition: bottom ease-in-out 0.6s;
 }
 
-.container {
+.contact-section.container {
     background: #10151e;
     width: 900px;
     height: 500px;
@@ -216,4 +218,23 @@
     background: linear-gradient(90deg, rgba(0,206,255,1) 0%, rgba(0,129,255,1) 50%, rgba(0,69,255,1) 100%);
     box-shadow: 1px 1px 10px #0095ff;
     transform: translateY(-2px);
+}
+
+
+.error { color: red; }
+.invalid { border-color: red; }
+
+
+.exit {
+    position: absolute;
+    color: #ffffff;
+    font-weight: 1000;
+    font-size: 22px;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+}
+
+.exit:hover {
+    color: red;
 }
