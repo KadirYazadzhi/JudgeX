@@ -115,7 +115,7 @@
     transition: bottom ease-in-out 0.6s;
 }
 
-.contact-section.container {
+.contact-section .container {
     background: #10151e;
     width: 900px;
     height: 500px;
