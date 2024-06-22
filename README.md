@@ -53,7 +53,7 @@ This project was built using these technologies:
 
 
 ## ⚙️ Getting Started
-Visit the following link to view website: https://kadiryazadzhi.github.io/Luxury-Car-Shop/
+Visit the following link to view website: https://kadiryazadzhi.github.io/JudgeX/
 
 
 ## 🙏 Show your support
