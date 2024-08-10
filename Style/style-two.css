@@ -957,20 +957,20 @@ ul {
     box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
 }
 .example-1 .icon-content .link svg {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
-.example-1 .icon-content .link[data-social="spotify"]:hover {
-    color: #1db954;
+.example-1 .icon-content .link[data-social="github"]:hover {
+    color: #000000;
 }
-.example-1 .icon-content .link[data-social="pinterest"]:hover {
-    color: #bd081c;
+.example-1 .icon-content .link[data-social="instagram"]:hover {
+    color: #d20070;
 }
-.example-1 .icon-content .link[data-social="dribbble"]:hover {
-    color: #ea4c89;
+.example-1 .icon-content .link[data-social="facebook"]:hover {
+    color: #0029ff;
 }
-.example-1 .icon-content .link[data-social="telegram"]:hover {
-    color: #0088cc;
+.example-1 .icon-content .link[data-social="mysite"]:hover {
+    color: #00a8ff;
 }
 
 
