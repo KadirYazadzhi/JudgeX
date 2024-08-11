@@ -381,19 +381,28 @@
           // Определяне на името на файла според избраната задача
           switch (taskText) {
             case '01. Even Number Check':
-              fileName = 'even-number-check.pdf';
+              fileName = '01. Even Number Check/Even Number Check.docx';
               break;
             case '02. Leap Year Check':
-              fileName = 'leap-year-check.pdf';
+              fileName = '02. Leap Year Check/Leap Year Check.docx';
               break;
             case '03. Prime Number Check':
-              fileName = 'prime-number-check.pdf';
+              fileName = '03. Prime Number Check/Prime Number Check.docx';
               break;
             case '04. Vowel Count':
-              fileName = 'vowel-count.pdf';
+              fileName = '04. Vowel Count/Vowel Count.docx';
               break;
             case '05. FizzBuzz':
-              fileName = 'fizzbuzz.pdf';
+              fileName = '05. FizzBuzz/FizzBuzz.docx';
+              break;
+            case '06. Positive or Negative':
+              fileName = '05. FizzBuzz/FizzBuzz.docx';
+              break;
+            case '07. Convert Celsius to Fahrenheit':
+              fileName = '05. FizzBuzz/FizzBuzz.docx';
+              break;
+            case '08. Simple Interest':
+              fileName = '05. FizzBuzz/FizzBuzz.docx';
               break;
             default:
               alert('No file available for this task.');
@@ -401,7 +410,7 @@
           }
 
           const link = document.createElement('a');
-          link.href = `files/${fileName}`; 
+          link.href = `Exercise/Easy/${fileName}`;
           link.download = fileName;
           document.body.appendChild(link);
           link.click();
