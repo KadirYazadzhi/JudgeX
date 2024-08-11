@@ -352,6 +352,25 @@
         localStorage.setItem('codeEditorContent', codeEditor.value);
       });
     });
+
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const taskCards = document.querySelectorAll('.task-card');
+
+    taskCards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        // Премахване на "active-task" от всички карти
+        taskCards.forEach(function(c) {
+          c.classList.remove('active-task');
+        });
+
+        // Добавяне на "active-task" на натиснатата карта
+        card.classList.add('active-task');
+      });
+    });
+  });
   </script>
 
 </head>
