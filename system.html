@@ -27,6 +27,7 @@
     }
 
     .task-cards {
+      width: 90%;
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
@@ -200,20 +201,7 @@
       font-weight: 550;
     }
 
-    .other-information li {
-      list-style-type: none;
-      padding: 8px 0;
-      font-size: 14px;
-      color: #b6b5b5;
-    }
 
-    .other-information li strong {
-      color: #ffffff;
-    }
-
-    .test-result {
-      list-style-type: none;
-    }
 
     .bar {
       width: 100%;
@@ -244,27 +232,153 @@
       margin-left: 3%;
     }
 
+    .document-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #070707;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #00a8ff;
+      cursor: pointer;
+      transition: ease-in-out 0.2s;
+    }
+
+    .document-button:hover {
+      background-color: #171717;
+      box-shadow: 1px 1px 5px #00a8ff;
+    }
+
+    .document-button img {
+      width: 20px;
+    }
+
+    .task-and-button {
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    .other-information li {
+      list-style-type: none;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #b6b5b5;
+    }
+
+    .other-information li strong {
+      color: #ffffff;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100px;
+      height: 35px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      flex-direction: row;
+      display: flex;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card.success {
+      border-left: 5px solid #28a745;
+    }
+
+    .card.failure {
+      border-left: 5px solid #dc3545;
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card.success .card-icon {
+      color: #28a745;
+    }
+
+    .card.failure .card-icon {
+      color: #dc3545;
+    }
+
+    .failure {
+      color: #ff001a;
+    }
+
+    .success {
+      color: #00be2c;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-result {
+      font-size: 16px;
+      color: #666;
+    }
+
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeEditor = document.getElementById('code-editor');
+
+      // Load the code from localStorage when the page loads
+      const savedCode = localStorage.getItem('codeEditorContent');
+      if (savedCode !== null) {
+        codeEditor.value = savedCode;
+      }
+
+      // Save the code to localStorage on input
+      codeEditor.addEventListener('input', function() {
+        localStorage.setItem('codeEditorContent', codeEditor.value);
+      });
+    });
+  </script>
 
 </head>
 <body>
 <div class="container">
-  <div class="task-cards">
-    <div class="task-card active-task">01. Even Number Check</div>
-    <div class="task-card">02. Leap Year Check</div>
-    <div class="task-card">03. Prime Number Check</div>
-    <div class="task-card">04. Vowel Count</div>
-    <div class="task-card">05. FizzBuzz</div>
-    <div class="task-card">06. Positive or Negative</div>
-    <div class="task-card">07. Convert Celsius to Fahrenheit</div>
-    <div class="task-card">08. Simple Interest</div>
-    <div class="task-card">09. Sum of Two Numbers</div>
-    <div class="task-card">10. Maximum of Two Numbers</div>
-    <div class="task-card">11. Check Divisibility</div>
-    <div class="task-card">12. Calculate Perimeter of Rectangle</div>
-    <div class="task-card">13. Square of a Number</div>
-    <div class="task-card">14. Simple Calculator</div>
-    <div class="task-card">15. Digit Splitter</div>
+  <div class="task-and-button">
+    <div class="task-cards">
+      <div class="task-card active-task">01. Even Number Check</div>
+      <div class="task-card">02. Leap Year Check</div>
+      <div class="task-card">03. Prime Number Check</div>
+      <div class="task-card">04. Vowel Count</div>
+      <div class="task-card">05. FizzBuzz</div>
+      <div class="task-card">06. Positive or Negative</div>
+      <div class="task-card">07. Convert Celsius to Fahrenheit</div>
+      <div class="task-card">08. Simple Interest</div>
+      <div class="task-card">09. Sum of Two Numbers</div>
+      <div class="task-card">10. Maximum of Two Numbers</div>
+      <div class="task-card">11. Check Divisibility</div>
+      <div class="task-card">12. Calculate Perimeter of Rectangle</div>
+      <div class="task-card">13. Square of a Number</div>
+      <div class="task-card">14. Simple Calculator</div>
+      <div class="task-card">15. Digit Splitter</div>
+    </div>
+
+    <div class="document-button">
+      <img src="Image/document.svg">
+    </div>
   </div>
 
   <div class="main-window">
@@ -300,12 +414,41 @@
 
       <div class="test-results">
         <h3>Test Results</h3>
-        <ul class="test-result">
-          <li>Test 1: Passed</li>
-          <li>Test 2: Failed</li>
-          <li>Test 3: Passed</li>
-        </ul>
+
+        <div class="cards-container">
+          <div class="card success">
+            <div class="card-icon">✔️</div>
+            <div class="card-title">Test 1: Passed</div>
+          </div>
+
+          <div class="card failure">
+            <div class="card-icon">❌</div>
+            <div class="card-title">Test 2: Failed</div>
+          </div>
+
+          <div class="card success">
+            <div class="card-icon">✔️</div>
+            <div class="card-title">Test 3: Passed</div>
+          </div>
+
+          <div class="card failure">
+            <div class="card-icon">❌</div>
+            <div class="card-title">Test 4: Failed</div>
+          </div>
+
+          <div class="card success">
+            <div class="card-icon">✔️</div>
+            <div class="card-title">Test 5: Passed</div>
+          </div>
+
+          <div class="card failure">
+            <div class="card-icon">❌</div>
+            <div class="card-title">Test 6: Failed</div>
+          </div>
+        </div>
+
       </div>
+
     </div>
 
   </div>
