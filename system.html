@@ -355,23 +355,64 @@
 
   </script>
 
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const taskCards = document.querySelectorAll('.task-card');
+      const taskCards = document.querySelectorAll('.task-card');
+      const documentButton = document.querySelector('.document-button');
 
-    taskCards.forEach(function(card) {
-      card.addEventListener('click', function() {
-        // Премахване на "active-task" от всички карти
-        taskCards.forEach(function(c) {
-          c.classList.remove('active-task');
+      taskCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          taskCards.forEach(function(c) {
+            c.classList.remove('active-task');
+          });
+          card.classList.add('active-task');
         });
+      });
 
-        // Добавяне на "active-task" на натиснатата карта
-        card.classList.add('active-task');
+      documentButton.addEventListener('click', function() {
+        const activeTask = document.querySelector('.task-card.active-task');
+
+        if (activeTask) {
+          let fileName = '';
+          const taskText = activeTask.textContent.trim();
+
+          // Определяне на името на файла според избраната задача
+          switch (taskText) {
+            case '01. Even Number Check':
+              fileName = 'even-number-check.pdf';
+              break;
+            case '02. Leap Year Check':
+              fileName = 'leap-year-check.pdf';
+              break;
+            case '03. Prime Number Check':
+              fileName = 'prime-number-check.pdf';
+              break;
+            case '04. Vowel Count':
+              fileName = 'vowel-count.pdf';
+              break;
+            case '05. FizzBuzz':
+              fileName = 'fizzbuzz.pdf';
+              break;
+            default:
+              alert('No file available for this task.');
+              return;
+          }
+
+          const link = document.createElement('a');
+          link.href = `files/${fileName}`; 
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          alert('Please select a task first.');
+        }
       });
     });
-  });
   </script>
+
 
 </head>
 <body>
@@ -474,4 +515,6 @@
 
 </div>
 </body>
+
+<script rel="script" src="Script/change-exercise-buttons.js"></script>
 </html>
