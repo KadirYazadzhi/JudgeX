@@ -303,6 +303,10 @@
       border-left: 5px solid #dc3545;
     }
 
+    .card.null {
+      border-left: 5px solid #5e5e5e;
+    }
+
     .card-icon {
       font-size: 30px;
       margin-bottom: 15px;
@@ -310,6 +314,10 @@
 
     .card.success .card-icon {
       color: #28a745;
+    }
+
+    .card.null .card-icon {
+      color: #5e5e5e;
     }
 
     .card.failure .card-icon {
@@ -320,6 +328,10 @@
       color: #ff001a;
     }
 
+    .null {
+      color: #5e5e5e;
+    }
+
     .success {
       color: #00be2c;
     }
@@ -328,6 +340,10 @@
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 10px;
+    }
+
+    .hidden {
+      display: none;
     }
 
   </style>
@@ -395,35 +411,48 @@
         <h3>Test Results</h3>
 
         <div class="cards-container">
-          <div class="card success">
-            <div class="card-icon">✔️</div>
-            <div class="card-title">Test 1: Passed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 1: NULL</div>
           </div>
 
-          <div class="card failure">
-            <div class="card-icon">❌</div>
-            <div class="card-title">Test 2: Failed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 2: NULL</div>
           </div>
 
-          <div class="card success">
-            <div class="card-icon">✔️</div>
-            <div class="card-title">Test 3: Passed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 3: NULL</div>
           </div>
 
-          <div class="card failure">
-            <div class="card-icon">❌</div>
-            <div class="card-title">Test 4: Failed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 4: NULL</div>
           </div>
 
-          <div class="card success">
-            <div class="card-icon">✔️</div>
-            <div class="card-title">Test 5: Passed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 5: NULL</div>
           </div>
 
-          <div class="card failure">
-            <div class="card-icon">❌</div>
-            <div class="card-title">Test 6: Failed</div>
+          <div class="card null">
+            <div class="card-icon">➖</div>
+            <div class="card-title">Test 6: NULL</div>
           </div>
+        </div>
+
+
+
+
+        <div class="card failure hidden">
+          <div class="card-icon">❌</div>
+          <div class="card-title">Test *: Failed</div>
+        </div>
+
+        <div class="card success hidden">
+          <div class="card-icon">✔️</div>
+          <div class="card-title">Test *: Passed</div>
         </div>
 
       </div>
