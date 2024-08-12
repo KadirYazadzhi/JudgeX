@@ -219,7 +219,7 @@
     }
 
     .bar-stopper {
-      margin-left: 5%;
+      margin-left: 1%;
       width: 15px;
       height: 15px;
       border-radius: 50%;
@@ -229,7 +229,7 @@
     .difficult-text {
       color: #00FF00FF;
       font-weight: 550;
-      margin-left: 3%;
+      margin-left: 0;
     }
 
     .document-button {
@@ -330,97 +330,7 @@
       margin-bottom: 10px;
     }
 
-    .card-result {
-      font-size: 16px;
-      color: #666;
-    }
-
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const codeEditor = document.getElementById('code-editor');
-
-      // Load the code from localStorage when the page loads
-      const savedCode = localStorage.getItem('codeEditorContent');
-      if (savedCode !== null) {
-        codeEditor.value = savedCode;
-      }
-
-      // Save the code to localStorage on input
-      codeEditor.addEventListener('input', function() {
-        localStorage.setItem('codeEditorContent', codeEditor.value);
-      });
-    });
-
-  </script>
-
-
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const taskCards = document.querySelectorAll('.task-card');
-      const documentButton = document.querySelector('.document-button');
-
-      taskCards.forEach(function(card) {
-        card.addEventListener('click', function() {
-          taskCards.forEach(function(c) {
-            c.classList.remove('active-task');
-          });
-          card.classList.add('active-task');
-        });
-      });
-
-      documentButton.addEventListener('click', function() {
-        const activeTask = document.querySelector('.task-card.active-task');
-
-        if (activeTask) {
-          let fileName = '';
-          const taskText = activeTask.textContent.trim();
-
-          // Определяне на името на файла според избраната задача
-          switch (taskText) {
-            case '01. Even Number Check':
-              fileName = '01. Even Number Check/Even Number Check.docx';
-              break;
-            case '02. Leap Year Check':
-              fileName = '02. Leap Year Check/Leap Year Check.docx';
-              break;
-            case '03. Prime Number Check':
-              fileName = '03. Prime Number Check/Prime Number Check.docx';
-              break;
-            case '04. Vowel Count':
-              fileName = '04. Vowel Count/Vowel Count.docx';
-              break;
-            case '05. FizzBuzz':
-              fileName = '05. FizzBuzz/FizzBuzz.docx';
-              break;
-            case '06. Positive or Negative':
-              fileName = '05. FizzBuzz/FizzBuzz.docx';
-              break;
-            case '07. Convert Celsius to Fahrenheit':
-              fileName = '05. FizzBuzz/FizzBuzz.docx';
-              break;
-            case '08. Simple Interest':
-              fileName = '05. FizzBuzz/FizzBuzz.docx';
-              break;
-            default:
-              alert('No file available for this task.');
-              return;
-          }
-
-          const link = document.createElement('a');
-          link.href = `Exercise/Easy/${fileName}`;
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        } else {
-          alert('Please select a task first.');
-        }
-      });
-    });
-  </script>
 
 
 </head>
@@ -428,21 +338,21 @@
 <div class="container">
   <div class="task-and-button">
     <div class="task-cards">
-      <div class="task-card active-task">01. Even Number Check</div>
-      <div class="task-card">02. Leap Year Check</div>
-      <div class="task-card">03. Prime Number Check</div>
-      <div class="task-card">04. Vowel Count</div>
-      <div class="task-card">05. FizzBuzz</div>
-      <div class="task-card">06. Positive or Negative</div>
-      <div class="task-card">07. Convert Celsius to Fahrenheit</div>
-      <div class="task-card">08. Simple Interest</div>
-      <div class="task-card">09. Sum of Two Numbers</div>
-      <div class="task-card">10. Maximum of Two Numbers</div>
-      <div class="task-card">11. Check Divisibility</div>
-      <div class="task-card">12. Calculate Perimeter of Rectangle</div>
-      <div class="task-card">13. Square of a Number</div>
-      <div class="task-card">14. Simple Calculator</div>
-      <div class="task-card">15. Digit Splitter</div>
+      <div class="task-card active-task" data-value="1">01. Even Number Check</div>
+      <div class="task-card" data-value="2">02. Leap Year Check</div>
+      <div class="task-card" data-value="3">03. Prime Number Check</div>
+      <div class="task-card" data-value="4">04. Vowel Count</div>
+      <div class="task-card" data-value="5">05. FizzBuzz</div>
+      <div class="task-card" data-value="6">06. Positive or Negative</div>
+      <div class="task-card" data-value="7">07. Convert Celsius to Fahrenheit</div>
+      <div class="task-card" data-value="8">08. Simple Interest</div>
+      <div class="task-card" data-value="9">09. Sum of Two Numbers</div>
+      <div class="task-card" data-value="10">10. Maximum of Two Numbers</div>
+      <div class="task-card" data-value="11">11. Check Divisibility</div>
+      <div class="task-card" data-value="12">12. Calculate Perimeter of Rectangle</div>
+      <div class="task-card" data-value="13">13. Square of a Number</div>
+      <div class="task-card" data-value="14">14. Simple Calculator</div>
+      <div class="task-card" data-value="15">15. Digit Splitter</div>
     </div>
 
     <div class="document-button">
@@ -526,4 +436,6 @@
 </body>
 
 <script rel="script" src="Script/change-exercise-buttons.js"></script>
+<script rel="script" src="Script/download-exercise-document.js"></script>
+<script rel="script" src="Script/save-code-from-textarea.js"></script>
 </html>
