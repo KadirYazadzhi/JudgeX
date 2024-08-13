@@ -15,7 +15,7 @@ class TaskManager {
     initialize() {
         this.updateTaskCardValues();
         this.updateDifficultyLevel();
-        this.activateCard(this.taskCards[0]); 
+        this.activateCard(this.taskCards[0]);
         this.addEventListeners();
     }
 
