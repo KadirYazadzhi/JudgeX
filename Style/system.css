@@ -185,7 +185,6 @@ body {
 }
 
 .other-information {
-    display: flex;
     width: 50%;
     align-items: center;
     justify-content: center;
@@ -402,6 +401,7 @@ body {
     }
 
     .other-information {
+        display: flex;
         flex-direction: column;
         width: 40%;
     }
