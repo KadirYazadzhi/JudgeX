@@ -12,12 +12,7 @@ class CardManager {
 
     onCardClick(clickedCard) {
         const selectedButton = localStorage.getItem('selectedButton');
-        if (!selectedButton) {
-            this.showAlert("Please choose difficulty level!");
-            window.location.href = "#difficult";
-            return;
-        }
-
+        
         const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
         if (clickedCard.classList.contains(activeClass)) {
             clickedCard.classList.remove(activeClass);

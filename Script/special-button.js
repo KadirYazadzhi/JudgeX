@@ -17,7 +17,7 @@ class ButtonHandler {
             this.showAlert("Please choose difficulty level!");
             window.location.href = "#difficult";
         }
-        else {
+        if (this.getLocalStorageItem('selectedButton') != null && this.getLocalStorageItem('selectedCardIndex') != null) {
             this.showAlert("Starting....");
         }
     }
