@@ -12,7 +12,7 @@ class CardManager {
 
     onCardClick(clickedCard) {
         const selectedButton = localStorage.getItem('selectedButton');
-        
+
         const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
         if (clickedCard.classList.contains(activeClass)) {
             clickedCard.classList.remove(activeClass);
