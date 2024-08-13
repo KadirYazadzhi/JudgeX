@@ -370,121 +370,46 @@
   </script>
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const taskCards = document.querySelectorAll('.task-card');
-
-    const tasksForButton = {
-      1: [
-        "01. Even Number Check",
-        "02. Leap Year Check",
-        "03. Prime Number Check",
-        "04. Vowel Count",
-        "05. FizzBuzz",
-        "06. Positive or Negative",
-        "07. Convert Celsius to Fahrenheit",
-        "08. Simple Interest",
-        "09. Sum of Two Numbers",
-        "10. Maximum of Two Numbers",
-        "11. Check Divisibility",
-        "12. Calculate Perimeter of Rectangle",
-        "13. Square of a Number",
-        "14. Simple Calculator",
-        "15. Digit Splitter"
-      ],
-      2: [
-        "01. Palindrome Check",
-        "02. Sum of List",
-        "03. Factorial Calculation",
-        "04. Count Words in a Sentence",
-        "05. Find Maximum in List",
-        "06. Find the Missing Number in a Sequence",
-        "07. Sort and Filter Array",
-        "08. Word Rotation",
-        "09. Pangram Checker",
-        "10. Column-wise Matrix Fill",
-        "11. Count Occurrences in Array",
-        "12. Tokenize String into Substrings",
-        "13. Print Number in Large Format",
-        "14. Sort Strings Lexicographically",
-        "15. Build Toy Cars"
-      ],
-      3: [
-        "01. Tic Tac Toe",
-        "02. Challenge 2",
-        "03. Challenge 3",
-        "04. Challenge 4",
-        "05. Challenge 5",
-        "06. Challenge 6",
-        "07. Challenge 7",
-        "08. Challenge 8",
-        "09. Challenge 9",
-        "10. Challenge 10",
-        "11. Challenge 11",
-        "12. Challenge 12",
-        "13. Challenge 13",
-        "14. Challenge 14",
-        "15. Challenge 15"
-      ],
-      4: [
-        "01. Challenge 1",
-        "02. Challenge 2",
-        "03. Challenge 3",
-        "04. Challenge 4",
-        "05. Challenge 5",
-        "06. Challenge 6",
-        "07. Challenge 7",
-        "08. Challenge 8",
-        "09. Challenge 9",
-        "10. Challenge 10",
-        "11. Challenge 11",
-        "12. Challenge 12",
-        "13. Challenge 13",
-        "14. Challenge 14",
-        "15. Challenge 15"
-      ]
-
-    };
-
-    function updateTaskNames() {
-      const selectedButton = localStorage.getItem('selectedButton');
-      const tasks = tasksForButton[selectedButton] || tasksForButton[0]; // По подразбиране, ако няма съответствие
-
-      taskCards.forEach((card, index) => {
-        if (tasks[index]) {
-          card.textContent = tasks[index];
-        }
-      });
-    }
-
-    // Извикваме функцията за промяна на имената при зареждане на страницата
-    updateTaskNames();
-  });
-
-</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const taskCards = document.querySelectorAll('.task-card');
 
 
+        let max = 0;
+        taskCards.forEach((card) => {
+          const taskValue = parseInt(card.dataset.value);
+          if (taskValue > max) {
+            max = taskValue;
+          }
+        });
+
+        taskCards.forEach((card) => {
+          card.setAttribute('data-value', max + 1);
+        });
+
+    });
+  </script>
 
 </head>
 <body>
 <div class="container">
   <div class="task-and-button">
     <div class="task-cards">
-      <div class="task-card active-task" data-value="1">01. Even Number Check</div>
-      <div class="task-card" data-value="2">02. Leap Year Check</div>
-      <div class="task-card" data-value="3">03. Prime Number Check</div>
-      <div class="task-card" data-value="4">04. Vowel Count</div>
-      <div class="task-card" data-value="5">05. FizzBuzz</div>
-      <div class="task-card" data-value="6">06. Positive or Negative</div>
-      <div class="task-card" data-value="7">07. Convert Celsius to Fahrenheit</div>
-      <div class="task-card" data-value="8">08. Simple Interest</div>
-      <div class="task-card" data-value="9">09. Sum of Two Numbers</div>
-      <div class="task-card" data-value="10">10. Maximum of Two Numbers</div>
-      <div class="task-card" data-value="11">11. Check Divisibility</div>
-      <div class="task-card" data-value="12">12. Calculate Perimeter of Rectangle</div>
-      <div class="task-card" data-value="13">13. Square of a Number</div>
-      <div class="task-card" data-value="14">14. Simple Calculator</div>
-      <div class="task-card" data-value="15">15. Digit Splitter</div>
+      <div class="task-card active-task" >01. Even Number Check</div>
+      <div class="task-card" >02. Leap Year Check</div>
+      <div class="task-card">03. Prime Number Check</div>
+      <div class="task-card">04. Vowel Count</div>
+      <div class="task-card">05. FizzBuzz</div>
+      <div class="task-card">06. Positive or Negative</div>
+      <div class="task-card">07. Convert Celsius to Fahrenheit</div>
+      <div class="task-card">08. Simple Interest</div>
+      <div class="task-card">09. Sum of Two Numbers</div>
+      <div class="task-card">10. Maximum of Two Numbers</div>
+      <div class="task-card">11. Check Divisibility</div>
+      <div class="task-card">12. Calculate Perimeter of Rectangle</div>
+      <div class="task-card">13. Square of a Number</div>
+      <div class="task-card">14. Simple Calculator</div>
+      <div class="task-card">15. Digit Splitter</div>
     </div>
 
     <div class="document-button">
@@ -586,4 +511,5 @@
 <script rel="script" src="Script/download-exercise-document.js"></script>
 <script rel="script" src="Script/save-code-from-textarea.js"></script>
 <script rel="script" src="Script/change-language-in-system.js"></script>
+<script rel="script" src="Script/change-exercise-name.js"></script>
 </html>

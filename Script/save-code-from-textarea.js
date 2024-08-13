@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getActiveTask() {
         const activeCard = document.querySelector('.task-card.active-task');
-        return activeCard ? activeCard.textContent.trim() : null;  // Използваме textContent вместо data-value
+        return activeCard ? activeCard.textContent.trim() : null;
     }
 
     function getSelectedCardIndex() {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const savedCode = localStorage.getItem(`codeEditorContent_${activeTask}_${selectedCardIndex}`);
             codeEditor.value = savedCode !== null ? savedCode : '';
         } else {
-            codeEditor.value = '';  // Оставяме полето празно, ако няма активна задача или индекс
+            codeEditor.value = '';
         }
     }
 
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     taskCards.forEach(card => {
         card.addEventListener('click', function() {
-            taskCards.forEach(c => c.classList.remove('active-task'));  // Премахваме клас active-task от всички карти
-            card.classList.add('active-task');  // Добавяме клас active-task на текущата карта
+            taskCards.forEach(c => c.classList.remove('active-task'));
+            card.classList.add('active-task');
 
             loadCodeForActiveTask();
         });
