@@ -4,26 +4,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getActiveTask() {
         const activeCard = document.querySelector('.task-card.active-task');
-        return activeCard ? activeCard.getAttribute('data-value') : null;
+        return activeCard ? activeCard.textContent.trim() : null;  // Използваме textContent вместо data-value
+    }
+
+    function getSelectedCardIndex() {
+        return localStorage.getItem('selectedCardIndex');
     }
 
     function loadCodeForActiveTask() {
         const activeTask = getActiveTask();
-        if (activeTask !== null) {
-            const savedCode = localStorage.getItem('codeEditorContent_' + activeTask);
+        const selectedCardIndex = getSelectedCardIndex();
+
+        if (activeTask !== null && selectedCardIndex !== null) {
+            const savedCode = localStorage.getItem(`codeEditorContent_${activeTask}_${selectedCardIndex}`);
             codeEditor.value = savedCode !== null ? savedCode : '';
+        } else {
+            codeEditor.value = '';  // Оставяме полето празно, ако няма активна задача или индекс
         }
     }
 
     codeEditor.addEventListener('input', function() {
         const activeTask = getActiveTask();
-        if (activeTask !== null) {
-            localStorage.setItem('codeEditorContent_' + activeTask, codeEditor.value);
+        const selectedCardIndex = getSelectedCardIndex();
+
+        if (activeTask !== null && selectedCardIndex !== null) {
+            localStorage.setItem(`codeEditorContent_${activeTask}_${selectedCardIndex}`, codeEditor.value);
         }
     });
 
     taskCards.forEach(card => {
         card.addEventListener('click', function() {
+            taskCards.forEach(c => c.classList.remove('active-task'));  // Премахваме клас active-task от всички карти
+            card.classList.add('active-task');  // Добавяме клас active-task на текущата карта
 
             loadCodeForActiveTask();
         });
