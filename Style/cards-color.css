@@ -7,8 +7,8 @@
 .java {
     fill: rgba(255, 0, 0, 0.8);
 }
-.html {
-    fill: rgba(255, 106, 0, 0.84);
+.cSharp {
+    fill: rgb(104, 33, 122);
 }
 .python {
     fill: rgba(0, 102, 155, 0.84);
@@ -16,11 +16,11 @@
 .cplusplus {
     fill: rgb(0, 89, 255);
 }
-.php {
-    fill: rgb(118, 123, 179);
+.c {
+    fill: rgb(57, 73, 171);
 }
-.postgres {
-    fill: rgb(48, 96, 145);
+.ruby {
+    fill: rgb(176, 38, 32);
 }
 .go {
     fill: rgb(0, 170, 215);

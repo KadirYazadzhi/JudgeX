@@ -1,16 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const taskCards = document.querySelectorAll('.task-card');
     const documentButton = document.querySelector('.document-button');
-
-    // Активиране на избраната задача
-    taskCards.forEach(function(card) {
-        card.addEventListener('click', function() {
-            taskCards.forEach(function(c) {
-                c.classList.remove('active-task');
-            });
-            card.classList.add('active-task');
-        });
-    });
 
     documentButton.addEventListener('click', function() {
         const activeTask = document.querySelector('.task-card.active-task');
