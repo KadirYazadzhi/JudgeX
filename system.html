@@ -6,29 +6,7 @@
   <title>Code Submission Page</title>
 
   <link rel="stylesheet" type="text/css" href="Style/cards-color.css">
-
-
-  <style>
-
-  </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const resultCards = document.querySelectorAll('.card');
-
-      resultCards.forEach(card => {
-        card.addEventListener('click', function() {
-          const iconCard = card.querySelector('.card-icon');
-
-          if (iconCard && iconCard.textContent.trim() === "➖") {
-            alert("Please submit your code to view the test result.");
-          }
-        });
-      });
-    });
-
-  </script>
-
+  <link rel="stylesheet" type="text/css" href="Style/system.css">
 
 </head>
 <body>
@@ -171,4 +149,5 @@
 <script rel="script" src="Script/save-code-from-textarea.js"></script>
 <script rel="script" src="Script/change-language-in-system.js"></script>
 <script rel="script" src="Script/change-exercise-name.js"></script>
+<script rel="script" src="Script/null-test-alert-message.js"></script>
 </html>
