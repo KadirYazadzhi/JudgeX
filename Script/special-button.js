@@ -19,6 +19,7 @@ class ButtonHandler {
         }
         if (this.getLocalStorageItem('selectedButton') != null && this.getLocalStorageItem('selectedCardIndex') != null) {
             this.showAlert("Starting....");
+            window.location.href = "system.html";
         }
     }
 
