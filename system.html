@@ -9,346 +9,6 @@
 
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #0d1118;
-    }
-
-    .container {
-      border: 1px solid #1f293a;
-      border-radius: 20px;
-      padding: 30px;
-      background-color: #1b2231;
-      box-shadow: 1px 1px 10px #242f42;
-      width: 90%;
-      margin: 20px auto;
-      max-width: 1200px;
-    }
-
-    .task-cards {
-      width: 90%;
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .task-card {
-      background-color: #243656;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid #263d67;
-      box-shadow: 1px 1px 5px #263d67;
-      transition: ease-in-out 0.2s;
-    }
-
-    .task-card:hover {
-      background-color: #1c2e4f;
-      border: 1px solid #0059ff;
-      box-shadow: 1px 1px 5px #0059ff;
-    }
-
-    .active-task {
-      background-color: #1c2e4f;
-      border: 1px solid #0059ff;
-      box-shadow: 1px 1px 5px #0059ff;
-    }
-
-    .main-window {
-      width: 100%;
-      display: flex;
-      gap: 40px;
-    }
-
-    .code-editor,
-    .test-results {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .right-container {
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .code-editor {
-      width: 70%;
-      height: 525px;
-    }
-
-    .test-results {
-      width: 100%;
-      height: 320px;
-    }
-
-    .code-editor textarea {
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      resize: none;
-      background-color: #070707;
-      color:  #00FF00;
-      --color: rgba(114, 114, 114, 0.3);
-      background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-      background-size: 55px 55px;
-    }
-
-    .test-results {
-      border: 1px solid #f3f3f3;
-      border-radius: 5px;
-      padding: 10px;
-      background-color: #070707;
-      overflow-y: auto;
-      color: white;
-    }
-
-    .test-results h3 {
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .difficult-level {
-      width: 100%;
-      height: 130px;
-      border: 1px solid #f3f3f3;
-      border-radius: 5px;
-      padding: 10px;
-      background-color: #070707;
-      overflow-y: auto;
-      color: white;
-    }
-
-    .difficult-level h3 {
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .submit-btn {
-      float: right;
-      width: 30%;
-      padding: 18px;
-      margin-top: 20px;
-      background-color: #252f46;
-      color: white;
-      font-size: 18px;
-      font-weight: 550;
-      border: 2px solid #00a8ff;
-      box-shadow: 1px 1px 2px #00a8ff;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .submit-btn:hover {
-      background-color: #273450;
-      box-shadow: 1px 1px 8px #00a8ff;
-    }
-
-    .language {
-      float: left;
-      width: 20%;
-      display: flex;
-      margin-top: 20px;
-      background-color: #252f46;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0;
-      border: 2px solid #00a8ff;
-      box-shadow: 1px 1px 2px #00a8ff;
-    }
-
-    .language:hover {
-      background-color: #273450;
-      box-shadow: 1px 1px 8px #00a8ff;
-    }
-
-    .cplusplus {
-      fill: #3b59f1;
-    }
-
-    .text-language {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .menu-info {
-      width: 100%;
-      flex-direction: row;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .other-information {
-      width: 50%;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      font-weight: 550;
-    }
-
-
-
-    .bar {
-      width: 100%;
-      height: 20px;
-      border-radius: 40px;
-      background: linear-gradient(
-              to right,
-              #00FF00,
-              #ffdd00,
-              #ff7300,
-              #dc0505
-      );
-      align-items: center;
-      justify-content: center;
-    }
-
-    .bar-stopper {
-      margin-left: 1%;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 3px solid #ffffff;
-    }
-
-    .difficult-text {
-      color: #00FF00FF;
-      font-weight: 550;
-      margin-left: 0;
-    }
-
-    .document-button {
-      width: 50px;
-      height: 50px;
-      border-radius: 10px;
-      background-color: #070707;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid #00a8ff;
-      cursor: pointer;
-      transition: ease-in-out 0.2s;
-    }
-
-    .document-button:hover {
-      background-color: #171717;
-      box-shadow: 1px 1px 5px #00a8ff;
-    }
-
-    .document-button img {
-      width: 20px;
-    }
-
-    .task-and-button {
-      display: flex;
-      flex-direction: row;
-      gap: 50px;
-    }
-
-    .other-information li {
-      list-style-type: none;
-      padding: 8px 0;
-      font-size: 14px;
-      color: #b6b5b5;
-    }
-
-    .other-information li strong {
-      color: #ffffff;
-    }
-
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 100px;
-      height: 35px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-      flex-direction: row;
-      display: flex;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card.success {
-      border-left: 5px solid #28a745;
-    }
-
-    .card.failure {
-      border-left: 5px solid #dc3545;
-    }
-
-    .card.null {
-      border-left: 5px solid #5e5e5e;
-    }
-
-    .card-icon {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .card.success .card-icon {
-      color: #28a745;
-    }
-
-    .card.null .card-icon {
-      color: #5e5e5e;
-    }
-
-    .card.failure .card-icon {
-      color: #dc3545;
-    }
-
-    .failure {
-      color: #ff001a;
-    }
-
-    .null {
-      color: #5e5e5e;
-    }
-
-    .success {
-      color: #00be2c;
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .hidden {
-      display: none;
-    }
 
   </style>
 
@@ -369,26 +29,6 @@
 
   </script>
 
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const taskCards = document.querySelectorAll('.task-card');
-
-
-        let max = 0;
-        taskCards.forEach((card) => {
-          const taskValue = parseInt(card.dataset.value);
-          if (taskValue > max) {
-            max = taskValue;
-          }
-        });
-
-        taskCards.forEach((card) => {
-          card.setAttribute('data-value', max + 1);
-        });
-
-    });
-  </script>
 
 </head>
 <body>
@@ -451,7 +91,24 @@
       </div>
 
       <div class="test-results">
-        <h3>Test Results</h3>
+
+        <div class="top-box">
+          <div class="box-icon">
+            <svg class="icon-refresh" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M416 31.94C416 21.75 408.1 0 384.1 0c-13.98 0-26.87 9.072-30.89 23.18l-128 448c-.8404 2.935-1.241 5.892-1.241 8.801C223.1 490.3 232 512 256 512c13.92 0 26.73-9.157 30.75-23.22l128-448C415.6 37.81 416 34.85 416 31.94zM176 143.1c0-18.28-14.95-32-32-32c-8.188 0-16.38 3.125-22.62 9.376l-112 112C3.125 239.6 0 247.8 0 255.1S3.125 272.4 9.375 278.6l112 112C127.6 396.9 135.8 399.1 144 399.1c17.05 0 32-13.73 32-32c0-8.188-3.125-16.38-9.375-22.63L77.25 255.1l89.38-89.38C172.9 160.3 176 152.2 176 143.1zM640 255.1c0-8.188-3.125-16.38-9.375-22.63l-112-112C512.4 115.1 504.2 111.1 496 111.1c-17.05 0-32 13.73-32 32c0 8.188 3.125 16.38 9.375 22.63l89.38 89.38l-89.38 89.38C467.1 351.6 464 359.8 464 367.1c0 18.28 14.95 32 32 32c8.188 0 16.38-3.125 22.62-9.376l112-112C636.9 272.4 640 264.2 640 255.1z"/>
+            </svg>
+          </div>
+
+          <h3>Test Results</h3>
+
+          <div class="box-icon">
+            <svg class="icon-refresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M 7.59375 3 L 9.0625 5 L 13 5 C 16.324219 5 19 7.675781 19 11 L 19 15 L 16 15 L 20 20.46875 L 24 15 L 21 15 L 21 11 C 21 6.59375 17.40625 3 13 3 Z M 4 3.53125 L 0 9 L 3 9 L 3 13 C 3 17.40625 6.59375 21 11 21 L 16.40625 21 L 14.9375 19 L 11 19 C 7.675781 19 5 16.324219 5 13 L 5 9 L 8 9 Z"></path>
+            </svg>
+          </div>
+
+        </div>
+
 
         <div class="cards-container">
           <div class="card null">
@@ -505,6 +162,8 @@
   </div>
 
 </div>
+
+<p class="footer-text">Copyright © 2024 - All Rights Reserved || Designed and Developed By: Kadir Yazadzhi</p>
 </body>
 
 <script rel="script" src="Script/change-exercise-buttons.js"></script>
