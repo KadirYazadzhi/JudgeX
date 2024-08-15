@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="name" placeholder="Enter your name">
+<button onclick="generateCertificate()">Download Certificate</button>
+<canvas id="certificateCanvas" style="display: none;"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script>
+    function generateCertificate() {
+        const nameInput = document.getElementById('name').value.trim().toUpperCase();
+        if (nameInput === "") {
+            alert("Please enter a valid name.");
+            return;
+        }
+
+        const canvas = document.getElementById('certificateCanvas');
+        const ctx = canvas.getContext('2d');
+        const scale = 2;
+
+        canvas.width = 800 * scale;
+        canvas.height = 600 * scale;
+        ctx.scale(scale, scale);
+
+        const img = new Image();
+
+        let selectedLevel = "";
+        if (localStorage.getItem('selectedButton') === "1") {
+            img.src = 'Image/Template/Easy-Certificate-Template.png';
+            selectedLevel = "Easy";
+        }
+        else if (localStorage.getItem('selectedButton') === "2") {
+            img.src = 'Image/Template/Medium-Certificate-Template.png';
+            selectedLevel = "Medium";
+        }
+        else if (localStorage.getItem('selectedButton') === "3") {
+            img.src = 'Image/Template/Hard-Certificate-Template.png';
+            selectedLevel = "Hard";
+        }
+        else if (localStorage.getItem('selectedButton') === "4") {
+            img.src = 'Image/Template/Insane-Certificate-Template.png';
+            selectedLevel = "Insane";
+        }
+
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0, canvas.width / scale, canvas.height / scale);
+
+            ctx.font = '700 55px Montserrat';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText(nameInput, canvas.width / (2 * scale), 320);
+
+            const languageOptions = ["C", "C++", "C#", "Python", "Java", "Javascript", "Typescript", "Ruby", "Go"];
+            const selectedLanguage = languageOptions[localStorage.getItem('selectedCardIndex')] || "C";
+
+            ctx.font = '500 15px Montserrat';
+            ctx.fillText('For successfully completing all exercises for', canvas.width / (2 * scale), 370);
+            ctx.fillText('the ' + selectedLevel + ' Level in ' + selectedLanguage, canvas.width / (2 * scale), 390);
+
+            const options = { day: '2-digit', month: 'short', year: 'numeric' };
+            const formattedDate = new Date().toLocaleDateString('en-GB', options).replace(/ /g, ' ');
+
+            ctx.font = '500 19px Montserrat';
+            ctx.textAlign = 'right';
+            ctx.fillText(formattedDate, canvas.width / (1.16 * scale), 495);
+            
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'landscape',
+                unit: 'px',
+                format: [canvas.width / scale, canvas.height / scale]
+            });
+
+            pdf.addImage(canvas.toDataURL('image/png', 1.0), 'PNG', 0, 0, canvas.width / scale, canvas.height / scale);
+            pdf.save('certificate.pdf');
+        };
+    }
+</script>
+</body>
+</html>
