@@ -36,23 +36,22 @@
 
         const img = new Image();
 
-        let selectedLevel = "";
-        if (localStorage.getItem('selectedButton') === "1") {
-            img.src = 'Image/Template/Easy-Certificate-Template.png';
-            selectedLevel = "Easy";
+        const templates = {
+            "1": { src: 'Image/Template/Easy-Certificate-Template.png', level: "Easy" },
+            "2": { src: 'Image/Template/Medium-Certificate-Template.png', level: "Medium" },
+            "3": { src: 'Image/Template/Hard-Certificate-Template.png', level: "Hard" },
+            "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" }
+        };
+
+        const selectedButton = localStorage.getItem('selectedButton');
+        const template = templates[selectedButton];
+
+        if (!template) {
+            alert("Please select a valid level.");
+            return;
         }
-        else if (localStorage.getItem('selectedButton') === "2") {
-            img.src = 'Image/Template/Medium-Certificate-Template.png';
-            selectedLevel = "Medium";
-        }
-        else if (localStorage.getItem('selectedButton') === "3") {
-            img.src = 'Image/Template/Hard-Certificate-Template.png';
-            selectedLevel = "Hard";
-        }
-        else if (localStorage.getItem('selectedButton') === "4") {
-            img.src = 'Image/Template/Insane-Certificate-Template.png';
-            selectedLevel = "Insane";
-        }
+
+        img.src = template.src;
 
         img.onload = function() {
             ctx.drawImage(img, 0, 0, canvas.width / scale, canvas.height / scale);
@@ -62,20 +61,20 @@
             ctx.textAlign = 'center';
             ctx.fillText(nameInput, canvas.width / (2 * scale), 320);
 
-            const languageOptions = ["C", "C++", "C#", "Python", "Java", "Javascript", "Typescript", "Ruby", "Go"];
+            const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
             const selectedLanguage = languageOptions[localStorage.getItem('selectedCardIndex')] || "C";
 
             ctx.font = '500 15px Montserrat';
             ctx.fillText('For successfully completing all exercises for', canvas.width / (2 * scale), 370);
-            ctx.fillText('the ' + selectedLevel + ' Level in ' + selectedLanguage, canvas.width / (2 * scale), 390);
+            ctx.fillText(`the ${template.level} Level in ${selectedLanguage}`, canvas.width / (2 * scale), 390);
 
             const options = { day: '2-digit', month: 'short', year: 'numeric' };
-            const formattedDate = new Date().toLocaleDateString('en-GB', options).replace(/ /g, ' ');
+            const formattedDate = new Date().toLocaleDateString('en-GB', options);
 
             ctx.font = '500 19px Montserrat';
             ctx.textAlign = 'right';
             ctx.fillText(formattedDate, canvas.width / (1.16 * scale), 495);
-            
+
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF({
                 orientation: 'landscape',
@@ -87,6 +86,7 @@
             pdf.save('certificate.pdf');
         };
     }
+
 </script>
 </body>
 </html>

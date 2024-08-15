@@ -40,7 +40,6 @@
       <textarea id="code-editor" placeholder="> Write your code here..."></textarea>
 
       <div class="menu-info">
-
         <div class="other-information">
           <li><strong>Allowed working time:</strong> 0.100 sec</li>
           <li><strong>Allowed memory:</strong> 16.00 MB</li>
@@ -53,10 +52,85 @@
           <p id="text-language" class="text-language">C++</p>
         </div>
 
-        <button class="submit-btn">Submit</button>
-
+        <button class="submit-btn" onclick="submitCode()">Submit</button>
       </div>
     </div>
+
+
+    <script>
+      const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
+      const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
+      const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6'; // Вашият RapidAPI ключ
+
+      async function submitCode() {
+        const code = document.getElementById('code-editor').value;
+        const stdin = 0;
+
+        const requestData = {
+          language_id: 52,
+          source_code: code,
+          stdin: stdin,
+          stdout: "",
+          cpu_time_limit: "1",
+          memory_limit: "128000"
+        };
+
+        try {
+          const response = await fetch(apiURL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-RapidAPI-Host': rapidAPIHost,
+              'X-RapidAPI-Key': rapidAPIKey
+            },
+            body: JSON.stringify(requestData)
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const result = await response.json();
+
+
+          if (result.token) {
+            const submissionId = result.token;
+            await checkResult(submissionId);
+          }
+          else {
+            console.log('Failed to get submission token.');
+          }
+        }
+        catch (error) {
+          console.log( "An error occurred: " + error.message);
+        }
+      }
+
+      async function checkResult(submissionId) {
+        const resultURL = `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
+
+        try {
+          const response = await fetch(resultURL, {
+            headers: {
+              'X-RapidAPI-Host': rapidAPIHost,
+              'X-RapidAPI-Key': rapidAPIKey
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          console.log('Result Response:', result.stdout);
+
+
+        } catch (error) {
+          console.log( "An error occurred: " + error.message);
+        }
+      }
+    </script>
+
 
     <div class="right-container">
       <div class="difficult-level">
