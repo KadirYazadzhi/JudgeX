@@ -10,7 +10,6 @@ let currentTaskIndex = 0;
 async function submitCode() {
     const code = document.getElementById('code-editor').value;
 
-
     switch (localStorage.getItem('activeTask')) {
         case "1":
             inputs = ["7", "0", "-2", "4", "-3", "18"];
@@ -52,25 +51,25 @@ async function submitCode() {
             inputs = ["3\n 5", "7\n -2", "0\n 0", "30\n -5", "10\n 40", "300\n -100"];
 
             break;
-        case "11":
+        case "12":
             inputs = ["10\n 2", "10\n 3", "15\n 5", "30\n 30", "100\n 10", "3\n 5"];
 
             break;
-        case "12":
+        case "14":
             inputs = ["5\n 3", "7\n 2", "10\n 10", "3\n 5", "10\n 8", "10\n 2"];
 
             break;
-        case "13":
+        case "16":
             inputs = ["3", "5", "2", "4", "12", "10"];
 
             break;
-        case "14":
+        case "18":
             inputs = ["3\n 4\n +", "10\n 5\n *", "5\n 2\n -", "100\n 10\n /", "3\n 3\n ^", "10\n 2\n %"];
 
             break;
-        case "15":
+        case "19":
             inputs = ["12567", "55668", "77755", "112233445566", "49265310", "110125"];
-
+            correctOutput = ["1\n2\n5\n6\n7", "5\n5\n6\n6\n8", "7\n7\n7\n5\n5", "1\n1\n2\n2\n3\n3\n4\n4\n5\n5\n6\n6", "4\n9\n2\n6\n5\n3\n1\n0", "1\n1\n0\n1\n2\n5"];
             break;
         default:
             console.log("No task selected or task not found.");
