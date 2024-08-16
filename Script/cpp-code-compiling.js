@@ -1,6 +1,7 @@
 const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
 const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
 const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
+const activeTask = localStorage.getItem('activeTask');
 
 let inputs = [];
 let correctOutput = [];
@@ -109,6 +110,8 @@ async function submitCode() {
     }
 }
 
+let testResults = "";
+
 async function checkResult(submissionId, index) {
     const resultURL = `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
 
@@ -124,11 +127,19 @@ async function checkResult(submissionId, index) {
         const output = result.stdout ? result.stdout.trim() : "";
         const expectedOutput = correctOutput[index];
 
-        let testResult = output === expectedOutput ? "1" : "0";
+        testResults += output === expectedOutput ? "1" : "0";
 
         console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"} - Expected: ${expectedOutput}, Got: ${output}`);
+
+        if (index === inputs.length - 1) {
+            console.log(`Final Test Results: ${testResults}`);
+
+            localStorage.setItem(`taskResult_${activeTask}`, testResults);
+        }
 
     } catch (error) {
         console.log("Error: " + error.message + "\n");
     }
 }
+
+
