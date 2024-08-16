@@ -1,0 +1,134 @@
+const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
+const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
+const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
+
+let inputs = [];
+let correctOutput = [];
+let currentTaskIndex = 0;
+
+async function submitCode() {
+    const code = document.getElementById('code-editor').value;
+
+
+    switch (localStorage.getItem('activeTask')) {
+        case "1":
+            inputs = ["7", "0", "-2", "4", "-3", "18"];
+            correctOutput = ["False", "True", "True", "True", "False", "True"];
+            break;
+        case "2":
+            inputs = ["2020", "1900", "2019", "2024", "876", "1890"];
+
+            break;
+        case "3":
+            inputs = ["7", "10", "13", "1", "3", "50"];
+
+            break;
+        case "4":
+            inputs = ["Hello World", "Python", "AEIOU", "bcdfgh", "//i**o22", "/*-+<a<=e?"];
+
+            break;
+        case "5":
+            inputs = ["5", "3", "6", "7", "10", "14"];
+
+            break;
+        case "6":
+            inputs = ["5", "-3", "0", "30", "0", "-14"];
+
+            break;
+        case "7":
+            inputs = ["0", "100", "37", "4", "10", "300"];
+
+            break;
+        case "8":
+            inputs = ["1000\n 5\n 2", "1500\n 4.3\n 6", "2000\n 3\n 1", "8000\n 8\n 4", "140000\n 3.4\n 5", "300\n 5\n 1"];
+
+            break;
+        case "9":
+            inputs = ["3\n 5", "-1\n 6", "0\n 0", "30\n -5", "10\n 40", "300\n -100"];
+
+            break;
+        case "10":
+            inputs = ["3\n 5", "7\n -2", "0\n 0", "30\n -5", "10\n 40", "300\n -100"];
+
+            break;
+        case "11":
+            inputs = ["10\n 2", "10\n 3", "15\n 5", "30\n 30", "100\n 10", "3\n 5"];
+
+            break;
+        case "12":
+            inputs = ["5\n 3", "7\n 2", "10\n 10", "3\n 5", "10\n 8", "10\n 2"];
+
+            break;
+        case "13":
+            inputs = ["3", "5", "2", "4", "12", "10"];
+
+            break;
+        case "14":
+            inputs = ["3\n 4\n +", "10\n 5\n *", "5\n 2\n -", "100\n 10\n /", "3\n 3\n ^", "10\n 2\n %"];
+
+            break;
+        case "15":
+            inputs = ["12567", "55668", "77755", "112233445566", "49265310", "110125"];
+
+            break;
+        default:
+            console.log("No task selected or task not found.");
+            return;
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        const stdin = inputs[i];
+        currentTaskIndex = i;
+        const requestData = {
+            language_id: 52,
+            source_code: code,
+            stdin: stdin,
+            cpu_time_limit: "1",
+            memory_limit: "128000"
+        };
+
+        try {
+            const response = await fetch(apiURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Host': rapidAPIHost,
+                    'X-RapidAPI-Key': rapidAPIKey
+                },
+                body: JSON.stringify(requestData)
+            });
+
+            const result = await response.json();
+            if (result.token) {
+                await checkResult(result.token, currentTaskIndex);
+            }
+
+        } catch (error) {
+            console.log("Error: " + error.message + "\n");
+        }
+    }
+}
+
+async function checkResult(submissionId, index) {
+    const resultURL = `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
+
+    try {
+        const response = await fetch(resultURL, {
+            headers: {
+                'X-RapidAPI-Host': rapidAPIHost,
+                'X-RapidAPI-Key': rapidAPIKey
+            }
+        });
+
+        const result = await response.json();
+        const output = result.stdout ? result.stdout.trim() : "";
+        const expectedOutput = correctOutput[index];
+
+        let testResult = output === expectedOutput ? "1" : "0";
+
+        console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"} - Expected: ${expectedOutput}, Got: ${output}`);
+
+    } catch (error) {
+        console.log("Error: " + error.message + "\n");
+    }
+}

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (activeTask && selectedCardIndex && selectedButton) {
             const key = `codeEditorContent_${activeTask}_${selectedCardIndex}_${selectedButton}`;
+            localStorage.setItem('activeTask', activeTask);
             const savedCode = localStorage.getItem(key);
             codeEditor.value = savedCode !== null ? savedCode : '';
         }
