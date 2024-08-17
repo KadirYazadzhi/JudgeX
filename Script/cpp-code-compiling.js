@@ -1,16 +1,46 @@
-    // const selectedCardLanguage = localStorage.getItem('selectedCardIndex');
-
     const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
     const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
-    const rapidAPIKey = 'eb1cbe92d7msh7fb67488f0cb32cp163caajsn6d54f9d7668f';
+    const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
     const activeTask = localStorage.getItem('activeTask');
+    const selectedLanguage = localStorage.getItem('selectedCardIndex');
 
     let inputs = [];
     let correctOutput = [];
     let currentTaskIndex = 0;
+    let languageToWork = 0;
 
     async function submitCode() {
         const code = document.getElementById('code-editor').value;
+
+        switch (selectedLanguage) {
+            case "0":
+                languageToWork = 50;
+                break;
+            case "1":
+                languageToWork = 52;
+                break;
+            case "2":
+                languageToWork = 51;
+                break;
+            case "3":
+                languageToWork = 71;
+                break;
+            case "4":
+                languageToWork = 62;
+                break;
+            case "5":
+                languageToWork = 63;
+                break;
+            case "6":
+                languageToWork = 74;
+                break;
+            case "7":
+                languageToWork = 72;
+                break;
+            case "8":
+                languageToWork = 60;
+                break;
+        }
 
         switch (localStorage.getItem('activeTask')) {
             case "1":
@@ -233,7 +263,7 @@
                 inputs = ["", "", "", "", "", ""];
                 correctOutput = ["", "", "", "", "", ""];
                 break;
-           
+
             default:
                 console.log("No task selected or task not found.");
                 return;
@@ -243,7 +273,7 @@
             const stdin = inputs[i];
             currentTaskIndex = i;
             const requestData = {
-                language_id: 52,
+                language_id: languageToWork,
                 source_code: code,
                 stdin: stdin,
                 cpu_time_limit: "1",
@@ -296,7 +326,7 @@
             if (index === inputs.length - 1) {
                 console.log(`Final Test Results: ${testResults}`);
 
-                localStorage.setItem(`taskResult_${activeTask}`, testResults);
+                localStorage.setItem(`taskResult_${activeTask}_${selectedLanguage}`, testResults);
             }
 
         } catch (error) {

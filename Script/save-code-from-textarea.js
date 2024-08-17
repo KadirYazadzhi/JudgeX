@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadTestResult() {
         const activeTask = getActiveTask();
-        if (!activeTask) return;
+        const selectedCardIndex = getSelectedCardIndex();
+        if (!activeTask || selectedCardIndex === null) return;
 
-        const txt = localStorage.getItem(`taskResult_${activeTask}`);
+        const key = `taskResult_${activeTask}_${selectedCardIndex}`;
+        const txt = localStorage.getItem(key);
         const cards = document.querySelectorAll('.card');
 
         clearTestResults();
