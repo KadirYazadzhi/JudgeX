@@ -53,19 +53,19 @@ async function submitCode() {
             break;
         case "12":
             inputs = ["10\n 2", "10\n 3", "15\n 5", "30\n 30", "100\n 10", "3\n 5"];
-
+            correctOutput = ["Divisible", "Not Divisible", "Divisible", "Divisible", "Divisible", "Not Divisible"];
             break;
         case "14":
             inputs = ["5\n 3", "7\n 2", "10\n 10", "3\n 5", "10\n 8", "10\n 2"];
-
+            correctOutput = ["16", "18", "40", "16", "36", "24"];
             break;
         case "16":
             inputs = ["3", "5", "2", "4", "12", "10"];
-
+            correctOutput = ["9", "25", "4", "16", "144", "100"];
             break;
         case "18":
             inputs = ["3\n 4\n +", "10\n 5\n *", "5\n 2\n -", "100\n 10\n /", "3\n 3\n ^", "10\n 2\n %"];
-
+            correctOutput = ["7", "50", "3", "10", "9", "0"];
             break;
         case "19":
             inputs = ["12567", "55668", "77755", "112233445566", "49265310", "110125"];
