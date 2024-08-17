@@ -9,23 +9,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function clearTestResults() {
         const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.classList.remove('success', 'failure', 'null');
+        cards.forEach((card, index) => {
+            card.classList.remove('success', 'failure');
             card.classList.add('null');
             card.querySelector('.card-icon').textContent = '➖';
-            card.querySelector('.card-title').textContent = `Test ${Array.from(cards).indexOf(card) + 1}: NULL`;
+            card.querySelector('.card-title').textContent = `Test ${index + 1}: NULL`;
         });
     }
 
     function loadTestResult() {
-        const activeTask = getActiveTask(); // Взимаме текущата активна задача
-        const txt = localStorage.getItem(`taskResult_${activeTask}`);
-        const cards = document.querySelectorAll('.card.null');
+        const activeTask = getActiveTask();
+        if (!activeTask) return;
 
-        // Изчистваме старите резултати
+        const txt = localStorage.getItem(`taskResult_${activeTask}`);
+        const cards = document.querySelectorAll('.card');
+
         clearTestResults();
 
-        if (txt !== null && activeTask) {
+        if (txt) {
             for (let i = 0; i < txt.length; i++) {
                 if (txt[i] === "1") {
                     cards[i].classList.remove('null');
@@ -60,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('activeTask', activeTask);
             const savedCode = localStorage.getItem(key);
             codeEditor.value = savedCode !== null ? savedCode : '';
+        } else {
+            codeEditor.value = '';  // Ако няма активна задача или код, изчистваме редактора
         }
     }
 
@@ -79,10 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
             taskCards.forEach(c => c.classList.remove('active-task'));
             card.classList.add('active-task');
 
-            loadTestResult();  // Зареждаме само резултатите за текущо избраната задача
-            loadCodeForActiveTask();  // Зареждаме само кода за текущо избраната задача
-
-            console.log(localStorage.getItem('activeTask'))
+            loadTestResult();
+            loadCodeForActiveTask();
         });
     });
 
@@ -95,4 +96,3 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTestResult();
     loadCodeForActiveTask();
 });
-
