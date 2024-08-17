@@ -1,6 +1,6 @@
 const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
 const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
-const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
+const rapidAPIKey = 'eb1cbe92d7msh7fb67488f0cb32cp163caajsn6d54f9d7668f';
 const activeTask = localStorage.getItem('activeTask');
 
 let inputs = [];
@@ -17,27 +17,27 @@ async function submitCode() {
             break;
         case "2":
             inputs = ["2020", "1900", "2019", "2024", "876", "1890"];
-
+            correctOutput = ["True", "False", "False", "True", "True", "False"];
             break;
         case "3":
             inputs = ["7", "10", "13", "1", "3", "50"];
-
+            correctOutput = ["True", "False", "True", "False", "True", "False"];
             break;
         case "4":
             inputs = ["Hello World", "Python", "AEIOU", "bcdfgh", "//i**o22", "/*-+<a<=e?"];
-
+            correctOutput = ["3", "1", "5", "0", "2", "2"];
             break;
         case "5":
             inputs = ["5", "3", "6", "7", "10", "14"];
-
+            correctOutput = ["1\n2\nFizz\n4\nBuzz", "1\n2\nFizz", "1\n2\nFizz\n4\nBuzz\nFizz", "1\n2\nFizz\n4\nBuzz\nFizz\n7", "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz", "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14"];
             break;
         case "6":
             inputs = ["5", "-3", "0", "30", "0", "-14"];
-
+            correctOutput = ["Positive", "Negative", "Zero", "Positive", "Zero", "Negative"];
             break;
         case "7":
             inputs = ["0", "100", "37", "4", "10", "300"];
-
+            correctOutput = ["32.0", "212.0", "98.6", "39.2", "50", "572"];
             break;
         case "8":
             inputs = ["1000\n 5\n 2", "1500\n 4.3\n 6", "2000\n 3\n 1", "8000\n 8\n 4", "140000\n 3.4\n 5", "300\n 5\n 1"];
