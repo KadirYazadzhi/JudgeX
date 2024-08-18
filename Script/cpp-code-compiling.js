@@ -3,6 +3,7 @@
     const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
     const activeTask = document.querySelector('.task-card.active-task');
     const selectedLanguage = localStorage.getItem('selectedCardIndex');
+    const selectedLevel = localStorage.getItem('selectedButton');
 
     let inputs = [];
     let correctOutput = [];
@@ -326,15 +327,13 @@
             if (index === inputs.length - 1) {
                 console.log(`Final Test Results: ${testResults}`);
 
-                localStorage.setItem(`taskResult_${activeTask}_${selectedLanguage}`, testResults);
+                localStorage.setItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`, testResults);
             }
 
-        } catch (error) {
+        }
+        catch (error) {
             console.log("Error: " + error.message + "\n");
         }
     }
-
-
-
 
 

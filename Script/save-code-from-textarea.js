@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const codeEditor = document.getElementById('code-editor');
     const taskCards = document.querySelectorAll('.task-card');
     const selectedLanguage = localStorage.getItem('selectedCardIndex');
+    const selectedLevel = localStorage.getItem('selectedButton');
 
     function getActiveTask() {
         const activeCard = document.querySelector('.task-card.active-task');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeTask = getActiveTask();
         if (!activeTask) return;
 
-        const txt = localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}`);
+        const txt = localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`);
 
         console.log(activeTask + " " + selectedLanguage)
         console.log(txt)

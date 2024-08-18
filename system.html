@@ -147,6 +147,31 @@
 <p class="footer-text">Copyright © 2024 - All Rights Reserved || Designed and Developed By: Kadir Yazadzhi</p>
 </body>
 
+<script>
+
+  // Функция за извеждане на съдържанието на localStorage в конзолата
+  function logLocalStorage() {
+    // Получаваме всички ключове от localStorage
+    const keys = Object.keys(localStorage);
+
+    // Ако няма ключове, показваме съобщение
+    if (keys.length === 0) {
+      console.log("LocalStorage е празен.");
+      return;
+    }
+
+    // Извеждаме всеки ключ и съответната му стойност
+    keys.forEach(key => {
+      const value = localStorage.getItem(key);
+      console.log(`Ключ: ${key}, Стойност: ${value}`);
+    });
+  }
+
+  // Извикваме функцията
+  logLocalStorage();
+
+</script>
+
 <script rel="script" src="Script/change-exercise-buttons.js"></script>
 <script rel="script" src="Script/download-exercise-document.js"></script>
 <script rel="script" src="Script/save-code-from-textarea.js"></script>
