@@ -1,7 +1,7 @@
     const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
     const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
     const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
-    const activeTask = localStorage.getItem('activeTask');
+    const activeTask = document.querySelector('.task-card.active-task');
     const selectedLanguage = localStorage.getItem('selectedCardIndex');
 
     let inputs = [];
@@ -100,32 +100,32 @@
                 correctOutput = ["7", "50", "3", "10", "9", "0"];
                 break;
             case "19":
-                inputs = ["12567", "55668", "77755", "112233445566", "49265310", "110125"];
-                correctOutput = ["1\n2\n5\n6\n7", "5\n5\n6\n6\n8", "7\n7\n7\n5\n5", "1\n1\n2\n2\n3\n3\n4\n4\n5\n5\n6\n6", "4\n9\n2\n6\n5\n3\n1\n0", "1\n1\n0\n1\n2\n5"];
+                inputs = ["12567", "55668", "77755", "112", "49265310", "110125"];
+                correctOutput = ["1\n2\n5\n6\n7", "5\n5\n6\n6\n8", "7\n7\n7\n5\n5", "1\n1\n2", "4\n9\n2\n6\n5\n3\n1\n0", "1\n1\n0\n1\n2\n5"];
                 break;
             case "20":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["radar", "hello", "level", "world", "apple", "madam"];
+                correctOutput = ["True", "False", "True", "False", "False", "True"];
                 break;
             case "22":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["1 2 3 4", "10 -1 7", "0 0 0 0", "-2 -3 5", "100 -10 -40 50", "0 10 30 10"];
+                correctOutput = ["10", "16", "0", "0", "100", "50"];
                 break;
             case "24":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["5", "3", "1", "0", "10", "12"];
+                correctOutput = ["120", "6", "1", "0", "3628800", "479001600"];
                 break;
             case "26":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["Hello world", "Count the words here", "This is a test", "JudgeX is a test system", "25 apple in the bag", "** // -- ++"];
+                correctOutput = ["2", "4", "4", "5", "5", "4"];
                 break;
             case "28":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["1, 2, 3, 4, 5", "-5, -3, -1, -7", "100, 200, 300", "-50, -1000, 100, 400, 1000", "1, 5, 8, 9, 6, 2, -6, 50", "5"];
+                correctOutput = ["5", "-1", "300", "1000", "50", "5"];
                 break;
             case "30":
-                inputs = ["", "", "", "", "", ""];
-                correctOutput = ["", "", "", "", "", ""];
+                inputs = ["1, 2, 4, 5", "12, 13, 14, 16", "32, 33, 34, 35, 37, 38", "100, 101, 103", "7, 8, 9, 10, 12", "50, 52"];
+                correctOutput = ["3", "15", "36", "102", "11", "51"];
                 break;
             case "32":
                 inputs = ["", "", "", "", "", ""];
@@ -333,6 +333,8 @@
             console.log("Error: " + error.message + "\n");
         }
     }
+
+
 
 
 

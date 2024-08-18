@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Submission Page</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="Style/cards-color.css">
   <link rel="stylesheet" type="text/css" href="Style/system.css">
+  <link rel="stylesheet" type="text/css" href="Style/certificate-message.css">
 
 </head>
 <body>
+<div id="sp" class="background hidden">
+  <div class="popup">
+    <form class="form">
+      <div class="note">
+        <label class="title">Take your certificate</label>
+        <span id="subtitle-text" class="subtitle"></span>
+      </div>
+      <input id="name" placeholder="Enter your full name" title="Enter your full name" name="name" type="name" class="input_field">
+      <button type="button" onclick="generateCertificate()" class="submit">Submit</button>
+      <canvas id="certificateCanvas" style="display: none;"></canvas>
+    </form>
+  </div>
+</div>
+
 <div class="container">
   <div class="task-and-button">
     <div class="task-cards">
@@ -137,4 +154,5 @@
 <script rel="script" src="Script/change-exercise-name.js"></script>
 <script rel="script" src="Script/null-test-alert-message.js"></script>
 <script rel="script" src="Script/cpp-code-compiling.js"></script>
+<script rel="script" src="Script/show-certificate-message.js"></script>
 </html>

@@ -8,14 +8,25 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-<input type="text" id="name" placeholder="Enter your name">
-<button onclick="generateCertificate()">Download Certificate</button>
-<canvas id="certificateCanvas" style="display: none;"></canvas>
+<div id="sp" class="background hidden">
+<div class="popup">
+    <form class="form">
+        <div class="note">
+            <label class="title">Take your certificate</label>
+            <span id="subtitle-text" class="subtitle"></span>
+        </div>
+        <input id="name" placeholder="Enter your full name" title="Enter your full name" name="name" type="name" class="input_field">
+        <button type="button" onclick="generateCertificate()" class="submit">Submit</button>
+        <canvas id="certificateCanvas" style="display: none;"></canvas>
+    </form>
+</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script>
@@ -88,5 +99,7 @@
     }
 
 </script>
+
+
 </body>
 </html>

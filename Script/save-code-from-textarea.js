@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const codeEditor = document.getElementById('code-editor');
     const taskCards = document.querySelectorAll('.task-card');
+    const selectedLanguage = localStorage.getItem('selectedCardIndex');
 
     function getActiveTask() {
         const activeCard = document.querySelector('.task-card.active-task');
@@ -19,17 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadTestResult() {
         const activeTask = getActiveTask();
-        const selectedCardIndex = getSelectedCardIndex();
-        if (!activeTask || selectedCardIndex === null) return;
+        if (!activeTask) return;
 
-        const key = `taskResult_${activeTask}_${selectedCardIndex}`;
-        const txt = localStorage.getItem(key);
+        const txt = localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}`);
+
+        console.log(activeTask + " " + selectedLanguage)
+        console.log(txt)
         const cards = document.querySelectorAll('.card');
 
         clearTestResults();
 
         if (txt) {
-            for (let i = 0; i < txt.length; i++) {
+            // Обработваме само картите, които съответстват на резултатите
+            for (let i = 0; i < txt.length && i < cards.length; i++) {
                 if (txt[i] === "1") {
                     cards[i].classList.remove('null');
                     cards[i].classList.add('success');
