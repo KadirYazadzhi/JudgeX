@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const taskCards = document.querySelectorAll('.task-card');
 
     const tasksForButton = {
         1: [
@@ -69,8 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function updateTaskNames() {
-        const selectedButton = localStorage.getItem('selectedButton');
-        const tasks = tasksForButton[selectedButton] || tasksForButton[0];
+        const tasks = tasksForButton[selectedLevel] || tasksForButton[0];
 
         taskCards.forEach((card, index) => {
             if (index >= taskCards.length - 5) {
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.textContent = tasks[index];
             }
 
-            if (selectedButton === "4" && index >= taskCards.length - 5) {
+            if (selectedLevel === "4" && index >= taskCards.length - 5) {
                 card.classList.add('hidden');
             }
             else {

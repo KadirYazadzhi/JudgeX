@@ -1,16 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const documentButton = document.querySelector('.document-button');
 
     documentButton.addEventListener('click', function() {
         const activeTask = document.querySelector('.task-card.active-task');
-        const selectedButton = localStorage.getItem('selectedButton');
 
         if (activeTask) {
             let fileName = '';
             const taskText = activeTask.textContent.trim();
             let directory = '';
 
-            switch (selectedButton) {
+            switch (selectedLevel) {
                 case "1":
                     directory = 'Exercise/Easy';
                     switch (taskText) {

@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Image/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/logo-judge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Script/all-const.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Script/code-view-icon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Script/open-system-protection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-exercise-buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/change-exercise-buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-exercise-name.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/change-exercise-name.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-language-in-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/change-language-in-system.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/cpp-code-compiling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/download-exercise-document.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/download-exercise-document.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/save-code-from-textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/save-code-from-textarea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/show-certificate-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/show-certificate-message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/system.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +46,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/HPPavilion/Documents/JudgeX/Image",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HPPavilion/Documents/JudgeX/Image&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image" />
@@ -76,6 +87,7 @@
       <workItem from="1719474415918" duration="1389000" />
       <workItem from="1719477231499" duration="1358000" />
       <workItem from="1723739549475" duration="31295000" />
+      <workItem from="1724024440140" duration="10894000" />
     </task>
     <servers />
   </component>

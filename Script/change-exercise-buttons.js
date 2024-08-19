@@ -1,6 +1,6 @@
 class TaskManager {
     constructor() {
-        this.taskCards = document.querySelectorAll('.task-card');
+        this.taskCards = taskCards;
         this.barStopper = document.querySelector('.bar-stopper');
         this.barText = document.querySelector('.difficult-text');
         this.dataValueForButton = {
@@ -9,7 +9,7 @@ class TaskManager {
             3: [48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 69, 70, 72, 73],
             4: [75, 77, 79, 81, 83, 85, 87, 89, 91, 93]
         };
-        this.selectedButton = parseInt(localStorage.getItem('selectedButton'), 10) || 1;
+        this.selectedButton = parseInt(selectedLevel, 10) || 1;
     }
 
     initialize() {

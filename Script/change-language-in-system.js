@@ -1,10 +1,6 @@
-const languageText = document.getElementById('text-language');
-const languageIcon = document.getElementById('icon-language');
 
-const selectedCardIndex = localStorage.getItem('selectedCardIndex');
-
-if (selectedCardIndex !== null) {
-    switch (selectedCardIndex) {
+if (selectedLanguage !== null) {
+    switch (selectedLanguage) {
         case "0":
             languageText.innerHTML = "C";
             languageIcon.outerHTML = `
