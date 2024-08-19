@@ -2,15 +2,17 @@ let sum = 0;
 const excludedIndices = [11, 13, 15, 17];
 const language = localStorage.getItem('selectedCardIndex');
 const level = localStorage.getItem('selectedButton');
+const buttonToViewCertificate = document.querySelector(".certificateBtn")
 
 for (let i = 1; i <= 19; i++) {
-    if (!excludedIndices.includes(i) && localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`) === "111111") {
+    if (!excludedIndices.includes(i) &&
+        localStorage.getItem(`taskResult_${i}_${selectedLanguage}_${selectedLevel}`) === "111111") {
         sum++;
     }
 }
 
 if (sum >= 15) {
-    if (localStorage.getItem(`Take_Certificate_${level}${language}`) === null) {
+    if (localStorage.getItem(`Take_Certificate_${level}${language}`) !== null) {
         const hiddenElement = document.getElementById('sp');
         hiddenElement.classList.remove("hidden");
         hiddenElement.style.display = 'flex';
@@ -24,8 +26,18 @@ if (sum >= 15) {
         document.getElementById('subtitle-text').innerHTML =
             `You have successfully solved all the problems for the ${selectedButton} level in ${selectedLanguage}.`;
     }
-    localStorage.setItem(`Take_Certificate_${level}${language}`, "True")
+    else {
+        buttonToViewCertificate.classList.remove("hidden");
+    }
+    localStorage.setItem(`Take_Certificate_${level}_${language}`, "True")
 }
+
+
+
+
+
+
+
 
 
 
