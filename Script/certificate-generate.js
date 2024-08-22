@@ -1,5 +1,4 @@
 
-
 function generateCertificate() {
     const nameInput = document.getElementById('name').value.trim().toUpperCase();
     if (nameInput === "") {
@@ -57,7 +56,7 @@ function generateCertificate() {
         ctx.fillText(formattedDate, canvas.width / (1.16 * scale), 495);
 
         const certificateImage = canvas.toDataURL('image/png', 1.0);
-        localStorage.setItem('savedCertificate', certificateImage);
+        localStorage.setItem(`savedCertificate_${language}_${selectedLevel}`, certificateImage);
 
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({
@@ -68,5 +67,7 @@ function generateCertificate() {
 
         pdf.addImage(certificateImage, 'PNG', 0, 0, canvas.width / scale, canvas.height / scale);
         pdf.save('certificate.pdf');
+
+        document.getElementById('sp').classList.add("hidden");
     };
 }

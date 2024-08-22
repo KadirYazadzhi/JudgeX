@@ -11,9 +11,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-for (let i = 0; i <= 19; i++) {
-    if (i !== 11 && i !== 13 && i !== 15 && i !== 17) {
-        localStorage.setItem(`taskResult_${i}_${selectedLanguage}_${selectedLevel}`, "111111")
-    }
-}

@@ -69,4 +69,3 @@ function getTasksResultFromTest() {
 function getActiveCard() {
     return document.querySelector('.task-card.active-task');
 }
-

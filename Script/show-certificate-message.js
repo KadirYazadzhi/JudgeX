@@ -11,8 +11,16 @@ for (let i = 1; i <= 19; i++) {
     }
 }
 
-if (sum >= 15) {
-    if (localStorage.getItem(`Take_Certificate_${level}${language}`) !== null) {
+let compare = 15;
+if (selectedLevel === "4") {
+    compare = 10;
+    console.log(compare)
+}
+
+if (sum >= compare) {
+    if (localStorage.getItem(`Take_Certificate_${selectedLanguage}${selectedLevel}`) === null
+        && localStorage.getItem(`savedCertificate_${selectedLanguage}_${selectedLevel}`) === null) {
+
         const hiddenElement = document.getElementById('sp');
         hiddenElement.classList.remove("hidden");
         hiddenElement.style.display = 'flex';
@@ -27,11 +35,15 @@ if (sum >= 15) {
             `You have successfully solved all the problems for the ${selectedButton} level in ${selectedLanguage}.`;
     }
     else {
-        buttonToViewCertificate.classList.remove("hidden");
+        if (localStorage.getItem(`savedCertificate_${selectedLanguage}_${selectedLevel}`) !== null) {
+            buttonToViewCertificate.classList.remove("hidden");
+        }
     }
-    localStorage.setItem(`Take_Certificate_${level}_${language}`, "True")
+    localStorage.setItem(`Take_Certificate_${level}_${language}`, "True");
 }
 
+console.log(localStorage.getItem(`Take_Certificate_${level}_${language}`));
+console.log(localStorage.getItem(`savedCertificate_${selectedLanguage}_${selectedLevel}`))
 
 
 

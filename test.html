@@ -3,246 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-        }
-    </style>
+    <title>Secure Export/Import LocalStorage</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
+
+
 <style>
-    .hidden {
-        display: none!important;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    .background {
-        background: rgba(0, 0, 0, 0.6);
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f8fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Main button to open the modal */
+    #open-modal {
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #5c67f2;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    #open-modal:hover {
+        background-color: #4353d3;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
-        z-index: 100;
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
     }
 
-    .popup {
-        position: relative;
-        width: 360px;
-        height: fit-content;
-        background: #1b2231;
-        box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 13px;
-        color: white;
-    }
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    /* Modal Content */
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
         padding: 20px;
-        gap: 20px;
-    }
-
-
-    .note {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .title {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 17px;
-        line-height: 24px;
-    }
-
-    .subtitle {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 13px;
-        line-height: 18px;
-        color: #cecece;
-    }
-
-    .input_field {
-        width: 95%;
-        height: 42px;
-        padding: 0 0 0 12px;
-        border-radius: 5px;
-        outline: 2px solid #00a8ff;
-        border: none;
-        background: #131b2c;
-        color: white;
-        box-shadow: 1px 1px 5px #00a8ff;
-    }
-
-    .input_field:focus {
-        background: transparent;
-        box-shadow: 1px 1px 10px #0081c4;
-    }
-
-    .form button.submit {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 18px;
-        gap: 10px;
-        width: 100%;
-        height: 42px;
-        background: #0053fa;
-        box-shadow: 1px 1px 5px #0053fa;
-        border: 3px solid #0053fa;
+        border: 1px solid #888;
         border-radius: 10px;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 15px;
-        color: #ffffff;
-        transition: 0.3s;
+        width: 400px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Close button (X) */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
         cursor: pointer;
     }
 
-    .form button.submit:hover {
-        background: transparent;
-        box-shadow: 1px 1px 10px #0053fa;
-        color: #ffffff;
+    /* Buttons inside the modal */
+    #download-button, #upload-label {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin: 15px 10px;
     }
+
+    #download-button:hover, #upload-label:hover {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        transform: translateY(-3px);
+    }
+
+    #download-button:active, #upload-label:active {
+        background: linear-gradient(135deg, #665abf, #7635ad);
+    }
+
+    #upload-input {
+        display: none;
+    }
+
 
 </style>
-<div id="sp" class="background hidden">
 
-<div class="popup">
-    <form class="form">
 
-        <div class="note">
-            <label class="title">Take your certificate</label>
-            <span id="subtitle-text" class="subtitle"></span>
+<!-- Button to open the modal -->
+<button id="open-modal">Open Settings</button>
 
-        </div>
-        <input id="name" placeholder="Enter your full name" title="Enter your full name" name="name" type="name" class="input_field">
-        <button type="button" onclick="generateCertificate()" class="submit">Submit</button>
-        <canvas id="certificateCanvas" style="display: none;"></canvas>
-    </form>
+<!-- The Modal -->
+<div id="popup-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Storage Settings</h2>
+        <!-- Button to download encrypted LocalStorage -->
+        <button id="download-button">Download Encrypted LocalStorage</button>
+
+        <!-- Input to upload and decrypt JSON file -->
+        <label for="upload-input" id="upload-label">Upload Encrypted LocalStorage</label>
+        <input type="file" id="upload-input" accept=".json">
+    </div>
 </div>
 
-</div>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script>
-    function generateCertificate() {
-        const nameInput = document.getElementById('name').value.trim().toUpperCase();
-        if (nameInput === "") {
-            alert("Please enter a valid name.");
-            return;
-        }
+    const specialKey = "Fk93!dj#1ZlA09Qw7k&2Hn19E//*0la9012+:";
 
-        const canvas = document.getElementById('certificateCanvas');
-        const ctx = canvas.getContext('2d');
-        const scale = 2;
+    const encryptionKey = specialKey;  // Replace with your own secure key
 
-        canvas.width = 800 * scale;
-        canvas.height = 600 * scale;
-        ctx.scale(scale, scale);
-
-        const img = new Image();
-
-        const templates = {
-            "1": { src: 'Image/Template/Easy-Certificate-Template.png', level: "Easy" },
-            "2": { src: 'Image/Template/Medium-Certificate-Template.png', level: "Medium" },
-            "3": { src: 'Image/Template/Hard-Certificate-Template.png', level: "Hard" },
-            "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" }
-        };
-
-        const selectedButton = localStorage.getItem('selectedButton');
-        const template = templates[selectedButton];
-
-        if (!template) {
-            alert("Please select a valid level.");
-            return;
-        }
-
-        img.src = template.src;
-
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0, canvas.width / scale, canvas.height / scale);
-
-            ctx.font = '700 55px Montserrat';
-            ctx.fillStyle = 'white';
-            ctx.textAlign = 'center';
-            ctx.fillText(nameInput, canvas.width / (2 * scale), 320);
-
-            const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
-            const selectedLanguage = languageOptions[localStorage.getItem('selectedCardIndex')] || "C";
-
-            ctx.font = '500 15px Montserrat';
-            ctx.fillText('For successfully completing all exercises for', canvas.width / (2 * scale), 370);
-            ctx.fillText(`the ${template.level} Level in ${selectedLanguage}`, canvas.width / (2 * scale), 390);
-
-            const options = { day: '2-digit', month: 'short', year: 'numeric' };
-            const formattedDate = new Date().toLocaleDateString('en-GB', options);
-
-            ctx.font = '500 19px Montserrat';
-            ctx.textAlign = 'right';
-            ctx.fillText(formattedDate, canvas.width / (1.16 * scale), 495);
-
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF({
-                orientation: 'landscape',
-                unit: 'px',
-                format: [canvas.width / scale, canvas.height / scale]
-            });
-
-            pdf.addImage(canvas.toDataURL('image/png', 1.0), 'PNG', 0, 0, canvas.width / scale, canvas.height / scale);
-            pdf.save('certificate.pdf');
-        };
+    // Function to encrypt data
+    function encryptData(data) {
+        return CryptoJS.AES.encrypt(data, encryptionKey).toString();
     }
+
+    // Function to decrypt data
+    function decryptData(encryptedData) {
+        const bytes = CryptoJS.AES.decrypt(encryptedData, encryptionKey);
+        return bytes.toString(CryptoJS.enc.Utf8);
+    }
+
+    // Function to download encrypted localStorage as a JSON file
+    function downloadLocalStorage() {
+        const allData = { ...localStorage };
+        const jsonString = JSON.stringify(allData);
+        const encryptedData = encryptData(jsonString);
+
+        const blob = new Blob([encryptedData], { type: "application/json" });
+        const link = document.createElement("a");
+        link.download = "localStorageBackup_encrypted.json";
+        link.href = URL.createObjectURL(blob);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Function to upload and decrypt localStorage from JSON file
+    function uploadLocalStorage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const encryptedData = e.target.result;
+                try {
+                    const decryptedData = decryptData(encryptedData);
+                    const data = JSON.parse(decryptedData);
+
+                    for (let key in data) {
+                        localStorage.setItem(key, data[key]);
+                    }
+
+                    alert("LocalStorage restored successfully!");
+                } catch (error) {
+                    alert("Decryption failed. Please ensure you are using the correct file and key.");
+                }
+            };
+            reader.readAsText(file);
+        }
+    }
+
+    // Attach event listeners to buttons
+    document.getElementById('download-button').addEventListener('click', downloadLocalStorage);
+    document.getElementById('upload-input').addEventListener('change', uploadLocalStorage);
 
 </script>
 
 <script>
-    let sum = 0;
-    for (let i = 0; i < 19; i++) {
-        if (i !== 11 && i !== 13 && i !== 15 && i !== 17) {
-            if (localStorage.getItem(`taskResult_${i}_${1}`) === "111111") {
-                sum += 1;
-            }
-        }
+    // Get modal element
+    const modal = document.getElementById("popup-modal");
+
+    // Get button that opens the modal
+    const openModalBtn = document.getElementById("open-modal");
+
+    // Get the <span> element that closes the modal
+    const closeModalBtn = document.querySelector(".close");
+
+    // Open the modal when the button is clicked
+    openModalBtn.onclick = function() {
+        modal.style.display = "block";
     }
 
-    if (sum >= 15) {
-        const subtitle = document.getElementById('subtitle-text');
-        const hiddenElement = document.getElementById('sp');
-        hiddenElement.classList.remove("hidden")
-        hiddenElement.style.display = 'flex';
+    // Close the modal when the user clicks on <span> (x)
+    closeModalBtn.onclick = function() {
+        modal.style.display = "none";
+    }
 
-        const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
-        const selectedLanguage = languageOptions[localStorage.getItem('selectedCardIndex')] || "C";
-
-        let selectedButton = localStorage.getItem('selectedButton');
-        if (selectedButton === "1") {
-            selectedButton = "Easy";
+    // Close the modal if the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-        else if (selectedButton === "2") {
-            selectedButton = "Medium";
-        }
-        else if (selectedButton === "3") {
-            selectedButton = "Hard";
-        }
-        else {
-            selectedButton = "Insane";
-        }
-        subtitle.innerHTML = `You have successfully solved all the problems for the ${selectedButton} level in ${selectedLanguage}.`
     }
 
 </script>
-
 </body>
 </html>
