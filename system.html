@@ -92,6 +92,8 @@
 </script>
 
 <script>
+  console.log(localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`));
+
   const backgroundSidebar = document.querySelector(".background-sidebar");
   const navToggle = document.getElementById('toggle');
   const deleteDataIcon = document.querySelector(".fa-trash");
