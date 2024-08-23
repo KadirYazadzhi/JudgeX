@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="" />
+    <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Script/system-sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/nav system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/nav system.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/nav-system-special-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/system.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +22,8 @@
       <list>
         <option value="package.json" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,7 +79,7 @@
       <workItem from="1719474415918" duration="1389000" />
       <workItem from="1719477231499" duration="1358000" />
       <workItem from="1723739549475" duration="31295000" />
-      <workItem from="1724024440140" duration="41486000" />
+      <workItem from="1724024440140" duration="49615000" />
     </task>
     <servers />
   </component>

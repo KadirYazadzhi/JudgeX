@@ -15,10 +15,18 @@
   <link rel="stylesheet" type="text/css" href="Style/system.css">
   <link rel="stylesheet" type="text/css" href="Style/certificate-message.css">
   <link rel="stylesheet" type="text/css" href="Style/nav%20system.css">
-  <link id="specialStyle" rel="stylesheet" type="text/css" href="Style/nav-system-special-style.css">
 
 </head>
 <body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth < 600 && localStorage.getItem("Alert_Phone_Message_Load") === null) {
+      alert("The system page is responsive, but we not recommended to use it from phone, please use device with bigger screen to have full experience.");
+      localStorage.setItem("Alert_Phone_Message_Load", "True");
+    }
+  });
+</script>
+
 <div class="background-sidebar top-zero hidden"></div>
   <div id="nav-bar">
     <input id="nav-toggle" type="checkbox" checked="checked"/>
@@ -27,7 +35,13 @@
       <label id="toggle" for="nav-toggle"><span id="nav-toggle-burger"></span></label>
       <hr/>
     </div>
+
     <div id="nav-content">
+      <div class="nav-button">
+        <i class="fas fa-solid fa-circle-info"></i>
+        <span>Information</span>
+      </div>
+
       <div class="nav-button">
         <i class="fas fa-solid fa-trash"></i>
         <span>Purge Data</span>
@@ -36,11 +50,6 @@
       <div class="nav-button">
         <i class="fas fa-solid fa-file-arrow-down"></i>
         <span>Transfer Data</span>
-      </div>
-
-      <div class="nav-button">
-        <i class="fas fa-chart-line"></i>
-        <span>***</span>
       </div>
 
       <hr/>
@@ -63,7 +72,7 @@
       <hr/>
 
       <div class="nav-button">
-        <i style="color: #ff4040" class="fas fa-solid fa-right-from-bracket"></i>
+        <i class="redIcon fas fa-solid fa-right-from-bracket"></i>
         <span>Logout</span>
       </div>
 
@@ -86,53 +95,6 @@
       </div>
     </div>
   </div>
-<script>
-
-
-</script>
-
-<script>
-
-  const backgroundSidebar = document.querySelector(".background-sidebar");
-  const navToggle = document.getElementById('toggle');
-  const deleteDataIcon = document.querySelector(".fa-trash");
-  const githubIcon = document.querySelector(".fa-github");
-  const bugIcon = document.querySelector(".fa-bug");
-  const buyMeACoffeeIcon = document.querySelector(".fa-buymeacoffee");
-
-  navToggle.addEventListener('click', function () {
-    if (backgroundSidebar.classList.contains("hidden")) {
-      backgroundSidebar.classList.remove("hidden");
-    }
-    else {
-      backgroundSidebar.classList.add("hidden");
-    }
-
-  });
-
-  deleteDataIcon.addEventListener('click', function () {
-    if (confirm("Are you sure you want to delete all your data from the website? " +
-            "This includes your profile, achievements, and all information related to you.")) {
-      localStorage.clear();
-    }
-  });
-
-  githubIcon.addEventListener('click', function () {
-    window.location = "https://github.com/KadirYazadzhi/JudgeX/";
-  });
-
-  bugIcon.addEventListener('click', function () {
-    window.location = "https://github.com/KadirYazadzhi/JudgeX/issues/new";
-  });
-
-  buyMeACoffeeIcon.addEventListener('click', function () {
-    window.location = "#";
-  });
-
-</script>
-
-
-
 
 <div id="sp" class="background top-zero hidden">
   <div class="popup">
@@ -148,14 +110,64 @@
   </div>
 </div>
 
-<div class="savedCodeContainer top-zero hidden">
-  <textarea id="savedCode" class="savedCode" placeholder=""  readonly></textarea>
+<div class="background top-zero hidden">
+  <div class="transfer-box">
 
-  <div class="other-info">
-    <span>Created on: 20/05/2024 20:45:49</span>
-    <span>Submission Type: C++ code</span>
+    <label for="file" class="labelFile"
+    ><span
+    ><svg
+      xml:space="preserve"
+      viewBox="0 0 184.69 184.69"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns="http://www.w3.org/2000/svg"
+      id="Capa_1"
+      version="1.1"
+      width="60px"
+      height="60px"
+    >
+      <g>
+        <g>
+          <g>
+            <path
+                    d="M149.968,50.186c-8.017-14.308-23.796-22.515-40.717-19.813
+				C102.609,16.43,88.713,7.576,73.087,7.576c-22.117,0-40.112,17.994-40.112,40.115c0,0.913,0.036,1.854,0.118,2.834
+				C14.004,54.875,0,72.11,0,91.959c0,23.456,19.082,42.535,42.538,42.535h33.623v-7.025H42.538
+				c-19.583,0-35.509-15.929-35.509-35.509c0-17.526,13.084-32.621,30.442-35.105c0.931-0.132,1.768-0.633,2.326-1.392
+				c0.555-0.755,0.795-1.704,0.644-2.63c-0.297-1.904-0.447-3.582-0.447-5.139c0-18.249,14.852-33.094,33.094-33.094
+				c13.703,0,25.789,8.26,30.803,21.04c0.63,1.621,2.351,2.534,4.058,2.14c15.425-3.568,29.919,3.883,36.604,17.168
+				c0.508,1.027,1.503,1.736,2.641,1.897c17.368,2.473,30.481,17.569,30.481,35.112c0,19.58-15.937,35.509-35.52,35.509H97.391
+				v7.025h44.761c23.459,0,42.538-19.079,42.538-42.535C184.69,71.545,169.884,53.901,149.968,50.186z"
+                    style="fill:#00a9ff;"
+            ></path>
+          </g>
+          <g>
+            <path
+                    d="M108.586,90.201c1.406-1.403,1.406-3.672,0-5.075L88.541,65.078
+				c-0.701-0.698-1.614-1.045-2.534-1.045l-0.064,0.011c-0.018,0-0.036-0.011-0.054-0.011c-0.931,0-1.85,0.361-2.534,1.045
+				L63.31,85.127c-1.403,1.403-1.403,3.672,0,5.075c1.403,1.406,3.672,1.406,5.075,0L82.296,76.29v97.227
+				c0,1.99,1.603,3.597,3.593,3.597c1.979,0,3.59-1.607,3.59-3.597V76.165l14.033,14.036
+				C104.91,91.608,107.183,91.608,108.586,90.201z"
+                    style="fill:#00a9ff;"
+            ></path>
+          </g>
+        </g>
+      </g></svg
+  ></span>
+      <p>Drop JSON file here to import data</p></label>
+    <input class="input" name="text" id="file" type="file" />
+
+
+    <div class="tranfer-btn">
+      <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FileUploadIcon"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"></path>
+      </svg>
+      SELECT JSON FILE
+    </div>
+    <div class="tranfer-btn"></div>
+    <div class="tranfer-btn"></div>
   </div>
+
 </div>
+
 
 <div class="certificate-background top-zero hidden">
   <i class='fa-solid fa-x' style='color: red'></i>
@@ -197,8 +209,18 @@
     </div>
   </div>
 
+  <div class="difficult-level phone">
+    <h3>Difficulty</h3>
+
+    <div class="bar">
+      <div class="bar-stopper"></div>
+    </div>
+    <p class="difficult-text">Easy</p>
+  </div>
+
   <div class="main-window">
     <div class="code-editor">
+
       <textarea id="code-editor" placeholder="> Write your code here..."></textarea>
 
       <div class="menu-info">
@@ -207,19 +229,22 @@
           <li><strong>Allowed memory:</strong> 16.00 MB</li>
         </div>
 
-        <div class="language">
-          <svg id="icon-language" class="cplusplus" xmlns="http://www.w3.org/2000/svg" width="25%" height="25%" viewBox="0 0 24 24">
-            <path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92zm5.92-5.59h-.66V13h-.65v-.66H16v-.66h.66V11h.65v.66h.66zm2.47 0h-.66V13h-.66v-.66h-.65v-.66h.65V11h.66v.66h.66z"></path>
-          </svg>
-          <p id="text-language" class="text-language">C++</p>
+        <div class="bottom-menu-info">
+          <div class="language">
+            <svg id="icon-language" class="cplusplus" xmlns="http://www.w3.org/2000/svg" width="25%" height="25%" viewBox="0 0 24 24">
+              <path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92zm5.92-5.59h-.66V13h-.65v-.66H16v-.66h.66V11h.65v.66h.66zm2.47 0h-.66V13h-.66v-.66h-.65v-.66h.65V11h.66v.66h.66z"></path>
+            </svg>
+            <p id="text-language" class="text-language">C++</p>
+          </div>
+
+          <button class="submit-btn" onclick="submitCode()">Submit</button>
         </div>
 
-        <button class="submit-btn" onclick="submitCode()">Submit</button>
       </div>
     </div>
 
     <div class="right-container">
-      <div class="difficult-level">
+      <div class="difficult-level computer">
         <h3>Difficulty</h3>
 
         <div class="bar">
@@ -305,4 +330,5 @@
 <script rel="script" src="Script/code-view-icon.js"></script>
 <script rel="script" src="Script/certificate-generate.js"></script>
 <script rel="script" src="Script/view-certificate.js"></script>
+<script rel="script" src="Script/system-sidebar.js"></script>
 </html>

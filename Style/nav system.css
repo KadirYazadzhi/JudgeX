@@ -19,6 +19,7 @@
 #nav-toggle:checked ~ #nav-header {
     width: calc(var(--navbar-width-min) - 16px);
 }
+
 #nav-toggle:checked ~ #nav-content, #nav-toggle:checked ~ #nav-footer {
     width: var(--navbar-width-min);
 }
@@ -215,6 +216,15 @@ label[for=nav-toggle] {
 .nav-button .fas {
     transition: min-width 0.2s;
 }
+
+.redIcon {
+    color: #ff4040;
+}
+
+.nav-button:nth-of-type(7):hover .redIcon {
+    color: var(--navbar-dark-primary);
+}
+
 .nav-button:nth-of-type(1):hover {
     color: var(--navbar-dark-primary);
 }
@@ -267,7 +277,6 @@ label[for=nav-toggle] {
 #nav-bar .fas {
     min-width: 3rem;
     text-align: center;
-    color: #afafaf;
 }
 
 #nav-footer {
