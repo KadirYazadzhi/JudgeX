@@ -27,80 +27,6 @@
   });
 </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth < 768) {
-      const sidebar = document.getElementById('nav-bar');
-      const navHeader = document.getElementById('nav-header');
-      const sidebarContent = document.getElementById('nav-content');
-      const navFooter = document.getElementById('nav-footer');
-      const toggle = document.getElementById('toggle');
-
-      let scrollPosition = 0;
-
-      function disableScroll() {
-        // Запазване на текущата позиция на скролиране
-        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Фиксиране на body-то на тази позиция
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.overflow = 'hidden';
-      }
-
-      function enableScroll() {
-        // Възстановяване на нормалното поведение
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.overflow = '';
-
-        // Възстановяване на скрол позицията
-        window.scrollTo(0, scrollPosition);
-      }
-
-
-      if (window.innerWidth < 600) {
-        sidebar.style.background = "transparent";
-        sidebar.style.flexDirection = "row";
-        sidebar.style.position = "relative";
-        sidebarContent.classList.add("hidden");
-        sidebarContent.style.background = "transparent";
-        navHeader.style.background = "transparent";
-        sidebarContent.style.boxShadow = "none";
-        navFooter.classList.add("hidden");
-      }
-
-      toggle.addEventListener('click', function() {
-        if (sidebarContent.classList.contains("hidden")) {
-          sidebarContent.classList.remove("hidden");
-          navFooter.classList.remove("hidden");
-          sidebar.style.flexDirection = "column";
-          sidebar.style.position = "absolute";
-          sidebar.style.background = "#232F46FF";
-          sidebarContent.style.background = "#232F46FF";
-          navHeader.style.background = "#232F46FF";
-          sidebarContent.style.boxShadow = "0 0 0 16px #232F46FF";
-          disableScroll();
-        }
-        else {
-          sidebarContent.classList.add("hidden");
-          navFooter.classList.add("hidden");
-          sidebar.style.flexDirection = "row";
-          sidebar.style.position = "relative";
-          sidebar.style.background = "transparent";
-          sidebarContent.style.background = "transparent";
-          navHeader.style.background = "transparent";
-          sidebarContent.style.boxShadow = "none";
-          enableScroll();
-        }
-      });
-    }
-  });
-</script>
 
 <div class="background-sidebar top-zero hidden"></div>
   <div id="nav-bar">
@@ -406,4 +332,5 @@
 <script rel="script" src="Script/certificate-generate.js"></script>
 <script rel="script" src="Script/view-certificate.js"></script>
 <script rel="script" src="Script/system-sidebar.js"></script>
+<script rel="script" src="Script/sidebar-phone.js"></script>
 </html>
