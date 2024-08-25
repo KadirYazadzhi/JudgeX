@@ -13,6 +13,6 @@ setTimeout(function() {
     }, 10);
 },0);
 
-if (window.location === 404) {
-    console.log(404)
-}
+setTimeout(() => {
+    window.location.href = 'index.html';
+}, 5000);
