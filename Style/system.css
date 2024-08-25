@@ -459,6 +459,14 @@ body {
     align-items: center;
     justify-content: center;
     border: 1px solid #0077b0;
+    position: relative;
+}
+
+#transfer-box .fa-x {
+    cursor: pointer;
+    position: absolute;
+    top: 4%;
+    right: 4%;
 }
 
 @media (max-width: 768px) {

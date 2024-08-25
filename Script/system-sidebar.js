@@ -122,7 +122,7 @@ class MainController {
         bugIcon.addEventListener('click', (event) => ActionHandler.navigateToGithubBugReport(event));
         buyMeACoffeeIcon.addEventListener('click', (event) => ActionHandler.buyMeACoffee(event));
         transferDataIcon.addEventListener('click', (event) => ActionHandler.transferData(transferBox));
-        transferBox.addEventListener('click', (event) => ActionHandler.closeModal(transferBox));
+        closeModal.addEventListener('click', (event) => ActionHandler.closeModal(transferBox));
 
         new NavButtonController(navButtons);
     }

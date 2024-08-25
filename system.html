@@ -18,15 +18,6 @@
 
 </head>
 <body>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth < 600 && localStorage.getItem("Alert_Phone_Message_Load") === null) {
-      alert("The system page is responsive, but we not recommended to use it from phone, please use device with bigger screen to have full experience.");
-      localStorage.setItem("Alert_Phone_Message_Load", "True");
-    }
-  });
-</script>
-
 
 <div class="background-sidebar top-zero hidden"></div>
   <div id="nav-bar">
@@ -112,8 +103,8 @@
 </div>
 
 <div id="transfer-box" class="background top-zero hidden">
-  <i class='closeTranslate fa-solid fa-x' style='color: red'></i>
   <div class="transfer-box">
+    <i class='closeTranslate fa-solid fa-x' style='color: red'></i>
 
     <label for="file" class="labelFile">
       <span>
@@ -338,4 +329,5 @@
 <script rel="script" src="Script/view-certificate.js"></script>
 <script rel="script" src="Script/system-sidebar.js"></script>
 <script rel="script" src="Script/sidebar-phone.js"></script>
+<script rel="script" src="Script/system-phone-alert.js"></script>
 </html>
