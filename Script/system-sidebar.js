@@ -44,6 +44,14 @@ class ActionHandler {
         event.stopPropagation();
         window.location.href = "#";
     }
+
+    static transferData(background) {
+        background.classList.remove("hidden");
+    }
+
+    static closeModal(background) {
+        background.classList.add("hidden");
+    }
 }
 
 class NavButtonController {
@@ -99,6 +107,9 @@ class MainController {
         const backgroundSidebar = document.querySelector(".background-sidebar");
         const navToggle = document.getElementById('toggle');
         const deleteDataIcon = document.querySelector(".fa-trash");
+        const transferDataIcon = document.querySelector(".fa-file-arrow-down");
+        const transferBox = document.getElementById('transfer-box');
+        const closeModal = document.querySelector(".closeTranslate");
         const githubIcon = document.querySelector(".fa-github");
         const bugIcon = document.querySelector(".fa-bug");
         const buyMeACoffeeIcon = document.querySelector(".fa-buymeacoffee");
@@ -110,6 +121,8 @@ class MainController {
         githubIcon.addEventListener('click', (event) => ActionHandler.navigateToGithubProject(event));
         bugIcon.addEventListener('click', (event) => ActionHandler.navigateToGithubBugReport(event));
         buyMeACoffeeIcon.addEventListener('click', (event) => ActionHandler.buyMeACoffee(event));
+        transferDataIcon.addEventListener('click', (event) => ActionHandler.transferData(transferBox));
+        transferBox.addEventListener('click', (event) => ActionHandler.closeModal(transferBox));
 
         new NavButtonController(navButtons);
     }

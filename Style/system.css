@@ -449,15 +449,23 @@ body {
 }
 
 .transfer-box {
-    background: #192836;
+    background: #131825;
     border-radius: 20px;
-    width: 30%;
-    height: 70%;
+    width: 29%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
+    border: 1px solid #0077b0;
+}
+
+@media (max-width: 768px) {
+    .transfer-box {
+        width: 90%;
+        height: 55%;
+    }
 }
 
 .transfer-box h2 {
@@ -490,7 +498,7 @@ body {
     width: 65%;
     height: 45px;
     border-radius: 10px;
-    background: #1a2a3a;
+    background: #161d2d;
     border: 1px solid #00a9ff;
     align-items: center;
     justify-content: center;
