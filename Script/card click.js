@@ -17,16 +17,13 @@ class CardManager {
         if (clickedCard.classList.contains(activeClass)) {
             clickedCard.classList.remove(activeClass);
             localStorage.removeItem('selectedCardIndex');
-        } else {
+        }
+        else {
             this.removeActiveClasses();
             clickedCard.classList.add(activeClass);
             const cardIndex = Array.from(this.cards).indexOf(clickedCard);
             localStorage.setItem('selectedCardIndex', cardIndex);
         }
-    }
-
-    showAlert(message) {
-        alert(message);
     }
 
     removeActiveClasses() {
