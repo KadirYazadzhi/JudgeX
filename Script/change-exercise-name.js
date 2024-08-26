@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (level < 1 && level > 4 && level === null) {
         return;
     }
-    
     const selectedLevel = level || '1';
 
     // Select all task cards with the class 'task-card'

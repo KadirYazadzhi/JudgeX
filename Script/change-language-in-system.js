@@ -1,4 +1,3 @@
-
 if (selectedLanguage !== null) {
     switch (selectedLanguage) {
         case "0":
