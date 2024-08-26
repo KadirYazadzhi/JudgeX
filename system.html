@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="Style/cards-color.css">
   <link rel="stylesheet" type="text/css" href="Style/system.css">
@@ -106,7 +107,7 @@
   <div class="transfer-box">
     <i class='closeTranslate fa-solid fa-x' style='color: red'></i>
 
-    <label for="file" class="labelFile">
+    <label for="json-big-upload-input" class="labelFile">
       <span>
         <svg xml:space="preserve" viewBox="0 0 184.69 184.69" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Capa_1" version="1.1" width="60px" height="60px">
           <g>
@@ -139,15 +140,17 @@
         </svg>
     </span>
       <p>Drop JSON file here to import data</p></label>
-    <input class="input" name="text" id="file" type="file" />
+    <input id="json-big-upload-input" class="input" name="text" type="file" />
 
 
-    <div class="tranfer-btn">
-      <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FileUploadIcon">
-        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"></path>
-      </svg>
-      SELECT JSON FILE
-    </div>
+      <div id="json-upload-input" class="tranfer-btn">
+        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FileUploadIcon">
+          <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"></path>
+        </svg>
+        SELECT JSON FILE
+      </div>
+    <input id="file-input" class="input" name="text" type="file" />
+
     <div class="tranfer-btn">
       <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LinkIcon">
         <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5"></path>
@@ -155,7 +158,7 @@
       IMPORT FROM LINK
     </div>
 
-    <div class="tranfer-btn scpBTN">
+    <div id="json-download-button" class="tranfer-btn scpBTN">
       <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FileDownloadIcon">
         <path d="M19 9h-4V3H9v6H5l7 7zM5 18v2h14v-2z"></path>
       </svg>
@@ -330,4 +333,5 @@
 <script rel="script" src="Script/system-sidebar.js"></script>
 <script rel="script" src="Script/sidebar-phone.js"></script>
 <script rel="script" src="Script/system-phone-alert.js"></script>
+<script rel="script" src="Script/local-storage-download-and-restore.js"></script>
 </html>
