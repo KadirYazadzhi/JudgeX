@@ -522,6 +522,13 @@ body {
     box-shadow: 1px 1px 5px #00A9FF19;
 }
 
+.json-file-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
 .tranfer-btn svg {
     width: 30px;
     fill: #00a9ff;

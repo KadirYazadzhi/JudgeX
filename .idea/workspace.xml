@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Script/card click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/card click.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/certificate-generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/certificate-generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/code-view-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/code-view-icon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/cpp-code-compiling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/save-code-from-textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/save-code-from-textarea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/system.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +61,16 @@
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="certificate-generate.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Script/certificate-generate.js" working-dir="$PROJECT_DIR$/Script">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.certificate-generate.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -79,6 +93,8 @@
       <workItem from="1724024440140" duration="51564000" />
       <workItem from="1724440172230" duration="17000" />
       <workItem from="1724612102650" duration="11900000" />
+      <workItem from="1724643548691" duration="19478000" />
+      <workItem from="1724723752909" duration="8623000" />
     </task>
     <servers />
   </component>

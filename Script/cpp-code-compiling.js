@@ -4,7 +4,26 @@ let currentTaskIndex = 0;
 let languageToWork = 0;
 
 async function submitCode() {
+    const today = new Date().toISOString().slice(0, 10);
+
+    let callData = JSON.parse(localStorage.getItem("callData")) || { count: 0, lastDate: today };
+
+    if (callData.lastDate !== today) {
+        callData.count = 0;
+        callData.lastDate = today;
+    }
+
+    if (callData.count < 5) {
+        callData.count++;
+        localStorage.setItem("callData", JSON.stringify(callData));
+    } else {
+        console.log("You have exceeded the number of solutions you can upload in a day. Please wait until tomorrow to continue.");
+    }
+
+
     const code = document.getElementById('code-editor').value;
+
+    localStorage.setItem(`saveSubmitCode_${activeCard}_${selectedLanguage}_${selectedLevel}`, code);
 
     switch (selectedLanguage) {
         case "0":
@@ -315,7 +334,7 @@ async function checkResult(submissionId, index) {
 
         testResults += output === expectedOutput ? "1" : "0";
 
-        console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"} - Expected: ${expectedOutput}, Got: ${output}`);
+        console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"}`);
 
         if (index === inputs.length - 1) {
             console.log(`Final Test Results: ${testResults}`);

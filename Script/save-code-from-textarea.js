@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const txt = localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`);
 
-        console.log(activeTask + " " + selectedLanguage)
-        console.log(txt)
         const cards = document.querySelectorAll('.card');
 
         clearTestResults();
