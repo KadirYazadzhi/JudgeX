@@ -17,11 +17,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.separator {
-    width: 100%;
-    border-top: 1px solid #0d1118;
-}
-
 .background {
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
@@ -52,6 +47,7 @@ body {
     padding: 10px 5px;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #0d1118;
 }
 
 .information-icon {
@@ -194,7 +190,6 @@ body {
             <div class="inf-type-dot most-important"></div>
         </div>
 
-        <div class="separator"></div>
 
         <div class="information-card">
             <div class="information-icon">
@@ -204,7 +199,6 @@ body {
             <div class="inf-type-dot important"></div>
         </div>
 
-        <div class="separator"></div>
 
         <div class="information-card">
             <div class="information-icon">
@@ -214,7 +208,6 @@ body {
             <div class="inf-type-dot non-essential"></div>
         </div>
 
-        <div class="separator"></div>
     </div>
 </div>
 </body>
@@ -224,12 +217,14 @@ body {
 
 <script>
     class InfoTypeCardsManager {
-        constructor(cards) {
+        constructor(cards, informationCards) {
             this.cards = cards;
-            this.firstCard = cards[0];
+            this.informationCards = informationCards;
+            this.firstCard = cards[0]; // The "All" card
 
-            // Initialize by activating the first card
-            this.firstCard.classList.add("activeInfo");
+            // Initialize by activating the "All" card and showing all information cards
+            this.activateCard(this.firstCard);
+            this.filterCards(); // Show all cards initially
 
             // Add event listeners to all cards
             this.cards.forEach((card, index) => {
@@ -243,36 +238,55 @@ body {
          * @param {number} index - The index of the clicked card.
          */
         handleCardClick(card, index) {
-            const activeCards = this.getActiveCards();
-
-            // If the first card is clicked, ensure it can't be deactivated unless it's the only active card.
             if (index === 0) {
-                this.activateCard(card);
-                this.deactivateAllNonFirstCards();
-                if (activeCards.length > 1) {
-                    return;
+                // If the "All" card is clicked
+                if (card.classList.contains("activeInfo")) {
+                    // Deactivate "All" card and show only the cards that match other active types
+                    this.deactivateCard(card);
+                    this.filterCards(); // Show cards based on active types (excluding "All")
+                } else {
+                    // Activate "All" card and show all cards
+                    this.activateCard(card);
+                    this.filterCards("all");
                 }
             } else {
-                // Logic for cards other than the first
+                // Logic for other cards
                 if (card.classList.contains("activeInfo")) {
                     this.deactivateCard(card);
                 } else {
                     this.activateCard(card);
-                    // Ensure that the first card is deactivated when another card is activated
-                    if (this.firstCard.classList.contains("activeInfo")) {
-                        this.deactivateCard(this.firstCard);
-                    }
+                }
 
-                    // Check if three non-first cards are active
-                    const activeNonFirstCards = this.getActiveNonFirstCards();
-
-                    if (activeNonFirstCards.length === 3) {
-                        // Deactivate all non-first cards and reactivate the first card
-                        this.deactivateAllNonFirstCards();
-                        this.activateCard(this.firstCard);
-                    }
+                // Check if the "All" card should be deactivated
+                if (this.getActiveCards().length === 0) {
+                    this.activateCard(this.firstCard);
+                    this.filterCards("all");
+                } else {
+                    this.deactivateCard(this.firstCard);
+                    this.filterCards();
                 }
             }
+        }
+
+        /**
+         * Filters the information cards based on the active card types.
+         * @param {string} [type] - The type of card to filter by (e.g., 'most-important', 'important', 'non-essential', 'all').
+         */
+        filterCards(type = "") {
+            // Get all active card types excluding the "All" card
+            const activeTypes = Array.from(this.getActiveCards())
+                .map(card => card.classList[1])
+                .filter(type => type !== 'all');
+
+            this.informationCards.forEach(infoCard => {
+                const cardDot = infoCard.querySelector('.inf-type-dot');
+
+                if (type === "all" || activeTypes.length === 0 || activeTypes.includes(cardDot.classList[1])) {
+                    infoCard.style.display = "flex"; // Show card
+                } else {
+                    infoCard.style.display = "none"; // Hide card
+                }
+            });
         }
 
         /**
@@ -298,31 +312,14 @@ body {
         getActiveCards() {
             return document.querySelectorAll(".inf-type.activeInfo");
         }
-
-        /**
-         * Retrieves a list of all active cards except the first card.
-         * @returns {NodeList} - A list of active cards excluding the first one.
-         */
-        getActiveNonFirstCards() {
-            return document.querySelectorAll(".inf-type.activeInfo:not(:first-child)");
-        }
-
-        /**
-         * Deactivates all cards except the first one.
-         */
-        deactivateAllNonFirstCards() {
-            this.cards.forEach((card, index) => {
-                if (index !== 0) {
-                    this.deactivateCard(card);
-                }
-            });
-        }
     }
 
-    // Select all cards and initialize the InfoTypeCardsManager
+    // Select all cards from the top bar and all information cards
     const infoTypeCards = document.querySelectorAll(".inf-type");
-    const infoTypeCardsManager = new InfoTypeCardsManager(infoTypeCards);
+    const informationCards = document.querySelectorAll(".information-card");
 
+    // Initialize the InfoTypeCardsManager with both the type cards and information cards
+    const infoTypeCardsManager = new InfoTypeCardsManager(infoTypeCards, informationCards);
 
 </script>
 </html>
