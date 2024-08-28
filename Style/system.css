@@ -6,6 +6,17 @@ body {
     background-color: #0d1118;
 }
 
+.background {
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10000;
+}
+
 .container {
     border: 1px solid #1f293a;
     border-radius: 20px;
@@ -244,7 +255,13 @@ body {
 }
 
 .document-button svg {
+    fill: white;
     width: 20px;
+    transition: ease-in-out 0.2s;
+}
+
+.document-button:hover svg {
+    fill: #00a8ff !important;
 }
 
 .task-and-button {
@@ -410,12 +427,12 @@ body {
 
 .certificateBtn:hover svg {
     transition: ease-in-out 0.2s;
-    fill: #d7b500;
+    fill: #d7b500!important;
 }
 
 .certificateBtn svg {
-    width: 20px;
-    fill: #ffffff;
+    width: 28px;
+    fill: #ffffff!important;
 }
 
 .buttons {

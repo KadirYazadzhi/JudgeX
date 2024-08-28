@@ -1,7 +1,6 @@
 html, body {
     height: 100%; /* Ensure the body takes full height */
     margin: 0; /* Remove default margin */
-    overflow: hidden; /* Hide the default scrollbars */
 }
 
 body {
