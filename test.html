@@ -224,7 +224,7 @@ body {
 
             // Initialize by activating the "All" card and showing all information cards
             this.activateCard(this.firstCard);
-            this.filterCards(); // Show all cards initially
+            this.filterCards("all"); // Show all cards initially
 
             // Add event listeners to all cards
             this.cards.forEach((card, index) => {
@@ -257,13 +257,20 @@ body {
                     this.activateCard(card);
                 }
 
-                // Check if the "All" card should be deactivated
-                if (this.getActiveCards().length === 0) {
+                // Ensure that if exactly three non-first cards are active, the "All" card is activated
+                if (this.getActiveNonFirstCards().length === 3) {
+                    this.deactivateAllNonFirstCards();
                     this.activateCard(this.firstCard);
                     this.filterCards("all");
                 } else {
-                    this.deactivateCard(this.firstCard);
-                    this.filterCards();
+                    // If no active cards are left, activate the "All" card
+                    if (this.getActiveCards().length === 0) {
+                        this.activateCard(this.firstCard);
+                        this.filterCards("all");
+                    } else {
+                        this.deactivateCard(this.firstCard);
+                        this.filterCards();
+                    }
                 }
             }
         }
@@ -311,6 +318,25 @@ body {
          */
         getActiveCards() {
             return document.querySelectorAll(".inf-type.activeInfo");
+        }
+
+        /**
+         * Retrieves a list of all active cards except the first card.
+         * @returns {NodeList} - A list of active cards excluding the first one.
+         */
+        getActiveNonFirstCards() {
+            return document.querySelectorAll(".inf-type.activeInfo:not(:first-child)");
+        }
+
+        /**
+         * Deactivates all cards except the first one.
+         */
+        deactivateAllNonFirstCards() {
+            this.cards.forEach((card, index) => {
+                if (index !== 0) {
+                    this.deactivateCard(card);
+                }
+            });
         }
     }
 
