@@ -4,224 +4,325 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Export/Import LocalStorage</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+
 </head>
 <body>
 
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f7f8fa;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+.separator {
+    width: 100%;
+    border-top: 1px solid #0d1118;
+}
 
-    /* Main button to open the modal */
-    #open-modal {
-        padding: 15px 30px;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: #5c67f2;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
+.background {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
 
-    #open-modal:hover {
-        background-color: #4353d3;
-    }
+.information {
+    width: 40%;
+    height: 50%;
+    background: rgba(22, 29, 45, 1);
+    border-radius: 10px;
+    border: 1px solid #00a8ff;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
-    }
+.information-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 5px;
+    align-items: center;
+    justify-content: center;
+}
 
-    /* Modal Content */
-    .modal-content {
-        background-color: #fff;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        border-radius: 10px;
-        width: 400px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+.information-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #1e2841;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #bfd2ff;
+}
 
-    /* Close button (X) */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+.information-text {
+    color: #bfd2ff;
+    width: 80%;
+}
 
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.information-top-bar {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
 
-    /* Buttons inside the modal */
-    #download-button, #upload-label {
-        display: inline-block;
-        padding: 15px 25px;
-        font-size: 16px;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.2s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin: 15px 10px;
-    }
+.inf-type {
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: ease-in-out 0.2s;
+}
 
-    #download-button:hover, #upload-label:hover {
-        background: linear-gradient(135deg, #764ba2, #667eea);
-        transform: translateY(-3px);
-    }
+.inf-type:hover {
+    opacity: 0.8;
+}
 
-    #download-button:active, #upload-label:active {
-        background: linear-gradient(135deg, #665abf, #7635ad);
-    }
+.inf-type span {
+    color: white;
+    font-size: 14px;
+}
 
-    #upload-input {
-        display: none;
-    }
+.all {
+    width: 50px;
+    border: 1px solid #001073;
+    background: #001073;
+    box-shadow: 1px 1px 5px #001073;
+}
 
+.all:hover {
+    border: 1px solid #001286;
+    background: #001286;
+    box-shadow: 1px 1px 5px #001286;
+}
+
+.most-important {
+    border: 1px solid #880000;
+    background: #880000;
+    box-shadow: 1px 1px 5px #880000;
+}
+
+.most-important:hover {
+    border: 1px solid #a20000;
+    background: #a20000;
+    box-shadow: 1px 1px 5px #a20000;
+}
+
+.important {
+    border: 1px solid #ad4c01;
+    background: #ad4c01;
+    box-shadow: 1px 1px 5px #ad4c01;
+}
+
+.important:hover {
+    border: 1px solid #c45700;
+    background: #c45700;
+    box-shadow: 1px 1px 5px #c45700;
+}
+
+.non-essential {
+    border: 1px solid #157000;
+    background: #157000;
+    box-shadow: 1px 1px 5px #157000;
+}
+
+.non-essential:hover {
+    border: 1px solid #188600;
+    background: #188600;
+    box-shadow: 1px 1px 5px #188600;
+}
+
+.inf-type-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.activeInfo {
+    opacity: 1;
+
+}
 
 </style>
 
 
-<!-- Button to open the modal -->
-<button id="open-modal">Open Settings</button>
+<div class="background">
+    <div class="information">
+        <div class="information-top-bar">
+            <div class="inf-type all">
+                <span>All</span>
+            </div>
 
-<!-- The Modal -->
-<div id="popup-modal" class="modal">
+            <div class="inf-type most-important">
+                <span>Most important</span>
+            </div>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Storage Settings</h2>
-        <!-- Button to download encrypted LocalStorage -->
-        <button id="download-button">Download Encrypted LocalStorage</button>
+            <div class="inf-type important">
+                <span>Important</span>
+            </div>
 
-        <!-- Input to upload and decrypt JSON file -->
-        <label for="upload-input" id="upload-label">Upload Encrypted LocalStorage</label>
-        <input type="file" id="upload-input" accept=".json">
+            <div class="inf-type non-essential">
+                <span>Non-essential</span>
+            </div>
+        </div>
+
+        <div class="information-card">
+            <div class="information-icon">
+                <i class="fa-solid fa-database strikethrough-icon"></i>
+            </div>
+            <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+            <div class="inf-type-dot most-important"></div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="information-card">
+            <div class="information-icon">
+                <i class="fa-solid fa-database strikethrough-icon"></i>
+            </div>
+            <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+            <div class="inf-type-dot important"></div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="information-card">
+            <div class="information-icon">
+                <i class="fa-solid fa-database strikethrough-icon"></i>
+            </div>
+            <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+            <div class="inf-type-dot non-essential"></div>
+        </div>
+
+        <div class="separator"></div>
     </div>
 </div>
+</body>
+<script>
+    
+</script>
 
 <script>
-    const specialKey = "Fk93!dj#1ZlA09Qw7k&2Hn19E//*0la9012+:";
+    class InfoTypeCardsManager {
+        constructor(cards) {
+            this.cards = cards;
+            this.firstCard = cards[0];
 
-    const encryptionKey = specialKey;  // Replace with your own secure key
+            // Initialize by activating the first card
+            this.firstCard.classList.add("activeInfo");
 
-    // Function to encrypt data
-    function encryptData(data) {
-        return CryptoJS.AES.encrypt(data, encryptionKey).toString();
-    }
+            // Add event listeners to all cards
+            this.cards.forEach((card, index) => {
+                card.addEventListener('click', () => this.handleCardClick(card, index));
+            });
+        }
 
-    // Function to decrypt data
-    function decryptData(encryptedData) {
-        const bytes = CryptoJS.AES.decrypt(encryptedData, encryptionKey);
-        return bytes.toString(CryptoJS.enc.Utf8);
-    }
+        /**
+         * Handles the click event for the cards.
+         * @param {HTMLElement} card - The card that was clicked.
+         * @param {number} index - The index of the clicked card.
+         */
+        handleCardClick(card, index) {
+            const activeCards = this.getActiveCards();
 
-    // Function to download encrypted localStorage as a JSON file
-    function downloadLocalStorage() {
-        const allData = { ...localStorage };
-        const jsonString = JSON.stringify(allData);
-        const encryptedData = encryptData(jsonString);
-
-        const blob = new Blob([encryptedData], { type: "application/json" });
-        const link = document.createElement("a");
-        link.download = "localStorageBackup_encrypted.json";
-        link.href = URL.createObjectURL(blob);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    // Function to upload and decrypt localStorage from JSON file
-    function uploadLocalStorage(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const encryptedData = e.target.result;
-                try {
-                    const decryptedData = decryptData(encryptedData);
-                    const data = JSON.parse(decryptedData);
-
-                    for (let key in data) {
-                        localStorage.setItem(key, data[key]);
+            // If the first card is clicked, ensure it can't be deactivated unless it's the only active card.
+            if (index === 0) {
+                this.activateCard(card);
+                this.deactivateAllNonFirstCards();
+                if (activeCards.length > 1) {
+                    return;
+                }
+            } else {
+                // Logic for cards other than the first
+                if (card.classList.contains("activeInfo")) {
+                    this.deactivateCard(card);
+                } else {
+                    this.activateCard(card);
+                    // Ensure that the first card is deactivated when another card is activated
+                    if (this.firstCard.classList.contains("activeInfo")) {
+                        this.deactivateCard(this.firstCard);
                     }
 
-                    alert("LocalStorage restored successfully!");
-                } catch (error) {
-                    alert("Decryption failed. Please ensure you are using the correct file and key.");
+                    // Check if three non-first cards are active
+                    const activeNonFirstCards = this.getActiveNonFirstCards();
+
+                    if (activeNonFirstCards.length === 3) {
+                        // Deactivate all non-first cards and reactivate the first card
+                        this.deactivateAllNonFirstCards();
+                        this.activateCard(this.firstCard);
+                    }
                 }
-            };
-            reader.readAsText(file);
+            }
+        }
+
+        /**
+         * Activates the specified card by adding the "activeInfo" class.
+         * @param {HTMLElement} card - The card to activate.
+         */
+        activateCard(card) {
+            card.classList.add("activeInfo");
+        }
+
+        /**
+         * Deactivates the specified card by removing the "activeInfo" class.
+         * @param {HTMLElement} card - The card to deactivate.
+         */
+        deactivateCard(card) {
+            card.classList.remove("activeInfo");
+        }
+
+        /**
+         * Retrieves a list of all active cards.
+         * @returns {NodeList} - A list of active cards.
+         */
+        getActiveCards() {
+            return document.querySelectorAll(".inf-type.activeInfo");
+        }
+
+        /**
+         * Retrieves a list of all active cards except the first card.
+         * @returns {NodeList} - A list of active cards excluding the first one.
+         */
+        getActiveNonFirstCards() {
+            return document.querySelectorAll(".inf-type.activeInfo:not(:first-child)");
+        }
+
+        /**
+         * Deactivates all cards except the first one.
+         */
+        deactivateAllNonFirstCards() {
+            this.cards.forEach((card, index) => {
+                if (index !== 0) {
+                    this.deactivateCard(card);
+                }
+            });
         }
     }
 
-    // Attach event listeners to buttons
-    document.getElementById('download-button').addEventListener('click', downloadLocalStorage);
-    document.getElementById('upload-input').addEventListener('change', uploadLocalStorage);
+    // Select all cards and initialize the InfoTypeCardsManager
+    const infoTypeCards = document.querySelectorAll(".inf-type");
+    const infoTypeCardsManager = new InfoTypeCardsManager(infoTypeCards);
+
 
 </script>
-
-<script>
-    // Get modal element
-    const modal = document.getElementById("popup-modal");
-
-    // Get button that opens the modal
-    const openModalBtn = document.getElementById("open-modal");
-
-    // Get the <span> element that closes the modal
-    const closeModalBtn = document.querySelector(".close");
-
-    // Open the modal when the button is clicked
-    openModalBtn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // Close the modal when the user clicks on <span> (x)
-    closeModalBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Close the modal if the user clicks anywhere outside of the modal
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-</script>
-</body>
 </html>

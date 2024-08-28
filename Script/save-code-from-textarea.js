@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskCards = document.querySelectorAll('.task-card');
     const selectedLanguage = localStorage.getItem('selectedCardIndex');
     const selectedLevel = localStorage.getItem('selectedButton');
+    const refreshBtn = document.getElementById('refresh-result-btn');
 
     function getActiveTask() {
         const activeCard = document.querySelector('.task-card.active-task');
@@ -30,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTestResults();
 
         if (txt) {
-            // Обработваме само картите, които съответстват на резултатите
             for (let i = 0; i < txt.length && i < cards.length; i++) {
                 if (txt[i] === "1") {
                     cards[i].classList.remove('null');
@@ -89,6 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
             loadTestResult();
             loadCodeForActiveTask();
         });
+    });
+
+    refreshBtn.addEventListener('click', function () {
+        loadTestResult();
+        refreshBtn.classList.add("active-icon");
+        setTimeout(() => {
+            refreshBtn.classList.remove("active-icon");
+        }, 500);
     });
 
     // Задаваме първата задача като активна при зареждане на страницата, ако няма активна задача
