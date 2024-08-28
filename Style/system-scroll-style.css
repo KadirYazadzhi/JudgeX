@@ -1,0 +1,29 @@
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Hide the default scrollbars */
+}
+
+body {
+    overflow: auto; /* Enable scrolling for body */
+}
+
+/* Styling for the scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; /* Background of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent; /* Color of the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent; /* Color of the scrollbar thumb on hover */
+}
