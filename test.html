@@ -182,7 +182,7 @@ body {
             </div>
         </div>
 
-        <div class="information-card mi">
+        <div class="information-card">
             <div class="information-icon">
                 <i class="fa-solid fa-database strikethrough-icon"></i>
             </div>
@@ -241,9 +241,8 @@ body {
             if (index === 0) {
                 // If the "All" card is clicked
                 if (card.classList.contains("activeInfo")) {
-                    // Deactivate "All" card and show only the cards that match other active types
-                    this.deactivateCard(card);
-                    this.filterCards(); // Show cards based on active types (excluding "All")
+                    // Do nothing if "All" card is active to prevent deactivation
+                    return;
                 } else {
                     // Activate "All" card and show all cards
                     this.activateCard(card);
@@ -346,6 +345,7 @@ body {
 
     // Initialize the InfoTypeCardsManager with both the type cards and information cards
     const infoTypeCardsManager = new InfoTypeCardsManager(infoTypeCards, informationCards);
+
 
 </script>
 </html>
