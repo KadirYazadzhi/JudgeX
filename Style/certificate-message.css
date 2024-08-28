@@ -1,14 +1,3 @@
-.background {
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .popup {
     position: relative;
     width: 360px;

@@ -45,18 +45,27 @@ class ActionHandler {
         window.location.href = "#";
     }
 
-    static transferData(background) {
+    static transferData(event, background) {
+        event.stopPropagation();
         background.classList.remove("hidden");
     }
 
-    static closeModal(background) {
+    static closeModal(event, background) {
+        event.stopPropagation();
         background.classList.add("hidden");
+    }
+
+    static openModal(event, background) {
+        event.stopPropagation();
+        background.classList.remove("hidden");
     }
 }
 
 class NavButtonController {
-    constructor(buttons) {
+    constructor(buttons, transferBox, informationModal) {
         this.buttons = buttons;
+        this.transferBox = transferBox;
+        this.informationModal = informationModal;
         this.num = 0;
         this.init();
     }
@@ -68,16 +77,16 @@ class NavButtonController {
     }
 
     handleClick(event, state) {
-        event.stopPropagation(); // Спиране на разпространението на събитието
+        event.stopPropagation();
         switch (state) {
             case 1:
-
+                ActionHandler.openModal(event, this.informationModal);
                 break;
             case 2:
                 ActionHandler.deleteMessageConfirm(event);
                 break;
             case 3:
-                this.num = 3;
+                ActionHandler.transferData(event, this.transferBox);
                 break;
             case 4:
                 ActionHandler.navigateToGithubProject(event);
@@ -86,7 +95,7 @@ class NavButtonController {
                 ActionHandler.navigateToGithubBugReport(event);
                 break;
             case 6:
-                this.num = 6;
+                ActionHandler.buyMeACoffee(event);
                 break;
             case 7:
                 this.num = 7;
@@ -113,7 +122,10 @@ class MainController {
         const githubIcon = document.querySelector(".fa-github");
         const bugIcon = document.querySelector(".fa-bug");
         const buyMeACoffeeIcon = document.querySelector(".fa-buymeacoffee");
-        const navButtons = document.querySelectorAll('.nav-button');
+        const navButtons = document.querySelectorAll(".nav-button");
+        const informationModal = document.getElementById('information');
+        const informationIcon = document.querySelector(".fa-circle-info");
+        const informationModalClose = document.querySelector(".closeInformationModal");
 
         new SidebarController(backgroundSidebar, navToggle);
 
@@ -121,10 +133,12 @@ class MainController {
         githubIcon.addEventListener('click', (event) => ActionHandler.navigateToGithubProject(event));
         bugIcon.addEventListener('click', (event) => ActionHandler.navigateToGithubBugReport(event));
         buyMeACoffeeIcon.addEventListener('click', (event) => ActionHandler.buyMeACoffee(event));
-        transferDataIcon.addEventListener('click', (event) => ActionHandler.transferData(transferBox));
-        closeModal.addEventListener('click', (event) => ActionHandler.closeModal(transferBox));
+        transferDataIcon.addEventListener('click', (event) => ActionHandler.transferData(event, transferBox));
+        closeModal.addEventListener('click', (event) => ActionHandler.closeModal(event, transferBox));
+        informationIcon.addEventListener('click', (event) => ActionHandler.openModal(event, informationModal));
+        informationModalClose.addEventListener('click', (event) => ActionHandler.closeModal(event, informationModal));
 
-        new NavButtonController(navButtons);
+        new NavButtonController(navButtons, transferBox, informationModal);
     }
 }
 

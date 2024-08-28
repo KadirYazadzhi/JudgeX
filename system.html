@@ -17,10 +17,10 @@
   <link rel="stylesheet" type="text/css" href="Style/certificate-message.css">
   <link rel="stylesheet" type="text/css" href="Style/nav%20system.css">
   <link rel="stylesheet" type="text/css" href="Style/system-scroll-style.css">
+  <link rel="stylesheet" type="text/css" href="Style/sidebar-information-modal.css">
 
 </head>
 <body>
-
 <div class="background-sidebar top-zero hidden"></div>
   <div id="nav-bar">
     <input id="nav-toggle" type="checkbox" checked="checked"/>
@@ -89,6 +89,71 @@
       </div>
     </div>
   </div>
+
+<div id="information" class="background top-zero hidden">
+  <div class="information">
+    <i class='closeInformationModal fa-solid fa-x'></i>
+
+    <div class="information-top-bar">
+      <div class="inf-type all">
+        <span>All</span>
+      </div>
+
+      <div class="inf-type most-important">
+        <span>Most important</span>
+      </div>
+
+      <div class="inf-type important">
+        <span>Important</span>
+      </div>
+
+      <div class="inf-type non-essential">
+        <span>Non-essential</span>
+      </div>
+    </div>
+
+    <div class="information-card">
+      <div class="information-icon">
+        <i class="fa-solid fa-database strikethrough-icon"></i>
+      </div>
+      <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+      <div class="inf-type-dot most-important"></div>
+    </div>
+
+    <div class="information-card">
+      <div class="information-icon">
+        <i class="fa-solid fa-database strikethrough-icon"></i>
+      </div>
+      <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+      <div class="inf-type-dot important"></div>
+    </div>
+
+    <div class="information-card">
+      <div class="information-icon">
+        <i class="fa-solid fa-database strikethrough-icon"></i>
+      </div>
+      <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+      <div class="inf-type-dot non-essential"></div>
+    </div>
+
+    <div class="information-card">
+      <div class="information-icon">
+        <i class="fa-solid fa-database strikethrough-icon"></i>
+      </div>
+      <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+      <div class="inf-type-dot non-essential"></div>
+    </div>
+
+    <div class="information-card">
+      <div class="information-icon">
+        <i class="fa-solid fa-database strikethrough-icon"></i>
+      </div>
+      <span class="information-text">This system doesn't have database and save information in local storage, please do not clear your local storage or browser cookies.</span>
+      <div class="inf-type-dot non-essential"></div>
+    </div>
+
+  </div>
+</div>
 
 <div id="sp" class="background top-zero hidden">
   <div class="popup">
@@ -337,4 +402,5 @@
 <script rel="script" src="Script/sidebar-phone.js"></script>
 <script rel="script" src="Script/system-phone-alert.js"></script>
 <script rel="script" src="Script/local-storage-download-and-restore.js"></script>
+<script rel="script" src="Script/sidebar-information-card-logic.js"></script>
 </html>
