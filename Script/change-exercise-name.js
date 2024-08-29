@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectedLevel = getSelectedLevel() || '1';
 
     // Select all task cards with the class 'task-card'
-    const taskCards = document.querySelectorAll('.task-card');
+    const taskCards = getTaskCard();
 
     if (taskCards.length === 0) {
         console.error('No task cards found in the DOM.');

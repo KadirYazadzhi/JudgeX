@@ -1,6 +1,6 @@
 class TaskManager {
     constructor() {
-        this.taskCards = taskCards;
+        this.taskCards = getTaskCard();
         this.barStopper = document.querySelector('.bar-stopper');
         this.barText = document.querySelector('.difficult-text');
         this.dataValueForButton = {
