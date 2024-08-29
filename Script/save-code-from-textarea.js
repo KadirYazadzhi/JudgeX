@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function() {
             taskCards.forEach(c => c.classList.remove('active-task'));
             card.classList.add('active-task');
+            localStorage.setItem('activeTask', card.dataset.value);
 
             loadTestResult();
             loadCodeForActiveTask();

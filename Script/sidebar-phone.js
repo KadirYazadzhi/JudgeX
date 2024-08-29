@@ -6,6 +6,7 @@ class Sidebar {
         this.navFooter = document.getElementById('nav-footer');
         this.toggle = document.getElementById('toggle');
         this.scrollPosition = 0;
+        this.container = document.querySelector(".container");
 
         this.init();
     }
@@ -27,7 +28,6 @@ class Sidebar {
     setMobileStyles() {
         this.sidebar.style.background = "transparent";
         this.sidebar.style.flexDirection = "row";
-        this.sidebar.style.position = "relative";
         this.sidebarContent.classList.add("hidden");
         this.sidebarContent.style.background = "transparent";
         this.navHeader.style.background = "transparent";
@@ -70,6 +70,8 @@ class Sidebar {
         this.sidebarContent.style.background = "#232F46FF";
         this.navHeader.style.background = "#232F46FF";
         this.sidebarContent.style.boxShadow = "0 0 0 16px #232F46FF";
+        this.sidebar.style.maxHeight = '90%'
+        this.sidebar.style.marginTop = '0'
         this.disableScroll();
     }
 
@@ -77,11 +79,11 @@ class Sidebar {
         this.sidebarContent.classList.add("hidden");
         this.navFooter.classList.add("hidden");
         this.sidebar.style.flexDirection = "row";
-        this.sidebar.style.position = "relative";
         this.sidebar.style.background = "transparent";
         this.sidebarContent.style.background = "transparent";
         this.navHeader.style.background = "transparent";
         this.sidebarContent.style.boxShadow = "none";
+        this.sidebar.style.maxHeight = '8%'
         this.enableScroll();
     }
 }

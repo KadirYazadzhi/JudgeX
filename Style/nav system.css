@@ -407,7 +407,7 @@ label[for=nav-footer-toggle] {
     @media (max-height: 1000px) and (min-height: 850px) {
 
         #nav-bar {
-            max-height: 38%;
+            max-height: 8%;
         }
     }
 }
