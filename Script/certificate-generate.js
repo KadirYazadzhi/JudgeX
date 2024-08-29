@@ -16,13 +16,13 @@ class CertificateGenerator {
     }
 
     getSelectedTemplate() {
-        const selectedButton = localStorage.getItem('selectedButton');
+        const selectedButton = getSelectedLevel();
         return this.templates[selectedButton];
     }
 
     getSelectedLanguage() {
         const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
-        return languageOptions[localStorage.getItem('selectedCardIndex')] || "C";
+        return languageOptions[getSelectedLanguage()] || "C";
     }
 
     getFormattedDate() {
@@ -94,7 +94,7 @@ class CertificateGenerator {
         const selectedLanguage = this.getSelectedLanguage();
         const formattedDate = this.getFormattedDate();
 
-        if (localStorage.getItem(`savedCertificate_${language}_${level}`) === null) {
+        if (localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null) {
             this.configureCanvas();
             this.drawCertificate(template, nameInput, selectedLanguage, formattedDate);
         } else {
