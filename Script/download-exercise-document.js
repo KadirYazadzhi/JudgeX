@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const taskText = activeTask.textContent.trim();
             let directory = '';
 
-            switch (selectedLevel) {
+            switch (getSelectedLevel()) {
                 case "1":
                     directory = 'Exercise/Easy';
                     switch (taskText) {
