@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Method to update the task names in the task cards
         updateTaskNames(selectedLevel) {
-            const tasks = this.taskManager.getTasksForLevel(selectedLevel);
+            const tasks = this.taskManager.getTasksForLevel(getSelectedLevel());
 
             // Loop through each task card and update it with the corresponding task name
             this.taskCards.forEach((card, index) => {
@@ -105,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Retrieve the selected level from localStorage or use a default value
-    if (level < 1 && level > 4 && level === null) {
+    if (getSelectedLevel() < 1 && getSelectedLevel() > 4 && getSelectedLevel() === null) {
         return;
     }
-    const selectedLevel = level || '1';
+    const selectedLevel = getSelectedLevel() || '1';
 
     // Select all task cards with the class 'task-card'
     const taskCards = document.querySelectorAll('.task-card');
