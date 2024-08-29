@@ -1,5 +1,5 @@
-if (selectedLanguage !== null) {
-    switch (selectedLanguage) {
+if (getSelectedLanguage() !== null) {
+    switch (getSelectedLanguage()) {
         case "0":
             languageText.innerHTML = "C";
             languageIcon.outerHTML = `
