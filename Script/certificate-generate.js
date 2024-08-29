@@ -61,7 +61,7 @@ class CertificateGenerator {
             this.ctx.fillText(formattedDate, this.canvas.width / (1.16 * this.scale), 495);
 
             const certificateImage = this.canvas.toDataURL('image/png', 1.0);
-            localStorage.setItem(`savedCertificate_${language}_${level}`, certificateImage);
+            localStorage.setItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`, certificateImage);
 
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF({

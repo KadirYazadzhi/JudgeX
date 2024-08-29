@@ -1,6 +1,6 @@
 class NavigationManager {
     constructor() {}
-    
+
     navigate() {
         const selectedLevel = getSelectedLevel();
         const selectedLanguage = getSelectedLanguage();
