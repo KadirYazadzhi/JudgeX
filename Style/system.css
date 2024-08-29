@@ -409,7 +409,8 @@ body {
 }
 
 .active-icon {
-    background: #00a9ff!important;
+    background: rgb(0, 169, 255) !important;
+    transition: ease-in-out 0.2s;
 }
 
 .top-zero {

@@ -1,14 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const codeEditor = document.getElementById('code-editor');
     const taskCards = document.querySelectorAll('.task-card');
-    const selectedLanguage = localStorage.getItem('selectedCardIndex');
-    const selectedLevel = localStorage.getItem('selectedButton');
     const refreshBtn = document.getElementById('refresh-result-btn');
-
-    function getActiveTask() {
-        const activeCard = document.querySelector('.task-card.active-task');
-        return activeCard ? activeCard.dataset.value : null;
-    }
 
     function clearTestResults() {
         const cards = document.querySelectorAll('.card');
@@ -21,10 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadTestResult() {
-        const activeTask = getActiveTask();
-        if (!activeTask) return;
+        if (!getActiveTask()) return;
 
-        const txt = localStorage.getItem(`taskResult_${activeTask}_${selectedLanguage}_${selectedLevel}`);
+        const txt = localStorage.getItem(`taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`);
 
         const cards = document.querySelectorAll('.card');
 
@@ -47,36 +39,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function getSelectedCardIndex() {
-        return localStorage.getItem('selectedCardIndex');
-    }
-
-    function getSelectedButton() {
-        return localStorage.getItem('selectedButton');
-    }
-
     function loadCodeForActiveTask() {
-        const activeTask = getActiveTask();
-        const selectedCardIndex = getSelectedCardIndex();
-        const selectedButton = getSelectedButton();
+        if (getActiveTask() && getSelectedLanguage() && getSelectedLevel()) {
+            const key = `codeEditorContent_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
 
-        if (activeTask && selectedCardIndex && selectedButton) {
-            const key = `codeEditorContent_${activeTask}_${selectedCardIndex}_${selectedButton}`;
-            localStorage.setItem('activeTask', activeTask);
             const savedCode = localStorage.getItem(key);
             codeEditor.value = savedCode !== null ? savedCode : '';
         } else {
-            codeEditor.value = '';  // Ако няма активна задача или код, изчистваме редактора
+            codeEditor.value = '';
         }
     }
 
     codeEditor.addEventListener('input', function() {
-        const activeTask = getActiveTask();
-        const selectedCardIndex = getSelectedCardIndex();
-        const selectedButton = getSelectedButton();
-
-        if (activeTask && selectedCardIndex && selectedButton) {
-            const key = `codeEditorContent_${activeTask}_${selectedCardIndex}_${selectedButton}`;
+        if (getActiveTask() && getSelectedLanguage() && getSelectedLevel()) {
+            const key = `codeEditorContent_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
             localStorage.setItem(key, codeEditor.value);
         }
     });
@@ -85,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', function() {
             taskCards.forEach(c => c.classList.remove('active-task'));
             card.classList.add('active-task');
-            localStorage.setItem('activeTask', card.dataset.value);
+            localStorage.setItem('activeTask', getActiveTask());
 
             loadTestResult();
             loadCodeForActiveTask();
@@ -97,15 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
         refreshBtn.classList.add("active-icon");
         setTimeout(() => {
             refreshBtn.classList.remove("active-icon");
-        }, 500);
+        }, 600);
     });
 
-    // Задаваме първата задача като активна при зареждане на страницата, ако няма активна задача
     if (!getActiveTask() && taskCards.length > 0) {
         taskCards[0].classList.add('active-task');
     }
 
-    // Зареждаме тестовите резултати и кода за активната задача при зареждане на страницата
     loadTestResult();
     loadCodeForActiveTask();
 });
