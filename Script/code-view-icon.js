@@ -50,6 +50,8 @@ class CodeEditorManager {
             this.buttonToViewCode.classList.remove("active-icon"); // Deactivate the button
             this.currentTask = newTask; // Update the current task
             this.codeEditor.value = this.getCodeForTask(this.currentTask); // Update the editor with code for the new task
+            this.submitBtn.classList.remove("not-allowed");
+            localStorage.removeItem('SubmitCodeIsNotAllowed');
         }
     }
 
@@ -60,6 +62,7 @@ class CodeEditorManager {
             this.buttonToViewCode.classList.remove("active-icon");
             this.codeEditor.value = this.getCodeForTask(this.currentTask);
             this.submitBtn.classList.remove("not-allowed");
+            localStorage.removeItem('SubmitCodeIsNotAllowed');
         } else {
             // If the button is not active, activate it and update editor with saved code
             this.updateCodeEditorWithSavedCode(this.currentTask);
