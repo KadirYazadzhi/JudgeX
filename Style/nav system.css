@@ -371,6 +371,28 @@ label[for=nav-footer-toggle] {
     background-color: #D62929;
 }
 
+.other-modal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    background: rgba(22, 32, 73, 0.88);
+    width: 210px;
+    height: 50px;
+    border-radius: 10px;
+    z-index: 10000;
+    right: 8%;
+    top: 66%;
+    padding: 0 20px;
+}
+
+.other-modal-element {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #00a9ff;
+}
 
 @media (max-width: 768px) {
     .background-sidebar {

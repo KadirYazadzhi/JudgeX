@@ -64,7 +64,8 @@ class CodeEditorManager {
             // If the button is not active, activate it and update editor with saved code
             this.updateCodeEditorWithSavedCode(this.currentTask);
             this.buttonToViewCode.classList.add("active-icon");
-            this.submitBtn.classList.add("not-allowed"); // Add the class not-allowed to prevent users from submitting previously saved code.
+            this.submitBtn.classList.add("not-allowed"); // Add the class `not-allowed` to prevent users from submitting previously saved code
+            localStorage.setItem('SubmitCodeIsNotAllowed', "True"); // Save `True` in the `SubmitCodeIsNotAllowed` item in local storage to use it to prevent the system from submitting code
         }
     }
 }
