@@ -570,6 +570,18 @@ body {
     display: block;
 }
 
+.not-allowed {
+    cursor: not-allowed;
+    border: 2px solid #ff0000;
+    box-shadow: 1px 1px 2px #ff0000;
+    opacity: 0.3;
+}
+
+.not-allowed:hover {
+    background-color: #252f46!important;
+    box-shadow: 1px 1px 8px #ff0000!important;
+}
+
 @media (max-width: 1100px) and (min-width: 900px) {
     #savedCertificateImg {
         width: 80%;
