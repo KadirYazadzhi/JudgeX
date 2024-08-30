@@ -1,33 +1,39 @@
-let currentTask = getActiveTask();
+document.addEventListener('DOMContentLoaded', function() {
+    let currentTask = getActiveTask();
 
-function generateStorageKey() {
-    return `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
-}
-
-function updateCodeEditorWithSavedCode() {
-    const savedCode = localStorage.getItem(generateStorageKey(currentTask));
-    if (savedCode) {
-        codeEditor.value = savedCode;
-    } else {
-        codeEditor.value = "";
+    function generateStorageKey(task) {
+        return `saveSubmitCode_${task}_${getSelectedLanguage()}_${getSelectedLevel()}`;
     }
-}
 
-function getCodeForActiveTask() {
-    if (getActiveTask()) {
-        return localStorage.getItem(`codeEditorContent_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`);
+    function updateCodeEditorWithSavedCode(task) {
+        const savedCode = localStorage.getItem(generateStorageKey(task));
+        codeEditor.value = savedCode ? savedCode : "";
     }
-    return null;
-}
 
+    getTaskCard().forEach(card => {
+        card.addEventListener('click', function() {
+            const newTask = getActiveTask();
+            if (newTask !== currentTask) {
+                buttonToViewCode.classList.remove("active-icon");
+                currentTask = newTask;
+                codeEditor.value = getCodeForTask(currentTask);
+            }
+        });
+    });
 
-buttonToViewCode.addEventListener('click', () => {
-    if (buttonToViewCode.classList.contains("active-icon")) {
-        buttonToViewCode.classList.remove("active-icon");
-        codeEditor.value = getCodeForActiveTask() || "";
+    function getCodeForTask(task) {
+        return localStorage.getItem(`codeEditorContent_${task}_${getSelectedLanguage()}_${getSelectedLevel()}`) || "";
     }
-    else {
-        updateCodeEditorWithSavedCode();
-        buttonToViewCode.classList.add("active-icon");
-    }
+
+    buttonToViewCode.addEventListener('click', () => {
+        if (buttonToViewCode.classList.contains("active-icon")) {
+            buttonToViewCode.classList.remove("active-icon");
+            codeEditor.value = getCodeForTask(currentTask);
+        }
+        else {
+            updateCodeEditorWithSavedCode(currentTask);
+            buttonToViewCode.classList.add("active-icon");
+        }
+    });
 });
+
