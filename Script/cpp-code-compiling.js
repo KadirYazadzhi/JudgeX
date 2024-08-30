@@ -4,13 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentTaskIndex = 0;
     let languageToWork = 0;
 
-
     function active() {
         const activeCard = document.querySelector('.task-card.active-task');
         return activeCard ? activeCard.dataset.value : null;
     }
-    console.log(active());
-
 
     async function submitCode() {
         const today = new Date().toISOString().slice(0, 10);
@@ -326,7 +323,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const submitBtn = document.querySelector(".submit-btn");
     submitBtn.addEventListener('click', function() {
-        submitCode();
+        if (localStorage.getItem('SubmitCodeIsNotAllowed') !== null) {
+            alert("The code submission is not available while you are review the submitted code.");
+        }
+        else {
+            submitCode();
+        }
     });
 
     let testResults = "";
