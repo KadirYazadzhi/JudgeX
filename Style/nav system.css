@@ -464,40 +464,27 @@ label[for=nav-footer-toggle] {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
+.wrapper .chatBot:hover,
+.wrapper .chatBot:hover .tooltip,
+.wrapper .chatBot:hover .tooltip::before {
     background: #004aad;
     color: #ffffff;
 }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
+.wrapper .message:hover,
+.wrapper .message:hover .tooltip,
+.wrapper .message:hover .tooltip::before {
     background: #009eff;
     color: #ffffff;
 }
 
-.wrapper .instagram:hover,
-.wrapper .instagram:hover .tooltip,
-.wrapper .instagram:hover .tooltip::before {
+.wrapper .time:hover,
+.wrapper .time:hover .tooltip,
+.wrapper .time:hover .tooltip::before {
     background: #94001e;
     color: #ffffff;
 }
 
-.wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
-    background: #333333;
-    color: #ffffff;
-}
-
-.wrapper .youtube:hover,
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip::before {
-    background: #CD201F;
-    color: #ffffff;
-}
 
 #countdown {
     flex-direction: column;
