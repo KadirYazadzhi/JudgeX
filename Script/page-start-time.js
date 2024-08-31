@@ -12,32 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
             return parseInt(localStorage.getItem(`elapsedTime_${this.page}`), 10) || 0;
         }
 
-        // Start tracking time (always for website, conditionally for system)
+        // Start tracking time
         start() {
             if (this.trackAlways || (this.page === 'system' && window.location.pathname.includes('system'))) {
-                this.startTime = Date.now(); // Set the start time to the current time
+                this.startTime = Date.now() - this.elapsedTime * 1000; // Set start time relative to elapsed time
             }
         }
 
-        // Stop tracking time, calculate the elapsed time and store it
-        stop() {
-            if (this.startTime) {
-                const currentTime = Date.now();
-                const sessionElapsedTime = Math.floor((currentTime - this.startTime) / 1000); // Time for this session
-                this.elapsedTime += sessionElapsedTime; // Add this session's time to total elapsed time
-                localStorage.setItem(`elapsedTime_${this.page}`, this.elapsedTime); // Save total elapsed time
-                this.startTime = null; // Reset start time
-            }
-        }
-
-        // Update elapsed time and store it in localStorage
+        // Update elapsed time without double-counting
         update() {
             if (this.startTime) {
                 const currentTime = Date.now();
-                const sessionElapsedTime = Math.floor((currentTime - this.startTime) / 1000); // Time for this session
-                this.elapsedTime += sessionElapsedTime; // Add this session's time to total elapsed time
+                this.elapsedTime = Math.floor((currentTime - this.startTime) / 1000); // Recalculate elapsed time
                 localStorage.setItem(`elapsedTime_${this.page}`, this.elapsedTime); // Save total elapsed time
-                this.startTime = currentTime; // Reset start time for continuous tracking
             }
         }
 
@@ -77,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Stop tracking time when the page is unloaded or the user navigates away
             window.addEventListener('beforeunload', () => {
-                this.systemTracker.stop();
-                this.websiteTracker.stop();
+                this.systemTracker.update();
+                this.websiteTracker.update();
             });
         }
 
