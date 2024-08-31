@@ -212,52 +212,8 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Function to get the current time formatted as 'YYYY-MM-DD HH:MM:SS'
-        function getFormattedTime() {
-            const now = new Date();
-
-            // Get components of the date
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-
-            // Format the time
-            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        }
-
-        // Function to update the time display
-        function updateTimeDisplay() {
-            const timeElement = document.querySelector('.times-now');
-            timeElement.textContent = getFormattedTime();
-        }
-
-        // Update the time display immediately
-        updateTimeDisplay();
-
-        // Update the time display every second
-        setInterval(updateTimeDisplay, 1000);
-    });
-</script>
-
-<script>
-    const dotsCardMenu = document.querySelector(".card-menu");
-    const timeTypeContainer = document.querySelector(".type-time-container");
-
-    dotsCardMenu.addEventListener('click', function () {
-        if (timeTypeContainer.classList.contains("hidden")) {
-            timeTypeContainer.classList.remove("hidden");
-        }
-        else {
-            timeTypeContainer.classList.add("hidden");
-        }
-    });
-</script>
-
-<script src="Script/page-start-time.js"></script>
+<script src="Script/pages-start-time.js"></script>
+<script src="Script/show-and-hide-time-type.js"></script>
+<script src="Script/"></script>
 </body>
 </html>
