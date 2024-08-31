@@ -16,7 +16,7 @@ class CertificateViewer {
 
     showCertificate() {
         this.certificateBackground.classList.remove("hidden");
-        this.savedCertificateImg.src = localStorage.getItem(`savedCertificate_${selectedLanguage}_${selectedLevel}`);
+        this.savedCertificateImg.src = getSavedCertificate();
     }
 
     hideCertificate() {

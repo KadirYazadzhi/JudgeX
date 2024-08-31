@@ -38,3 +38,10 @@ function getSelectedLevel() {
     return localStorage.getItem('selectedButton');
 }
 
+function getSavedCertificate() {
+    return localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`);
+}
+
+function getTakeCertificate() {
+    return localStorage.getItem(`Take_Certificate_${getSelectedLanguage()}_${getSelectedLevel()}`);
+}

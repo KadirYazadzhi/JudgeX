@@ -74,15 +74,15 @@ class CertificateManager {
     // Checks if the user is eligible for a certificate and updates the certificate button visibility
     checkCertificateEligibility() {
 
-        if (this.sum >= this.compare || localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) !== null) { // Check if the number of completed tasks meets the threshold
+        if (this.sum >= this.compare || getSavedCertificate() !== null) { // Check if the number of completed tasks meets the threshold
             // Check if the certificate needs to be shown
-            if (localStorage.getItem(`Take_Certificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null && localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null) {
+            if (getTakeCertificate() === null && getSavedCertificate() === null) {
                 this.showCertificateMessageBox(); // Show the message box if no certificate exists
-            } else if (localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null) {
+            } else if (getSavedCertificate() === null) {
                 this.showCertificateMessageBox(); // Show the message box if the certificate is not saved
             } else {
                 // Show the certificate button if the certificate is already saved
-                if (localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) !== null) {
+                if (getSavedCertificate() !== null) {
                     this.buttonToViewCertificate.classList.remove("hidden");
                 }
             }
