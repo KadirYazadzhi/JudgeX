@@ -74,7 +74,7 @@ class CertificateManager {
     // Checks if the user is eligible for a certificate and updates the certificate button visibility
     checkCertificateEligibility() {
 
-        if (this.sum >= this.compare) { // Check if the number of completed tasks meets the threshold
+        if (this.sum >= this.compare || localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) !== null) { // Check if the number of completed tasks meets the threshold
             // Check if the certificate needs to be shown
             if (localStorage.getItem(`Take_Certificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null && localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null) {
                 this.showCertificateMessageBox(); // Show the message box if no certificate exists
