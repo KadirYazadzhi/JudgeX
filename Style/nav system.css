@@ -499,6 +499,24 @@ label[for=nav-footer-toggle] {
     color: #ffffff;
 }
 
+#countdown {
+    flex-direction: column;
+}
+
+#countdown-number {
+    color: white;
+    font-size: 120px;
+    font-weight: 650;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.countdown-text {
+    color: #343434;
+    font-size: 14px;
+    font-weight: 550;
+}
+
 
 @media (max-width: 768px) {
     .background-sidebar {

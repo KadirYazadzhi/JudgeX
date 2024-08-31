@@ -321,12 +321,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function showCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        const countdownNumber = document.getElementById('countdown-number');
+
+        countdownElement.classList.remove('hidden');
+
+        let timeLeft = 7;
+        countdownNumber.textContent = timeLeft;
+
+        const countdownInterval = setInterval(() => {
+            timeLeft--; // Decrease the time left
+            countdownNumber.textContent = timeLeft;
+
+            if (timeLeft === 0) {
+                clearInterval(countdownInterval);
+                countdownElement.classList.add('hidden');
+            }
+        }, 1000);
+    }
+
     const submitBtn = document.querySelector(".submit-btn");
     submitBtn.addEventListener('click', function() {
         if (localStorage.getItem('SubmitCodeIsNotAllowed') !== null) {
             alert("The code submission is not available while you are review the submitted code.");
         }
         else {
+            showCountdown();
             submitCode();
         }
     });
