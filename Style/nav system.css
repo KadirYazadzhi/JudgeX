@@ -381,14 +381,24 @@ label[for=nav-footer-toggle] {
     width: 170px;
     height: 50px;
     border-radius: 10px;
-    z-index: 10000;
-    top: 66%;
+    z-index: 99;
+    top: 65.5%;
     padding: 0 20px;
     gap: 20px;
-    right: 8%;
     opacity: 0;
-    transition: opacity 0.4s;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    right: 15%;
 }
+
+.other-modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    right: 8%;
+}
+
 .wrapper {
     display: inline-flex;
     list-style: none;
