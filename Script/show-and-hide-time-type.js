@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         constructor(menuSelector, containerSelector) {
             this.menu = document.querySelector(menuSelector);
             this.container = document.querySelector(containerSelector);
-            this.isHidden = this.container.classList.contains("hidden");
+            this.isHidden = this.container.classList.contains("hiddenTimeCard");
 
             this.initEventListeners();
         }
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Show the menu
         showMenu() {
-            this.container.classList.remove("hidden");
+            this.container.classList.remove("hiddenTimeCard");
             this.isHidden = false;
         }
 
         // Hide the menu
         hideMenu() {
-            this.container.classList.add("hidden");
+            this.container.classList.add("hiddenTimeCard");
             this.isHidden = true;
         }
     }
