@@ -1,36 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     class TimeTracker {
-        constructor(page) {
+        constructor(page, trackAlways = false) {
             this.page = page;
-            this.startTime = this.getStartTime(); // Initialize start time
-            this.elapsedTime = this.getElapsedTime(); // Initialize elapsed time
+            this.trackAlways = trackAlways;
+            this.startTime = null;
+            this.elapsedTime = this.getElapsedTime(); // Fetch elapsed time from localStorage
         }
 
-        // Fetch or set start time for the page
-        getStartTime() {
-            let startTime = localStorage.getItem(`startTime_${this.page}`);
-            if (!startTime) {
-                startTime = Date.now();
-                localStorage.setItem(`startTime_${this.page}`, startTime);
-            }
-            return parseInt(startTime, 10);
-        }
-
-        // Fetch elapsed time from localStorage
+        // Fetch or initialize the elapsed time for the page
         getElapsedTime() {
             return parseInt(localStorage.getItem(`elapsedTime_${this.page}`), 10) || 0;
         }
 
-        // Update elapsed time and store it in localStorage
-        updateTime() {
-            const currentTime = Date.now();
-            const elapsedTime = Math.floor((currentTime - this.startTime) / 1000) + this.elapsedTime;
-            localStorage.setItem(`elapsedTime_${this.page}`, elapsedTime);
-            if (this.page === 'system') {
-                // Reset start time for system page only to keep counting accurately
-                localStorage.setItem('startTime_system', Date.now());
+        // Start tracking time (always for website, conditionally for system)
+        start() {
+            if (this.trackAlways || (this.page === 'system' && window.location.pathname.includes('system'))) {
+                this.startTime = Date.now(); // Set the start time to the current time
             }
-            return elapsedTime;
+        }
+
+        // Stop tracking time, calculate the elapsed time and store it
+        stop() {
+            if (this.startTime) {
+                const currentTime = Date.now();
+                const sessionElapsedTime = Math.floor((currentTime - this.startTime) / 1000); // Time for this session
+                this.elapsedTime += sessionElapsedTime; // Add this session's time to total elapsed time
+                localStorage.setItem(`elapsedTime_${this.page}`, this.elapsedTime); // Save total elapsed time
+                this.startTime = null; // Reset start time
+            }
+        }
+
+        // Update elapsed time and store it in localStorage
+        update() {
+            if (this.startTime) {
+                const currentTime = Date.now();
+                const sessionElapsedTime = Math.floor((currentTime - this.startTime) / 1000); // Time for this session
+                this.elapsedTime += sessionElapsedTime; // Add this session's time to total elapsed time
+                localStorage.setItem(`elapsedTime_${this.page}`, this.elapsedTime); // Save total elapsed time
+                this.startTime = currentTime; // Reset start time for continuous tracking
+            }
         }
 
         // Static method for formatting time
@@ -48,16 +56,30 @@ document.addEventListener('DOMContentLoaded', function() {
             this.timeCards = document.querySelectorAll(".type-time-card");
             this.timeTypeElement = document.querySelector(".time-type");
             this.timeContainer = document.querySelector('.card-time');
+            this.timeTypeText = document.querySelector(".time-name");
             this.activeCardIndex = 0;
 
-            this.websiteTracker = new TimeTracker('website');
-            this.systemTracker = new TimeTracker('system');
+            // Initialize separate time trackers for 'website' and 'system'
+            this.websiteTracker = new TimeTracker('website', true); // Tracks always
+            this.systemTracker = new TimeTracker('system'); // Tracks only when on system page
 
             this.initializeCards(); // Initialize event listeners for cards
             this.initializeFirstVisitDate(); // Initialize first visit date
 
+            // Start tracking time for both website and system pages
+            this.websiteTracker.start(); // Website time starts tracking always
+            if (window.location.pathname.includes('system')) {
+                this.systemTracker.start(); // System time starts tracking only if on system page
+            }
+
             // Periodically update the displayed time every second
             setInterval(this.updateDisplayedTime.bind(this), 1000);
+
+            // Stop tracking time when the page is unloaded or the user navigates away
+            window.addEventListener('beforeunload', () => {
+                this.systemTracker.stop();
+                this.websiteTracker.stop();
+            });
         }
 
         // Initialize the time cards and setup event listeners
@@ -90,24 +112,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        hideTextElement() {
+            this.timeTypeText.style.display = 'none'; // Hide the element that contains `D H M S` (Days, Hours, Minutes, Seconds)
+        }
+
+        showTextElement() {
+            this.timeTypeText.style.display = 'flex'; // Show the element that contains `D H M S` (Days, Hours, Minutes, Seconds)
+        }
+
         // Update the time displayed in the card-time element
         updateDisplayedTime() {
-            let elapsedTime;
             const activeCard = this.timeCards[this.activeCardIndex];
+            this.showTextElement();
 
             if (activeCard.textContent.includes('Times in the website')) {
-                elapsedTime = this.websiteTracker.updateTime();
-                this.timeContainer.textContent = TimeTracker.formatTime(elapsedTime);
-            } else if (activeCard.textContent.includes('Times in the system')) {
+                this.websiteTracker.update(); // Continuously update website time
+                this.timeContainer.textContent = TimeTracker.formatTime(this.websiteTracker.getElapsedTime());
+            }
+            else if (activeCard.textContent.includes('Times in the system')) {
                 if (window.location.pathname.includes('system')) {
-                    elapsedTime = this.systemTracker.updateTime();
-                } else {
-                    elapsedTime = this.systemTracker.getElapsedTime(); // Display without updating when not on system page
+                    this.systemTracker.update(); // Continuously update system time if on system page
+                    this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
                 }
-                this.timeContainer.textContent = TimeTracker.formatTime(elapsedTime);
-            } else if (activeCard.textContent.includes('Registration Day')) {
+                else {
+                    this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
+                }
+            }
+            else if (activeCard.textContent.includes('Registration Day')) {
                 const firstVisitDate = localStorage.getItem('firstVisitDate');
                 this.timeContainer.textContent = firstVisitDate ? new Date(firstVisitDate).toLocaleDateString() : 'Unknown';
+                this.hideTextElement();
             }
         }
     }
