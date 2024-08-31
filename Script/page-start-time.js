@@ -1,101 +1,117 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const timeCards = document.querySelectorAll(".type-time-card");
-    const timeType = document.querySelector(".time-type");
-    const timeContainer = document.querySelector('.card-time');
-
-    // Различаване на страницата: 'system' или 'index'
-    const currentPage = window.location.pathname.includes('system') ? 'system' : 'index';
-
-    // Функция за форматиране на времето в дни, часове, минути и секунди
-    function formatTime(seconds) {
-        const days = Math.floor(seconds / 86400);
-        const hours = Math.floor((seconds % 86400) / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
-        return `${String(days).padStart(2, '0')} ${String(hours).padStart(2, '0')} ${String(minutes).padStart(2, '0')} ${String(secs).padStart(2, '0')}`;
-    }
-
-    // Обновяване на времето за двете категории
-    function updateTime() {
-        // Обновяване на времето за целия сайт (брои постоянно)
-        let startTimeWebsite = parseInt(localStorage.getItem('startTime_website'), 10);
-        if (!startTimeWebsite) startTimeWebsite = Date.now();
-        const currentTime = Date.now();
-        const elapsedTimeWebsite = Math.floor((currentTime - startTimeWebsite) / 1000);
-        localStorage.setItem('elapsedTime_website', elapsedTimeWebsite);
-
-        // Обновяване на времето за системата (брои само когато сме в system.html)
-        let startTimeSystem = parseInt(localStorage.getItem('startTime_system'), 10);
-        let elapsedTimeSystem = parseInt(localStorage.getItem('elapsedTime_system'), 10) || 0;
-
-        if (currentPage === 'system') {
-            if (!startTimeSystem) startTimeSystem = Date.now();
-            elapsedTimeSystem += Math.floor((currentTime - startTimeSystem) / 1000);
-            localStorage.setItem('elapsedTime_system', elapsedTimeSystem);
-            localStorage.setItem('startTime_system', Date.now());
+    class TimeTracker {
+        constructor(page) {
+            this.page = page;
+            this.startTime = this.getStartTime(); // Initialize start time
+            this.elapsedTime = this.getElapsedTime(); // Initialize elapsed time
         }
 
-        // Показване на времето в съответствие с активната карта
-        const activeCard = document.querySelector(".active-time-card");
-        if (activeCard) {
+        // Fetch or set start time for the page
+        getStartTime() {
+            let startTime = localStorage.getItem(`startTime_${this.page}`);
+            if (!startTime) {
+                startTime = Date.now();
+                localStorage.setItem(`startTime_${this.page}`, startTime);
+            }
+            return parseInt(startTime, 10);
+        }
+
+        // Fetch elapsed time from localStorage
+        getElapsedTime() {
+            return parseInt(localStorage.getItem(`elapsedTime_${this.page}`), 10) || 0;
+        }
+
+        // Update elapsed time and store it in localStorage
+        updateTime() {
+            const currentTime = Date.now();
+            const elapsedTime = Math.floor((currentTime - this.startTime) / 1000) + this.elapsedTime;
+            localStorage.setItem(`elapsedTime_${this.page}`, elapsedTime);
+            if (this.page === 'system') {
+                // Reset start time for system page only to keep counting accurately
+                localStorage.setItem('startTime_system', Date.now());
+            }
+            return elapsedTime;
+        }
+
+        // Static method for formatting time
+        static formatTime(seconds) {
+            const days = Math.floor(seconds / 86400);
+            const hours = Math.floor((seconds % 86400) / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${String(days).padStart(2, '0')} ${String(hours).padStart(2, '0')} ${String(minutes).padStart(2, '0')} ${String(secs).padStart(2, '0')}`;
+        }
+    }
+
+    class TimeCardManager {
+        constructor() {
+            this.timeCards = document.querySelectorAll(".type-time-card");
+            this.timeTypeElement = document.querySelector(".time-type");
+            this.timeContainer = document.querySelector('.card-time');
+            this.activeCardIndex = 0;
+
+            this.websiteTracker = new TimeTracker('website');
+            this.systemTracker = new TimeTracker('system');
+
+            this.initializeCards(); // Initialize event listeners for cards
+            this.initializeFirstVisitDate(); // Initialize first visit date
+
+            // Periodically update the displayed time every second
+            setInterval(this.updateDisplayedTime.bind(this), 1000);
+        }
+
+        // Initialize the time cards and setup event listeners
+        initializeCards() {
+            this.timeCards.forEach((card, index) => {
+                if (card.classList.contains("active-time-card")) {
+                    this.setActiveCard(index);
+                }
+
+                card.addEventListener('click', () => {
+                    this.timeCards.forEach(c => c.classList.remove("active-time-card"));
+                    card.classList.add("active-time-card");
+                    this.setActiveCard(index);
+                });
+            });
+        }
+
+        // Display the text corresponding to the selected time card
+        setActiveCard(index) {
+            this.activeCardIndex = index;
+            this.timeTypeElement.innerHTML = this.timeCards[index].textContent;
+        }
+
+        // Initialize first visit date if not set
+        initializeFirstVisitDate() {
+            let firstVisitDate = localStorage.getItem('firstVisitDate');
+            if (!firstVisitDate) {
+                firstVisitDate = new Date().toISOString();
+                localStorage.setItem('firstVisitDate', firstVisitDate);
+            }
+        }
+
+        // Update the time displayed in the card-time element
+        updateDisplayedTime() {
+            let elapsedTime;
+            const activeCard = this.timeCards[this.activeCardIndex];
+
             if (activeCard.textContent.includes('Times in the website')) {
-                timeContainer.textContent = formatTime(elapsedTimeWebsite);
+                elapsedTime = this.websiteTracker.updateTime();
+                this.timeContainer.textContent = TimeTracker.formatTime(elapsedTime);
             } else if (activeCard.textContent.includes('Times in the system')) {
-                timeContainer.textContent = formatTime(elapsedTimeSystem);
+                if (window.location.pathname.includes('system')) {
+                    elapsedTime = this.systemTracker.updateTime();
+                } else {
+                    elapsedTime = this.systemTracker.getElapsedTime(); // Display without updating when not on system page
+                }
+                this.timeContainer.textContent = TimeTracker.formatTime(elapsedTime);
             } else if (activeCard.textContent.includes('Registration Day')) {
                 const firstVisitDate = localStorage.getItem('firstVisitDate');
-                timeContainer.textContent = firstVisitDate ? new Date(firstVisitDate).toLocaleDateString() : 'Unknown';
+                this.timeContainer.textContent = firstVisitDate ? new Date(firstVisitDate).toLocaleDateString() : 'Unknown';
             }
         }
     }
 
-    // Показване на текста за типа време
-    function displayTypeText(index) {
-        timeType.innerHTML = timeCards[index].textContent;
-    }
-
-    // Инициализация на картите и събитията при клик
-    timeCards.forEach((card, index) => {
-        if (card.classList.contains("active-time-card")) {
-            displayTypeText(index);
-        }
-
-        card.addEventListener('click', function () {
-            // Деактивираме всички карти и активираме текущата
-            timeCards.forEach(c => c.classList.remove("active-time-card"));
-            card.classList.add("active-time-card");
-
-            // Показваме текста за типа време
-            displayTypeText(index);
-
-            // Обновяваме времето в контейнера според активната карта
-            updateTime();
-        });
-    });
-
-    // Функция за инициализация на времето
-    function initialize() {
-        // Проверка и запазване на датата на първо влизане
-        let firstVisitDate = localStorage.getItem('firstVisitDate');
-        if (!firstVisitDate) {
-            firstVisitDate = new Date().toISOString();
-            localStorage.setItem('firstVisitDate', firstVisitDate);
-        }
-
-        // Инициализация на времето за сайта (брои постоянно)
-        if (!localStorage.getItem('startTime_website')) {
-            localStorage.setItem('startTime_website', Date.now());
-        }
-
-        // Инициализация на времето за системата (брои само когато сме в system.html)
-        if (!localStorage.getItem('elapsedTime_system')) {
-            localStorage.setItem('elapsedTime_system', 0);
-        }
-
-        // Обновяване на времето на всяка секунда
-        setInterval(updateTime, 1000);
-    }
-
-    // Стартиране на инициализацията
-    initialize();
+    // Instantiate the TimeCardManager to initialize the logic
+    new TimeCardManager();
 });
