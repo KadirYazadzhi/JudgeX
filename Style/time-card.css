@@ -1,3 +1,5 @@
+
+
 .time-card {
     --primary-clr: #1C204B;
     --dot-clr: #BBC0FF;
@@ -7,6 +9,8 @@
     border-radius: 10px;
     position: absolute;
     z-index: 100;
+    top: 30%;
+    right: 24%;
 }
 
 .time-card {
@@ -60,7 +64,7 @@
     margin-inline: auto;
 }
 
-.card-menu:hover {
+.time-card-menu:hover {
     --dot-clr: #727cff;
 }
 
@@ -144,7 +148,7 @@
 
 .hiddenTimeCard {
     right: -68%;
-    z-index: 1;
+    z-index: 99;
 }
 
 .line {

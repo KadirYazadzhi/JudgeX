@@ -36,5 +36,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Instantiate the CardMenu class for the specific menu and container elements
-    const dotsCardMenu = new CardMenu(".card-menu", ".type-time-container");
+    const dotsCardMenu = new CardMenu(".time-card-menu", ".type-time-container");
 });
