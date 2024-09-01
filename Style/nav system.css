@@ -471,9 +471,9 @@ label[for=nav-footer-toggle] {
     color: #ffffff;
 }
 
-.wrapper .message:hover,
-.wrapper .message:hover .tooltip,
-.wrapper .message:hover .tooltip::before {
+.wrapper .message-icon:hover,
+.wrapper .message-icon:hover .tooltip,
+.wrapper .message-icon:hover .tooltip::before {
     background: #009eff;
     color: #ffffff;
 }
