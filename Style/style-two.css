@@ -1537,6 +1537,70 @@ ul {
 
 }
 
+.choose-language {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    left: 3%;
+    position: absolute;
+    gap: 15px;
+}
+
+.choose-language img {
+    width: 35px;
+    height: 35px;
+}
+
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #5365fc;
+    border-radius: 5px;
+    min-width: 120px;
+}
+
+.selected-language {
+    margin-right: 10px;
+}
+
+.language-selector .fa-caret-down {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    list-style: none;
+    padding: 0;
+    min-width: 120px;
+    display: flex;
+    z-index: 1000;
+    transition: ease-in-out 0.3s;
+}
+
+.language-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.language-dropdown:hover {
+    background-color: rgba(45, 53, 133, 0.2);
+}
+
+.hiddenLanguage {
+    display: none;
+}
 
 .profile {
     display: flex;
@@ -1545,7 +1609,7 @@ ul {
     flex-direction: row;
     right: 3%;
     position: absolute;
-    gap: 10px;
+    gap: 15px;
 }
 
 .profile button {
