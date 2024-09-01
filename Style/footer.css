@@ -101,6 +101,103 @@
     animation: animate 3s linear infinite;
 }
 
+.button-to-top {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border: 3px solid #2a2e52;
+    right: 5%;
+    bottom: 5%;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #2a2e52;
+    opacity: 0.45;
+    transition: opacity 0.5s;
+    z-index: 100000;
+    color: #a7b0ff!important;
+}
+
+.btn-top-icon {
+    color: #a7b0ff!important;
+}
+
+
+.button-to-top:hover {
+    box-shadow: 1px 1px 10px #2a2e52;
+    background: #2a2e52;
+    opacity: 1;
+}
+
+.extra-button {
+    width: 55px;
+    height: 55px;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    border: 3px solid #4b539d;
+    box-shadow: 1px 1px 5px #2a2e52;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.extra-button:hover {
+    background-color: #4b539d;
+}
+
+.btn-top-icon-child {
+    color: #bec3ff !important;
+}
+
+/* Hide the extra buttons initially */
+.hidden {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* When the buttons are active */
+.active .extra-button-1 {
+    transform: translate(-80px, -20px);
+    opacity: 1;
+}
+
+.active .extra-button-2 {
+    transform: translate(-30px, -80px);
+    opacity: 1;
+}
+
+.active .extra-button-3 {
+    transform: translate(50px, -80px);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .active .extra-button-1 {
+        transform: translate(-80px, 20px);
+    }
+
+    .active .extra-button-2 {
+        transform: translate(-55px, -45px);
+    }
+
+    .active .extra-button-3 {
+        transform: translate(15px, -70px);
+    }
+
+    .extra-button {
+        background-color: #4b539d!important;
+    }
+}
+
 @keyframes animateWaves {
     0% {
         background-position-x: 1000px;

@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="Style/contact-phone.css">
     <link rel="stylesheet" type="text/css" href="Style/cards-color.css">
 
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -968,6 +968,37 @@
         </div>
     </div>
 </div>
+
+
+<div class="button-to-top">
+    <i class="btn-top-icon fas fa-ellipsis-h"></i>
+    <div class="extra-button extra-button-1 hidden">
+        <i class="btn-top-icon-child fas fa-arrow-up"></i>
+    </div>
+    <div class="extra-button extra-button-2 hidden">
+        <i class="btn-top-icon-child fas fa-robot"></i>
+    </div>
+    <div class="extra-button extra-button-3 hidden">
+        <i class="btn-top-icon-child fas fa-tools"></i>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttonToTop = document.querySelector('.button-to-top');
+
+        // Toggle the buttons on click
+        buttonToTop.addEventListener('click', function() {
+            buttonToTop.classList.toggle('active'); // Add or remove the active class to trigger animation
+
+            const extraButtons = document.querySelectorAll('.extra-button');
+            extraButtons.forEach(button => {
+                button.classList.toggle('hidden'); // Show or hide the extra buttons
+            });
+        });
+    });
+
+</script>
 
 
 <footer class="footer">

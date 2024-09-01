@@ -6,12 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.button = document.querySelector(buttonSelector);
             this.target = document.querySelector(targetSelector);
 
-            // Check if elements exist
-            if (!this.button || !this.target) {
-                console.error('Button or target element not found.');
-                return;
-            }
-
             // Add event listener for the button
             this.addEventListeners();
         }
