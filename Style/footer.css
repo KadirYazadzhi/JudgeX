@@ -101,7 +101,7 @@
     animation: animate 3s linear infinite;
 }
 
-.button-to-top {
+.other-buttons {
     width: 60px;
     height: 60px;
     position: fixed;
@@ -122,12 +122,12 @@
     color: #a7b0ff!important;
 }
 
-.btn-top-icon {
+.other-buttons-icon {
     color: #a7b0ff!important;
 }
 
 
-.button-to-top:hover {
+.other-buttons:hover {
     box-shadow: 1px 1px 10px #2a2e52;
     background: #2a2e52;
     opacity: 1;
