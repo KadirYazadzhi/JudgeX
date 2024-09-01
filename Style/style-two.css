@@ -1,9 +1,20 @@
 @import url('https://fonts.cdnfonts.com/css/hubot-sans');
-*{ box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth;}
-html, body { height: 100%; }
+*{
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;}
+html, body {
+    height: 100%;
+}
 
-html::-webkit-scrollbar { display: none; }
-html { -ms-overflow-style: none; scrollbar-width: none; }
+html::-webkit-scrollbar {
+    display: none;
+}
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 body {
     margin: 0;
@@ -1524,4 +1535,83 @@ ul {
     }
 
 
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    right: 3%;
+    position: absolute;
+    gap: 10px;
+}
+
+.profile button {
+    --primary-color: #4d5fff;
+    --secondary-color: #fff;
+    --hover-color: #05060f;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 0.65em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px var(--primary-color);
+}
+
+.profile button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+.profile button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+.profile button:hover {
+    background-color: var(--hover-color);
+    box-shadow: 1px 1px 10px var(--primary-color);
+}
+
+.profile button:hover .arrow {
+    background: var(--secondary-color);
+}
+
+.profile button:hover .arrow:before {
+    right: 0;
+}
+
+.profile svg {
+    width: 35px;
+    height: 35px;
 }
