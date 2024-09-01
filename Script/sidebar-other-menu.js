@@ -1,6 +1,11 @@
 const timeBtn = document.querySelector(".time");
-const timeCard = document.querySelector(".time-card");
+const timeCardBackground = document.querySelector(".background-time");
 
 timeBtn.addEventListener('click', function () {
-    timeCard.classList.remove("hidden");
+    if (timeCardBackground.classList.contains("hidden")) {
+        timeCardBackground.classList.remove("hidden");
+    }
+    else {
+        timeCardBackground.classList.add("hidden");
+    }
 });
