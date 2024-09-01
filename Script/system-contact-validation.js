@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    class OpenAndCloseForm {
-        
-    }
-
     class ContactForm {
         constructor() {
             this.form = document.querySelector('.contact-form');
@@ -85,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (response.status === 200) {
                     alert('Form submitted successfully!');
+                    this.emailInput.value = '';
+                    this.messageInput.value = '';
                 } else {
                     alert('Failed to submit form. Please try again.');
                 }
