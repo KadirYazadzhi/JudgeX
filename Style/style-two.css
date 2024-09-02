@@ -1678,4 +1678,32 @@ ul {
 .profile svg {
     width: 35px;
     height: 35px;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    .profile {
+        display: none!important;
+    }
+
+    .language-selector {
+        min-width: 85px;
+        width: 85px;
+    }
+
+    .language-dropdown {
+        min-width: 85px;
+        width: 85px;
+    }
+
+    .choose-language {
+        margin-top: -5px;
+    }
+
+    .choose-language img  {
+        width: 30px;
+        height: 30px;
+    }
 }

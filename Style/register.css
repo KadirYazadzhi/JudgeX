@@ -161,3 +161,27 @@
         top: 20%;
     }
 }
+
+#sign-up-input {
+    display: none;
+}
+
+.not-fill {
+    border: 2px solid #e10000!important;
+}
+
+.not-fill:focus {
+    border: 2px solid #e10000 !important;
+    box-shadow: 1px 1px 5px #e10000 !important;
+    color: #ffa6a6 !important;
+}
+
+.fill-correct {
+    border: 2px solid #20a100 !important;
+}
+
+.fill-correct:focus {
+    border: 2px solid #20a100 !important;
+    box-shadow: 1px 1px 5px #20a100 !important;
+    color: #b2ffa1 !important;
+}

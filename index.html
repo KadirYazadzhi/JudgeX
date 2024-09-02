@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>JudgeX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <link rel="icon" type="image/x-icon" href="#">
 
 
@@ -32,10 +33,11 @@
 
     <link id="specialLink" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script id="specialScript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
 </head>
-
 <div class="register-form-box">
     <svg id="close-register" class="close-icon-register" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
 
@@ -44,24 +46,120 @@
         <i style="--clr:#00b2ff;"></i>
         <i style="--clr:#0080ff;"></i>
         <div class="login">
-            <h2>Login</h2>
+            <h2 id="register-form-title">Log in</h2>
             <div class="inputBx">
-                <input class="inpt" type="text" placeholder="Username">
+                <input id="username" class="inpt" type="text" placeholder="Username">
+            </div>
+            <div id="sign-up-input" class="inputBx">
+                <input id="userEmail" class="inpt" type="email" placeholder="Email">
             </div>
             <div class="inputBx">
-                <input class="inpt" type="password" placeholder="Password">
+                <input id="password" class="inpt" type="password" placeholder="Password">
             </div>
             <div class="inputBx">
-                <input type="submit" value="Sign in">
+                <input id="register-button" type="submit" value="Log in">
             </div>
             <div class="links">
-                <a href="#">Forget Password</a>
-                <a href="#">Signup</a>
+                <a id="forget-password-text" href="#">Forget Password</a>
+                <a id="register-type-text" href="#">Sign up</a>
             </div>
         </div>
     </div>
-
 </div>
+
+<script>
+    const userName = document.getElementById('username');
+    const userEmail = document.getElementById('userEmail');
+    const userPassword = document.getElementById('password');
+    const btn = document.getElementById('register-button');
+    const typeText = document.getElementById('register-type-text');
+
+    // Добавяне на събития при промяна на стойността на полетата (динамична валидация)
+    userName.addEventListener('input', () => validateField(userName));
+    userEmail.addEventListener('input', () => validateField(userEmail));
+    userPassword.addEventListener('input', () => validateField(userPassword));
+
+    btn.addEventListener('click', function (e) {
+        e.preventDefault(); // предотвратяване на автоматичното изпращане на формата
+
+        if (typeText.textContent === "Log in") {
+            // Проверка за вход
+            if (validateField(userName) && validateField(userPassword) && validateLogin(userName.value, userPassword.value)) {
+                localStorage.setItem("user-register", "True");
+                resetFields();
+            } else {
+                // Покажи грешка, ако е неуспешно
+                validateField(userName);
+                validateField(userPassword);
+            }
+        } else {
+            // Проверка за регистрация
+            if (validateField(userName) && validateField(userEmail) && validateField(userPassword)) {
+                // Запази данни при успешна регистрация
+                localStorage.setItem('currentUsername', userName.value);
+                localStorage.setItem('currentEmail', userEmail.value);
+                localStorage.setItem('currentPassword', userPassword.value);
+                localStorage.setItem("user-register", "True");
+                resetFields();
+            } else {
+                // Покажи грешка, ако има невалидни полета
+                validateField(userName);
+                validateField(userEmail);
+                validateField(userPassword);
+            }
+        }
+    });
+
+    // Функция за валидация на всяко поле с regex
+    function validateField(field) {
+        let isValid = false;
+
+        if (field === userName) {
+            // Валидация на потребителско име (букви, цифри, дължина поне 3 символа)
+            const usernameRegex = /^[a-zA-Z0-9]{3,}$/;
+            isValid = usernameRegex.test(field.value.trim());
+        }
+        else if (field === userEmail) {
+            // Валидация на имейл
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            isValid = emailRegex.test(field.value.trim());
+        }
+        else if (field === userPassword) {
+            // Валидация на парола (поне 8 символа, поне една главна буква, една малка буква и една цифра)
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+            isValid = passwordRegex.test(field.value.trim());
+        }
+
+        if (isValid) {
+            field.classList.remove("not-fill");
+            field.classList.add("fill-correct");
+        } else {
+            field.classList.remove("fill-correct");
+            field.classList.add("not-fill");
+        }
+
+        return isValid;
+    }
+
+    // Функция за проверка на данни за вход
+    function validateLogin(username, password) {
+        const storedUsername = localStorage.getItem('currentUsername');
+        const storedPassword = localStorage.getItem('currentPassword');
+
+        return username === storedUsername && password === storedPassword;
+    }
+
+    // Функция за изчистване на полетата след успешна операция
+    function resetFields() {
+        userName.value = "";
+        userEmail.value = "";
+        userPassword.value = "";
+
+        userName.classList.remove("fill-correct", "not-fill");
+        userEmail.classList.remove("fill-correct", "not-fill");
+        userPassword.classList.remove("fill-correct", "not-fill");
+    }
+</script>
 
 <div id="map" class="map">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -314,14 +412,12 @@
         </div>
 
         <div class="profile">
-            <button>
-                Sign up
+            <button id="open-register-form">Log in
                 <div class="arrow-wrapper">
                     <div class="arrow"></div>
-
                 </div>
             </button>
-            <svg class="" xmlns="http://www.w3.org/2000/svg" zoomAndPan="magnify" viewBox="0 0 75 74.999997" preserveAspectRatio="xMidYMid meet" version="1.0">
+            <svg class="profile-image" xmlns="http://www.w3.org/2000/svg" zoomAndPan="magnify" viewBox="0 0 75 74.999997" preserveAspectRatio="xMidYMid meet" version="1.0">
                 <path fill="#b3b3b3" d="M 75.003906 37.5 C 75.003906 47.097656 71.402344 55.84375 65.476562 62.476562 C 58.609375 70.164062 48.621094 75.003906 37.503906 75.003906 C 26.382812 75.003906 16.390625 70.164062 9.53125 62.476562 C 3.601562 55.84375 0 47.097656 0 37.5 C 0 16.792969 16.789062 0 37.503906 0 C 58.210938 0 75.003906 16.792969 75.003906 37.5 " fill-opacity="1" fill-rule="nonzero"/><path fill="#f2f2f2" d="M 37.503906 44.410156 C 44.300781 44.410156 50.488281 36.71875 50.488281 28.277344 C 50.488281 20.296875 48.945312 12.410156 37.503906 12.410156 C 26.054688 12.410156 24.511719 20.296875 24.511719 28.277344 C 24.511719 36.71875 30.703125 44.410156 37.503906 44.410156 " fill-opacity="1" fill-rule="nonzero"/><path fill="#f2f2f2" d="M 65.476562 62.476562 C 58.609375 70.164062 48.621094 75.003906 37.503906 75.003906 C 26.382812 75.003906 16.390625 70.164062 9.53125 62.476562 C 9.410156 57.847656 12.496094 47.113281 28.226562 43.8125 C 30.917969 46.558594 34.230469 48.109375 37.503906 48.109375 C 40.773438 48.109375 44.082031 46.558594 46.773438 43.8125 C 62.507812 47.113281 65.589844 57.847656 65.476562 62.476562 " fill-opacity="1" fill-rule="nonzero"/>
             </svg>
         </div>
@@ -1084,5 +1180,6 @@
 <script rel="script" src="Script/map.js"></script>
 <script rel="script" src="Script/pages-start-time.js"></script>
 <script rel="script" src="Script/pages-translation.js"></script>
+<script rel="script" src="Script/register-logic.js"></script>
 
 </html>

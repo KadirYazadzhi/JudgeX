@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.updateUIBasedOnLanguage(newLanguage);
 
                 // Hide the dropdown after selection
-                this.dropdownElement.classList.add('hiddenLanguage');
+                this.dropdownElement.classList.remove('hiddenLanguage');
             }
         }
 
