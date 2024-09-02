@@ -9,8 +9,37 @@ document.addEventListener('DOMContentLoaded', function () {
             this.languageOptionsElement = languageOptionsElement;
             this.flagImageElement = flagImageElement;
 
+            // Initialize by setting the language from local storage
+            this.initializeLanguage();
+
             // Bind event listeners
             this.addEventListeners();
+        }
+
+        // Initialize language based on local storage
+        initializeLanguage() {
+            const storedLanguage = localStorage.getItem('pages_active_language');
+            if (storedLanguage) {
+                this.updateUIBasedOnLanguage(storedLanguage);
+            } else {
+                // Default language if nothing is stored
+                this.updateUIBasedOnLanguage('EN');
+            }
+        }
+
+        // Update UI elements based on selected language
+        updateUIBasedOnLanguage(languageCode) {
+            if (languageCode === 'EN') {
+                this.selectedLabelElement.textContent = 'English';
+                this.languageOptionsElement.textContent = 'Български'; // The option in the dropdown becomes the other language
+                this.flagImageElement.src = 'Image/english-flag.svg';
+            } else {
+                this.selectedLabelElement.textContent = 'Български';
+                this.languageOptionsElement.textContent = 'English';
+                this.flagImageElement.src = 'Image/bulgarian-flag.svg';
+            }
+            // Update local storage with the current language
+            localStorage.setItem('pages_active_language', languageCode);
         }
 
         // Initialize event listeners for the language selector
@@ -35,26 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
         selectLanguage(event) {
             const selectedOption = event.target.closest('.language-option');
             if (selectedOption) {
-                const previousLang = this.selectedLabelElement.textContent;
-
-                // Swap the current and selected language
-                this.selectedLabelElement.textContent = selectedOption.textContent;
-                this.languageOptionsElement.textContent = previousLang;
-
-                // Update the flag based on the selected language
-                this.updateFlag(this.selectedLabelElement.textContent);
+                // Determine the selected language and update UI accordingly
+                const newLanguage = selectedOption.textContent === 'English' ? 'EN' : 'BG';
+                this.updateUIBasedOnLanguage(newLanguage);
 
                 // Hide the dropdown after selection
-                this.dropdownElement.classList.remove('hiddenLanguage');
-            }
-        }
-
-        // Update the language flag based on the selected language
-        updateFlag(selectedLanguage) {
-            if (selectedLanguage === "English") {
-                this.flagImageElement.src = 'Image/english-flag.svg';
-            } else {
-                this.flagImageElement.src = 'Image/bulgarian-flag.svg';
+                this.dropdownElement.classList.add('hiddenLanguage');
             }
         }
 

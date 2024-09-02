@@ -1558,7 +1558,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px 10px;
     border: 1px solid #5365fc;
     border-radius: 5px;
     min-width: 120px;
@@ -1590,7 +1590,7 @@ ul {
 }
 
 .language-dropdown li {
-    padding: 10px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
