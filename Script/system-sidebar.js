@@ -93,6 +93,7 @@ class ActionHandler {
         if (confirmation) {
             localStorage.removeItem("user-register");
         }
+        window.location.href = "index.html";
     }
 }
 

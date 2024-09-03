@@ -7,10 +7,15 @@ class NavigationManager {
 
         if (selectedLevel === null && selectedLanguage === null) {
             this.redirect("index.html");
-        } else if (selectedLanguage === null) {
+        }
+        else if (selectedLanguage === null) {
             this.redirect("index.html#languages");
-        } else if (selectedLevel === null) {
+        }
+        else if (selectedLevel === null) {
             this.redirect("index.html#difficult");
+        }
+        else if (localStorage.getItem("user-register") === null) {
+            this.redirect("index.html");
         }
     }
 
