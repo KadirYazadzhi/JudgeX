@@ -36,7 +36,6 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
-
 </head>
 <div class="register-form-box">
     <svg id="close-register" class="close-icon-register" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
@@ -50,7 +49,7 @@
             <div class="inputBx">
                 <input id="username" class="inpt" type="text" placeholder="Username">
             </div>
-            <div id="sign-up-input" class="inputBx">
+            <div style="flex-direction: column;" id="sign-up-input" class="inputBx">
                 <input id="userEmail" class="inpt" type="email" placeholder="Email">
             </div>
             <div class="inputBx">
@@ -113,21 +112,34 @@
     // Функция за валидация на всяко поле с regex
     function validateField(field) {
         let isValid = false;
+        let errorMessage = ""; // Съобщение за грешка
+
+        // Премахни съществуващите съобщения за грешка, ако има
+        removeErrorMessage(field);
 
         if (field === userName) {
             // Валидация на потребителско име (букви, цифри, дължина поне 3 символа)
             const usernameRegex = /^[a-zA-Z0-9]{3,}$/;
             isValid = usernameRegex.test(field.value.trim());
+            if (!isValid) {
+                errorMessage = "Username must be at least 3 characters long and contain only letters and numbers.";
+            }
         }
         else if (field === userEmail) {
             // Валидация на имейл
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             isValid = emailRegex.test(field.value.trim());
+            if (!isValid) {
+                errorMessage = "Please enter a valid email address.";
+            }
         }
         else if (field === userPassword) {
             // Валидация на парола (поне 8 символа, поне една главна буква, една малка буква и една цифра)
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
             isValid = passwordRegex.test(field.value.trim());
+            if (!isValid) {
+                errorMessage = "Password must be at least 8 characters long, contain one uppercase, one lowercase letter, and one number.";
+            }
         }
 
         if (isValid) {
@@ -136,9 +148,29 @@
         } else {
             field.classList.remove("fill-correct");
             field.classList.add("not-fill");
+            showErrorMessage(field, errorMessage); // Покажи съобщение за грешка
         }
 
         return isValid;
+    }
+
+    // Функция за показване на съобщение за грешка
+    function showErrorMessage(field, message) {
+        // Създай елемент за съобщение за грешка
+        const errorElement = document.createElement('span');
+        errorElement.classList.add('error-message'); // Клас за стилизиране на съобщението
+        errorElement.textContent = message;
+
+        // Добави съобщението след полето
+        field.parentNode.insertBefore(errorElement, field.nextSibling);
+    }
+
+    // Функция за премахване на съществуващи съобщения за грешка
+    function removeErrorMessage(field) {
+        const errorElement = field.parentNode.querySelector('.error-message');
+        if (errorElement) {
+            errorElement.remove();
+        }
     }
 
     // Функция за проверка на данни за вход
@@ -1181,5 +1213,6 @@
 <script rel="script" src="Script/pages-start-time.js"></script>
 <script rel="script" src="Script/pages-translation.js"></script>
 <script rel="script" src="Script/register-logic.js"></script>
+<script rel="script" src="Script/firebase-connect.js"></script>
 
 </html>

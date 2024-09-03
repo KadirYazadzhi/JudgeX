@@ -185,3 +185,12 @@
     box-shadow: 1px 1px 5px #20a100 !important;
     color: #b2ffa1 !important;
 }
+
+.error-message {
+    align-self: center;
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+    color: #ff0f0f;
+    font-weight: 550;
+}
