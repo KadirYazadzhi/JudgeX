@@ -94,6 +94,7 @@ body {
 .code-editor {
     width: 70%;
     height: 525px;
+    position: relative;
 }
 
 .test-results {
@@ -555,6 +556,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: center
+}
+
+.heart-box {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(19, 19, 19, 0.7);
+    position: absolute;
+    display: flex;
+    top: 2%;
+    right: 1%;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.heart-box i {
+   font-size: 20px;
+    color: #be0000;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.heart-box i:hover {
+    color: red;
 }
 
 .tranfer-btn svg {
