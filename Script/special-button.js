@@ -18,8 +18,14 @@ class ButtonHandler {
             window.location.href = "#difficult";
         }
         if (this.getLocalStorageItem('selectedButton') != null && this.getLocalStorageItem('selectedCardIndex') != null) {
-            this.showAlert("Starting....");
-            window.location.href = "system.html";
+            if (localStorage.getItem("user-register") !== null) {
+                this.showAlert("Starting....");
+                window.location.href = "system.html";
+            }
+            else {
+                alert("To use the system, please first register or log in to your account.");
+                window.location.href = "#";
+            }
         }
     }
 

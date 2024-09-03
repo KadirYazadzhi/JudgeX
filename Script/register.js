@@ -1,5 +1,7 @@
+// Define the RegisterForm class
 class RegisterForm {
     constructor(toggleButtonId, formSelector, closeButtonId, signUpInputId, formTitleId, registerBtnId, forgetPasswordTextId) {
+        // Initialize elements from the DOM
         this.toggleButton = document.getElementById(toggleButtonId);
         this.form = document.querySelector(formSelector);
         this.closeButton = document.getElementById(closeButtonId);
@@ -10,20 +12,22 @@ class RegisterForm {
 
         this.isSignUpMode = false;
 
-        // Елементи за валидация
+        // Elements for validation
         this.userName = document.getElementById('username');
         this.userEmail = document.getElementById('userEmail');
         this.userPassword = document.getElementById('password');
 
         this.init();
+        this.checkUserStatus(); // Check user status on initialization
     }
 
     init() {
+        // Add event listeners
         this.toggleButton.addEventListener('click', () => this.toggleMode());
         this.closeButton.addEventListener('click', () => this.closeForm());
         this.registerBtn.addEventListener('click', (e) => this.handleFormSubmit(e));
 
-        // Добавяне на събития при промяна на стойността на полетата (динамична валидация)
+        // Add validation events
         this.userName.addEventListener('input', () => this.validateField(this.userName));
         this.userEmail.addEventListener('input', () => this.validateField(this.userEmail));
         this.userPassword.addEventListener('input', () => this.validateField(this.userPassword));
@@ -64,12 +68,12 @@ class RegisterForm {
     }
 
     handleFormSubmit(e) {
-        e.preventDefault(); // предотвратяване на автоматичното изпращане на формата
+        e.preventDefault(); // Prevent form from submitting automatically
 
         if (this.isSignUpMode) {
-            // Проверка за регистрация
+            // Registration check
             if (this.validateField(this.userName) && this.validateField(this.userEmail) && this.validateField(this.userPassword)) {
-                // Запази данни при успешна регистрация
+                // Save data on successful registration
                 localStorage.setItem('currentUsername', this.userName.value);
                 localStorage.setItem('currentEmail', this.userEmail.value);
                 localStorage.setItem('currentPassword', this.userPassword.value);
@@ -77,22 +81,24 @@ class RegisterForm {
 
                 this.resetFields();
                 this.closeForm();
+                this.updateUserProfile(); // Update user profile display
                 alert("Registration successful.");
             } else {
-                // Покажи грешка, ако има невалидни полета
+                // Show error if fields are invalid
                 this.validateField(this.userName);
                 this.validateField(this.userEmail);
                 this.validateField(this.userPassword);
             }
         } else {
-            // Проверка за вход
+            // Login check
             if (this.validateField(this.userName) && this.validateField(this.userPassword) && this.validateLogin(this.userName.value, this.userPassword.value)) {
                 localStorage.setItem("user-register", "True");
                 this.resetFields();
-                this.closeForm(); // Затваряне на формата след успешен вход
+                this.closeForm(); // Close the form on successful login
+                this.updateUserProfile(); // Update user profile display
                 alert("Login successful.");
             } else {
-                // Покажи грешка, ако е неуспешно
+                // Show error if login is unsuccessful
                 this.validateField(this.userName);
                 this.validateField(this.userPassword);
             }
@@ -101,27 +107,27 @@ class RegisterForm {
 
     validateField(field) {
         let isValid = false;
-        let errorMessage = ""; // Съобщение за грешка
+        let errorMessage = ""; // Error message
 
-        // Премахни съществуващите съобщения за грешка, ако има
+        // Remove existing error messages if any
         this.removeErrorMessage(field);
 
         if (field === this.userName) {
-            // Валидация на потребителско име (букви, цифри, дължина поне 3 символа)
+            // Validate username (letters, numbers, at least 3 characters)
             const usernameRegex = /^[a-zA-Z0-9]{3,}$/;
             isValid = usernameRegex.test(field.value.trim());
             if (!isValid) {
                 errorMessage = "Username must be at least 3 characters long and contain only letters and numbers.";
             }
         } else if (field === this.userEmail) {
-            // Валидация на имейл
+            // Validate email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             isValid = emailRegex.test(field.value.trim());
             if (!isValid) {
                 errorMessage = "Please enter a valid email address.";
             }
         } else if (field === this.userPassword) {
-            // Валидация на парола (поне 8 символа, поне една главна буква, една малка буква и една цифра)
+            // Validate password (at least 8 characters, one uppercase, one lowercase letter, and one number)
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
             isValid = passwordRegex.test(field.value.trim());
             if (!isValid) {
@@ -135,19 +141,19 @@ class RegisterForm {
         } else {
             field.classList.remove("fill-correct");
             field.classList.add("not-fill");
-            this.showErrorMessage(field, errorMessage); // Покажи съобщение за грешка
+            this.showErrorMessage(field, errorMessage); // Show error message
         }
 
         return isValid;
     }
 
     showErrorMessage(field, message) {
-        // Създай елемент за съобщение за грешка
+        // Create error message element
         const errorElement = document.createElement('span');
-        errorElement.classList.add('error-message'); // Клас за стилизиране на съобщението
+        errorElement.classList.add('error-message'); // Class for styling the error message
         errorElement.textContent = message;
 
-        // Добави съобщението след полето
+        // Add message after the field
         field.parentNode.insertBefore(errorElement, field.nextSibling);
     }
 
@@ -174,20 +180,39 @@ class RegisterForm {
         this.userEmail.classList.remove("fill-correct", "not-fill");
         this.userPassword.classList.remove("fill-correct", "not-fill");
     }
+
+    // Function to update the user profile display after login or registration
+    updateUserProfile() {
+        const openFormBtn = document.getElementById('open-register-form');
+        const userNameProfile = document.getElementById('userNameProfile');
+
+        if (localStorage.getItem("user-register") !== null) {
+            openFormBtn.style.display = 'none';
+            userNameProfile.style.display = 'flex';
+            userNameProfile.textContent = localStorage.getItem('currentUsername');
+        }
+    }
+
+    // Function to check the user's status on page load
+    checkUserStatus() {
+        this.updateUserProfile();
+    }
 }
 
+// Initialize RegisterForm on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = new RegisterForm(
-        'register-type-text',    // ID на бутона за превключване
-        '.register-form-box',    // Селектор на формата
-        'close-register',        // ID на бутона за затваряне
-        'sign-up-input',         // ID на полето за вход за регистрация
-        'register-form-title',   // ID на заглавието на формата
-        'register-button',       // ID на бутона за изпращане на формата
-        'forget-password-text'   // ID на текста за забравена парола
+        'register-type-text',    // ID of the toggle button
+        '.register-form-box',    // Selector for the form
+        'close-register',        // ID of the close button
+        'sign-up-input',         // ID of the sign-up input field
+        'register-form-title',   // ID of the form title
+        'register-button',       // ID of the register button
+        'forget-password-text'   // ID of the forget password text
     );
 
-    // Инициализация на допълнителни функционалности за отваряне на формата
+    // Initialize additional functionalities for opening the form
     document.getElementById('phone-user-icon').addEventListener('click', () => registerForm.toggleForm());
     document.getElementById('open-register-form').addEventListener('click', () => registerForm.toggleForm());
 });
+

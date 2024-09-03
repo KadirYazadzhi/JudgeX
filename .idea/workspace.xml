@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/code-view-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/code-view-icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/cpp-code-compiling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/save-code-from-textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/save-code-from-textarea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/system.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
-    </list>
+    <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +87,7 @@
       <workItem from="1724612102650" duration="11900000" />
       <workItem from="1724643548691" duration="19478000" />
       <workItem from="1724723752909" duration="8623000" />
+      <workItem from="1724882968324" duration="92957000" />
     </task>
     <servers />
   </component>

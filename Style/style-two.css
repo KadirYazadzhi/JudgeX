@@ -1681,6 +1681,12 @@ ul {
     cursor: pointer;
 }
 
+#userNameProfile {
+    display: none;
+    font-size: 16px;
+    font-weight: 550;
+    cursor: pointer;
+}
 
 
 @media (max-width: 768px) {

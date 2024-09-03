@@ -84,6 +84,16 @@ class ActionHandler {
             item.classList.toggle('show');
         }
     }
+
+    static logOut(event) {
+        event.stopPropagation();
+        const confirmation = confirm(
+            "Are you sure you want to log out of your account?"
+        );
+        if (confirmation) {
+            localStorage.removeItem("user-register");
+        }
+    }
 }
 
 // Class to handle button actions in the navigation bar
@@ -128,7 +138,7 @@ class NavButtonController {
                 ActionHandler.buyMeACoffee(event);
                 break;
             case 7:
-                this.num = 7;
+                ActionHandler.logOut(event);
                 break;
             case 8:
                 ActionHandler.otherItem(event, this.otherMenu);
@@ -160,6 +170,7 @@ class MainController {
         const informationModalClose = document.querySelector(".closeInformationModal");
         const otherIcon = document.querySelector(".fa-ellipsis");
         const otherMenu = document.querySelector(".other-modal");
+        const logOutIcon = document.querySelector(".fa-right-from-bracket");
 
         // Initialize SidebarController
         new SidebarController(backgroundSidebar, navToggle);
@@ -174,6 +185,7 @@ class MainController {
         informationIcon.addEventListener('click', (event) => ActionHandler.openModal(event, informationModal));
         informationModalClose.addEventListener('click', (event) => ActionHandler.closeModal(event, informationModal));
         otherIcon.addEventListener('click', (event) => ActionHandler.otherItem(event, otherMenu));
+        logOutIcon.addEventListener('click', (event) => ActionHandler.logOut(event));
 
         // Initialize NavButtonController for navigation buttons
         new NavButtonController(navButtons, transferBox, informationModal, otherMenu);
