@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js" charset="utf-8"></script>
 </head>
 <style>
     :root {
@@ -718,6 +721,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
@@ -761,6 +765,141 @@
         fill: rgba(255, 0, 0, 0.8);
     }
 
+    .javascript {
+        fill: rgb(185, 190, 5);
+    }
+
+    .javascript:hover {
+        fill: rgb(247, 255, 0);
+    }
+
+    .typescript {
+        fill: rgb(6, 113, 189);
+    }
+
+    .typescript:hover {
+        fill: rgb(0, 149, 255);
+    }
+
+    .ruby {
+        fill: rgb(133, 27, 23);
+    }
+
+    .ruby:hover {
+        fill: rgb(176, 38, 32);
+    }
+
+    .go {
+        fill: rgb(2, 140, 176);
+    }
+
+    .go:hover {
+        fill: rgb(0, 170, 215);
+    }
+
+    .activeLanguageCard {
+        background: rgba(38, 52, 75, 0.7);
+        border: 1px solid rgba(2, 91, 248, 0.8);
+    }
+
+    .progress-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 100px;
+        flex-wrap: wrap;
+    }
+
+    .progress-box {
+        width: 50%;
+        display: grid;
+        gap: 10px;
+    }
+
+    .progress-bar-box {
+        background-color: var(--c-bg-elements);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        width: 100%;
+        height: 70px;
+        padding: 5px 10px;
+        position: relative;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 16px;
+        border-radius: 30px;
+        display: grid;
+        position: relative;
+    }
+
+    .progress-bar-box span {
+        margin-bottom: 10px;
+    }
+
+    .dot-progress-bar {
+        width: 15px;
+        height: 15px;
+        border: 2px solid white;
+        border-radius: 50%;
+        margin-left: 10%;
+    }
+
+    .info-progress-bar {
+        display: flex;;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+    }
+
+    .box {
+        width: 260px;
+    }
+
+    .box h2 {
+        text-align: center;
+    }
+
+    .box .chart {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 260px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .box canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+
+    .easy {
+        background: #008d0a;
+    }
+
+    .medium {
+        background: #c57500;
+    }
+
+    .hard {
+        background: #c50000;
+    }
+
+    .insane {
+        background: #7c0000;
+    }
 
 
     @media (min-width: 1024px) {
@@ -1019,7 +1158,7 @@
                         </svg>
                     </div>
 
-                    <div class="language-card-modal cplusplus">
+                    <div class="language-card-modal cplusplus activeLanguageCard">
                         <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
                             <path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92zm5.92-5.59h-.66V13h-.65v-.66H16v-.66h.66V11h.65v.66h.66zm2.47 0h-.66V13h-.66v-.66h-.65v-.66h.65V11h.66v.66h.66z"></path>
                         </svg>
@@ -1044,11 +1183,87 @@
                     </div>
 
                     <div class="language-card-modal javascript">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
                             <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.078-.382-.034-.529.113-.484.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.608 2.655.427 3.354 1.023.765 2.521.933 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.157.359.337.517.607.832 1.305 1.316 4.568 1.249 5.153-.754.021-.067.18-.528.056-1.237l.034.049zm-6.737-5.434h-1.686c0 1.453-.007 2.898-.007 4.354 0 .924.047 1.772-.104 2.033-.247.517-.886.451-1.175.359-.297-.146-.448-.349-.623-.641-.047-.078-.082-.146-.095-.146l-1.368.844c.229.473.563.879.994 1.137.641.383 1.502.507 2.404.305.588-.17 1.095-.519 1.358-1.059.384-.697.302-1.553.299-2.509.008-1.541 0-3.083 0-4.635l.003-.042z"></path>
                         </svg>
                     </div>
+
+                    <div class="language-card-modal typescript">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+                            <path d="M19.24 3H4.76A1.76 1.76 0 0 0 3 4.76v14.48A1.76 1.76 0 0 0 4.76 21h14.48A1.76 1.76 0 0 0 21 19.24V4.76A1.76 1.76 0 0 0 19.24 3zm-5.8 10h-2.25v6.44H9.4V13H7.15v-1.46h6.29zm5.8 5.28a1.71 1.71 0 0 1-.67.74 3 3 0 0 1-1 .39 5.81 5.81 0 0 1-1.2.12 7 7 0 0 1-1.23-.11 4.52 4.52 0 0 1-1-.33v-1.71l-.06-.06h.06v.07a3.41 3.41 0 0 0 1 .54 3.06 3.06 0 0 0 1.13.2 2.58 2.58 0 0 0 .6-.06 1.47 1.47 0 0 0 .42-.17.75.75 0 0 0 .25-.25.69.69 0 0 0-.06-.74 1.24 1.24 0 0 0-.35-.33 3.12 3.12 0 0 0-.53-.3l-.67-.28a3.57 3.57 0 0 1-1.37-1 2 2 0 0 1-.46-1.33 2.16 2.16 0 0 1 .24-1.06 2.09 2.09 0 0 1 .66-.71 2.88 2.88 0 0 1 1-.42 5.11 5.11 0 0 1 1.19-.13 7 7 0 0 1 1.09.07 4.53 4.53 0 0 1 .88.23v1.65a2.42 2.42 0 0 0-.42-.24 3.58 3.58 0 0 0-.49-.17 3 3 0 0 0-.49-.1 2.45 2.45 0 0 0-.46 0 2.29 2.29 0 0 0-.56.06 1.54 1.54 0 0 0-.43.16.78.78 0 0 0-.26.25.63.63 0 0 0-.09.33.62.62 0 0 0 .1.35 1.19 1.19 0 0 0 .3.29 2.15 2.15 0 0 0 .46.28l.63.28a6.56 6.56 0 0 1 .84.42 2.65 2.65 0 0 1 .64.49 1.79 1.79 0 0 1 .42.63 2.48 2.48 0 0 1 .14.85 2.68 2.68 0 0 1-.25 1.08z"></path>
+                        </svg>
+                    </div>
+
+                    <div class="language-card-modal ruby">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 50 50">
+                            <path d="M 3.125 23.160156 L 8.183594 14.480469 C 8.230469 14.394531 8.292969 14.316406 8.363281 14.253906 L 17.441406 5.792969 C 17.539063 5.703125 17.65625 5.632813 17.78125 5.585938 L 25.578125 2.722656 L 32.152344 7.316406 L 28.878906 17.722656 L 16.597656 29.132813 L 6.582031 31.378906 Z M 7.296875 33.269531 L 11.96875 46.628906 L 15.8125 31.355469 Z M 42.484375 2.875 L 35.074219 6.992188 L 47.355469 15.910156 C 47.613281 14.761719 47.914063 13.195313 47.984375 11.863281 C 47.980469 11.847656 47.980469 11.828125 47.980469 11.808594 C 48.019531 9.910156 47.707031 7.925781 46.675781 6.210938 C 45.75 4.667969 44.359375 3.539063 42.535156 2.828125 C 42.519531 2.84375 42.507813 2.863281 42.484375 2.875 Z M 34.375 35.578125 L 29.296875 20.058594 L 18.988281 29.644531 Z M 31.144531 19.269531 L 36.1875 34.679688 C 40.132813 30.386719 44.171875 25.246094 46.476563 18.925781 Z M 45.382813 16.949219 L 33.851563 8.578125 L 31.117188 17.269531 Z M 5.761719 34.9375 L 2.335938 40.816406 C 3.507813 46.242188 7.566406 47.457031 10.242188 47.753906 Z M 4.878906 32.484375 L 2 25.644531 L 2 37.421875 Z M 39.921875 2.011719 C 39.90625 2.007813 39.890625 2 39.871094 2 L 28.039063 2 L 33.3125 5.6875 Z M 17.875 31.355469 L 13.777344 47.632813 C 22.109375 46.40625 28.359375 41.929688 33.425781 37.355469 Z M 44.546875 45.648438 C 44.3125 45.648438 44.074219 45.566406 43.882813 45.398438 L 35.617188 38.058594 C 31.984375 41.429688 27.742188 44.855469 22.519531 47.164063 L 44.5625 45.667969 C 44.691406 45.660156 44.8125 45.621094 44.925781 45.570313 C 44.804688 45.621094 44.675781 45.648438 44.546875 45.648438 Z M 37.0625 36.667969 L 45.210938 43.902344 C 45.382813 44.054688 45.472656 44.253906 45.511719 44.460938 L 47.195313 22.414063 C 44.582031 28.078125 40.742188 32.730469 37.0625 36.667969 Z"></path>
+                        </svg>
+                    </div>
+
+                    <div class="language-card-modal go">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+                            <path d="M3.79 10.17a.18.18 0 0 0-.11 0l-.2.27H7a.15.15 0 0 0 .1-.06l.17-.26v-.05zm-1.47.89a.14.14 0 0 0-.11 0l-.2.26v.05h4.6a.09.09 0 0 0 .09-.06l.08-.23v-.06zM4.6 12a.13.13 0 0 0-.1.06l-.13.24v.06h2.15a.08.08 0 0 0 .07-.07v-.23s0-.07-.06-.07zm15.99-3.07a3.62 3.62 0 0 0-2.78-.5 4.09 4.09 0 0 0-2.72 1.63 4 4 0 0 0-.67 1.26h-3.14a.25.25 0 0 0-.24.16c-.14.25-.37.76-.5 1.06s0 .29.18.29h1.88a2.8 2.8 0 0 1-.26.36 1.81 1.81 0 0 1-1.65.65 1.53 1.53 0 0 1-1.32-1.53 2.07 2.07 0 0 1 1-1.85 1.71 1.71 0 0 1 1.77-.15 1.36 1.36 0 0 1 .45.37c.13.15.14.14.29.1l1.63-.43c.12 0 .16-.08.1-.16a3 3 0 0 0-1.13-1.38 3.35 3.35 0 0 0-2.58-.47A4.31 4.31 0 0 0 8.16 10a3.81 3.81 0 0 0-.82 2.85A3 3 0 0 0 8.57 15a3.46 3.46 0 0 0 2.62.65A4.06 4.06 0 0 0 14 14a4.33 4.33 0 0 0 .41-.69 3 3 0 0 0 1 1.55 3.68 3.68 0 0 0 2.38.86c.25 0 .51 0 .78-.09a4.51 4.51 0 0 0 2.33-1.25A3.72 3.72 0 0 0 22 11.1a3 3 0 0 0-1.41-2.17zm-1.78 4.73a1.81 1.81 0 0 1-1.59.06 1.61 1.61 0 0 1-.9-1.84A2.12 2.12 0 0 1 18 10.19a1.59 1.59 0 0 1 2 1.29 2.91 2.91 0 0 1 0 .32 2.11 2.11 0 0 1-1.19 1.86z"></path>
+                        </svg>
+                    </div>
                 </div>
+            </div>
+
+            <div class="card">
+                <div class="progress-container">
+                    <div class="progress-box">
+                        <div class="progress-bar-box">
+                            <span>Easy</span>
+                            <div class="progress-bar easy">
+                                <div class="dot-progress-bar"></div>
+                                <div class="info-progress-bar">
+                                    <span>10%</span>
+                                    <span>1/15</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-box">
+                            <span>Medium</span>
+                            <div class="progress-bar medium">
+                                <div class="dot-progress-bar"></div>
+                                <div class="info-progress-bar">
+                                    <span>10%</span>
+                                    <span>1/15</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-box">
+                            <span>Hard</span>
+                            <div class="progress-bar hard">
+                                <div class="dot-progress-bar"></div>
+                                <div class="info-progress-bar">
+                                    <span>10%</span>
+                                    <span>1/15</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-bar-box">
+                            <span>Insane</span>
+                            <div class="progress-bar insane">
+                                <div class="dot-progress-bar"></div>
+                                <div class="info-progress-bar">
+                                    <span>10%</span>
+                                    <span>1/15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="chart" data-percent="10">
+                            All
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="meta">
                 </div>
             </div>
@@ -1129,6 +1344,21 @@
     profileInformationModal.style.display = 'none';
     certificateModal.style.display = 'none';
 
+</script>
+
+
+<script type="text/javascript">
+    $(function() {
+        $('.chart').easyPieChart({
+            size: 260,
+            barColor: "#5959E0FF",
+            scaleLength: 0,
+            lineWidth: 15,
+            trackColor: "rgba(8,8,38,0.58)",
+            lineCap: "circle",
+            animate: 2000,
+        });
+    });
 </script>
 
 
