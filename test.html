@@ -889,6 +889,14 @@
         width: 100%;
     }
 
+    .shop-card {
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(2px);
+        width: 200px;
+        height: 170px;
+        border-radius: 10px;
+    }
+
 
     .easy {
         background: #008d0a;
@@ -1137,21 +1145,8 @@
         </div>
 
 
-        <div id="certificate-section" class="cardrow">
-            <div class="card">
-                <header>
-                    <h2>Certificates</h2>
-                </header>
-                <div class="content certificate-container">
 
-                </div>
-                <div class="meta">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="cardrow">
+        <div id="progress-container" class="cardrow">
             <div class="card">
                 <header>
                     <h2>Progress</h2>
@@ -1221,8 +1216,8 @@
                             <div class="progress-bar easy">
                                 <div class="dot-progress-bar"></div>
                                 <div class="info-progress-bar">
-                                    <span class="percent">10%</span>
-                                    <span class="fraction">1/15</span>
+                                    <span class="percent"></span>
+                                    <span class="fraction"></span>
                                 </div>
                             </div>
                         </div>
@@ -1232,8 +1227,8 @@
                             <div class="progress-bar medium">
                                 <div class="dot-progress-bar"></div>
                                 <div class="info-progress-bar">
-                                    <span class="percent">10%</span>
-                                    <span class="fraction">1/15</span>
+                                    <span class="percent"></span>
+                                    <span class="fraction"></span>
                                 </div>
                             </div>
                         </div>
@@ -1243,8 +1238,8 @@
                             <div class="progress-bar hard">
                                 <div class="dot-progress-bar"></div>
                                 <div class="info-progress-bar">
-                                    <span class="percent">10%</span>
-                                    <span class="fraction">1/15</span>
+                                    <span class="percent"></span>
+                                    <span class="fraction"></span>
                                 </div>
                             </div>
                         </div>
@@ -1254,8 +1249,8 @@
                             <div class="progress-bar insane">
                                 <div class="dot-progress-bar"></div>
                                 <div class="info-progress-bar">
-                                    <span class="percent">10%</span>
-                                    <span class="fraction">1/15</span>
+                                    <span class="percent"></span>
+                                    <span class="fraction"></span>
                                 </div>
                             </div>
                         </div>
@@ -1263,7 +1258,7 @@
 
                     <div class="box">
                         <div class="chart" data-percent="10">
-                            <span>All</span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
@@ -1273,6 +1268,43 @@
                 </div>
             </div>
         </div>
+
+
+
+        <div id="certificate-section" class="cardrow">
+            <div class="card">
+                <header>
+                    <h2>Certificates</h2>
+                </header>
+                <div class="content certificate-container">
+
+                </div>
+                <div class="meta">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="shop-section" class="cardrow">
+            <div class="card">
+                <header>
+                    <h2>Shop</h2>
+                </header>
+                <div class="content">
+                    <div class="shop-card">
+                        <div class="shop-card-top">
+
+                        </div>
+                        <div class="shop-card-bottom">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="meta">
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <div class="side">
@@ -1345,163 +1377,19 @@
 <script>
     const profileInformationModal = document.getElementById('profile-information');
     const certificateModal = document.getElementById('certificate-section');
+    const progressModal = document.getElementById('progress-container');
+    const shopModal = document.getElementById('shop-section');
 
     profileInformationModal.style.display = 'none';
     certificateModal.style.display = 'none';
-
-</script>
-
-
-<script type="text/javascript">
-
-</script>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Вземаме всички карти
-        const cards = document.querySelectorAll(".language-card-modal");
-        let excludedIndices = [11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 71, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92];
-
-        // Функция за настройка на активна карта
-        function setActiveCard(card) {
-            // Премахваме класа 'activeLanguageCard' от всички карти
-            cards.forEach(c => c.classList.remove("activeLanguageCard"));
-            // Добавяме класа на кликнатата карта
-            card.classList.add("activeLanguageCard");
-
-            // Вземаме ID-то на картата, което представлява език (от 0 до 8)
-            const languageId = card.getAttribute('data-card-id');
-
-            // Актуализираме прогреса за всяко ниво на трудност
-            const easyProgress = calculateProgress(languageId, 1);  // Ниво 1 (Easy)
-            const mediumProgress = calculateProgress(languageId, 2);  // Ниво 2 (Medium)
-            const hardProgress = calculateProgress(languageId, 3);  // Ниво 3 (Hard)
-            const insaneProgress = calculateProgress(languageId, 4);  // Ниво 4 (Insane)
-
-            // Актуализираме прогрес лентите и диаграмата
-            updateProgress('easy', easyProgress.percent, easyProgress.completed, easyProgress.total);
-            updateProgress('medium', mediumProgress.percent, mediumProgress.completed, mediumProgress.total);
-            updateProgress('hard', hardProgress.percent, hardProgress.completed, hardProgress.total);
-            updateProgress('insane', insaneProgress.percent, insaneProgress.completed, insaneProgress.total);
-
-            // Изчисляваме общия прогрес
-            const totalPercent = (easyProgress.completed + mediumProgress.completed + hardProgress.completed + insaneProgress.completed) / 55 * 100;
-            updateChart(totalPercent);
-        }
-
-        // Функция за изчисляване на прогреса на база данни от localStorage
-        function calculateProgress(languageId, difficulty) {
-            let completedTasks = 0;
-            let totalTasks = 15;
-            let endPoint = 0
-            let startPoint = 1;
-            switch (difficulty) {
-                case 1:
-                    endPoint = 19;
-                    break;
-                case 2:
-                    startPoint = 20;
-                    endPoint = 47;
-                    break;
-                case 3:
-                    startPoint = 48;
-                    endPoint = 73;
-                    break;
-                case 4:
-                    startPoint = 75;
-                    endPoint = 93;
-                    totalTasks = 10;
-                    break;
-            }
-
-            // Минаваме през всички задачи от 1 до 100
-            for (let task = startPoint; task <= endPoint; task++) {
-                if (!excludedIndices.includes(task)) {
-                    const taskKey = `taskResult_${task}_${languageId}_${difficulty}`;
-                    const taskValue = localStorage.getItem(taskKey);
-
-                    // Проверяваме дали има стойност в localStorage за текущата задача
-                    if (taskValue) {
-                        completedTasks++;
-                    }
-                }
-            }
-
-            // Изчисляваме процента завършени задачи
-            const percent = (completedTasks / totalTasks) * 100;
-
-            return {
-                percent: percent,
-                completed: completedTasks,
-                total: totalTasks
-            };
-        }
-
-        // Ако няма активна карта, активираме първата
-        const activeCard = document.querySelector(".activeLanguageCard");
-        if (!activeCard && cards.length > 0) {
-            setActiveCard(cards[0]);
-        }
-
-        // Добавяме събитие за клик на всяка карта
-        cards.forEach(card => {
-            card.addEventListener("click", function () {
-                setActiveCard(card);
-            });
-        });
-
-        // Функция за обновяване на прогрес лентите
-        function updateProgress(level, percent, completed, total) {
-            const progressBarDot = document.querySelector(`.progress-bar.${level} .dot-progress-bar`);
-            const percentLabel = document.querySelector(`.progress-bar.${level} .info-progress-bar .percent`);
-            const fractionLabel = document.querySelector(`.progress-bar.${level} .info-progress-bar .fraction`);
-
-            if (progressBarDot && percentLabel && fractionLabel) {
-                progressBarDot.style.marginLeft = percent + '%';
-                percentLabel.textContent = percent.toFixed(2) + '%';  // Закръгляме процента до 2 знака след запетаята
-                fractionLabel.textContent = `${completed}/${total}`;
-            } else {
-                console.error('Грешка при обновяване на прогрес лентите за нивото: ' + level);
-            }
-        }
-
-        // Функция за обновяване на диаграмата
-        function updateChart(totalPercent) {
-            const chart = document.querySelector('.chart');
-
-            if (chart) {
-                chart.setAttribute('data-percent', totalPercent.toFixed(2));
-                document.querySelector(".chart span").innerHTML = totalPercent.toFixed(2) + '%';
-
-                $(function() {
-                    $('.chart').easyPieChart({
-                        size: 260,
-                        barColor: "#5959E0FF",
-                        scaleLength: 0,
-                        lineWidth: 15,
-                        trackColor: "rgba(8,8,38,0.58)",
-                        lineCap: "circle",
-                        animate: 2000,
-                    }).data('easyPieChart').update(totalPercent);
-                });
-            } else {
-                console.error('Грешка при обновяване на диаграмата');
-            }
-        }
-    });
-
+    progressModal.style.display = 'none';
+    shopModal.style.display = '';
 
 
 </script>
-
-
-<script>
-
-</script>
-
 
 <script src="Script/all-const.js"></script>
 <script src="Script/Profile/information-section-field-changing.js"></script>
 <script src="Script/Profile/certificate-section-show-certificate.js"></script>
+<script src="Script/Profile/progress-section.js"></script>
 </html>
