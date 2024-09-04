@@ -624,6 +624,15 @@
         width: 80px;
     }
 
+    .input-user-data p {
+        width: 100%;
+    }
+
+    .input-user-data p:focus {
+        outline: none;
+        border: none;
+    }
+
     .user-data-input-box i {
         cursor: pointer;
     }
@@ -644,8 +653,24 @@
         cursor: pointer;
     }
 
+    .badge-background {
+        width: 100px;
+        height: 100px;
+        display: grid;
+        place-items: center;
+        position: relative;
+    }
+
+    .badge-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
     .not-active-badge {
-        opacity: 0.5;
+        opacity: 0.4;
     }
 
 
@@ -782,58 +807,96 @@
         </nav>
     </div>
     <div class="dashboard">
-        <div class="cardrow">
+        <div id="profile-information" class="cardrow">
             <div class="card">
                 <header>
                     <h2>Information</h2>
                 </header>
                 <div class="content">
-                        <div class="user-data-input-box">
-                            <p>Username</p>
-                            <div class="input-user-data">
-                                <p>Kadir34</p>
-                                <i class="fa-solid fa-user"></i>
-                            </div>
+                    <div class="user-data-input-box">
+                        <p>Username</p>
+                        <div class="input-user-data">
+                            <p id="username" contenteditable="true"></p>
+                            <i class="fa-solid fa-user"></i>
                         </div>
+                    </div>
 
-                        <div class="user-data-input-box">
-                            <p>Email</p>
-                            <div class="input-user-data">
-                                <p>kadiryazadzhi@gmail.com</p>
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
+                    <div class="user-data-input-box">
+                        <p>Email</p>
+                        <div class="input-user-data">
+                            <p id="email" contenteditable="true"></p>
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
+                    </div>
 
-                        <div class="user-data-input-box">
-                            <p>Password</p>
-                            <div class="input-user-data">
-                                <p>********</p>
-                                <i class="fa-solid fa-lock"></i>
-                            </div>
+                    <div class="user-data-input-box">
+                        <p>Password</p>
+                        <div class="input-user-data">
+                            <p id="password" contenteditable="true"></p>
+                            <i id="password-icon" class="fa-solid fa-lock" onclick="togglePasswordVisibility()"></i>
                         </div>
+                    </div>
 
-                        <div class="user-data-input-box">
-                            <p>Country</p>
-                            <div class="input-user-data">
-                                <p>Bulgaria</p>
-                                <i class="fa-solid fa-earth-americas"></i>
-                            </div>
+                    <div class="user-data-input-box">
+                        <p>Country</p>
+                        <div class="input-user-data">
+                            <p id="country" contenteditable="true"></p>
+                            <i class="fa-solid fa-earth-americas"></i>
                         </div>
-
+                    </div>
                 </div>
                 <div class="meta">
                 </div>
             </div>
             <div class="card">
-                <header>
+                <header class="badge-header">
                     <p>My Badges</p>
+                    <p>1/5</p>
                 </header>
-                <div class="content">
-                    <img class="badge" src="Image/Badges/basic-level-badge.svg">
-                    <img class="badge not-active-badge" src="Image/Badges/medium-level-badge.svg">
-                    <img class="badge not-active-badge" src="Image/Badges/hard-level-badge.svg">
-                    <img class="badge not-active-badge" src="Image/Badges/Insane-level-badge.svg">
-                    <img class="badge not-active-badge" src="Image/Badges/expert-level-badge.svg">
+                <div style="flex-direction: row; display: flex; flex-wrap: wrap; gap: 10px" class="content">
+                    <div class="badge-background">
+                        <img class="badge" src="Image/Badges/basic-level-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/medium-level-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/hard-level-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/Insane-level-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/expert-level-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/cplusplus-basic-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/csharp-basic-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/python-basic-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/java-basic-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/javascript-basic-badge.svg">
+                    </div>
+
+                    <div class="badge-background not-active-badge">
+                        <img class="badge" src="Image/Badges/typescript-basic-badge.svg">
+                    </div>
                 </div>
                 <div class="meta">
                 </div>
@@ -906,4 +969,15 @@
     });
 
 </script>
+
+<script>
+    const profileInformationModal = document.getElementById('profile-information');
+
+    profileInformationModal.style.display = 'none';
+
+</script>
+
+
+<script src="Script/all-const.js"></script>
+<script src="Script/Profile/information-section-field-changing.js"></script>
 </html>

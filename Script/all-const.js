@@ -45,3 +45,19 @@ function getSavedCertificate() {
 function getTakeCertificate() {
     return localStorage.getItem(`Take_Certificate_${getSelectedLanguage()}_${getSelectedLevel()}`);
 }
+
+function getUsernameValue() {
+    return localStorage.getItem('currentUsername');
+}
+
+function getPasswordValue() {
+    return localStorage.getItem('currentPassword');
+}
+
+function getEmailValue() {
+    return localStorage.getItem('currentEmail');
+}
+
+function getCountryValue() {
+    return localStorage.getItem('currentCountry');
+}
