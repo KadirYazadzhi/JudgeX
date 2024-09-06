@@ -61,3 +61,7 @@ function getEmailValue() {
 function getCountryValue() {
     return localStorage.getItem('currentCountry');
 }
+
+function getDiamond() {
+    return parseInt(localStorage.getItem('diamond_availability'));
+}
