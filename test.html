@@ -889,13 +889,133 @@
         width: 100%;
     }
 
+    .shop-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
     .shop-card {
+        width: 250px;
+        height: 210px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        padding: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .shop-card:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .shop-card-top {
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 35px;
+    }
+
+
+    .information-shop-card {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .shop-card-title {
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .shop-card-text {
+        font-size: 15px;
+        opacity: 0.8;
+    }
+
+    .price-shop-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .shop-card-button {
+        padding: 4px 30px;
+        border-radius: 5px;
+        background: none;
+        border: 1px solid var(--c-light);
+        cursor: pointer;
+        color: var(--c-elements);;
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
-        background: var(--c-dark);;
-        width: 200px;
-        height: 170px;
-        border-radius: 10px;
+        transition: 0.4s;
+    }
+
+    .shop-card-button:hover {
+        border: 1px solid rgba(177, 186, 224, 0.71);
+    }
+
+    .shop-card-text-price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .text-price-span {
+        font-size: 18px;
+        font-weight: 550;
+    }
+
+    .big-box {
+        width: 65%;
+        border: 1px solid rgba(185, 242, 255, 0.8);
+        background: rgb(185, 242, 255, 0.2);
+    }
+
+    .big-box .shop-card-button {
+        border: 1px solid rgba(185, 242, 255, 0.3);
+    }
+
+    .big-box .shop-card-button:hover {
+        border: 1px solid rgba(185, 242, 255, 0.7);
+    }
+
+    .gold-box {
+        border: 1px solid rgba(234, 201, 4, 0.5);
+        background: rgba(238, 205, 15, 0.05);
+    }
+
+    .gold-box .shop-card-button {
+        border: 1px solid rgb(176, 151, 0, 0.3);
+    }
+
+    .gold-box .shop-card-button:hover {
+        border: 1px solid rgb(176, 151, 0, 0.7);
+    }
+
+    .fa-heart {
+        color: rgba(255, 0, 0, 0.75);
+    }
+
+    .priority {
+        margin-block-start: 0.2em;
+        margin-block-end: 0;
     }
 
 
@@ -1075,7 +1195,7 @@
                         <p>Password</p>
                         <div class="input-user-data">
                             <p id="password" contenteditable="true"></p>
-                            <i id="password-icon" class="fa-solid fa-lock" onclick="togglePasswordVisibility()"></i>
+                            <i id="password-icon" class="fa-solid fa-lock"></i>
                         </div>
                     </div>
 
@@ -1291,13 +1411,109 @@
                 <header>
                     <h2>Shop</h2>
                 </header>
-                <div class="content">
+                <div class="shop-section content">
                     <div class="shop-card">
                         <div class="shop-card-top">
-
+                            <i class="fa-solid fa-heart"></i>
                         </div>
                         <div class="shop-card-bottom">
+                            <div class="information-shop-card">
+                                <span class="shop-card-title">One Heart</span>
+                                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+                            </div>
+                            <div class="price-shop-card">
+                                <div class="shop-card-text-price">
+                                    <span class="text-price-span">50</span>
+                                    <i class="fa-solid fa-gem"></i>
+                                </div>
+                                <button class="shop-card-button">Buy</button>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="shop-card">
+                        <div class="shop-card-top">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="shop-card-bottom">
+                            <div class="information-shop-card">
+                                <span class="shop-card-title">Three Heart</span>
+                                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+                            </div>
+                            <div class="price-shop-card">
+                                <div class="shop-card-text-price">
+                                    <span class="text-price-span">140</span>
+                                    <i class="fa-solid fa-gem"></i>
+                                </div>
+                                <button class="shop-card-button">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-card">
+                        <div class="shop-card-top">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="shop-card-bottom">
+                            <div class="information-shop-card">
+                                <span class="shop-card-title">Five Heart</span>
+                                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+                            </div>
+                            <div class="price-shop-card">
+                                <div class="shop-card-text-price">
+                                    <span class="text-price-span">210</span>
+                                    <i class="fa-solid fa-gem"></i>
+                                </div>
+                                <button class="shop-card-button">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-card gold-box">
+                        <div class="shop-card-top">
+                            <i class="fa-solid fa-infinity"></i>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="shop-card-bottom">
+                            <div class="information-shop-card">
+                                <span class="shop-card-title">Infinity Heart</span>
+                                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+                            </div>
+                            <div class="price-shop-card">
+                                <div class="shop-card-text-price">
+                                    <span class="text-price-span">1000</span>
+                                    <i class="fa-solid fa-gem"></i>
+                                </div>
+                                <button class="shop-card-button">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-card big-box">
+                        <div class="shop-card-bottom">
+                            <div class="information-shop-card">
+                                <span class="shop-card-title">Special Plan</span>
+                                <span class="shop-card-text">This includes:</span>
+                                <ul class="priority">
+                                    <li>Infinity hearts</li>
+                                    <li>Unlock hidden exercise</li>
+                                    <li>Priority support</li>
+                                    <li>Exclusive challenges</li>
+                                </ul>
+                            </div>
+                            <div class="price-shop-card">
+                                <div class="shop-card-text-price">
+                                    <span class="text-price-span">5000</span>
+                                    <i class="fa-solid fa-gem"></i>
+                                </div>
+                                <button class="shop-card-button">Buy</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1352,39 +1568,108 @@
 </div>
 </body>
 <script>
-    const container = document.querySelector("main");
-    const search = document.querySelector(".search label");
-    const current = document.querySelector(".current");
-    const menuItems = document.querySelectorAll("main .menu .primary .menu-item");
-    const time = document.querySelector("main .side .time");
+    // Class for handling the modals and menu interactions
+    class ModalManager {
+        constructor() {
+            this.container = document.querySelector("main");
+            this.search = document.querySelector(".search label");
+            this.current = document.querySelector(".current");
+            this.menuItems = document.querySelectorAll("main .menu .primary .menu-item");
 
-    // Fix :active touch on mobiles
-    document.addEventListener("touchstart", () => {}, true);
+            // Modals
+            this.modals = {
+                profile: document.getElementById('profile-information'),
+                certificate: document.getElementById('certificate-section'),
+                progress: document.getElementById('progress-container'),
+                shop: document.getElementById('shop-section'),
+            };
 
-    // Search Expand
-    search.addEventListener("click", () => container.classList.toggle("search"));
+            // Initialize the app
+            this.initialize();
+        }
 
-    // Main Menu
-    menuItems.forEach((item) => {
-        item.addEventListener("click", () => {
-            current.innerText = item.querySelector(".desc").textContent;
-            menuItems.forEach((item) => item.classList.remove("active"));
-            item.classList.add("active");
-        });
+        // Hide all modals
+        hideAllModals() {
+            Object.values(this.modals).forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // Show a specific modal by its key
+        showModal(modalKey) {
+            this.hideAllModals();  // Hide all modals before showing the selected one
+            if (this.modals[modalKey]) {
+                this.modals[modalKey].style.display = 'grid';  // Show the selected modal
+            }
+        }
+
+        // Add event listeners to menu items
+        addMenuListeners() {
+            this.menuItems.forEach((item, index) => {
+                item.addEventListener("click", () => {
+                    // Update the current text
+                    this.current.innerText = item.querySelector(".desc").textContent;
+
+                    // Remove 'active' class from all menu items
+                    this.menuItems.forEach(item => item.classList.remove("active"));
+
+                    // Add 'active' class to the clicked menu item
+                    item.classList.add("active");
+
+                    // Show the appropriate modal based on the clicked item
+                    switch (index) {
+                        case 0:
+                            this.showModal('profile');
+                            break;
+                        case 1:
+                            // Logic for modal 2 (if needed)
+                            break;
+                        case 2:
+                            this.showModal('progress');
+                            break;
+                        case 3:
+                            this.showModal('certificate');
+                            break;
+                        case 4:
+                            this.showModal('shop');
+                            break;
+                        case 5:
+                            // Logic for modal 6 (if needed)
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            });
+        }
+
+        // Initialize the app
+        initialize() {
+            // Set profileInformationModal to be visible by default
+            this.showModal('profile');
+
+            // Fix for touch events on mobile devices
+            document.addEventListener("touchstart", () => {}, true);
+
+            // Expand search bar on click
+            this.search.addEventListener("click", () => {
+                this.container.classList.toggle("search-expanded");
+            });
+
+            // Add event listeners to menu items
+            this.addMenuListeners();
+        }
+    }
+
+    // Initialize the ModalManager on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        const modalManager = new ModalManager();
     });
 
 </script>
 
 <script>
-    const profileInformationModal = document.getElementById('profile-information');
-    const certificateModal = document.getElementById('certificate-section');
-    const progressModal = document.getElementById('progress-container');
-    const shopModal = document.getElementById('shop-section');
 
-    profileInformationModal.style.display = 'none';
-    certificateModal.style.display = 'none';
-    progressModal.style.display = 'none';
-    shopModal.style.display = '';
 
 
 </script>

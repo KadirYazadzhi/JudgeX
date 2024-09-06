@@ -21,7 +21,8 @@ class UserDataManager {
                 if (field === 'password') {
                     element.textContent = '*'.repeat(storedValue.length);
                     element.setAttribute('data-password', storedValue);
-                } else {
+                }
+                else {
                     element.textContent = storedValue;
                 }
             }
