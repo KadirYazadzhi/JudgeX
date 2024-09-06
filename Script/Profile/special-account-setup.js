@@ -1,23 +1,37 @@
-// Function to check if the user is special
-function isSpecialUser() {
-    return getSpecialUser() !== null;
-}
+// Class to manage user details and special user logic
+class UserDetails {
+    constructor() {
+        this.userDetailsBox = document.querySelector(".username-profile-box");
+        this.initializeUserDetails();
+    }
 
-// Function to create and append a special user icon
-function addSpecialUserIcon(container) {
-    const specialUserIcon = document.createElement('i');
-    specialUserIcon.classList.add("fa-solid", "fa-user-secret");
-    container.appendChild(specialUserIcon);
-}
+    /**
+     * Check if the user is special
+     * @returns {boolean} True if the user is special, false otherwise
+     */
+    isSpecialUser() {
+        return getSpecialUser() !== null;
+    }
 
-// Main function to initialize user details
-function initializeUserDetails() {
-    const userDetailsBox = document.querySelector(".username-profile-box");
+    /**
+     * Create and append a special user icon to the given container
+     * @param {HTMLElement} container The container to append the icon to
+     */
+    addSpecialUserIcon(container) {
+        const specialUserIcon = document.createElement('i');
+        specialUserIcon.classList.add("fa-solid", "fa-user-secret");
+        container.appendChild(specialUserIcon);
+    }
 
-    if (isSpecialUser()) {
-        addSpecialUserIcon(userDetailsBox);
+    /**
+     * Main function to initialize user details
+     */
+    initializeUserDetails() {
+        if (this.isSpecialUser()) {
+            this.addSpecialUserIcon(this.userDetailsBox);
+        }
     }
 }
 
-// Initialize user details when the script runs
-initializeUserDetails();
+// Initialize the UserDetails class when the script runs
+new UserDetails();

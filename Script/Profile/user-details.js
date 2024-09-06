@@ -6,4 +6,3 @@ profileUsernameField.innerHTML = '@' + getUsernameValue();
 profileImage.src = 'Image/icon-user-1.png';
 diamondField.innerHTML = `${getDiamond()} <i class="fa-solid fa-gem"></i>`
 
-localStorage.setItem('diamond_availability', "10000");
