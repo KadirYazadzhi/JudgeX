@@ -65,3 +65,7 @@ function getCountryValue() {
 function getDiamond() {
     return parseInt(localStorage.getItem('diamond_availability'));
 }
+
+function getSpecialUser() {
+    return localStorage.getItem('special-plan-activated');
+}

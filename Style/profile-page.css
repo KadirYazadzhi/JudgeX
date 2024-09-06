@@ -148,7 +148,7 @@ main .menu .avatar .name {
     user-select: none;
 }
 main .menu:hover .avatar .name,
-main .menu:active .avatar .name {
+main .menu:active .avatar .name{
     opacity: 1;
     visibility: visible;
     display: flex;
@@ -975,6 +975,7 @@ main .side .weather .meta .datetime .time {
 
 .big-box .shop-card-button {
     border: 1px solid rgba(185, 242, 255, 0.3);
+    color: #B9F2FFCC;
 }
 
 .big-box .shop-card-button:hover {
@@ -988,6 +989,7 @@ main .side .weather .meta .datetime .time {
 
 .gold-box .shop-card-button {
     border: 1px solid rgb(176, 151, 0, 0.3);
+    color: rgba(255, 219, 0, 0.6);
 }
 
 .gold-box .shop-card-button:hover {
@@ -1012,6 +1014,28 @@ main .side .weather .meta .datetime .time {
     align-items: center;
     justify-content: center;
     gap: 5px;
+}
+
+.username-profile-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 0;
+    color: var(--c-elements);
+}
+
+main .menu:hover .username-profile-box {
+    width: 100%;
+}
+
+.username-profile-box i {
+    display: none;
+}
+
+main .menu:hover .username-profile-box i {
+    display: flex;
 }
 
 
