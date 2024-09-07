@@ -603,6 +603,10 @@ body {
     opacity: 0.3;
 }
 
+.not-active-heart {
+    color: #5b5b5b!important;
+}
+
 .not-allowed:hover {
     background-color: #252f46!important;
     box-shadow: 1px 1px 8px #ff0000!important;

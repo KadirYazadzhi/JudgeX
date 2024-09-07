@@ -4,26 +4,54 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentTaskIndex = 0;
     let languageToWork = 0;
 
+    const today = new Date().toISOString().slice(0, 10);
+    let callData = JSON.parse(localStorage.getItem("callData")) || {count: 5, lastDate: today};
+
     function active() {
         const activeCard = document.querySelector('.task-card.active-task');
         return activeCard ? activeCard.dataset.value : null;
     }
 
+    function heartsCreate() {
+        const heartBox = document.querySelector(".heart-box");
+        for (let i = 0; i < 5; i++) {
+            const newHeartIcon = document.createElement('i');
+            newHeartIcon.classList.add("fa-solid", "fa-heart");
+            heartBox.appendChild(newHeartIcon);
+        }
+    }
+
+    function heartsNotActive() {
+        const heartsIcon = document.querySelectorAll(".fa-heart");
+        for (let i = 0; i < callData.count; i++) {
+            heartsIcon[4 - i].classList.add("not-active-heart");
+        }
+    }
+    heartsCreate();
+    heartsNotActive();
+
     async function submitCode() {
-        const today = new Date().toISOString().slice(0, 10);
-
-        let callData = JSON.parse(localStorage.getItem("callData")) || {count: 0, lastDate: today};
-
         if (callData.lastDate !== today) {
             callData.count = 0;
             callData.lastDate = today;
+            console.log("res")
         }
 
-        if (callData.count < 50) {
-            callData.count++;
-            localStorage.setItem("callData", JSON.stringify(callData));
-        } else {
+        if (callData.count < 5) {
+            if (callData && typeof callData.count === 'number') {
+                callData.count++;
+                localStorage.setItem('callData', JSON.stringify(callData));
+            }
+            else {
+                localStorage.setItem('callData', JSON.stringify({ count: 1, lastDate: new Date().toISOString().slice(0, 10) }));
+            }
+
+            heartsNotActive();
+            showCountdown();
+        }
+        else {
             alert("You have exceeded the number of solutions you can upload in a day. Please wait until tomorrow to continue.");
+            return;
         }
 
 
@@ -347,7 +375,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("The code submission is not available while you are review the submitted code.");
         }
         else {
-            showCountdown();
             submitCode();
         }
     });
