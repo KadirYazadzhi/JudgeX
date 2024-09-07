@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let languageToWork = 0;
 
     const today = new Date().toISOString().slice(0, 10);
-    let callData = JSON.parse(localStorage.getItem("callData")) || {count: 5, lastDate: today};
+    let callData = JSON.parse(localStorage.getItem("callData")) || {count: 0, lastDate: today};
 
     function active() {
         const activeCard = document.querySelector('.task-card.active-task');
@@ -14,14 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function heartsCreate() {
         const heartBox = document.querySelector(".heart-box");
-        for (let i = 0; i < 5; i++) {
+        if (getInfinityDiamond() !== null || getSpecialUser() !== null) {
+            const newInfinityIcon = document.createElement('i');
+            newInfinityIcon.classList.add("fa-solid", "fa-infinity");
+            heartBox.appendChild(newInfinityIcon);
+
             const newHeartIcon = document.createElement('i');
             newHeartIcon.classList.add("fa-solid", "fa-heart");
             heartBox.appendChild(newHeartIcon);
         }
+        else {
+            for (let i = 0; i < 5; i++) {
+                const newHeartIcon = document.createElement('i');
+                newHeartIcon.classList.add("fa-solid", "fa-heart");
+                heartBox.appendChild(newHeartIcon);
+            }
+        }
     }
 
     function heartsNotActive() {
+        if (getInfinityDiamond() !== null || getSpecialUser() !== null) {
+            return;
+        }
         const heartsIcon = document.querySelectorAll(".fa-heart");
         for (let i = 0; i < callData.count; i++) {
             heartsIcon[4 - i].classList.add("not-active-heart");
@@ -34,10 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (callData.lastDate !== today) {
             callData.count = 0;
             callData.lastDate = today;
-            console.log("res")
         }
 
-        if (callData.count < 5) {
+        if (callData.count < 5 || getInfinityDiamond() !== null || getSpecialUser() !== null) {
             if (callData && typeof callData.count === 'number') {
                 callData.count++;
                 localStorage.setItem('callData', JSON.stringify(callData));
@@ -45,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
             else {
                 localStorage.setItem('callData', JSON.stringify({ count: 1, lastDate: new Date().toISOString().slice(0, 10) }));
             }
-
             heartsNotActive();
             showCountdown();
         }

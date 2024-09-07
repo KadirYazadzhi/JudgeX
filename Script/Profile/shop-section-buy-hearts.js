@@ -48,6 +48,10 @@ class Shop {
 
             if (window.confirm(`Are you sure you want to buy ${hearts} ${this.word} for ${diamonds} diamonds?`)) {
                 this.updateDiamonds(diamonds);
+                const today = new Date().toISOString().slice(0, 10);
+                let callData = JSON.parse(localStorage.getItem("callData")) || {count: 0, lastDate: today};
+                callData.count -= hearts;
+                localStorage.setItem('callData', JSON.stringify(callData));
             }
         } else {
             alert(`You don't have enough diamonds to buy this. You need ${diamonds - this.getDiamonds()} more diamonds.`);
@@ -59,6 +63,7 @@ class Shop {
         if (diamonds <= this.getDiamonds()) {
             if (window.confirm(`Are you sure you want to buy ∞ hearts for ${diamonds} diamonds?`)) {
                 this.updateDiamonds(diamonds);
+                localStorage.setItem('infinity_hearts', "True");
             }
         } else {
             alert(`You don't have enough diamonds to buy this. You need ${diamonds - this.getDiamonds()} more diamonds.`);

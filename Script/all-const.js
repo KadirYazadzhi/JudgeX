@@ -69,3 +69,7 @@ function getDiamond() {
 function getSpecialUser() {
     return localStorage.getItem('special-plan-activated');
 }
+
+function getInfinityDiamond() {
+    return localStorage.getItem('infinity_hearts');
+}
