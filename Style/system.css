@@ -559,12 +559,13 @@ body {
 }
 
 .heart-box {
-    width: 150px;
+    width: auto;
     height: 40px;
     border-radius: 10px;
     background: rgba(19, 19, 19, 0.7);
     position: absolute;
     display: flex;
+    padding: 0 10px;
     top: 2%;
     right: 1%;
     align-items: center;
