@@ -1100,7 +1100,9 @@ main .menu:hover .username-profile-box i {
     -ms-flex-direction: column;
 }
 
-.resume-about-box, .resume-course-box, .resume-work-experience-box, .resume-skills-box, .resume-education-box, .resume-certifications-box, .resume-hobbies-box, .resume-contact-box
+.resume-course-box span, .resume-work-experience-box span, .resume-skills-box span, .resume-education-box span, .resume-certifications-box span, .resume-hobbies-box span, .resume-contact-box span {
+    margin-bottom: 5px;
+}
 
 .course, .work, .skills, .education, .certifications, .hobbies, .contact {
     display: flex;
