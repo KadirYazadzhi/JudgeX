@@ -9,6 +9,7 @@ class ModalManager {
         // Modals
         this.modals = {
             profile: document.getElementById('profile-information'),
+            resume: document.getElementById('online-resume'),
             certificate: document.getElementById('certificate-section'),
             progress: document.getElementById('progress-container'),
             shop: document.getElementById('shop-section'),
@@ -52,7 +53,7 @@ class ModalManager {
                         this.showModal('profile');
                         break;
                     case 1:
-                        // Logic for modal 2 (if needed)
+                        this.showModal('resume');
                         break;
                     case 2:
                         this.showModal('progress');

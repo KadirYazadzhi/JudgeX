@@ -1038,6 +1038,79 @@ main .menu:hover .username-profile-box i {
     display: flex;
 }
 
+.resume {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.resume-small-information {
+    width: 50%;
+    max-height: 280px;
+    height: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    overflow: auto;
+    cursor: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3px;
+}
+
+.resume-img {
+    width: 45%;
+}
+
+.emoji-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.resume-about-box, .resume-course-box, .resume-work-experience-box, .resume-skills-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--i-padding);
+    background: var(--c-bg-elements);
+    border-radius: var(--radius);
+    -webkit-box-shadow: 0 4px 8px #0003;
+    box-shadow: 0 4px 8px #0003;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+}
+
+.course, .work, .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.content [contenteditable] {
+    outline: none;
+    border: none;
+}
+
 
 .easy {
     background: #008d0a;
