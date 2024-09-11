@@ -24,8 +24,9 @@ function handleEnterKey(editable) {
             const selection = window.getSelection();
             const range = selection.getRangeAt(0);
 
-            // Create a new span element to mimic the structure of the existing elements
-            const newSpan = document.createElement('span');
+            // Create a new div element to ensure new line
+            const newDiv = document.createElement('div');
+            newDiv.classList.add("special-div-new-element");
             const iconElement = document.createElement('i');
 
             // Insert the corresponding icon depending on the section
@@ -39,19 +40,19 @@ function handleEnterKey(editable) {
                 iconElement.classList.add('fa-solid', 'fa-pencil', 'icon'); // Default icon
             }
 
-            // Append the icon to the span
-            newSpan.appendChild(iconElement);
+            // Append the icon to the new div
+            newDiv.appendChild(iconElement);
 
-            // Insert a text node inside the span
-            const textNode = document.createTextNode(' '); // You can leave this empty or add a placeholder text
-            newSpan.appendChild(textNode);
+            // Insert a text node inside the div
+            const textNode = document.createTextNode(' Write your text here.'); // You can leave this empty or add a placeholder text
+            newDiv.appendChild(textNode);
 
-            // Insert the new span at the current cursor position
-            range.insertNode(newSpan);
+            // Insert the new div at the current cursor position
+            range.insertNode(newDiv);
 
             // Move the caret after the inserted node
-            range.setStartAfter(newSpan);
-            range.setEndAfter(newSpan);
+            range.setStartAfter(newDiv);
+            range.setEndAfter(newDiv);
             selection.removeAllRanges();
             selection.addRange(range);
 

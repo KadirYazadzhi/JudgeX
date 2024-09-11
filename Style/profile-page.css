@@ -1104,6 +1104,10 @@ main .menu:hover .username-profile-box i {
     margin-bottom: 5px;
 }
 
+.special-div-new-element {
+    margin-top: 5px;
+}
+
 .course, .work, .skills, .education, .certifications, .hobbies, .contact {
     display: flex;
     flex-direction: column;
