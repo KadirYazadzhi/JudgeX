@@ -1048,7 +1048,7 @@ main .menu:hover .username-profile-box i {
 }
 
 .resume-small-information {
-    width: 50%;
+    width: 53%;
     max-height: 280px;
     height: 100%;
     -webkit-backdrop-filter: blur(10px);
@@ -1059,7 +1059,7 @@ main .menu:hover .username-profile-box i {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 3px;
     background: var(--c-bg-elements);
     border-radius: var(--radius);
@@ -1076,6 +1076,42 @@ main .menu:hover .username-profile-box i {
 .resume-img {
     width: 45%;
     cursor: pointer;
+}
+
+.online-resume-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume-template-btn {
+    width: 30px;
+    height: 30px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background: rgba(49, 49, 49, 0.27);
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    transition: 0.3s;
+}
+
+.resume-template-btn {
+    background: rgba(64, 65, 130, 0.1);
+}
+
+.resume-template-btn:hover {
+    background: var(--c-darker);
+}
+
+.activeTemplate {
+    background: rgba(62, 63, 126, 0.7);
+    color: #a5a8fd;;
 }
 
 .emoji-box {
