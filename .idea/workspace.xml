@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/online-resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/online-resume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <workItem from="1724643548691" duration="19478000" />
       <workItem from="1724723752909" duration="8623000" />
       <workItem from="1724882968324" duration="92957000" />
-      <workItem from="1726098346157" duration="3373000" />
+      <workItem from="1726098346157" duration="5347000" />
     </task>
     <servers />
   </component>

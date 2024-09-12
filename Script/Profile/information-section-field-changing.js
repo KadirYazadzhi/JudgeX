@@ -18,10 +18,10 @@ class UserDataManager {
 
             if (element) {
                 if (field === 'password') {
+                    // Always set the text content to masked password
                     element.textContent = '*'.repeat(storedValue.length);
                     element.setAttribute('data-password', storedValue);
-                }
-                else {
+                } else {
                     element.textContent = storedValue;
                 }
             }
@@ -45,19 +45,23 @@ class UserDataManager {
     handleFieldBlur(event) {
         const field = event.target.id;
         let newValue = event.target.textContent.trim();
-        const oldValue = localStorage.getItem(`current${this.capitalize(field)}`) || '';
 
-        // For password, use the value from data attribute
         if (field === 'password') {
-            newValue = event.target.getAttribute('data-password');
+            // Save only the new value (password is stored in data-password attribute)
+            event.target.setAttribute('data-password', newValue);
+            newValue = '*'.repeat(newValue.length); // Mask the password for display
         }
 
-        if (this.validateField(field, newValue)) {
+        const oldValue = localStorage.getItem(`current${this.capitalize(field)}`) || '';
+
+        if (this.validateField(field, event.target.getAttribute('data-password') || newValue)) {
             if (newValue !== oldValue) {
-                localStorage.setItem(`current${this.capitalize(field)}`, newValue);
+                // Update localStorage with the new value
+                localStorage.setItem(`current${this.capitalize(field)}`, event.target.getAttribute('data-password') || newValue);
                 this.showSuccessMessage(field);
             }
-        } else {
+        }
+        else {
             alert('Invalid input. Please try again.');
             this.restoreFieldValue(field, event.target);
         }
@@ -66,12 +70,19 @@ class UserDataManager {
     // Toggle password visibility
     togglePasswordVisibility() {
         const passwordElement = document.getElementById('password');
+        const passwordIcon = document.getElementById('password-icon');
         if (passwordElement) {
             const isPasswordVisible = passwordElement.textContent === passwordElement.getAttribute('data-password');
             if (isPasswordVisible) {
+                // Hide password
                 passwordElement.textContent = '*'.repeat(passwordElement.getAttribute('data-password').length);
+                passwordIcon.classList.remove('fa-unlock'); // Remove unlocked icon
+                passwordIcon.classList.add('fa-lock');    // Add locked icon
             } else {
+                // Show password
                 passwordElement.textContent = passwordElement.getAttribute('data-password');
+                passwordIcon.classList.remove('fa-lock');  // Remove locked icon
+                passwordIcon.classList.add('fa-unlock');   // Add unlocked icon
             }
         }
     }
