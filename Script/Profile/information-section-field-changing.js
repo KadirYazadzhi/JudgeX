@@ -1,4 +1,3 @@
-// Define a class for handling user data management
 class UserDataManager {
     constructor() {
         this.fields = ['username', 'email', 'password', 'country'];
@@ -27,6 +26,12 @@ class UserDataManager {
                 }
             }
         });
+
+        // Setup password visibility toggle
+        const passwordIcon = document.getElementById('password-icon');
+        if (passwordIcon) {
+            passwordIcon.addEventListener('click', () => this.togglePasswordVisibility());
+        }
     }
 
     // Set up event listeners for editable fields
@@ -55,6 +60,19 @@ class UserDataManager {
         } else {
             alert('Invalid input. Please try again.');
             this.restoreFieldValue(field, event.target);
+        }
+    }
+
+    // Toggle password visibility
+    togglePasswordVisibility() {
+        const passwordElement = document.getElementById('password');
+        if (passwordElement) {
+            const isPasswordVisible = passwordElement.textContent === passwordElement.getAttribute('data-password');
+            if (isPasswordVisible) {
+                passwordElement.textContent = '*'.repeat(passwordElement.getAttribute('data-password').length);
+            } else {
+                passwordElement.textContent = passwordElement.getAttribute('data-password');
+            }
         }
     }
 
