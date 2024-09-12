@@ -1086,19 +1086,29 @@ main .menu:hover .username-profile-box i {
 }
 
 .resume-template-btn {
+    position: relative;
     width: 30px;
     height: 30px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     cursor: pointer;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     background: rgba(49, 49, 49, 0.27);
     border-radius: 50%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    transition: 0.3s;
+    transition: ease-in-out 0.3s;
+    padding: 5px 7px;
+}
+
+.resume-template-btn span {
+    position: absolute;
+    opacity: 0;
+    transition: ease-in 0.3s;
+    font-weight: 550;
+    right: 30px;
 }
 
 .resume-template-btn {
@@ -1107,6 +1117,12 @@ main .menu:hover .username-profile-box i {
 
 .resume-template-btn:hover {
     background: var(--c-darker);
+    width: 120px;
+    border-radius: 30px;
+}
+
+.resume-template-btn:hover span {
+    opacity: 1;
 }
 
 .activeTemplate {
