@@ -125,8 +125,7 @@ class ContentManager {
 
                 this.templateBtn.classList.remove("activeTemplate");
                 this.templateDiv.innerHTML = ''; // Clear current content
-                const oldContentNodes = Array.from(this.templateDiv.childNodes);
-                oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                this.oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
 
                 // Reload saved content to make sure it's not lost
                 this.loadContent();
@@ -136,8 +135,7 @@ class ContentManager {
 
                 this.templateBtn.classList.add("activeTemplate");
                 this.templateDiv.innerHTML = ''; // Clear current content
-                const templateNodes = this.getTemplateNodes();
-                templateNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                this.templateNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
             }
         });
     }
