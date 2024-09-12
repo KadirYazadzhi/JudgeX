@@ -8,8 +8,6 @@ class ContentManager {
         // Select template button and the template div
         this.templateBtn = document.querySelector(".resume-template-btn");
         this.templateDiv = document.getElementById('online-resume-template');
-        // Store the initial template content
-        this.oldContent = this.templateDiv.innerHTML;
 
         // Initialize event listeners and load saved content
         this.init();
@@ -127,7 +125,8 @@ class ContentManager {
 
                 this.templateBtn.classList.remove("activeTemplate");
                 this.templateDiv.innerHTML = ''; // Clear current content
-                this.oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                const oldContentNodes = Array.from(this.templateDiv.childNodes);
+                oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
 
                 // Reload saved content to make sure it's not lost
                 this.loadContent();
@@ -137,7 +136,8 @@ class ContentManager {
 
                 this.templateBtn.classList.add("activeTemplate");
                 this.templateDiv.innerHTML = ''; // Clear current content
-                this.templateNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                const templateNodes = this.getTemplateNodes();
+                templateNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
             }
         });
     }
