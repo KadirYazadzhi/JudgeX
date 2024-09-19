@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Script/Profile/profile-right-information-times.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/profile-right-menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/online-resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/online-resume.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,10 @@
       <workItem from="1724643548691" duration="19478000" />
       <workItem from="1724723752909" duration="8623000" />
       <workItem from="1724882968324" duration="92957000" />
-      <workItem from="1726098346157" duration="5347000" />
+      <workItem from="1726098346157" duration="6821000" />
+      <workItem from="1726249005172" duration="8000" />
+      <workItem from="1726434840919" duration="2438000" />
+      <workItem from="1726714370886" duration="2957000" />
     </task>
     <servers />
   </component>

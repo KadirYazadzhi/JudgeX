@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="Style/profile-page.css">
     <link rel="stylesheet" type="text/css" href="Style/system-scroll-style.css">
+    <link rel="stylesheet" type="text/css" href="Style/profile-right-menu.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucaburgio/iconoir@main/css/iconoir.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,10 +65,9 @@
           <input class="bar" type="text" placeholder="Search..." />
         </span>
         <nav>
-            <a href="#" class="menu-item">Orders</a>
-            <a href="#" class="menu-item">Clients</a>
-            <a href="#" class="menu-item">Sections</a>
-            <a href="#" class="menu-item">Products</a>
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="system.html" class="menu-item">System</a>
+            <a href="#" class="menu-item">Blog</a>
         </nav>
     </div>
     <div class="dashboard">
@@ -657,14 +657,35 @@
             </div>
         </div>
         <div class="card">
-            <header>Schedule</header>
+            <header>Times</header>
             <div class="content">
-                <ul>
-                    <li>(15:30) Deliver the project to client</li>
-                    <li>(18:00) Meet Mike @ White Goose</li>
-                    <li>(19:30) Dinner with Mary @ Kit-Bar</li>
-                    <li>(22:00) Watch the Falcons match</li>
-                    <li>(23:30) Headspace Meditate</li>
+                <ul class="times-in-website">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <header>Other</header>
+            <div class="content">
+                <div class="right-bottom-elements">
+                    <div class="github-card card-right-bottom">
+                        <i class="fa-brands fa-github"></i>
+                        <p>Github</p>
+                    </div>
+                    <div class="github-card card-right-bottom">
+                        <i class="fa-solid fa-bug"></i>
+                        <p>Report</p>
+                    </div>
+                    <div class="github-card card-right-bottom">
+                        <i class="fa-solid fa-globe"></i>
+                        <p>Portfolio</p>
+                    </div>
+                </div>
+
+                <ul class="copyright">
+                    <li>Copyright: Kadir Yazadzhi</li>
                 </ul>
             </div>
         </div>
@@ -686,6 +707,7 @@
 <script src="Script/Profile/online-resume.js"></script>
 <script src="Script/Profile/online-resume-image.js"></script>
 <script src="Script/Profile/resume-template.js"></script>
+<script src="Script/Profile/profile-right-information-times.js"></script>
 
 </html>
 
