@@ -2,8 +2,8 @@ class TimeManager {
     constructor() {
         this.times = document.querySelectorAll(".times-in-website li");
         this.firstVisitDate = localStorage.getItem("firstVisitDate");
-        this.elapsedTimeSystem = localStorage.getItem("elapsedTime_system");
-        this.elapsedTimeIndex = localStorage.getItem("elapsedTime_index");
+        this.elapsedTimeSystem = parseInt(localStorage.getItem("elapsedTime_system"), 10) || 0;
+        this.elapsedTimeIndex = parseInt(localStorage.getItem("elapsedTime_index"), 10) || 0;
     }
 
     // Method to format the profile creation date in a human-readable way
@@ -15,15 +15,12 @@ class TimeManager {
 
     // Method to convert seconds into days:hours:minutes:seconds format
     formatElapsedTime(seconds) {
-        if (!seconds) return 'N/A';
         const sec = parseInt(seconds, 10);
-
         const days = Math.floor(sec / 86400);
         const hours = Math.floor((sec % 86400) / 3600);
         const minutes = Math.floor((sec % 3600) / 60);
         const secs = sec % 60;
 
-        // Format the result as DD HH MM SS
         return `${String(days).padStart(2, '0')} days ${String(hours).padStart(2, '0')} hours ${String(minutes).padStart(2, '0')} minutes ${String(secs).padStart(2, '0')} seconds`;
     }
 
@@ -38,6 +35,19 @@ class TimeManager {
         }
     }
 
+    // Method to start updating the time every second
+    startUpdatingTime() {
+        this.updateTimes(); // Initial update
+        setInterval(() => {
+
+            // Update times in localStorage
+            localStorage.setItem("elapsedTime_system", this.elapsedTimeSystem);
+            localStorage.setItem("elapsedTime_index", this.elapsedTimeIndex);
+
+            this.updateTimes();  // Update the displayed times
+        }, 1000); // Run every second
+    }
+
     // Static method to initialize first visit date if not set
     static initializeFirstVisitDate() {
         if (!localStorage.getItem("firstVisitDate")) {
@@ -50,6 +60,7 @@ class TimeManager {
 // Ensure first visit date is set in localStorage
 TimeManager.initializeFirstVisitDate();
 
-// Create an instance of TimeManager and update the times in the UI
+// Create an instance of TimeManager and start the time updating process
 const timeManager = new TimeManager();
-timeManager.updateTimes();
+timeManager.startUpdatingTime();
+
