@@ -2,8 +2,6 @@ class TimeManager {
     constructor() {
         this.times = document.querySelectorAll(".times-in-website li");
         this.firstVisitDate = localStorage.getItem("firstVisitDate");
-        this.elapsedTimeSystem = parseInt(localStorage.getItem("elapsedTime_system"), 10) || 0;
-        this.elapsedTimeIndex = parseInt(localStorage.getItem("elapsedTime_index"), 10) || 0;
     }
 
     // Method to format the profile creation date in a human-readable way
@@ -21,30 +19,30 @@ class TimeManager {
         const minutes = Math.floor((sec % 3600) / 60);
         const secs = sec % 60;
 
-        return `${String(days).padStart(2, '0')} days ${String(hours).padStart(2, '0')} hours ${String(minutes).padStart(2, '0')} minutes ${String(secs).padStart(2, '0')} seconds`;
+        return `${String(days).padStart(2, '0')}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
     }
 
-    // Method to update the UI with the retrieved times
+    // Method to update the UI with the latest times from localStorage
     updateTimes() {
+        // Fetch the latest times from localStorage each second
+        const elapsedTimeSystem = localStorage.getItem("elapsedTime_system") || 0;
+        const elapsedTimeIndex = localStorage.getItem("elapsedTime_index") || 0;
+
+        // Update the displayed times if the required elements exist
         if (this.times.length >= 3) {
             this.times[0].innerHTML = `Profile Creation Date: ${this.formatDate(this.firstVisitDate)}`;
-            this.times[1].innerHTML = `Hours in the system: ${this.formatElapsedTime(this.elapsedTimeSystem)}`;
-            this.times[2].innerHTML = `Hours on the index page: ${this.formatElapsedTime(this.elapsedTimeIndex)}`;
+            this.times[1].innerHTML = `Time in the system: ${this.formatElapsedTime(elapsedTimeSystem)}`;
+            this.times[2].innerHTML = `Times on the website: ${this.formatElapsedTime(elapsedTimeIndex)}`;
         } else {
             console.error("Not enough elements in the times list to display all data.");
         }
     }
 
-    // Method to start updating the time every second
+    // Method to start fetching and updating the time from localStorage every second
     startUpdatingTime() {
         this.updateTimes(); // Initial update
         setInterval(() => {
-
-            // Update times in localStorage
-            localStorage.setItem("elapsedTime_system", this.elapsedTimeSystem);
-            localStorage.setItem("elapsedTime_index", this.elapsedTimeIndex);
-
-            this.updateTimes();  // Update the displayed times
+            this.updateTimes(); // Fetch updated times from localStorage every second
         }, 1000); // Run every second
     }
 
