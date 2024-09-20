@@ -1,6 +1,7 @@
 class NotificationManager {
     constructor() {
         this.notifications = document.querySelector(".notifications");
+        this.countNotification = document.getElementById('count-notification');
         this.maxNotifications = 50; // Maximum allowed notifications
     }
 
@@ -39,6 +40,7 @@ class NotificationManager {
             // Remove oldest notification
             this.notifications.removeChild(currentNotifications[0]);
         }
+        this.countNotification.innerHTML = currentNotifications.length + "/50";
     }
 
     // Count the number of current notifications
