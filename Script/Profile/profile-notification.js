@@ -39,6 +39,33 @@ function createNotification(type, titleText, textText, typeIcon) {
 
 }
 
+
+function certificate() {
+    let languages = ['C', 'C++', 'C#', 'Python', 'Java', 'Javascript', 'Typescript', 'Ruby', 'Go'];
+    let levels = ['Basic', 'Medium', 'Hard', 'Insane'];
+    function getLanguage(index) {
+        return languages[index] || 'Unknown';
+    }
+    function getLevel(index) {
+        return levels[index - 1] || 'Unknown';
+    }
+
+    for (let i = 0; i < 9; i++) {
+        for (let j = 1; j <= 4; j++) {
+            const path = localStorage.getItem(`savedCertificate_${i}_${j}`);
+            if (path !== null) {
+                const certificateLanguage = getLanguage(i);
+                const certificateLevel = getLevel(j);
+                const messageCertificate = `${certificateLanguage} ${certificateLevel} Level`;
+
+                createNotification("certificate-notification", "Earn Certificate", "You have earned a new certificate for " + messageCertificate, "fa-award");
+            }
+        }
+    }
+}
+
+certificate()
+
 function badge() {
     const badges = document.querySelectorAll(".badge-background");
 
@@ -61,8 +88,132 @@ function badge() {
             }
 
             if (index === 5 || index === 14 || index === 23 || index === 32) {
-                
+                if (index === 5) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C Basic Level", "fa-certificate");
+                }
+                if (index === 14) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C Medium Level", "fa-certificate");
+                }
+                if (index === 23) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C Hard Level", "fa-certificate");
+                }
+                if (index === 32) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C Insane Level", "fa-certificate");
+                }
             }
+            if (index === 6 || index === 15 || index === 24 || index === 33) {
+                if (index === 6) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C++ Basic Level", "fa-certificate");
+                }
+                if (index === 15) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C++ Medium Level", "fa-certificate");
+                }
+                if (index === 24) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C++ Hard Level", "fa-certificate");
+                }
+                if (index === 33) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C++ Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 7 || index === 16 || index === 25 || index === 34) {
+                if (index === 7) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C# Basic Level", "fa-certificate");
+                }
+                if (index === 16) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C# Medium Level", "fa-certificate");
+                }
+                if (index === 25) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C# Hard Level", "fa-certificate");
+                }
+                if (index === 34) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for C# Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 8 || index === 17 || index === 26 || index === 35) {
+                if (index === 8) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Python Basic Level", "fa-certificate");
+                }
+                if (index === 17) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Python Medium Level", "fa-certificate");
+                }
+                if (index === 26) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Python Hard Level", "fa-certificate");
+                }
+                if (index === 35) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Python Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 9 || index === 18 || index === 27 || index === 36) {
+                if (index === 9) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Java Basic Level", "fa-certificate");
+                }
+                if (index === 18) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Java Medium Level", "fa-certificate");
+                }
+                if (index === 27) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Java Hard Level", "fa-certificate");
+                }
+                if (index === 36) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Java Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 10 || index === 19 || index === 28 || index === 37) {
+                if (index === 10) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Javascript Basic Level", "fa-certificate");
+                }
+                if (index === 19) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Javascript Medium Level", "fa-certificate");
+                }
+                if (index === 28) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Javascript Hard Level", "fa-certificate");
+                }
+                if (index === 37) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Javascript Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 11 || index === 20 || index === 29 || index === 38) {
+                if (index === 11) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Typescript Basic Level", "fa-certificate");
+                }
+                if (index === 20) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Typescript Medium Level", "fa-certificate");
+                }
+                if (index === 29) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Typescript Hard Level", "fa-certificate");
+                }
+                if (index === 38) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Typescript Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 12 || index === 21 || index === 30 || index === 39) {
+                if (index === 12) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Ruby Basic Level", "fa-certificate");
+                }
+                if (index === 21) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Ruby Medium Level", "fa-certificate");
+                }
+                if (index === 30) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Ruby Hard Level", "fa-certificate");
+                }
+                if (index === 39) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Ruby Insane Level", "fa-certificate");
+                }
+            }
+            if (index === 13 || index === 22 || index === 31 || index === 40) {
+                if (index === 13) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Go Basic Level", "fa-certificate");
+                }
+                if (index === 22) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Go Medium Level", "fa-certificate");
+                }
+                if (index === 31) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Go Hard Level", "fa-certificate");
+                }
+                if (index === 40) {
+                    createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Go Insane Level", "fa-certificate");
+                }
+            }
+
         }
     });
 }

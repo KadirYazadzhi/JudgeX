@@ -53,7 +53,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    max-height: 350px;
+    max-height: 300px;
     overflow: auto;
 }
 
