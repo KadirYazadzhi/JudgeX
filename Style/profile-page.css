@@ -1329,6 +1329,18 @@ main .menu:hover .username-profile-box i {
     font-size: 16px;
 }
 
+.eighteen_px {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
 .font-back {
     opacity: 0.4;
     transition: opacity 0.3s;
