@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/online-resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/online-resume.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/profile-notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/profile-notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/system.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <workItem from="1726249005172" duration="8000" />
       <workItem from="1726434840919" duration="2438000" />
       <workItem from="1726714370886" duration="10977000" />
-      <workItem from="1726787329020" duration="7680000" />
+      <workItem from="1726787329020" duration="8764000" />
     </task>
     <servers />
   </component>

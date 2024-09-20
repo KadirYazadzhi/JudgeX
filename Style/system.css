@@ -39,7 +39,6 @@ body {
     position: relative;
 }
 
-
 .task-cards {
     width: 90%;
     display: flex;
@@ -708,5 +707,28 @@ body {
 
     .language {
         width: 40%;
+    }
+}
+
+
+
+@media (min-width: 1700px) {
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 20px 10px 10px 10%;
+    }
+
+    .code-editor {
+        height: 580px;
+    }
+
+    .test-results {
+        width: 100%;
+        height: 380px;
+    }
+
+    .difficult-level .computer {
+        height: 160px;
     }
 }
