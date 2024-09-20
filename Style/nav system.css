@@ -74,6 +74,12 @@
     user-select: none;
     z-index: 100;
 }
+
+@media (min-width: 1700px) {
+    #nav-bar {
+        max-height: 810px;
+    }
+}
 #nav-bar hr {
     margin: 0;
     position: relative;
