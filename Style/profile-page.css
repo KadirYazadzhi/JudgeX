@@ -1182,6 +1182,166 @@ main .menu:hover .username-profile-box i {
     padding: 0 10px 0 0;
 }
 
+.settings-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.settings-text {
+    font-size: 14px;
+}
+
+.settings-title {
+    font-weight: 600;
+}
+
+.settings-small-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 15px;
+    width: 100%;
+    background: var(--c-bg-elements);
+    border-radius: 20px;
+}
+
+.settings-small-section-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.settings-small-section-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.theme-card-back {
+    text-align: center;
+    font-weight: 550;
+}
+
+.theme-card {
+    width: 240px;
+    height: 160px;
+    border-radius: 20px;
+    border: 2px solid #7300ff;
+    opacity: 0.5;
+    transition: ease-in-out 0.3s;
+}
+
+.theme-card:hover {
+    opacity: 0.7;
+}
+
+.theme-card .active {
+    opacity: 1;
+}
+
+.website-color-modal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.color-back {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.activeColor {
+    border: 2px solid #6347ff;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.whiteBlue {
+    background: #b1b3e0;
+}
+
+.darkBlue {
+    background: #585da6;
+}
+
+.pink {
+    background: #ffa7f7;
+}
+
+.purple {
+    background: #d779ff;
+}
+
+.settings-small-colors-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    background: var(--c-bg-elements);
+    border-radius: 20px;
+}
+
+.settings-small-font-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    background: var(--c-bg-elements);
+    border-radius: 20px;
+}
+
+.language-section {
+    padding: 20px 15px;
+}
+
+.twelve_px {
+    font-size: 12px;
+}
+
+.fourteen_px {
+    font-size: 14px;
+}
+
+.sixteen_px {
+    font-size: 16px;
+}
+
+.font-back {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.font-back:hover {
+    opacity: 0.8;
+}
+
+.current-font {
+    opacity: 1;
+}
 
 .easy {
     background: #008d0a;
