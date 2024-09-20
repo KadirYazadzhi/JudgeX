@@ -57,6 +57,12 @@
     overflow: auto;
 }
 
+@media (max-width: 1600px) and (min-width: 768px) {
+    .notifications {
+        max-height: 250px;
+    }
+}
+
 .left-notification {
     width: 100%;
     display: flex;

@@ -26,7 +26,7 @@ class TimeManager {
     updateTimes() {
         // Fetch the latest times from localStorage each second
         const elapsedTimeSystem = localStorage.getItem("elapsedTime_system") || 0;
-        const elapsedTimeIndex = localStorage.getItem("elapsedTime_index") || 0;
+        const elapsedTimeIndex = localStorage.getItem("elapsedTime_website") || 0;
 
         // Update the displayed times if the required elements exist
         if (this.times.length >= 3) {

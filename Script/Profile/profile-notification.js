@@ -39,8 +39,37 @@ function createNotification(type, titleText, textText, typeIcon) {
 
 }
 
-tasks()
+function badge() {
+    const badges = document.querySelectorAll(".badge-background");
 
+    badges.forEach((badge, index) => {
+        if (!badge.classList.contains("not-active-badge")) {
+            if (index === 0) {
+                createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Basic Level Knowledge", "fa-certificate");
+            }
+            if (index === 1) {
+                createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Medium Level Knowledge", "fa-certificate");
+            }
+            if (index === 2) {
+                createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Hard Level Knowledge", "fa-certificate");
+            }
+            if (index === 3) {
+                createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Insane Level Knowledge", "fa-certificate");
+            }
+            if (index === 4) {
+                createNotification("badge-notification", "Earn Badge", "You have earned a new badge for Expert Level Knowledge", "fa-certificate");
+            }
+
+            if (index === 5 || index === 14 || index === 23 || index === 32) {
+                
+            }
+        }
+    });
+}
+badge()
+
+
+tasks()
 function tasks() {
     // Iterate over all levels, languages, and tasks
     for (let task = 1; task < 100; task++) {
