@@ -13,6 +13,7 @@ class ModalManager {
             certificate: document.getElementById('certificate-section'),
             progress: document.getElementById('progress-container'),
             shop: document.getElementById('shop-section'),
+            settings: document.getElementById('settings-section')
         };
 
         // Initialize the app
@@ -65,7 +66,7 @@ class ModalManager {
                         this.showModal('shop');
                         break;
                     case 5:
-                        // Logic for modal 6 (if needed)
+                        this.showModal('settings');
                         break;
                     default:
                         break;
