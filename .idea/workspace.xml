@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/online-resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/online-resume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/profile-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +97,11 @@
       <workItem from="1726434840919" duration="2438000" />
       <workItem from="1726714370886" duration="10977000" />
       <workItem from="1726787329020" duration="16033000" />
+      <workItem from="1726827474236" duration="595000" />
+      <workItem from="1726842731462" duration="1790000" />
+      <workItem from="1726940749842" duration="1195000" />
+      <workItem from="1727098259529" duration="4000" />
+      <workItem from="1727250423870" duration="1603000" />
     </task>
     <servers />
   </component>
