@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function removeCurrentCodeFromTextAreaAndLocalStorage() {
+        localStorage.removeItem(`codeEditorContent_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`);
+        document.getElementById('code-editor').value = "";
+    }
+
     function heartsNotActive() {
         if (getInfinityDiamond() !== null || getSpecialUser() !== null) {
             return;
@@ -45,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
     heartsNotActive();
 
     async function submitCode() {
+        const code = document.getElementById('code-editor').value;
+
         if (callData.lastDate !== today) {
             callData.count = 0;
             callData.lastDate = today;
@@ -60,14 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             heartsNotActive();
             showCountdown();
+            removeCurrentCodeFromTextAreaAndLocalStorage();
         }
         else {
             alert("You have exceeded the number of solutions you can upload in a day. Please wait until tomorrow to continue.");
             return;
         }
-
-
-        const code = document.getElementById('code-editor').value;
 
         localStorage.setItem(`saveSubmitCode_${active()}_${selectedLanguage}_${selectedLevel}`, code);
 

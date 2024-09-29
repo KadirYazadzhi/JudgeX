@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <title>Profile</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="Style/profile-page.css">
+  <link rel="stylesheet" type="text/css" href="Style/system-scroll-style.css">
+  <link rel="stylesheet" type="text/css" href="Style/profile-right-menu.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lucaburgio/iconoir@main/css/iconoir.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js" charset="utf-8"></script>
+</head>
+<body>
+<main class="container">
+  <div class="menu">
+    <div class="avatar">
+      <img id="profile-image" class="thumb" src="" width="60"/>
+      <div class="username-profile-box">
+        <span id="profile-username" class="name"></span>
+
+      </div>
+      <span id="diamond-availability" class="name diamond-availability"></span>
+
+    </div>
+    <nav class="primary">
+      <a href="#" class="menu-item active">
+        <i class="fa-solid fa-user"></i>
+        <span class="desc">Information</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-regular fa-file"></i>
+        <span class="desc">Online Resume</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-solid fa-chart-simple"></i>
+        <span class="desc">Progress</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-solid fa-award"></i>
+        <span class="desc">Certificates</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-solid fa-shop"></i>
+        <span class="desc">Shop</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-solid fa-gear"></i>
+        <span class="desc">Settings</span>
+      </a>
+    </nav>
+    <span class="expander iconoir-arrow-right"></span>
+  </div>
+  <div class="topbar">
+    <h1 class="current">Information</h1>
+    <span class="search">
+          <label><span class="iconoir-search"></span></label>
+          <input class="bar" type="text" placeholder="Search..." />
+        </span>
+    <nav>
+      <a href="index.html" class="menu-item">Home</a>
+      <a href="system.html" class="menu-item">System</a>
+      <a href="#" class="menu-item">Blog</a>
+    </nav>
+  </div>
+  <div class="dashboard">
+    <div id="profile-information" class="cardrow">
+      <div class="card">
+        <header>
+          <h2>Information</h2>
+        </header>
+        <div class="content">
+          <div class="user-data-input-box">
+            <p>Username</p>
+            <div class="input-user-data">
+              <p id="username" contenteditable="true"></p>
+              <i class="fa-solid fa-user"></i>
+            </div>
+          </div>
+
+          <div class="user-data-input-box">
+            <p>Email</p>
+            <div class="input-user-data">
+              <p id="email" contenteditable="true"></p>
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+          </div>
+
+          <div class="user-data-input-box">
+            <p>Password</p>
+            <div class="input-user-data">
+              <p id="password" contenteditable="true"></p>
+              <i id="password-icon" class="fa-solid fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="user-data-input-box">
+            <p>Country</p>
+            <div class="input-user-data">
+              <p id="country" contenteditable="true"></p>
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+        </div>
+      </div>
+      <div class="card">
+        <header class="badge-header">
+          <p>My Badges</p>
+          <p>1/50</p>
+        </header>
+        <div style="flex-direction: row; display: flex; flex-wrap: wrap; gap: 10px" class="content badges">
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/basic-level-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/medium-level-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/hard-level-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/Insane-level-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/expert-level-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/c-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/cplusplus-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/csharp-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/python-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/java-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/javascript-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/typescript-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/ruby-basic-badge.svg">
+          </div>
+
+          <div class="badge-background not-active-badge">
+            <img class="badge" src="Image/Badges/go-basic-badge.svg">
+          </div>
+        </div>
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+    <div id="online-resume" class="cardrow">
+      <div class="card">
+        <header class="online-resume-header">
+          <h2>My Resume</h2>
+          <div class="resume-template-btn">
+            <span>Template</span>
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+        </header>
+        <div id="online-resume-template" class="content resume">
+          <div class="resume-small-information content" contenteditable="true">
+                        <span class="emoji-box">
+                            <i class="fa-solid fa-laptop-code icon"></i>
+                        </span>
+            <span>Hello! <span class="emoji" data-emoji="👋">👋</span></span>
+
+            <span>
+                            Write your text here.
+                            <span class="emoji" data-emoji="🚀">🚀</span>
+                        </span>
+          </div>
+
+          <img class="resume-img" src="Image/human-image-resum.svg">
+          <input type="file" id="fileInput" style="display:none" accept="image/*">
+
+          <div class="resume-about-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-address-card icon"></i> About Me</h2>
+            <span>
+                            Write your text here.
+                        </span>
+          </div>
+
+          <div class="resume-course-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-user-graduate icon"></i> Courses</h2>
+            <div class="course">
+                            <span>
+                                <i class="fa-solid fa-laptop-code icon"></i>
+                                Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-laptop-code icon"></i>
+                                Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-laptop-code icon"></i>
+                                Write your text here.
+                            </span>
+            </div>
+          </div>
+
+          <div class="resume-work-experience-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-building icon"></i> Work Experience</h2>
+            <div class="work">
+                             <span>
+                                 <i class="fa-solid fa-briefcase icon"></i>
+                                <strong>Some Text</strong> Write your text here.
+                             </span>
+
+              <span>
+                                <i class="fa-solid fa-briefcase icon"></i>
+                                <strong>Some Text</strong> Write your text here.
+                            </span>
+            </div>
+          </div>
+
+          <div class="resume-skills-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-shapes icon"></i> Skills</h2>
+            <div class="skills">
+                            <span><i class="fa-solid fa-globe icon"></i>
+                                <strong>Front-End:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-database icon"></i>
+                                <strong>Back-End:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-screwdriver-wrench icon"></i>
+                                <strong>Tools:</strong> Write your text here.
+                            </span>
+              <span><i class="fa-solid fa-ranking-star icon"></i>
+                                <strong>Project Management:</strong> Write your text here.
+                            </span>
+            </div>
+          </div>
+
+          <div class="resume-education-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-school icon"></i> Education</h2>
+            <div class="education">
+                            <span>
+                                <i class="fa-solid fa-graduation-cap icon"></i>
+                                Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-graduation-cap icon"></i>
+                                Write your text here.
+                            </span>
+            </div>
+          </div>
+
+          <div class="resume-certifications-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-trophy icon"></i> Certifications</h2>
+            <div class="certifications">
+                            <span>
+                                <i class="fa-solid fa-award icon"></i>
+                                Write your text here.
+                            </span>
+
+              <span>
+                                <i class="fa-solid fa-award icon"></i>
+                                Write your text here.
+                            </span>
+
+              <span>
+                                <i class="fa-solid fa-award icon"></i>
+                                Write your text here.
+                            </span>
+
+            </div>
+          </div>
+
+          <div class="resume-hobbies-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-pen-nib icon"></i> Hobbies & Interests</h2>
+            <div class="hobbies">
+                            <span>
+                                <i class="fa-solid fa-gamepad icon"></i>
+                                <strong>Gaming:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-book-open-reader icon"></i>
+                                <strong>Reading:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-film icon"></i>
+                                <strong>Movies:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-chess icon"></i>
+                                <strong>Chess:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-code icon"></i>
+                                <strong>Programming:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-basketball-ball icon"></i>
+                                <strong>Sports:</strong> Write your text here.
+                            </span>
+            </div>
+          </div>
+
+
+          <div class="resume-contact-box content" contenteditable="true">
+            <h2><i class="fa-solid fa-envelope icon"></i> Contact</h2>
+            <div class="contact">
+                            <span>
+                                <i class="fa-solid fa-at icon"></i>
+                                <strong>Email:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-phone icon"></i>
+                                <strong>Phone:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-solid fa-globe icon"></i>
+                                <strong>Website:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-linkedin icon"></i>
+                                <strong>LinkedIn:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-facebook icon"></i>
+                                <strong>Facebook:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-twitter icon"></i>
+                                <strong>Twitter:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-instagram icon"></i>
+                                <strong>Instagram:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-tiktok icon"></i>
+                                <strong>TikTok:</strong> Write your text here.
+                            </span>
+              <span>
+                                <i class="fa-brands fa-github icon"></i>
+                                <strong>Github:</strong> Write your text here.
+                            </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+    <div id="progress-container" class="cardrow">
+      <div class="card">
+        <header>
+          <h2>Progress</h2>
+        </header>
+        <div class="content progress-language">
+          <div data-card-id="0" class="language-card-modal c">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="1" class="language-card-modal cplusplus">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M20.66 7a1.51 1.51 0 0 0-.55-.57l-7.34-4.24a1.67 1.67 0 0 0-1.54 0L3.89 6.43a1.68 1.68 0 0 0-.77 1.33v8.48a1.57 1.57 0 0 0 .22.76 1.51 1.51 0 0 0 .55.57l7.34 4.24a1.67 1.67 0 0 0 1.54 0l7.34-4.24a1.51 1.51 0 0 0 .55-.57 1.57 1.57 0 0 0 .22-.76V7.76a1.57 1.57 0 0 0-.22-.76zM12 17.92A5.92 5.92 0 1 1 17.13 9L16 9.71l-.36.20-1 .61A3 3 0 0 0 9 12a2.88 2.88 0 0 0 .4 1.48 3 3 0 0 0 5.13 0l2.6 1.52A5.94 5.94 0 0 1 12 17.92zm5.92-5.59h-.66V13h-.65v-.66H16v-.66h.66V11h.65v.66h.66zm2.47 0h-.66V13h-.66v-.66h-.65v-.66h.65V11h.66v.66h.66z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="2" class="language-card-modal cSharp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 50 50">
+              <path d="M 25 2 C 24.285156 2 23.570313 2.179688 22.933594 2.539063 L 6.089844 12.003906 C 4.800781 12.726563 4 14.082031 4 15.535156 L 4 34.464844 C 4 35.917969 4.800781 37.273438 6.089844 37.996094 L 22.933594 47.460938 C 23.570313 47.820313 24.285156 48 25 48 C 25.714844 48 26.429688 47.820313 27.066406 47.460938 L 43.910156 38 C 45.199219 37.273438 46 35.917969 46 34.464844 L 46 15.535156 C 46 14.082031 45.199219 12.726563 43.910156 12.003906 L 27.066406 2.539063 C 26.429688 2.179688 25.714844 2 25 2 Z M 25 13 C 28.78125 13 32.277344 14.753906 34.542969 17.738281 L 30.160156 20.277344 C 28.84375 18.835938 26.972656 18 25 18 C 21.140625 18 18 21.140625 18 25 C 18 28.859375 21.140625 32 25 32 C 26.972656 32 28.84375 31.164063 30.160156 29.722656 L 34.542969 32.261719 C 32.277344 35.246094 28.78125 37 25 37 C 18.382813 37 13 31.617188 13 25 C 13 18.382813 18.382813 13 25 13 Z M 35 20 L 37 20 L 37 22 L 39 22 L 39 20 L 41 20 L 41 22 L 43 22 L 43 24 L 41 24 L 41 26 L 43 26 L 43 28 L 41 28 L 41 30 L 39 30 L 39 28 L 37 28 L 37 30 L 35 30 L 35 28 L 33 28 L 33 26 L 35 26 L 35 24 L 33 24 L 33 22 L 35 22 Z M 37 24 L 37 26 L 39 26 L 39 24 Z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="3" class="language-card-modal python">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="95" height="95" viewBox="0 0 24 24">
+              <path d="M9.585 11.692h4.328s2.432.039 2.432-2.35V5.391S16.714 3 11.936 3C7.362 3 7.647 4.983 7.647 4.983l.006 2.055h4.363v.617H5.92s-2.927-.332-2.927 4.282 2.555 4.45 2.555 4.45h1.524v-2.141s-.083-2.554 2.513-2.554zm-.056-5.74a.784.784 0 1 1 0-1.57.784.784 0 1 1 0 1.57z"></path><path d="M18.452 7.532h-1.524v2.141s.083 2.554-2.513 2.554h-4.328s-2.432-.04-2.432 2.35v3.951s-.369 2.391 4.409 2.391c4.573 0 4.288-1.983 4.288-1.983l-.006-2.054h-4.363v-.617h6.097s2.927.332 2.927-4.282-2.555-4.451-2.555-4.451zm-3.981 10.436a.784.784 0 1 1 0 1.57.784.784 0 1 1 0-1.57z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="4" class="language-card-modal java">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M9.37 17.51c-3.09.86 1.87 2.64 5.8 1a7.18 7.18 0 0 1-1.1-.54 11.59 11.59 0 0 1-4.16.18c-1.31-.15-.54-.64-.54-.64zm5.33-1.68a16.27 16.27 0 0 1-5.36.26c-1.31-.14-.45-.77-.45-.77-3.4 1.12 1.89 2.4 6.64 1a2.25 2.25 0 0 1-.83-.49zm1.82-9.73s-6.87 1.71-3.59 5.49a1.47 1.47 0 0 1-.25 2.12s2.46-1.27 1.33-2.86-1.86-2.22 2.51-4.75z"></path><path d="M18.13 19.14s.56.46-.63.82c-2.27.69-9.43.9-11.42 0-.72-.31.62-.74 1-.83a2.54 2.54 0 0 1 .69-.08c-.8-.56-5.15 1.1-2.21 1.58 8.05 1.37 14.64-.56 12.57-1.49zm-2.76-4.88a7 7 0 0 1 .92-.49s-1.51.27-3 .4a28.11 28.11 0 0 1-4.82.05C6.09 13.91 9.74 13 9.74 13a6.81 6.81 0 0 0-3.16.75c-2.06 1.03 5.09 1.48 8.79.51zm.91 2.44a.39.39 0 0 1-.08.09c5-1.32 3.18-4.65.78-3.81a.71.71 0 0 0-.33.25s.14-.05.43-.12c1.22-.25 2.92 1.63-.8 3.59zM12 13c-.74-1.67-3.26-3.14 0-5.71C16.09 4.08 14 2 14 2c.84 3.31-3 4.31-4.34 6.37-.93 1.41.47 2.92 2.34 4.63z"></path><path d="M16.41 21.32a29.75 29.75 0 0 1-9.14.14s.46.38 2.84.53c3.61.23 9.15-.12 9.29-1.83 0 0-.26.64-2.99 1.16z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="5" class="language-card-modal javascript">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.078-.382-.034-.529.113-.484.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.608 2.655.427 3.354 1.023.765 2.521.933 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.157.359.337.517.607.832 1.305 1.316 4.568 1.249 5.153-.754.021-.067.18-.528.056-1.237l.034.049zm-6.737-5.434h-1.686c0 1.453-.007 2.898-.007 4.354 0 .924.047 1.772-.104 2.033-.247.517-.886.451-1.175.359-.297-.146-.448-.349-.623-.641-.047-.078-.082-.146-.095-.146l-1.368.844c.229.473.563.879.994 1.137.641.383 1.502.507 2.404.305.588-.17 1.095-.519 1.358-1.059.384-.697.302-1.553.299-2.509.008-1.541 0-3.083 0-4.635l.003-.042z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="6" class="language-card-modal typescript">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M19.24 3H4.76A1.76 1.76 0 0 0 3 4.76v14.48A1.76 1.76 0 0 0 4.76 21h14.48A1.76 1.76 0 0 0 21 19.24V4.76A1.76 1.76 0 0 0 19.24 3zm-5.8 10h-2.25v6.44H9.4V13H7.15v-1.46h6.29zm5.8 5.28a1.71 1.71 0 0 1-.67.74 3 3 0 0 1-1 .39 5.81 5.81 0 0 1-1.2.12 7 7 0 0 1-1.23-.11 4.52 4.52 0 0 1-1-.33v-1.71l-.06-.06h.06v.07a3.41 3.41 0 0 0 1 .54 3.06 3.06 0 0 0 1.13.2 2.58 2.58 0 0 0 .6-.06 1.47 1.47 0 0 0 .42-.17.75.75 0 0 0 .25-.25.69.69 0 0 0-.06-.74 1.24 1.24 0 0 0-.35-.33 3.12 3.12 0 0 0-.53-.3l-.67-.28a3.57 3.57 0 0 1-1.37-1 2 2 0 0 1-.46-1.33 2.16 2.16 0 0 1 .24-1.06 2.09 2.09 0 0 1 .66-.71 2.88 2.88 0 0 1 1-.42 5.11 5.11 0 0 1 1.19-.13 7 7 0 0 1 1.09.07 4.53 4.53 0 0 1 .88.23v1.65a2.42 2.42 0 0 0-.42-.24 3.58 3.58 0 0 0-.49-.17 3 3 0 0 0-.49-.1 2.45 2.45 0 0 0-.46 0 2.29 2.29 0 0 0-.56.06 1.54 1.54 0 0 0-.43.16.78.78 0 0 0-.26.25.63.63 0 0 0-.09.33.62.62 0 0 0 .1.35 1.19 1.19 0 0 0 .3.29 2.15 2.15 0 0 0 .46.28l.63.28a6.56 6.56 0 0 1 .84.42 2.65 2.65 0 0 1 .64.49 1.79 1.79 0 0 1 .42.63 2.48 2.48 0 0 1 .14.85 2.68 2.68 0 0 1-.25 1.08z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="7" class="language-card-modal ruby">
+            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 50 50">
+              <path d="M 3.125 23.160156 L 8.183594 14.480469 C 8.230469 14.394531 8.292969 14.316406 8.363281 14.253906 L 17.441406 5.792969 C 17.539063 5.703125 17.65625 5.632813 17.78125 5.585938 L 25.578125 2.722656 L 32.152344 7.316406 L 28.878906 17.722656 L 16.597656 29.132813 L 6.582031 31.378906 Z M 7.296875 33.269531 L 11.96875 46.628906 L 15.8125 31.355469 Z M 42.484375 2.875 L 35.074219 6.992188 L 47.355469 15.910156 C 47.613281 14.761719 47.914063 13.195313 47.984375 11.863281 C 47.980469 11.847656 47.980469 11.828125 47.980469 11.808594 C 48.019531 9.910156 47.707031 7.925781 46.675781 6.210938 C 45.75 4.667969 44.359375 3.539063 42.535156 2.828125 C 42.519531 2.84375 42.507813 2.863281 42.484375 2.875 Z M 34.375 35.578125 L 29.296875 20.058594 L 18.988281 29.644531 Z M 31.144531 19.269531 L 36.1875 34.679688 C 40.132813 30.386719 44.171875 25.246094 46.476563 18.925781 Z M 45.382813 16.949219 L 33.851563 8.578125 L 31.117188 17.269531 Z M 5.761719 34.9375 L 2.335938 40.816406 C 3.507813 46.242188 7.566406 47.457031 10.242188 47.753906 Z M 4.878906 32.484375 L 2 25.644531 L 2 37.421875 Z M 39.921875 2.011719 C 39.90625 2.007813 39.890625 2 39.871094 2 L 28.039063 2 L 33.3125 5.6875 Z M 17.875 31.355469 L 13.777344 47.632813 C 22.109375 46.40625 28.359375 41.929688 33.425781 37.355469 Z M 44.546875 45.648438 C 44.3125 45.648438 44.074219 45.566406 43.882813 45.398438 L 35.617188 38.058594 C 31.984375 41.429688 27.742188 44.855469 22.519531 47.164063 L 44.5625 45.667969 C 44.691406 45.660156 44.8125 45.621094 44.925781 45.570313 C 44.804688 45.621094 44.675781 45.648438 44.546875 45.648438 Z M 37.0625 36.667969 L 45.210938 43.902344 C 45.382813 44.054688 45.472656 44.253906 45.511719 44.460938 L 47.195313 22.414063 C 44.582031 28.078125 40.742188 32.730469 37.0625 36.667969 Z"></path>
+            </svg>
+          </div>
+
+          <div data-card-id="8" class="language-card-modal go">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24">
+              <path d="M3.79 10.17a.18.18 0 0 0-.11 0l-.2.27H7a.15.15 0 0 0 .1-.06l.17-.26v-.05zm-1.47.89a.14.14 0 0 0-.11 0l-.2.26v.05h4.6a.09.09 0 0 0 .09-.06l.08-.23v-.06zM4.6 12a.13.13 0 0 0-.1.06l-.13.24v.06h2.15a.08.08 0 0 0 .07-.07v-.23s0-.07-.06-.07zm15.99-3.07a3.62 3.62 0 0 0-2.78-.5 4.09 4.09 0 0 0-2.72 1.63 4 4 0 0 0-.67 1.26h-3.14a.25.25 0 0 0-.24.16c-.14.25-.37.76-.5 1.06s0 .29.18.29h1.88a2.8 2.8 0 0 1-.26.36 1.81 1.81 0 0 1-1.65.65 1.53 1.53 0 0 1-1.32-1.53 2.07 2.07 0 0 1 1-1.85 1.71 1.71 0 0 1 1.77-.15 1.36 1.36 0 0 1 .45.37c.13.15.14.14.29.1l1.63-.43c.12 0 .16-.08.1-.16a3 3 0 0 0-1.13-1.38 3.35 3.35 0 0 0-2.58-.47A4.31 4.31 0 0 0 8.16 10a3.81 3.81 0 0 0-.82 2.85A3 3 0 0 0 8.57 15a3.46 3.46 0 0 0 2.62.65A4.06 4.06 0 0 0 14 14a4.33 4.33 0 0 0 .41-.69 3 3 0 0 0 1 1.55 3.68 3.68 0 0 0 2.38.86c.25 0 .51 0 .78-.09a4.51 4.51 0 0 0 2.33-1.25A3.72 3.72 0 0 0 22 11.1a3 3 0 0 0-1.41-2.17zm-1.78 4.73a1.81 1.81 0 0 1-1.59.06 1.61 1.61 0 0 1-.9-1.84A2.12 2.12 0 0 1 18 10.19a1.59 1.59 0 0 1 2 1.29 2.91 2.91 0 0 1 0 .32 2.11 2.11 0 0 1-1.19 1.86z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="progress-container">
+          <div class="progress-box">
+            <div class="progress-bar-box">
+              <span>Easy</span>
+              <div class="progress-bar easy">
+                <div class="dot-progress-bar"></div>
+                <div class="info-progress-bar">
+                  <span class="percent"></span>
+                  <span class="fraction"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-bar-box">
+              <span>Medium</span>
+              <div class="progress-bar medium">
+                <div class="dot-progress-bar"></div>
+                <div class="info-progress-bar">
+                  <span class="percent"></span>
+                  <span class="fraction"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-bar-box">
+              <span>Hard</span>
+              <div class="progress-bar hard">
+                <div class="dot-progress-bar"></div>
+                <div class="info-progress-bar">
+                  <span class="percent"></span>
+                  <span class="fraction"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-bar-box">
+              <span>Insane</span>
+              <div class="progress-bar insane">
+                <div class="dot-progress-bar"></div>
+                <div class="info-progress-bar">
+                  <span class="percent"></span>
+                  <span class="fraction"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="chart" data-percent="10">
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="certificate-section" class="cardrow">
+      <div class="card">
+        <header>
+          <h2>Certificates</h2>
+        </header>
+        <div class="content certificate-container">
+
+        </div>
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+    <div id="shop-section" class="cardrow">
+      <div class="card">
+        <header>
+          <h2>Shop</h2>
+        </header>
+        <div class="shop-section content">
+          <div class="shop-card">
+            <div class="shop-card-top">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="shop-card-bottom">
+              <div class="information-shop-card">
+                <span class="shop-card-title">One Heart</span>
+                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+              </div>
+              <div class="price-shop-card">
+                <div class="shop-card-text-price">
+                  <span class="text-price-span">50</span>
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+                <button class="shop-card-button">Buy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card">
+            <div class="shop-card-top">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="shop-card-bottom">
+              <div class="information-shop-card">
+                <span class="shop-card-title">Three Heart</span>
+                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+              </div>
+              <div class="price-shop-card">
+                <div class="shop-card-text-price">
+                  <span class="text-price-span">140</span>
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+                <button class="shop-card-button">Buy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card">
+            <div class="shop-card-top">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="shop-card-bottom">
+              <div class="information-shop-card">
+                <span class="shop-card-title">Five Heart</span>
+                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+              </div>
+              <div class="price-shop-card">
+                <div class="shop-card-text-price">
+                  <span class="text-price-span">210</span>
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+                <button class="shop-card-button">Buy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card gold-box">
+            <div class="shop-card-top">
+              <i class="fa-solid fa-infinity"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="shop-card-bottom">
+              <div class="information-shop-card">
+                <span class="shop-card-title">Infinity Heart</span>
+                <span class="shop-card-text">Purchase an extra heart for code submissions.</span>
+              </div>
+              <div class="price-shop-card">
+                <div class="shop-card-text-price">
+                  <span class="text-price-span">5000</span>
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+                <button class="shop-card-button">Buy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card big-box">
+            <div class="shop-card-bottom">
+              <div class="information-shop-card">
+                <span class="shop-card-title">Special Plan</span>
+                <span class="shop-card-text">This includes:</span>
+                <ul class="priority">
+                  <li>Infinity hearts</li>
+                  <li>Unlock hidden exercise</li>
+                  <li>Priority support</li>
+                  <li>Exclusive challenges</li>
+                </ul>
+              </div>
+              <div class="price-shop-card">
+                <div class="shop-card-text-price">
+                  <span class="text-price-span">10000</span>
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+                <button class="shop-card-button">Buy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+    <div id="settings-section" class="cardrow">
+      <div class="card">
+        <header>
+          <h2>Settings</h2>
+        </header>
+        <div class="settings-section content">
+          <div class="settings-card">
+            <div class="settings-small-section language-section">
+              <div class="settings-small-section-left">
+                <span class="settings-title">Language</span>
+                <span class="settings-text">Select the language of the platform</span>
+              </div>
+
+              <div class="website-language-modal">
+
+              </div>
+            </div>
+
+            <div class="settings-small-section">
+              <span class="settings-title">Interface Theme</span>
+              <span class="settings-text">Customize your application theme</span>
+
+              <div class="settings-small-section-bottom">
+                <div class="theme-card-back">
+                  <div class="theme-card">
+                    <img src="#">
+                  </div>
+                  <p>System</p>
+                </div>
+
+                <div class="theme-card-back">
+                  <div class="theme-card">
+                    <img src="#">
+                  </div>
+                  <p>White</p>
+                </div>
+
+                <div class="theme-card-back">
+                  <div class="theme-card">
+                    <img src="#">
+                  </div>
+                  <p>Dark</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-small-colors-section">
+              <div class="settings-small-section-left">
+                <span class="settings-title">Accent Color</span>
+                <span class="settings-text">Select your application font color</span>
+              </div>
+
+              <div class="website-color-modal">
+                <div class="color-back activeColor">
+                  <div class="color whiteBlue"></div>
+                </div>
+
+                <div class="color-back">
+                  <div class="color darkBlue"></div>
+                </div>
+
+                <div class="color-back">
+                  <div class="color pink"></div>
+                </div>
+
+                <div class="color-back">
+                  <div class="color purple"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-small-font-section">
+              <div class="settings-small-section-left">
+                <span class="settings-title">Font Size</span>
+                <span class="settings-text">Select your application font size</span>
+              </div>
+
+              <div class="website-color-modal">
+                <div class="font-back">
+                  <div class="font twelve_px">
+                    <i class="fa-solid fa-font"></i>
+                    <span>12</span>
+                  </div>
+                </div>
+
+                <div class="font-back current-font">
+                  <div class="font fourteen_px">
+                    <i class="fa-solid fa-font"></i>
+                    <span>14</span>
+                  </div>
+                </div>
+
+                <div class="font-back">
+                  <div class="font sixteen_px">
+                    <i class="fa-solid fa-font"></i>
+                    <span>16</span>
+                  </div>
+                </div>
+
+                <div class="font-back">
+                  <div class="font eighteen_px">
+                    <i class="fa-solid fa-font"></i>
+                    <span>18</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-small-font-section">
+              <div class="settings-small-section-left">
+                <span class="settings-title">Font Type</span>
+                <span class="settings-text">Select your application font type</span>
+              </div>
+
+              <div class="website-color-modal">
+                <div class="font-back">
+                  <div class="font bold">
+                    <i class="fa-solid fa-bold"></i>
+                    <span>Bold</span>
+                  </div>
+                </div>
+
+                <div class="font-back">
+                  <div class="font italic">
+                    <i class="fa-solid fa-italic"></i>
+                    <span>Italic</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="side">
+    <div class="card weather">
+      <header class="notification-header">
+        <p>Notification</p>
+        <p id="count-notification"></p>
+      </header>
+      <div class="content">
+        <div class="notifications">
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header>Times</header>
+      <div class="content">
+        <ul class="times-in-website">
+          <div class="times-card">
+            <i class="fa-solid fa-calendar-days"></i>
+            <li></li>
+          </div>
+
+          <div class="times-card">
+            <i class="fa-solid fa-clock"></i>
+            <li></li>
+          </div>
+
+          <div class="times-card">
+            <i class="fa-solid fa-clock"></i>
+            <li></li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <header>Other</header>
+      <div class="content">
+        <div class="right-bottom-elements">
+          <div class="github-card card-right-bottom">
+            <i class="fa-brands fa-github"></i>
+            <p>Github</p>
+          </div>
+          <div class="github-card card-right-bottom">
+            <i class="fa-solid fa-bug"></i>
+            <p>Report</p>
+          </div>
+          <div class="github-card card-right-bottom">
+            <i class="fa-solid fa-globe"></i>
+            <p>Portfolio</p>
+          </div>
+        </div>
+
+        <div class="right-bottom-elements bottom">
+          <div class="github-card card-right-bottom">
+            <i class="fa-brands fa-instagram"></i>
+            <p>Instagram</p>
+          </div>
+          <div class="github-card card-right-bottom">
+            <i class="fa-brands fa-facebook"></i>
+            <p>Facebook</p>
+          </div>
+          <div class="github-card card-right-bottom">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Email</p>
+          </div>
+        </div>
+
+        <ul class="copyright">
+          <li>Copyright: Kadir Yazadzhi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="video">
+  <video src="https://user-images.githubusercontent.com/30212452/203724691-9e93bf50-df02-4034-9743-dfe32d18bf58.mp4" muted playsinline autoplay loop></video>
+</div>
+</body>
+<script src="Script/all-const.js"></script>
+<script src="Script/Profile/information-section-field-changing.js"></script>
+<script src="Script/Profile/certificate-section-show-certificate.js"></script>
+<script src="Script/Profile/progress-section.js"></script>
+<script src="Script/Profile/profile-menu.js"></script>
+<script src="Script/Profile/user-details.js"></script>
+<script src="Script/Profile/shop-section-buy-hearts.js"></script>
+<script src="Script/Profile/special-account-setup.js"></script>
+<script src="Script/Profile/badges.js"></script>
+<script src="Script/Profile/online-resume.js"></script>
+<script src="Script/Profile/online-resume-image.js"></script>
+<script src="Script/Profile/resume-template.js"></script>
+<script src="Script/Profile/profile-right-information-times.js"></script>
+<script src="Script/Profile/profile-notification.js"></script>
+</html>
+
