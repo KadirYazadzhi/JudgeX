@@ -40,7 +40,7 @@ class NavigationManager {
             case 'facebook':
                 return 'https://www.facebook.com/kadir.yazadji.1';
             case 'email':
-                return 'mailto:kadiryazadzhi@gmail.com'; 
+                return 'mailto:kadiryazadzhi@gmail.com';
             default:
                 return null; // Return null if no match is found
         }
