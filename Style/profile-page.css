@@ -1230,6 +1230,10 @@ main .menu:hover .username-profile-box i {
     font-weight: 550;
 }
 
+.theme-img {
+    width: 100%;
+}
+
 .theme-card {
     width: 240px;
     height: 160px;
@@ -1237,6 +1241,14 @@ main .menu:hover .username-profile-box i {
     border: 2px solid #7300ff;
     opacity: 0.5;
     transition: ease-in-out 0.3s;
+    cursor: pointer;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-card-small {
+    width: 100%;
 }
 
 .theme-card:hover {
