@@ -1355,6 +1355,30 @@ main .menu:hover .username-profile-box i {
     opacity: 1;
 }
 
+.settings-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reset-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    background: rgba(94, 95, 182, 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    gap: 5px;
+    transition: 0.4s;
+}
+
+.reset-btn:hover {
+    background: rgba(94, 95, 182, 0.6);
+}
+
 .easy {
     background: #008d0a;
 }
