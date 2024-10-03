@@ -43,9 +43,26 @@ class CertificateManager {
         newImage.src = path;
         newDiv.appendChild(newImage);
 
+        const containerDiv = document.createElement('div');
+        containerDiv.classList.add('certificate-card-bottom-box');
+        newDiv.appendChild(containerDiv);
+
         const newSpan = document.createElement('span');
+        containerDiv.appendChild(newSpan);
         newSpan.innerHTML = message;
-        newDiv.appendChild(newSpan);
+
+        const iconsBox = document.createElement('div');
+        iconsBox.classList.add('certificate-icons-box');
+        containerDiv.appendChild(iconsBox);
+
+
+        const downloadIcon = document.createElement('i');
+        downloadIcon.classList.add('fa-solid', 'fa-file-arrow-down');
+        iconsBox.appendChild(downloadIcon);
+
+        const openFullScreenIcon = document.createElement('i');
+        openFullScreenIcon.classList.add('fa-solid', 'fa-expand');
+        iconsBox.appendChild(openFullScreenIcon);
     }
 }
 

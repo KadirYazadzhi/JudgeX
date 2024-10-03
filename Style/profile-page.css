@@ -1387,6 +1387,23 @@ main .menu:hover .username-profile-box i {
     transition: 0.4s;
 }
 
+.certificate-card-bottom-box {
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+.certificate-icons-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .reset-btn:hover {
     background: rgba(94, 95, 182, 0.6);
 }
