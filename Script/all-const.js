@@ -63,7 +63,7 @@ function getCountryValue() {
 }
 
 function getDiamond() {
-    return parseInt(localStorage.getItem('diamond_availability'));
+    return parseInt(localStorage.getItem('diamond_availability') || 0);
 }
 
 function getSpecialUser() {

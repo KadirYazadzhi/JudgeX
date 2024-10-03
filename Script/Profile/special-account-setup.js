@@ -13,10 +13,6 @@ class UserDetails {
         return getSpecialUser() !== null;
     }
 
-    // Method to get the current amount of diamonds
-    getDiamonds() {
-        return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
-    }
 
     /**
      * Create and append a special user icon to the given container
@@ -35,7 +31,7 @@ class UserDetails {
         if (this.isSpecialUser()) {
             this.addUserIcon(this.userDetailsBox, "fa-user-secret");
         }
-        else if (this.getDiamonds() >= 5000) {
+        else if (getDiamond() >= 5000) {
             this.addUserIcon(this.userDetailsBox, "fa-user-ninja");
         }
         else {
