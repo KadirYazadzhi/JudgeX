@@ -13,14 +13,19 @@ class UserDetails {
         return getSpecialUser() !== null;
     }
 
+    // Method to get the current amount of diamonds
+    getDiamonds() {
+        return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
+    }
+
     /**
      * Create and append a special user icon to the given container
      * @param {HTMLElement} container The container to append the icon to
      */
-    addSpecialUserIcon(container) {
-        const specialUserIcon = document.createElement('i');
-        specialUserIcon.classList.add("fa-solid", "fa-user-secret");
-        container.appendChild(specialUserIcon);
+    addUserIcon(container, iconType) {
+        const userIcon = document.createElement('i');
+        userIcon.classList.add("fa-solid", iconType);
+        container.appendChild(userIcon);
     }
 
     /**
@@ -28,7 +33,13 @@ class UserDetails {
      */
     initializeUserDetails() {
         if (this.isSpecialUser()) {
-            this.addSpecialUserIcon(this.userDetailsBox);
+            this.addUserIcon(this.userDetailsBox, "fa-user-secret");
+        }
+        else if (this.getDiamonds() >= 5000) {
+            this.addUserIcon(this.userDetailsBox, "fa-user-ninja");
+        }
+        else {
+            this.addUserIcon(this.userDetailsBox, "fa-user-tie");
         }
     }
 }
