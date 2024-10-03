@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Script/Profile/function-for-certificate-image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/certificate-section-show-certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/certificate-section-show-certificate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/information-section-field-changing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script/Profile/online-resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/online-resume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +109,7 @@
       <workItem from="1727357258266" duration="58000" />
       <workItem from="1727640101907" duration="2807000" />
       <workItem from="1727811243119" duration="3454000" />
-      <workItem from="1727930127335" duration="1338000" />
+      <workItem from="1727930127335" duration="2057000" />
     </task>
     <servers />
   </component>

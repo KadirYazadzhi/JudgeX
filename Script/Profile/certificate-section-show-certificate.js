@@ -40,6 +40,7 @@ class CertificateManager {
         container.appendChild(newDiv);
 
         const newImage = document.createElement('img');
+        newImage.classList.add('users-certificate-img');
         newImage.src = path;
         newDiv.appendChild(newImage);
 
