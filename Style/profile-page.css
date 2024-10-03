@@ -1232,9 +1232,12 @@ main .menu:hover .username-profile-box i {
 
 .theme-img {
     width: 100%;
+    height: 100%;
+    border-radius: 15px;
 }
 
 .theme-card {
+    display: flex;
     width: 240px;
     height: 160px;
     border-radius: 20px;
@@ -1242,21 +1245,24 @@ main .menu:hover .username-profile-box i {
     opacity: 0.5;
     transition: ease-in-out 0.3s;
     cursor: pointer;
-    padding: 10px;
     align-items: center;
     justify-content: center;
 }
 
 .theme-card-small {
     width: 100%;
+    padding: 5px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-card:hover {
     opacity: 0.7;
 }
 
-.theme-card .active {
-    opacity: 1;
+.active-theme {
+    opacity: 1!important;
 }
 
 .website-color-modal {
