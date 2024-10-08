@@ -4,47 +4,53 @@ document.addEventListener("DOMContentLoaded", function () {
         const savedValue = localStorage.getItem(storageKey);
 
         elements.forEach(element => {
-            if (element.dataset.theme === savedValue || element.dataset.fontSize === savedValue) {
-                if (selector === ".theme-card") {
-                    element.classList.add('active-theme');
-                }
+            // Добавяме само запазения стил, без да променяме другата логика
+            if (element.dataset.theme === savedValue) {
+                element.classList.add('active-theme');
+            } else if (element.dataset.fontSize === savedValue) {
+                element.classList.add('current-font');
+            } else if (element.dataset.fontType === savedValue) {
+                element.classList.add('current-font');
+            } else if (element.dataset.color === savedValue) {
+                element.classList.add('activeColor');
             }
+
             element.addEventListener('click', () => {
-                elements.forEach(element => {
+                // Запазваме логиката, която вече имаш за премахване на класовете
+                elements.forEach(el => {
                     if (storageKey === "selectedTheme") {
-                        element.classList.remove('active-theme');
+                        el.classList.remove('active-theme');
                     }
                     else if (storageKey === "selectedFontSize") {
-                        element.classList.remove('current-font');
+                        el.classList.remove('current-font');
                     }
                     else if (storageKey === "selectedColor") {
-                        element.classList.remove('activeColor');
+                        el.classList.remove('activeColor');
                     }
                 });
 
+                // Запазваме също така логиката за добавяне на класове
                 if (element.classList.contains('current-font') && storageKey === "selectedFontType") {
                     element.classList.remove('current-font');
-                }
-                else {
+                } else {
                     if (storageKey === "selectedTheme") {
                         element.classList.add('active-theme');
-                    }
-                    else if (storageKey === "selectedFontSize") {
+                    } else if (storageKey === "selectedFontSize") {
                         element.classList.add('current-font');
-                    }
-                    else if (storageKey === "selectedFontType") {
+                    } else if (storageKey === "selectedFontType") {
                         element.classList.add('current-font');
-                    }
-                    else if (storageKey === "selectedColor") {
+                    } else if (storageKey === "selectedColor") {
                         element.classList.add('activeColor');
                     }
                 }
 
-                localStorage.setItem(storageKey, element.dataset.theme || element.dataset.fontSize);
+                // Запазваме избора в localStorage
+                localStorage.setItem(storageKey, element.dataset.theme || element.dataset.fontSize || element.dataset.fontType || element.dataset.color);
             });
         });
     }
-    
+
+    // Използваме функцията без да променяме другата част
     handleSingleSelection('.theme-card', 'selectedTheme');
     handleSingleSelection('.textFont', 'selectedFontSize');
     handleSingleSelection('.textType', 'selectedFontType');
