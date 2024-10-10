@@ -16,7 +16,7 @@ class UserDataManager {
             const element = document.getElementById(field);
             let storedValue = localStorage.getItem(`current${this.capitalize(field)}`) || '';
 
-            if (element) {
+            if (element && storedValue) {
                 if (field === 'password') {
                     // Always set the text content to masked password
                     element.textContent = '*'.repeat(storedValue.length);
@@ -24,6 +24,9 @@ class UserDataManager {
                 } else {
                     element.textContent = storedValue;
                 }
+            }
+            else {
+                element.textContent = "Please fill your data";
             }
         });
 
@@ -52,6 +55,11 @@ class UserDataManager {
             newValue = '*'.repeat(newValue.length); // Mask the password for display
         }
 
+        if (newValue === '' && field === 'password' ) {
+            // If no new password is entered, skip validation
+            return;
+        }
+
         const oldValue = localStorage.getItem(`current${this.capitalize(field)}`) || '';
 
         if (this.validateField(field, event.target.getAttribute('data-password') || newValue)) {
@@ -59,11 +67,16 @@ class UserDataManager {
                 // Update localStorage with the new value
                 localStorage.setItem(`current${this.capitalize(field)}`, event.target.getAttribute('data-password') || newValue);
                 this.showSuccessMessage(field);
+                if (field === "password") {
+                    this.togglePasswordVisibility();
+                }
             }
-        }
-        else {
-            alert('Invalid input. Please try again.');
-            this.restoreFieldValue(field, event.target);
+        } else {
+            if (newValue !== '') {
+                // Show error message only if newValue is not empty
+                alert('Invalid input. Please try again.');
+                this.restoreFieldValue(field, event.target);
+            }
         }
     }
 

@@ -4,7 +4,7 @@
 class ContentManager {
     constructor() {
         // Select all contenteditable elements
-        this.editables = document.querySelectorAll('[contenteditable="true"]');
+        this.editables = document.querySelectorAll('.content[contenteditable="true"]');
         // Select template button and the template div
         this.templateBtn = document.querySelector(".resume-template-btn");
         this.templateDiv = document.getElementById('online-resume-template');
@@ -119,25 +119,26 @@ class ContentManager {
         this.templateNodes = this.getTemplateNodes();
 
         this.templateBtn.addEventListener('click', () => {
+
             if (this.templateBtn.classList.contains("activeTemplate")) {
-                // Save current content before switching back
-                this.saveContent();
-
+                // Превключване към старото съдържание
                 this.templateBtn.classList.remove("activeTemplate");
-                this.templateDiv.innerHTML = ''; // Clear current content
-                this.oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                this.templateDiv.innerHTML = ''; // Изчисти текущото съдържание
 
-                // Reload saved content to make sure it's not lost
+                this.oldContentNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
+                // Презареждане на запазеното съдържание
                 this.loadContent();
             } else {
-                // Save current content before switching to template
                 this.saveContent();
-
+                // Превключване към шаблона
                 this.templateBtn.classList.add("activeTemplate");
-                this.templateDiv.innerHTML = ''; // Clear current content
+                this.templateDiv.innerHTML = ''; // Изчисти текущото съдържание
+
+
                 this.templateNodes.forEach(node => this.templateDiv.appendChild(node.cloneNode(true)));
             }
         });
+
     }
 
     /**
