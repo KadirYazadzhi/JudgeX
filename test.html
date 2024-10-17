@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<style>
+    body {
+        background: #0c1217;
+    }
+
+    .section-for-message-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .success-box, .error-box, .alert-box {
+        width: 90%;
+        height: 35px;
+        border-radius: 10px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        transition: ease-in-out 0.4s;
+    }
+
+    .success-box {
+        background: #14532d;
+        color: #dcfce7;
+        border-left: 8px solid #15803d;
+        box-shadow: 1px 1px 5px #14532d;
+    }
+
+    .error-box {
+        background: #7f1d1d;
+        color: #fee2e2;
+        border-left: 8px solid #b91c1c;
+        box-shadow: 1px 1px 5px #7f1d1d;
+    }
+
+    .alert-box {
+        background: #713f12;
+        color: #fef9c3;
+        border-left: 8px solid #a16207;
+        box-shadow: 1px 1px 5px #713f12;
+    }
+
+    .success-box i {
+        color: #15803d;
+        font-size: 20px;
+    }
+
+    .error-box i {
+        color: #b91c1c;
+        font-size: 20px;
+    }
+
+
+</style>
+<div class="section-for-message-box">
+    <div class="success-box">
+        <i class="fa-solid fa-check"></i>
+        <span>Success - The code has been submitted successfully, please wait for results from the system.</span>
+    </div>
+
+    <div class="error-box">
+        <i class="fa-solid fa-xmark"></i>
+        <span>Success - The code has been submitted successfully, please wait for results from the system.</span>
+    </div>
+
+    <div class="alert-box">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>Success - The code has been submitted successfully, please wait for results from the system.</span>
+    </div>
+</div>
+
+</body>
+</html>

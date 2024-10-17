@@ -105,7 +105,7 @@ class ProgressManager {
         if (progressBarDot && percentLabel && fractionLabel) {
             progressBarDot.style.marginLeft = percent + '%';
             if (percent > 95) {
-                progressBarDot.style.marginLeft = (percent - 3) + '%';
+                progressBarDot.style.marginLeft = (percent - 4) + '%';
             }
             percentLabel.textContent = percent + '%';  // Round percentage to 2 decimal places
             fractionLabel.textContent = `${completed}/${total}`;

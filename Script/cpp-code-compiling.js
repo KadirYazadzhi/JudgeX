@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
     async function submitCode() {
         const code = document.getElementById('code-editor').value;
 
+        if (code.length < 10) {
+            alert("The code you upload must be at least 10 characters long.");
+            return;
+        }
+
         if (callData.lastDate !== today) {
             callData.count = 0;
             callData.lastDate = today;
@@ -376,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownNumber.textContent = timeLeft;
 
         const countdownInterval = setInterval(() => {
-            timeLeft--; // Decrease the time left
+            timeLeft--;
             countdownNumber.textContent = timeLeft;
 
             if (timeLeft === 0) {
