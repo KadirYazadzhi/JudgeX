@@ -420,6 +420,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
             testResults += output === expectedOutput ? "1" : "0";
 
+            let diamondReward = 0;
+            switch (getSelectedLevel()) {
+                case 1: diamondReward = 10; break;
+                case 2: diamondReward = 20; break;
+                case 3: diamondReward = 30; break;
+                case 4: diamondReward = 50; break;
+            }
+            if (testResults === "111111") {
+                localStorage.setItem('diamond_availability', (getDiamond() + 10).toString());
+            }
+
             console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"}`);
 
             if (index === inputs.length - 1) {
