@@ -104,31 +104,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         showTextElement() {
-            this.timeTypeText.style.display = 'flex'; // Show the element that contains `D H M S` (Days, Hours, Minutes, Seconds)
+            // Check if the element exists before attempting to modify it
+            if (this.timeTypeText) {
+                this.timeTypeText.style.display = 'flex'; // Show the element that contains `D H M S` (Days, Hours, Minutes, Seconds)
+            }
         }
 
-        // Update the time displayed in the card-time element
         updateDisplayedTime() {
-            const activeCard = this.timeCards[this.activeCardIndex];
-            this.showTextElement();
+            const activeCard = this.timeCards ? this.timeCards[this.activeCardIndex] : null;
 
-            if (activeCard.textContent.includes('Times in the website')) {
-                this.websiteTracker.update(); // Continuously update website time
-                this.timeContainer.textContent = TimeTracker.formatTime(this.websiteTracker.getElapsedTime());
-            }
-            else if (activeCard.textContent.includes('Times in the system')) {
-                if (window.location.pathname.includes('system')) {
-                    this.systemTracker.update(); // Continuously update system time if on system page
-                    this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
+            // Ensure activeCard exists before proceeding
+            if (activeCard) {
+                this.showTextElement();
+                if (activeCard.textContent.includes('Times in the website')) {
+                    // Ensure websiteTracker and timeContainer exist
+                    if (this.websiteTracker && this.timeContainer) {
+                        this.websiteTracker.update(); // Continuously update website time
+                        this.timeContainer.textContent = TimeTracker.formatTime(this.websiteTracker.getElapsedTime());
+                    }
                 }
-                else {
-                    this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
+                else if (activeCard.textContent.includes('Times in the system')) {
+                    // Ensure systemTracker and timeContainer exist
+                    if (this.systemTracker && this.timeContainer) {
+                        if (window.location.pathname.includes('system')) {
+                            this.systemTracker.update(); // Continuously update system time if on system page
+                            this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
+                        }
+                        else {
+                            this.timeContainer.textContent = TimeTracker.formatTime(this.systemTracker.getElapsedTime());
+                        }
+                    }
                 }
-            }
-            else if (activeCard.textContent.includes('Registration Day')) {
-                const firstVisitDate = localStorage.getItem('firstVisitDate');
-                this.timeContainer.textContent = firstVisitDate ? new Date(firstVisitDate).toLocaleDateString() : 'Unknown';
-                this.hideTextElement();
+                else if (activeCard.textContent.includes('Registration Day')) {
+                    const firstVisitDate = localStorage.getItem('firstVisitDate');
+                    // Ensure timeContainer exists
+                    if (this.timeContainer) {
+                        this.timeContainer.textContent = firstVisitDate ? new Date(firstVisitDate).toLocaleDateString() : 'Unknown';
+                    }
+                    this.hideTextElement(); // Hide the text element regardless
+                }
             }
         }
     }

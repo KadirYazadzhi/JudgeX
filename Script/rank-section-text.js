@@ -19,10 +19,8 @@ class RankSection {
 
     // Update the ranked people count based on diamond value
     updateRankedPeopleCount() {
-        // If rank count is already stored, display it and return
-        const storedRankCount = localStorage.getItem('RankedNumberRankSection');
-        if (storedRankCount) {
-            this.rankCountElement.textContent = storedRankCount + " users";
+        if (localStorage.getItem('RankedNumberRankSection')) {
+            this.rankCountElement.textContent = localStorage.getItem('RankedNumberRankSection') + " users";
             return;
         }
 
@@ -31,9 +29,9 @@ class RankSection {
         let rankedCount;
 
         if (diamondCount > 10000) {
-            rankedCount = this.generateRandomNumber(0, 3);
+            rankedCount = this.generateRandomNumber(1, 3);
         } else if (diamondCount > 5000) {
-            rankedCount = this.generateRandomNumber(0, 10);
+            rankedCount = this.generateRandomNumber(1, 10);
         } else if (diamondCount > 1000) {
             rankedCount = this.generateRandomNumber(10, 110);
         } else if (diamondCount > 100) {
