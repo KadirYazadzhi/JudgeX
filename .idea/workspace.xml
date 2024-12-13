@@ -8,28 +8,34 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/403.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/404.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Other/404.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/Validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/Validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/all-const.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/For All/all-const.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/blur cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/blur cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/button click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/button click.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/card click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/card click.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/certificate-generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/certificate-generate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/For All/clock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/faq-section.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/faq-section.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/features.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/feedback.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/leaderboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/more cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/more cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/navbar-phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/navbar-phone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/pointer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/pointer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/scroll-driven.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/scroll-driven.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/special-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/special-button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-exercise-buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-exercise-buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-exercise-name.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-exercise-name.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/change-language-in-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-language-in-system.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/code-view-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/code-view-icon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/cpp-code-compiling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/download-exercise-document.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/download-exercise-document.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/local-storage-download-and-restore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/marquee.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/marquee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/null-test-alert-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/null-test-alert-message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/open-system-protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/open-system-protection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/prevent-console-modification.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Other/prevent-console-modification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/save-code-from-textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/save-code-from-textarea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/show-and-hide-time-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/show-and-hide-time-type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/show-certificate-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/show-certificate-message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/sidebar-information-card-logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-information-card-logic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/sidebar-other-menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-other-menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/sidebar-phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-phone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/special cards change.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/special cards change.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/system-contact-validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-contact-validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/system-phone-alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-phone-alert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/system-sidebar-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-sidebar-profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/system-sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/system.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/time-card-current-time.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/time-card-current-time.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/view-certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/view-certificate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Other/404.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,11 +90,11 @@
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Style/Other" />
+      <recent name="$PROJECT_DIR$/Style" />
       <recent name="$PROJECT_DIR$/Script/Home" />
-      <recent name="$PROJECT_DIR$/Script/For All" />
       <recent name="$PROJECT_DIR$/Script/System" />
       <recent name="$PROJECT_DIR$/Script/Other" />
-      <recent name="$PROJECT_DIR$/Script" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,7 +161,7 @@
       <workItem from="1729140332021" duration="4167000" />
       <workItem from="1729154599461" duration="692000" />
       <workItem from="1729571737002" duration="579000" />
-      <workItem from="1734089041298" duration="724000" />
+      <workItem from="1734089041298" duration="1785000" />
     </task>
     <servers />
   </component>
