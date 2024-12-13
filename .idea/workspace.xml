@@ -5,38 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Style/For All/light-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/Home/about-us-section.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/Home/faq.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/Home/language.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/Home/levels-buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Style/Home/page-property.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/blur cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/blur cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/cards-color.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/cards-color.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/certificate-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/certificate-message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/contact-phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/contact-phone.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/contact.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/features.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/features.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/feedback.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/feedback.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/leaderboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/leaderboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/map.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/marquee.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/marquee.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/nav system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/nav system.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/navbar phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/navbar phone.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Profile/profile-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/profile-right-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Profile/profile-right-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/scroll-driven.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/scroll-driven.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/sidebar-information-modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/sidebar-information-modal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/special section.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/special section.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/style-two.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/style-two.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/system-message-container.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system-message-container.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/system-scroll-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/system-scroll-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/system-white-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system-white-mode.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/time-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/time-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/Home/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/Home/feedback.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/feedback.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/Home/style-two.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/style-two.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/Home/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -90,8 +70,8 @@
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Style/Home" />
       <recent name="$PROJECT_DIR$/Style/For All" />
+      <recent name="$PROJECT_DIR$/Style/Home" />
       <recent name="$PROJECT_DIR$/Style/System" />
       <recent name="$PROJECT_DIR$/Style/Profile" />
       <recent name="$PROJECT_DIR$/Script/For All" />
@@ -162,7 +142,7 @@
       <workItem from="1729154599461" duration="692000" />
       <workItem from="1729571737002" duration="579000" />
       <workItem from="1734089041298" duration="2217000" />
-      <workItem from="1734125756191" duration="462000" />
+      <workItem from="1734125756191" duration="2894000" />
     </task>
     <servers />
   </component>

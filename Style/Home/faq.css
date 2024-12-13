@@ -1,0 +1,119 @@
+.about-us {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-section, .right-section {
+    width: 50%;
+    height: 100%;
+}
+
+.left-section {
+    float: left;
+}
+
+.right-section {
+    float: right;
+}
+
+.about-us-image {
+    width: 80%;
+}
+
+
+.faq-image {
+    width: 95%;
+}
+
+.faq-box {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.faq {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 70%;
+    padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid #c0c0c0;
+    transition: 0.1s;
+}
+
+
+.faq:hover {
+    border-radius: 15px;
+    border: 1px solid #c0c0c0;
+    cursor: pointer;
+}
+
+.faq:hover .faq-title {
+    color: #d8ecf8;
+    text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
+    background: linear-gradient(0deg, #bae4ff 0, #77b3fa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #dcdcdc;
+    margin: 0;
+}
+
+.faq-icon {
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.faq-icon:hover {
+    color: #d8ecf8;
+    text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
+    background: linear-gradient(0deg, #bae4ff 0, #77b3fa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.active-faq {
+    background: #141b28;
+    border-radius: 15px;
+    border: 1px solid #c0c0c0;
+}
+
+.faq-question-text-box {
+    background: #151c2a;
+    width: 70%;
+    height: 100%;
+    text-align: left;
+    justify-content: center;
+    padding: 0;
+    border-radius: 15px;
+}
+
+.faq-question-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.faq-question-text-box {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-height: 0;
+}
+
+.faq.active-faq + .faq-question-text-box {
+    display: block;
+    max-height: 1000px;
+    padding: 10px 10px 10px 15px;
+}

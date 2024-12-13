@@ -1,0 +1,49 @@
+:root {
+    --light-theme-main-color: #d8bd10;
+}
+
+
+body.gold .header h2 ,
+body.gold p,
+body.gold > * > * :not(.contact-btn) {
+    filter: invert(1) brightness(4.7);
+}
+
+body.gold .header h2 a{
+    filter: hue-rotate(0deg);
+}
+
+body.gold canvas {
+    filter: drop-shadow(2em 4em 0px var(--light-theme-main-color)) drop-shadow(-8em -14em 0px var(--light-theme-main-color));
+}
+
+body.gold .header .spotlight {
+    filter: invert(1) brightness(4.7) opacity(0.5);
+}
+
+body.gold .mountains > div {
+    box-shadow:
+            -1em -0.2em 0.4em -1.1em #c2ccff,
+            inset 0em 0em 0em 2px var(--light-theme-main-color),
+            inset 0.2em 0.3em 0.2em -0.2em #c2ccff,
+            inset 10.2em 10.3em 2em -10em #d4e6ff2f;
+}
+
+body.gold .content-section,
+body.gold .content-section ::before,
+body.gold .content-section ::after{
+    filter: invert(1) brightness(4.4) opacity(1);
+}
+
+.header > div.mid-spot:hover {
+    box-shadow: -0.3em 0.1em 0.2em 0 var(--light-theme-main-color);
+}
+
+body.gold .header > div.mid-spot {
+    box-shadow: 0 0 1em 0 var(--light-theme-main-color);
+}
+
+body.gold .header > div.mid-spot:hover {
+    box-shadow: -0.3em 0.1em 0.2em 0 #98c0ef;
+}
+

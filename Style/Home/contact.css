@@ -238,3 +238,31 @@
 .exit:hover {
     color: red;
 }
+
+.contact-image {
+    width: 70%;
+}
+
+.contact-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.one-row-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.name-input, .email-input {
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    background: white;
+}

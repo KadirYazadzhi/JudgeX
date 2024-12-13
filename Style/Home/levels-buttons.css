@@ -1,0 +1,97 @@
+:root {
+    --green-main-color: #1e8a00;
+    --red-main-color: #ff0000;
+    --orange-main-color: #e18100;
+    --dark-red-main-color:#a60000;
+}
+
+.buttons-box {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    margin-right: 20px;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 550;
+}
+
+.basic {
+    border: 3px solid var(--green-main-color);
+    background: var(--green-main-color);
+    box-shadow: 1px 1px 5px var(--green-main-color);
+}
+
+.basic:hover, .basic.hover-active {
+    box-shadow: 1px 1px 10px var(--green-main-color);
+    color: var(--green-main-color);
+    background: none;
+}
+
+.basc {
+    background: var(--green-main-color)!important;
+    width: 150px!important;
+    margin-left: -75px!important;
+}
+
+.medium {
+    border: 3px solid var(--orange-main-color);
+    background: var(--orange-main-color);
+    box-shadow: 1px 1px 5px var(--orange-main-color);
+}
+
+.medium:hover, .medium.hover-active {
+    box-shadow: 1px 1px 10px var(--orange-main-color);
+    color: var(--orange-main-color);
+    background: none;
+}
+
+.med {
+    background: var(--orange-main-color)!important;
+    width: 195px!important;
+    margin-left: -98px!important;
+}
+
+.hard {
+    border: 3px solid var(--red-main-color);
+    background: var(--red-main-color);
+    box-shadow: 1px 1px 5px var(--red-main-color);
+}
+
+.hard:hover, .hard.hover-active {
+    box-shadow: 1px 1px 10px var(--red-main-color);
+    color: var(--red-main-color);
+    background: none;
+}
+
+.hrd {
+    background: var(--red-main-color)!important;
+    width: 190px!important;
+    margin-left: -95px!important;
+}
+
+
+.veryHard {
+    border: 3px solid var(--dark-red-main-color);
+    background: var(--dark-red-main-color);
+    box-shadow: 1px 1px 5px var(--dark-red-main-color);
+}
+.veryHard:hover, .veryHard.hover-active {
+    box-shadow: 1px 1px 10px var(--dark-red-main-color);
+    color: var(--dark-red-main-color);
+    background: none;
+}
+.vhrd {
+    background: var(--dark-red-main-color)!important;
+    width: 225px!important;
+    margin-left: -112px!important;
+}

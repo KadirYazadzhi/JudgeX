@@ -1,0 +1,11 @@
+.feedback-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.feedback-card {
+    width: 70%;
+    background: #818181;
+    border-radius: 30px;
+}
