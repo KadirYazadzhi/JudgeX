@@ -6,36 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/403.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/change-exercise-buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-exercise-buttons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/change-exercise-name.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-exercise-name.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/change-language-in-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-language-in-system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/code-view-icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/code-view-icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/cpp-code-compiling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/download-exercise-document.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/download-exercise-document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/local-storage-download-and-restore.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/local-storage-download-and-restore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/marquee.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/marquee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/null-test-alert-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/null-test-alert-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/open-system-protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/open-system-protection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/prevent-console-modification.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Other/prevent-console-modification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/save-code-from-textarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/save-code-from-textarea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/show-and-hide-time-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/show-and-hide-time-type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/show-certificate-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/show-certificate-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/sidebar-information-card-logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-information-card-logic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/sidebar-other-menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-other-menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/sidebar-phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/sidebar-phone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/special cards change.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/special cards change.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/system-contact-validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-contact-validation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/system-phone-alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-phone-alert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/system-sidebar-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-sidebar-profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/system-sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system-sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/system.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/time-card-current-time.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/time-card-current-time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/view-certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/view-certificate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Other/404.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/blur cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/blur cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/cards-color.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/cards-color.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/certificate-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/certificate-message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/contact-phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/contact-phone.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/features.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/features.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/feedback.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/feedback.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/leaderboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/leaderboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/marquee.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/marquee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/nav system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/nav system.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/navbar phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/navbar phone.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Profile/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/profile-right-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Profile/profile-right-menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/scroll-driven.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/scroll-driven.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/sidebar-information-modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/sidebar-information-modal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/special section.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/special section.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/style-two.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/style-two.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system-message-container.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system-message-container.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system-scroll-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/For All/system-scroll-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system-white-mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system-white-mode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/system.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/system.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/time-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/time-card.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,42 +59,42 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2hMdWSPM7xGCG5b9ZlYaBetNkPf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/media/anonymous/Date1/GitHub Projects/JudgeX",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/anonymous/Date1/GitHub Projects/JudgeX&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Style/Other" />
-      <recent name="$PROJECT_DIR$/Style" />
-      <recent name="$PROJECT_DIR$/Script/Home" />
-      <recent name="$PROJECT_DIR$/Script/System" />
-      <recent name="$PROJECT_DIR$/Script/Other" />
+      <recent name="$PROJECT_DIR$/Style/Home" />
+      <recent name="$PROJECT_DIR$/Style/For All" />
+      <recent name="$PROJECT_DIR$/Style/System" />
+      <recent name="$PROJECT_DIR$/Style/Profile" />
+      <recent name="$PROJECT_DIR$/Script/For All" />
     </key>
   </component>
   <component name="RunManager">
@@ -161,7 +161,8 @@
       <workItem from="1729140332021" duration="4167000" />
       <workItem from="1729154599461" duration="692000" />
       <workItem from="1729571737002" duration="579000" />
-      <workItem from="1734089041298" duration="1785000" />
+      <workItem from="1734089041298" duration="2217000" />
+      <workItem from="1734125756191" duration="462000" />
     </task>
     <servers />
   </component>
