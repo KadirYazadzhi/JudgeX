@@ -6,7 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/cpp-code-compiling.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/cpp-code-compiling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/404.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Other/404.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/Validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/Validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/all-const.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/For All/all-const.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/blur cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/blur cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/button click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/button click.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/card click.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/card click.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/certificate-generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/certificate-generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/For All/clock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/faq-section.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/faq-section.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/features.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/features.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/leaderboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/more cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/more cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/navbar-phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/navbar-phone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/pointer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/pointer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/scroll-driven.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/scroll-driven.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/special-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Home/special-button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,35 +53,46 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2hMdWSPM7xGCG5b9ZlYaBetNkPf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HPPavilion/Documents/JudgeX/Image&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/media/anonymous/Date1/GitHub Projects/JudgeX",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Script/Home" />
+      <recent name="$PROJECT_DIR$/Script/For All" />
+      <recent name="$PROJECT_DIR$/Script/System" />
+      <recent name="$PROJECT_DIR$/Script/Other" />
+      <recent name="$PROJECT_DIR$/Script" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="certificate-generate.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Script/certificate-generate.js" working-dir="$PROJECT_DIR$/Script">
+    <configuration name="certificate-generate.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Script/System/certificate-generate.js" working-dir="$PROJECT_DIR$/Script">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -66,6 +100,13 @@
         <item itemvalue="Node.js.certificate-generate.js" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,6 +155,7 @@
       <workItem from="1729140332021" duration="4167000" />
       <workItem from="1729154599461" duration="692000" />
       <workItem from="1729571737002" duration="579000" />
+      <workItem from="1734089041298" duration="724000" />
     </task>
     <servers />
   </component>
