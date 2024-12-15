@@ -1,15 +1,22 @@
+:root {
+    --footer-background-color: #28344e;
+    --footer-min-height: 100px;
+    --footer-padding: 20px 50px;
+    --footer-top-margin: 150px;
+}
+
 .footer {
     position: relative;
     width: 100%;
-    background: #28344e;
-    min-height: 100px;
-    padding: 20px 50px;
+    background: var(--footer-background-color);
+    min-height: var(--footer-min-height);
+    padding: var(--footer-padding);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 100;
-    margin-top: 150px;
+    margin-top: var(--footer-top-margin);
     bottom: 0;
 }
 

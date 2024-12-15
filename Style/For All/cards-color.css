@@ -1,27 +1,39 @@
+:root {
+    --typescript-color: rgb(0, 149, 255);
+    --javascript-color: rgb(247, 255, 0);
+    --java-color: rgba(255, 0, 0, 0.8);
+    --cSharp-color: rgb(104, 33, 122);
+    --python-color: rgba(0, 102, 155, 0.84);
+    --cplusplus-color: rgb(0, 89, 255);
+    --c-color: rgb(57, 73, 171);
+    --ruby-color: rgb(176, 38, 32);
+    --go-color: rgb(0, 170, 215);
+}
+
 .typescript {
-    fill: rgb(0, 149, 255);
+    fill: var(--typescript-color);
 }
 .javascript {
-    fill: rgb(247, 255, 0);
+    fill: var(--javascript-color);
 }
 .java {
-    fill: rgba(255, 0, 0, 0.8);
+    fill: var(--java-color);
 }
 .cSharp {
-    fill: rgb(104, 33, 122);
+    fill: var(--cSharp-color);
 }
 .python {
-    fill: rgba(0, 102, 155, 0.84);
+    fill: var(--python-color);
 }
 .cplusplus {
-    fill: rgb(0, 89, 255);
+    fill: var(--cplusplus-color);
 }
 .c {
-    fill: rgb(57, 73, 171);
+    fill: var(--c-color);
 }
 .ruby {
-    fill: rgb(176, 38, 32);
+    fill: var(--ruby-color);
 }
 .go {
-    fill: rgb(0, 170, 215);
+    fill: var(--go-color);
 }
