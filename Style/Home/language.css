@@ -1,0 +1,10 @@
+.swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    gap: 30px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}

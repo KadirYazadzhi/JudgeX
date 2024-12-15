@@ -252,3 +252,27 @@
     --progress: -102%;
 }
 
+.button label {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.button:hover {
+    background: none;
+}
+
+.checked {
+    color: orange;
+}
+
+.green-arrow {
+    fill: #00ff2a;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
