@@ -35,10 +35,16 @@ ul {
 h2 {
     font-family: 'Hubot-Sans', sans-serif;
 }
+
 h2, p {
     margin: 0; padding: 0;
 }
+
 h2 a {
     text-decoration: none;
     color: unset;
+}
+
+p {
+    font-size: 1.5em;
 }

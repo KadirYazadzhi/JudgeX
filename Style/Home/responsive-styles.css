@@ -1,0 +1,196 @@
+@media (max-width: 768px) {
+    .profile {
+        display: none!important;
+    }
+
+    .language-selector {
+        min-width: 85px;
+        width: 85px;
+    }
+
+    .language-dropdown {
+        min-width: 85px;
+        width: 85px;
+    }
+
+    .choose-language {
+        margin-top: -5px;
+    }
+
+    .choose-language img  {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media(min-width: 768px) {
+    .dots {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .accent-lines {
+        display: none;
+    }
+    .about-us {
+        flex-direction: column;
+    }
+
+    .left-section {
+        width: 100%;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    .why-us {
+        width: 100%;
+        margin-left: 2rem;
+    }
+
+    .about-us-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .example-1 {
+        padding: 0!important;
+    }
+
+    .btn-17 {
+        padding: 0.7rem 6.3rem;
+    }
+
+    .box {
+        width: 90%!important;
+        justify-content: center!important;
+    }
+
+    .activeBox {
+        display: flex;
+    }
+
+    .user-info {
+        height: 500px!important;
+    }
+
+    .first {
+        margin: 0!important;
+    }
+
+    .containers {
+        margin-top: 10px!important;
+        margin-left: 10px!important;
+    }
+
+    .clock {
+        bottom: 5rem!important;
+    }
+
+    .bottom-box {
+        bottom: 2rem!important;
+        width: 100%;
+    }
+
+    .side {
+        width: 95%;
+    }
+
+    .cards {
+        flex-direction: column!important;
+        padding-top: 20px!important;
+        justify-content: center!important;
+        align-items: center!important;
+        gap: 20px!important;
+    }
+
+    .card {
+        margin-right: 0!important;
+    }
+
+    .buttons-box {
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .button {
+        width: 40% !important;
+        padding: 12px 30px;
+    }
+
+    .tooltiptext {
+        left: 100%;
+        font-size: 14px;
+        bottom: 200%;
+    }
+    .med, .hrd, .vhrd, .basc {
+        width: 163px!important;
+    }
+
+    .swiper-slide {
+        height: 300px!important;
+    }
+
+    .swiper-wrapper {
+        padding-left: 35px;
+        align-items: center;
+    }
+
+    main {
+        align-items: start!important;
+        justify-content: start!important;
+    }
+
+    .language-cards {
+        transition: transform 0.3s ease;
+    }
+
+    .phone {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .faq, .faq-question-text-box {
+        width: 80%;
+    }
+
+    .contact-btn {
+        display: none;
+    }
+
+    .phone-burger-menu, .phone-search-icon, .phone-user-icon {
+        position: absolute;
+        fill: white;
+        display: block;
+    }
+
+    .phone-burger-menu {
+        left: min(2em, 60vw);
+    }
+
+    .phone-search-icon {
+        right: min(6em, 60vw);
+    }
+
+    .phone-user-icon {
+        right: min(2em, 60vw);
+    }
+
+    .content-section .content-acc div {
+        translate: -14em -4em;
+    }
+
+    .content-section .content-acc div:nth-child(2) {
+        translate: 14em 4em;
+    }
+
+
+}
