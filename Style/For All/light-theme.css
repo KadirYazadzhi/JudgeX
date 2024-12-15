@@ -1,12 +1,12 @@
 :root {
-    --light-theme-main-color: #d8bd10;
+    --light-theme-main-color: #a2a6ff;
 }
 
 
 body.gold .header h2 ,
 body.gold p,
 body.gold > * > * :not(.contact-btn) {
-    filter: invert(1) brightness(4.7);
+
 }
 
 body.gold .header h2 a{
