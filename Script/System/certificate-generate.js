@@ -1,5 +1,5 @@
 class CertificateGenerator {
-    constructor() {
+    constructor(CertificateManager) {
         this.scale = 2;
         this.canvas = document.getElementById('certificateCanvas');
         this.ctx = this.canvas.getContext('2d');
@@ -9,6 +9,10 @@ class CertificateGenerator {
             "3": { src: 'Image/Template/Hard-Certificate-Template.png', level: "Hard" },
             "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" }
         };
+
+        this.difficultyLevels = CertificateManager.difficultyLevels;
+        this.PriceToGenerateCertificate = CertificateManager.PriceToGenerateCertificate;
+        this.GetDiamonds = CertificateManager.GetDiamonds;
     }
 
     getNameInput() {
@@ -23,6 +27,10 @@ class CertificateGenerator {
     getSelectedLanguage() {
         const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
         return languageOptions[getSelectedLanguage()] || "C";
+    }
+
+    takeDiamondToGenerateCertificate() {
+        return localStorage.getItem('diamond_availability'), `${(this.GetDiamonds - this.PriceToGenerateCertificate[this.difficultyLevels]).toString()}`;
     }
 
     getFormattedDate() {
@@ -104,7 +112,9 @@ class CertificateGenerator {
     }
 }
 
-const certificateGenerator = new CertificateGenerator();
+const CertificateManagerClass = new CertificateManager();
+const certificateGenerator = new CertificateGenerator(CertificateManagerClass);
 document.getElementById('certificateGenerationButton').addEventListener('click', () => {
     certificateGenerator.generate();
+    console.log(this.takeDiamondToGenerateCertificate());
 });
