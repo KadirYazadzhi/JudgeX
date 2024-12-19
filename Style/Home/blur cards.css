@@ -1,7 +1,13 @@
+:root {
+    --cards-top-padding: 120px;
+    --middle-gap: 15px;
+    --small-padding: 10px;
+}
+
 .blur-cards {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: var(--middle-gap);
     justify-content: center;
     align-items: center;
     width: auto;
@@ -11,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: var(--cards-top-padding);
 }
 
 .first-blur:hover {
@@ -35,7 +41,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 10px;
+    gap: var(--small-padding);
     text-align: center;
     height: 100px;
     width: 280px;
