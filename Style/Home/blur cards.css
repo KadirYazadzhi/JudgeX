@@ -4,8 +4,14 @@
     gap: 15px;
     justify-content: center;
     align-items: center;
+    width: auto;
+}
+
+.cards-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 100px;
-    width: 100%;
 }
 
 .first-blur:hover {
