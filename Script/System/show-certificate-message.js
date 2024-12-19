@@ -6,6 +6,11 @@ class CertificateManager {
         this.startNumber = null; // Starting number for task range
         this.endNumber = null; // Ending number for task range
         this.compare = 15; // Threshold for the number of completed tasks to show certificate
+        this.PriceToGenerateCertificate = { "Easy": 50, "Medium": 150, "Hard": 250, "Insane": 500 };
+        this.languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"]; // Options for programming languages
+        this.difficultyLevels = ["Easy", "Medium", "Hard", "Insane"]; // Options for difficulty levels
+        this.selectedLanguage = this.languageOptions[getSelectedLanguage()] || "C"; // Get the selected language
+        this.selectedButton = this.difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
         this.initialize(); // Initialize the certificate manager
     }
 
@@ -52,27 +57,47 @@ class CertificateManager {
         }
     }
 
+    // Method to get the current amount of diamonds
+    getDiamonds() {
+        return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
+    }
+
     // Displays a message box with certificate details
     showCertificateMessageBox() {
         const hiddenElement = document.getElementById('sp'); // Get the element for the message box
         hiddenElement.classList.remove("hidden"); // Remove the 'hidden' class to show the element
         hiddenElement.style.display = 'flex'; // Set display style to 'flex'
 
-        // Options for programming languages
-        const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"];
-        const selectedLanguage = languageOptions[getSelectedLanguage()] || "C"; // Get the selected language
-
-        // Options for difficulty levels
-        const difficultyLevels = ["Easy", "Medium", "Hard", "Insane"];
-        const selectedButton = difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
-
         // Update the subtitle text with certificate details
         document.getElementById('subtitle-text').innerHTML =
-            `You have successfully solved all the problems for the ${selectedButton} level in ${selectedLanguage}.`;
+            `You have successfully solved all the problems for the ${this.selectedButton} level in ${this.selectedLanguage}. ` +
+            `The price to generate this certificate is ${this.PriceToGenerateCertificate[this.selectedButton]} diamonds.`;
+    }
+
+    checkUserHaveDiamondsToGenerateCertificate() {
+        if (this.getDiamonds() < this.PriceToGenerateCertificate[this.selectedButton]) {
+            localStorage.setItem("message-to-generate-certificate", "True");
+            return false;
+        }
+
+        localStorage.setItem("message-to-generate-certificate", "False");
+        return true;
+    }
+
+    getCertificateMessageStatus() {
+        return localStorage.getItem("message-to-generate-certificate").toString();
     }
 
     // Checks if the user is eligible for a certificate and updates the certificate button visibility
     checkCertificateEligibility() {
+        if (!this.checkUserHaveDiamondsToGenerateCertificate() && this.getCertificateMessageStatus() == "False") {
+            alert("You don't have enough diamonds to generate this certificate.");
+            return;
+        }
+
+        localStorage.setItem('diamond_availability', "100000")
+
+        if (this.getCertificateMessageStatus() == "True") return;
 
         if (this.sum >= this.compare || getSavedCertificate() !== null) { // Check if the number of completed tasks meets the threshold
             // Check if the certificate needs to be shown

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Script/Home/button-to-top.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Style/Home/blur cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/blur cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,7 @@
       <workItem from="1729571737002" duration="579000" />
       <workItem from="1734089041298" duration="2217000" />
       <workItem from="1734125756191" duration="16869000" />
-      <workItem from="1734566962851" duration="366000" />
+      <workItem from="1734566962851" duration="774000" />
     </task>
     <servers />
   </component>
