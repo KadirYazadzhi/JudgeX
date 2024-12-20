@@ -7,6 +7,11 @@ const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
 const selectedLanguage = getSelectedLanguage();
 const selectedLevel = getSelectedLevel();
 
+// Using for all logic certificate generation
+const PriceToGenerateCertificate = { "Easy": 100, "Medium": 250, "Hard": 350, "Insane": 500 }; // Price to generate certificate
+const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"]; // Options for programming languages
+const difficultyLevels = ["Easy", "Medium", "Hard", "Insane"]; // Options for difficulty levels
+
 function getTaskCard() {
     return document.querySelectorAll('.task-card');
 }
@@ -32,6 +37,10 @@ function getActiveTask() {
 
 function getSelectedLanguage() {
     return localStorage.getItem('selectedCardIndex');
+}
+
+function getDiamonds() { // Method to get the current amount of diamonds
+    return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
 }
 
 function getSelectedLevel() {
