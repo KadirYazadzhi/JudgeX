@@ -86,6 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            if (code.length > 5000) {
+                alert("The code you upload is too big.")
+                return;
+            }
+
             if (this.callData.lastDate !== this.today) {
                 this.callData.count = 0;
                 this.callData.lastDate = this.today;
