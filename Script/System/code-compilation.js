@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 4: diamondReward = 50; break;
             }
             if (testResults === "111111") {
-                localStorage.setItem('diamond_availability', (getDiamond() + 10).toString());
+                localStorage.setItem('diamond_availability', (getDiamond() + diamondReward).toString());
             }
 
             console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"}`);

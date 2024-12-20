@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/Home/blur cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/blur cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/For All/all-const.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/For All/all-const.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/System/certificate-generate.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/certificate-generate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/System/cpp-code-compiling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/System/show-certificate-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/show-certificate-message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.html" beforeDir="false" afterPath="$PROJECT_DIR$/system.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +138,7 @@
       <workItem from="1734089041298" duration="2217000" />
       <workItem from="1734125756191" duration="16869000" />
       <workItem from="1734566962851" duration="774000" />
+      <workItem from="1734652083403" duration="2364000" />
     </task>
     <servers />
   </component>
