@@ -6,11 +6,8 @@ class CertificateManager {
         this.startNumber = null; // Starting number for task range
         this.endNumber = null; // Ending number for task range
         this.compare = 15; // Threshold for the number of completed tasks to show certificate
-        this.PriceToGenerateCertificate = { "Easy": 50, "Medium": 150, "Hard": 250, "Insane": 500 };
-        this.languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"]; // Options for programming languages
-        this.difficultyLevels = ["Easy", "Medium", "Hard", "Insane"]; // Options for difficulty levels
-        this.selectedLanguage = this.languageOptions[getSelectedLanguage()] || "C"; // Get the selected language
-        this.selectedButton = this.difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
+        this.selectedLanguage = languageOptions[getSelectedLanguage()] || "C"; // Get the selected language
+        this.selectedButton = difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
         this.initialize(); // Initialize the certificate manager
     }
 
@@ -57,11 +54,6 @@ class CertificateManager {
         }
     }
 
-    // Method to get the current amount of diamonds
-    getDiamonds() {
-        return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
-    }
-
     // Displays a message box with certificate details
     showCertificateMessageBox() {
         const hiddenElement = document.getElementById('sp'); // Get the element for the message box
@@ -71,11 +63,11 @@ class CertificateManager {
         // Update the subtitle text with certificate details
         document.getElementById('subtitle-text').innerHTML =
             `You have successfully solved all the problems for the ${this.selectedButton} level in ${this.selectedLanguage}. ` +
-            `The price to generate this certificate is ${this.PriceToGenerateCertificate[this.selectedButton]} diamonds.`;
+            `The price to generate this certificate is ${PriceToGenerateCertificate[this.selectedButton]} diamonds.`;
     }
 
     checkUserHaveDiamondsToGenerateCertificate() {
-        if (this.getDiamonds() < this.PriceToGenerateCertificate[this.selectedButton]) {
+        if (getDiamonds() < PriceToGenerateCertificate[this.selectedButton]) {
             localStorage.setItem("message-to-generate-certificate", "True");
             return false;
         }
@@ -94,8 +86,6 @@ class CertificateManager {
             alert("You don't have enough diamonds to generate this certificate.");
             return;
         }
-
-        localStorage.setItem('diamond_availability', "100000")
 
         if (this.getCertificateMessageStatus() == "True") return;
 
