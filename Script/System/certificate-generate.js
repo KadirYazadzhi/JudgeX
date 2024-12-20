@@ -9,10 +9,7 @@ class CertificateGenerator {
             "3": { src: 'Image/Template/Hard-Certificate-Template.png', level: "Hard" },
             "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" }
         };
-
-        this.difficultyLevels = CertificateManager.difficultyLevels;
-        this.PriceToGenerateCertificate = CertificateManager.PriceToGenerateCertificate;
-        this.GetDiamonds = CertificateManager.GetDiamonds;
+        this.selectedLevel = difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
     }
 
     getNameInput() {
@@ -30,7 +27,7 @@ class CertificateGenerator {
     }
 
     takeDiamondToGenerateCertificate() {
-        return localStorage.getItem('diamond_availability'), `${(this.GetDiamonds - this.PriceToGenerateCertificate[this.difficultyLevels]).toString()}`;
+        return localStorage.setItem('diamond_availability', (getDiamonds() - PriceToGenerateCertificate[this.selectedLevel]).toString());
     }
 
     getFormattedDate() {
@@ -105,6 +102,7 @@ class CertificateGenerator {
         if (localStorage.getItem(`savedCertificate_${getSelectedLanguage()}_${getSelectedLevel()}`) === null) {
             this.configureCanvas();
             this.drawCertificate(template, nameInput, selectedLanguage, formattedDate);
+            this.takeDiamondToGenerateCertificate();
         } else {
             alert("Your certificate has already been issued, and reissuing it is not allowed.");
             this.closeForm();
@@ -116,5 +114,4 @@ const CertificateManagerClass = new CertificateManager();
 const certificateGenerator = new CertificateGenerator(CertificateManagerClass);
 document.getElementById('certificateGenerationButton').addEventListener('click', () => {
     certificateGenerator.generate();
-    console.log(this.takeDiamondToGenerateCertificate());
 });
