@@ -1,0 +1,86 @@
+{
+  "1": {
+    "inputs": ["7", "0", "-2", "4", "-3", "18"],
+    "correctOutput": ["False", "True", "True", "True", "False", "True"]
+  },
+  "2": {
+    "inputs": ["2020", "1900", "2019", "2024", "876", "1890"],
+    "correctOutput": ["True", "False", "False", "True", "True", "False"]
+  },
+  "3": {
+    "inputs": ["7", "10", "13", "1", "3", "50"],
+    "correctOutput": ["True", "False", "True", "False", "True", "False"]
+  },
+  "4": {
+    "inputs": ["Hello World", "Python", "AEIOU", "bcdfgh", "//i**o22", "/*-+<a<=e?"],
+    "correctOutput": ["3", "1", "5", "0", "2", "2"]
+  },
+  "5": {
+    "inputs": ["5", "3", "6", "7", "10", "14"],
+    "correctOutput": ["1\n2\nFizz\n4\nBuzz", "1\n2\nFizz", "1\n2\nFizz\n4\nBuzz\nFizz", "1\n2\nFizz\n4\nBuzz\nFizz\n7", "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz", "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14"]
+  },
+  "6": {
+    "inputs": ["5", "-3", "0", "30", "0", "-14"],
+    "correctOutput": ["Positive", "Negative", "Zero", "Positive", "Zero", "Negative"]
+  },
+  "7": {
+    "inputs": ["0", "100", "37", "4", "10", "300"],
+    "correctOutput": ["32.0", "212.0", "98.6", "39.2", "50", "572"]
+  },
+  "8": {
+    "inputs": ["1000\n 5\n 2", "1500\n 4.3\n 6", "2000\n 3\n 1", "8000\n 8\n 4", "140000\n 3.4\n 5", "300\n 5\n 1"],
+    "correctOutput": ["100.0", "387.0", "60.0", "2560.0", "2380", "15"]
+  },
+  "9": {
+    "inputs": ["3\n 5", "-1\n 6", "0\n 0", "30\n -5", "10\n 40", "300\n -100"],
+    "correctOutput": ["8", "5", "0", "25", "50", "200"]
+  },
+  "10": {
+    "inputs": ["3\n 5", "7\n -2", "0\n 0", "30\n -5", "10\n 40", "300\n -100"],
+    "correctOutput": ["5", "7", "0", "30", "40", "300"]
+  },
+  "12": {
+    "inputs": ["10\n 2", "10\n 3", "15\n 5", "30\n 30", "100\n 10", "3\n 5"],
+    "correctOutput": ["Divisible", "Not Divisible", "Divisible", "Divisible", "Divisible", "Not Divisible"]
+  },
+  "14": {
+    "inputs": ["5\n 3", "7\n 2", "10\n 10", "3\n 5", "10\n 8", "10\n 2"],
+    "correctOutput": ["16", "18", "40", "16", "36", "24"]
+  },
+  "16": {
+    "inputs": ["3", "5", "2", "4", "12", "10"],
+    "correctOutput": ["9", "25", "4", "16", "144", "100"]
+  },
+  "18": {
+    "inputs": ["3\n 4\n +", "10\n 5\n *", "5\n 2\n -", "100\n 10\n /", "3\n 3\n ^", "10\n 2\n %"],
+    "correctOutput": ["7", "50", "3", "10", "9", "0"]
+  },
+  "19": {
+    "inputs": ["12567", "55668", "77755", "112", "49265310", "110125"],
+    "correctOutput": ["1\n2\n5\n6\n7", "5\n5\n6\n6\n8", "7\n7\n7\n5\n5", "1\n1\n2", "4\n9\n2\n6\n5\n3\n1\n0", "1\n1\n0\n1\n2\n5"]
+  },
+  "20": {
+    "inputs": ["radar", "hello", "level", "world", "apple", "madam"],
+    "correctOutput": ["True", "False", "True", "False", "False", "True"]
+  },
+  "22": {
+    "inputs": ["1 2 3 4", "10 -1 7", "0 0 0 0", "-2 -3 5", "100 -10 -40 50", "0 10 30 10"],
+    "correctOutput": ["10", "16", "0", "0", "100", "50"]
+  },
+  "24": {
+    "inputs": ["5", "3", "1", "0", "10", "12"],
+    "correctOutput": ["120", "6", "1", "0", "3628800", "479001600"]
+  },
+  "26": {
+    "inputs": ["Hello world", "Count the words here", "This is a test", "JudgeX is a test system", "25 apple in the bag", "** // -- ++"],
+    "correctOutput": ["2", "4", "4", "5", "5", "4"]
+  },
+  "28": {
+    "inputs": ["1, 2, 3, 4, 5", "-5, -3, -1, -7", "100, 200, 300", "-50, -1000, 100, 400, 1000", "1, 5, 8, 9, 6, 2, -6, 50", "5"],
+    "correctOutput": ["5", "-1", "300", "1000", "50", "5"]
+  },
+  "30": {
+    "inputs": ["1, 2, 4, 5", "12, 13, 14, 16", "32, 33, 34, 35, 37, 38", "100, 101, 103", "7, 8, 9, 10, 12", "50, 52"],
+    "correctOutput": ["3", "15", "36", "102", "11", "51"]
+  }
+}
