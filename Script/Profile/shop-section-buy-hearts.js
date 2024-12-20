@@ -38,7 +38,7 @@ class Shop {
 
     // Method to buy a specified number of hearts
     buyHearts(hearts, diamonds) {
-        if (diamonds <= this.getDiamonds()) {
+        if (diamonds <= getDiamonds()) {
             if (hearts <= 1) {
                 this.word = "heart";
             }
@@ -54,42 +54,38 @@ class Shop {
                 localStorage.setItem('callData', JSON.stringify(callData));
             }
         } else {
-            alert(`You don't have enough diamonds to buy this. You need ${diamonds - this.getDiamonds()} more diamonds.`);
+            alert(`You don't have enough diamonds to buy this. You need ${diamonds - getDiamonds()} more diamonds.`);
         }
     }
 
     // Method to buy infinite hearts
     buyInfinityHearts(diamonds) {
-        if (diamonds <= this.getDiamonds()) {
+        if (diamonds <= getDiamonds()) {
             if (window.confirm(`Are you sure you want to buy ∞ hearts for ${diamonds} diamonds?`)) {
                 this.updateDiamonds(diamonds);
                 localStorage.setItem('infinity_hearts', "True");
             }
         } else {
-            alert(`You don't have enough diamonds to buy this. You need ${diamonds - this.getDiamonds()} more diamonds.`);
+            alert(`You don't have enough diamonds to buy this. You need ${diamonds - getDiamonds()} more diamonds.`);
         }
     }
 
     // Method to activate a special plan
     activateSpecialPlan(diamonds) {
-        if (diamonds <= this.getDiamonds()) {
+        if (diamonds <= getDiamonds()) {
             if (window.confirm(`Are you sure you want to buy 'Special Plan' for ${diamonds} diamonds?`)) {
                 localStorage.setItem('special-plan-activated', "True");
                 this.updateDiamonds(diamonds);
             }
         } else {
-            alert(`You don't have enough diamonds to buy this. You need ${diamonds - this.getDiamonds()} more diamonds.`);
+            alert(`You don't have enough diamonds to buy this. You need ${diamonds - getDiamonds()} more diamonds.`);
         }
     }
 
-    // Method to get the current amount of diamonds
-    getDiamonds() {
-        return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
-    }
 
     // Method to update the diamond availability
     updateDiamonds(diamondsSpent) {
-        const currentDiamonds = this.getDiamonds();
+        const currentDiamonds = getDiamonds();
         localStorage.setItem('diamond_availability', (currentDiamonds - diamondsSpent).toString());
     }
 }
