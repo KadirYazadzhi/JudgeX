@@ -43,6 +43,10 @@ function getDiamonds() { // Method to get the current amount of diamonds
     return parseInt(localStorage.getItem('diamond_availability') || '0', 10);
 }
 
+function getUserProfileImage() {
+    return localStorage.getItem('profileImage');
+}
+
 function getSelectedLevel() {
     return localStorage.getItem('selectedButton');
 }

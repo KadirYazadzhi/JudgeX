@@ -27,7 +27,7 @@ class UserProfile {
      * Set the profile image source
      */
     setProfileImage() {
-        this.profileImage.src = 'Image/icon-user-1.png';
+        this.profileImage.src = getUserProfileImage();
     }
 
     /**
