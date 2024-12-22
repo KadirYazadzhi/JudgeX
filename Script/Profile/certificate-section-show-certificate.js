@@ -1,7 +1,7 @@
 class CertificateManager {
     constructor() {
-        this.languages = ['C', 'C++', 'C#', 'Python', 'Java', 'Javascript', 'Typescript', 'Ruby', 'Go'];
-        this.levels = ['Basic', 'Medium', 'Hard', 'Insane'];
+        this.languages = languageOptions;
+        this.levels = difficultyLevels;
     }
 
     // Initialize the certificate generation process

@@ -492,6 +492,15 @@ label[for=nav-footer-toggle] {
 }
 
 
+.footer-content-element {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+}
+
 #countdown {
     flex-direction: column;
 }
@@ -551,4 +560,7 @@ label[for=nav-footer-toggle] {
     }
 }
 
-
+.fas-5 {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}

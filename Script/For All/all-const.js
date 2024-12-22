@@ -47,6 +47,28 @@ function getUserProfileImage() {
     return localStorage.getItem('profileImage');
 }
 
+function getUserRank() {
+    return localStorage.getItem('RankedNumberRankSection');
+}
+
+function countEarnedCertificate() {
+    let count = 0
+
+    for (let i = 0; i < languageOptions.length; i++) {
+        for (let j = 1; j <= difficultyLevels.length; j++) {
+            if (localStorage.getItem(`savedCertificate_${i}_${j}`) !== null) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+function getFirstVisitDate() {
+    return localStorage.getItem('firstVisitDate');
+}
+
 function getSelectedLevel() {
     return localStorage.getItem('selectedButton');
 }

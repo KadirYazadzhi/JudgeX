@@ -3,5 +3,5 @@ const systemProfileImage = document.getElementById('system-profile-image');
 
 document.addEventListener('DOMContentLoaded', function() {
     profileName.innerHTML = getUsernameValue();
-    systemProfileImage.src = '';
+    systemProfileImage.src = getUserProfileImage();
 });
