@@ -1,7 +1,6 @@
 class CertificateManager {
     constructor() {
         this.sum = 0;  // Counter for completed tasks
-        this.excludedIndices = [11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 71, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92]; // Indices of tasks to be excluded from counting
         this.buttonToViewCertificate = document.querySelector(".certificateBtn"); // Button to view certificate
         this.startNumber = null; // Starting number for task range
         this.endNumber = null; // Ending number for task range
@@ -47,7 +46,7 @@ class CertificateManager {
     calculateSum() {
         for (let i = this.startNumber; i <= this.endNumber; i++) {
             // Check if the task is not excluded and has the expected result
-            if (!this.excludedIndices.includes(i) &&
+            if (!excludedIndices.includes(i) &&
                 localStorage.getItem(`taskResult_${i}_${getSelectedLanguage()}_${getSelectedLevel()}`) === "111111") {
                 this.sum++; // Increment the count of completed tasks
             }

@@ -12,6 +12,9 @@ const PriceToGenerateCertificate = { "Easy": 100, "Medium": 250, "Hard": 350, "I
 const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"]; // Options for programming languages
 const difficultyLevels = ["Easy", "Medium", "Hard", "Insane"]; // Options for difficulty levels
 
+const excludedIndices = [11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 71, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92]; // Indices of tasks to be excluded from counting
+
+
 function getTaskCard() {
     return document.querySelectorAll('.task-card');
 }
@@ -65,8 +68,27 @@ function countEarnedCertificate() {
     return count;
 }
 
+function countSolvedTasks() {
+    let count = 0;
+
+    for (let taskIndex = 1; taskIndex <= 93; taskIndex++) {
+        for (let language = 0; language <= 8; language++) {
+            for (let level = 1; level <= 4; level++) {
+                if (!excludedIndices.includes(taskIndex) &&
+                    localStorage.getItem(`taskResult_${taskIndex}_${language}_${level}`) === "111111") {
+                    count++;
+                }
+            }
+        }
+    }
+
+    return count;
+}
+
 function getFirstVisitDate() {
-    return localStorage.getItem('firstVisitDate');
+    const date = new Date(localStorage.getItem('firstVisitDate'));
+
+    return `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()}`;
 }
 
 function getSelectedLevel() {

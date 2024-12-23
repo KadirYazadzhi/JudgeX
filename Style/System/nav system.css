@@ -342,7 +342,7 @@ label[for=nav-toggle] {
 }
 
 #nav-toggle:not(:checked) ~ #nav-footer-toggle:checked + #nav-footer {
-    height: 30%;
+    height: 32%;
     min-height: 54px;
 }
 #nav-toggle:not(:checked) ~ #nav-footer-toggle:checked + #nav-footer label[for=nav-footer-toggle] {
@@ -365,7 +365,8 @@ label[for=nav-footer-toggle] {
     border-top: solid 1px var(--navbar-light-secondary);
     padding: 16px 0;
     color: var(--navbar-light-secondary);
-    font-size: 0.8rem;
+    fill: var(--navbar-light-secondary);
+    font-size: 0.9rem;
     overflow: auto;
 }
 #nav-footer-content::-webkit-scrollbar {
@@ -495,7 +496,7 @@ label[for=nav-footer-toggle] {
 .footer-content-element {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 7px;
     align-items: center;
     justify-content: flex-start;
     height: 30px;
@@ -560,7 +561,7 @@ label[for=nav-footer-toggle] {
     }
 }
 
-.fas-5 {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+.footer-content-element svg {
+    width: 13px;
+    height: 14.5px;
 }
