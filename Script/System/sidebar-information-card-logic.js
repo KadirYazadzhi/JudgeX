@@ -1,3 +1,38 @@
+// Class for managing information cards and filters
+class InformationCard {
+    constructor(iconClass, message, type) {
+        this.iconClass = iconClass;
+        this.message = message;
+        this.type = type;
+    }
+
+    // Creates a DOM element for this information card
+    createCardElement() {
+        const card = document.createElement("div");
+        card.className = "information-card";
+
+        const iconDiv = document.createElement("div");
+        iconDiv.className = "information-icon";
+        const icon = document.createElement("i");
+        icon.className = this.iconClass;
+        iconDiv.appendChild(icon);
+
+        const textSpan = document.createElement("span");
+        textSpan.className = "information-text";
+        textSpan.textContent = this.message;
+
+        const dotDiv = document.createElement("div");
+        dotDiv.className = `inf-type-dot ${this.type}`;
+
+        card.appendChild(iconDiv);
+        card.appendChild(textSpan);
+        card.appendChild(dotDiv);
+
+        return card;
+    }
+}
+
+// Class for managing the info type cards (filter cards)
 class InfoTypeCardsManager {
     constructor(cards, informationCards) {
         this.cards = cards;
@@ -14,24 +49,15 @@ class InfoTypeCardsManager {
         });
     }
 
-    /**
-     * Handles the click event for the cards.
-     * @param {HTMLElement} card - The card that was clicked.
-     * @param {number} index - The index of the clicked card.
-     */
+    // Handle clicks on the filter cards
     handleCardClick(card, index) {
         if (index === 0) {
             // If the "All" card is clicked
-            if (card.classList.contains("activeInfo")) {
-                // Do nothing if "All" card is active to prevent deactivation
-                return;
-            } else {
-                // Activate "All" card and show all cards
-                this.activateCard(card);
-                this.filterCards("all");
-            }
+            if (card.classList.contains("activeInfo")) return;
+            this.activateCard(card);
+            this.filterCards("all");
         } else {
-            // Logic for other cards
+            // Logic for other filter cards
             if (card.classList.contains("activeInfo")) {
                 this.deactivateCard(card);
             } else {
@@ -56,19 +82,16 @@ class InfoTypeCardsManager {
         }
     }
 
-    /**
-     * Filters the information cards based on the active card types.
-     * @param {string} [type] - The type of card to filter by (e.g., 'most-important', 'important', 'non-essential', 'all').
-     */
+    // Filters the information cards based on the active filter cards
     filterCards(type = "") {
-        // Get all active card types excluding the "All" card
+        // Get the active types from the filter cards
         const activeTypes = Array.from(this.getActiveCards())
             .map(card => card.classList[1])
             .filter(type => type !== 'all');
 
+        // Show or hide information cards based on the active filter
         this.informationCards.forEach(infoCard => {
             const cardDot = infoCard.querySelector('.inf-type-dot');
-
             if (type === "all" || activeTypes.length === 0 || activeTypes.includes(cardDot.classList[1])) {
                 infoCard.style.display = "flex"; // Show card
             } else {
@@ -77,53 +100,66 @@ class InfoTypeCardsManager {
         });
     }
 
-    /**
-     * Activates the specified card by adding the "activeInfo" class.
-     * @param {HTMLElement} card - The card to activate.
-     */
+    // Activate the given card
     activateCard(card) {
         card.classList.add("activeInfo");
     }
 
-    /**
-     * Deactivates the specified card by removing the "activeInfo" class.
-     * @param {HTMLElement} card - The card to deactivate.
-     */
+    // Deactivate the given card
     deactivateCard(card) {
         card.classList.remove("activeInfo");
     }
 
-    /**
-     * Retrieves a list of all active cards.
-     * @returns {NodeList} - A list of active cards.
-     */
+    // Get a list of all active filter cards
     getActiveCards() {
         return document.querySelectorAll(".inf-type.activeInfo");
     }
 
-    /**
-     * Retrieves a list of all active cards except the first card.
-     * @returns {NodeList} - A list of active cards excluding the first one.
-     */
+    // Get a list of active filter cards excluding the "All" card
     getActiveNonFirstCards() {
         return document.querySelectorAll(".inf-type.activeInfo:not(:first-child)");
     }
 
-    /**
-     * Deactivates all cards except the first one.
-     */
+    // Deactivate all filter cards except for the first ("All") card
     deactivateAllNonFirstCards() {
         this.cards.forEach((card, index) => {
-            if (index !== 0) {
-                this.deactivateCard(card);
-            }
+            if (index !== 0) this.deactivateCard(card);
         });
     }
 }
 
-// Select all cards from the top bar and all information cards
-const infoTypeCards = document.querySelectorAll(".inf-type");
-const informationCards = document.querySelectorAll(".information-card");
+// Class to handle loading and managing information cards
+class InformationCardsLoader {
+    constructor(containerId, jsonPath) {
+        this.container = document.getElementById(containerId);
+        this.jsonPath = jsonPath;
+    }
 
-// Initialize the InfoTypeCardsManager with both the type cards and information cards
-const infoTypeCardsManager = new InfoTypeCardsManager(infoTypeCards, informationCards);
+    // Load and create the information cards from the JSON file
+    async loadCards() {
+        const response = await fetch(this.jsonPath);
+        const data = await response.json();
+
+        // Create and append each card from the loaded data
+        data.forEach(item => {
+            const card = new InformationCard(item.iconClass, item.message, item.type);
+            this.container.appendChild(card.createCardElement());
+        });
+
+        // Initialize the InfoTypeCardsManager after the cards have been created
+        this.initializeInfoTypeCardsManager();
+    }
+
+    // Initialize the filter system after loading the cards
+    initializeInfoTypeCardsManager() {
+        const infoTypeCards = document.querySelectorAll(".inf-type");
+        const informationCards = document.querySelectorAll(".information-card");
+        new InfoTypeCardsManager(infoTypeCards, informationCards);
+    }
+}
+
+// Initialize and load the information cards on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const cardsLoader = new InformationCardsLoader("information-cards-container", "Json/information-about-system.json");
+    cardsLoader.loadCards();
+});

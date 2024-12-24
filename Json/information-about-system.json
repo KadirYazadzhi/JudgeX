@@ -1,0 +1,17 @@
+[
+  {
+    "type": "most-important",
+    "message": "This system doesn't have a database and saves information in local storage. Please do not clear your local storage or browser cookies.",
+    "iconClass": "fa-solid fa-database strikethrough-icon"
+  },
+  {
+    "type": "important",
+    "message": "This system doesn't have a database and saves information in local storage. Please do not clear your local storage or browser cookies.",
+    "iconClass": "fa-solid fa-database strikethrough-icon"
+  },
+  {
+    "type": "non-essential",
+    "message": "This system doesn't have a database and saves information in local storage. Please do not clear your local storage or browser cookies.",
+    "iconClass": "fa-solid fa-database strikethrough-icon"
+  }
+]
