@@ -1,0 +1,172 @@
+{
+  "task": [
+    "Do you need help with a specific task?",
+    "Which task are you working on?",
+    "Can you specify the task you need assistance with?",
+    "Is there a particular task giving you trouble?",
+    "Tell me about the task you're working on.",
+    "What task are you currently solving?",
+    "Is the task description clear, or do you need help?",
+    "Which section of the task do you find challenging?"
+  ],
+  "difficulty": [
+    "We have tasks of varying difficulty: Easy, Medium, Hard, and Very Hard.",
+    "Which difficulty level are you interested in?",
+    "Are you looking for an easier or a harder task?",
+    "What difficulty level suits you right now?",
+    "Do you prefer Easy or Very Hard tasks?",
+    "Would you like a challenge at the Hard level?",
+    "Are you finding the current level too simple or too tough?",
+    "Do you want to switch to a different difficulty?"
+  ],
+  "special": [
+    "The Special level is for premium users, offering the most challenging tasks.",
+    "Would you like to unlock Special tasks?",
+    "Special tasks are designed for advanced users. Are you ready?",
+    "Unlock premium to access the Special level.",
+    "Would you like to try the most challenging tasks in the Special level?",
+    "Special level tasks test your limits. Want to try?",
+    "Are you ready for the ultimate challenge in the Special level?",
+    "How about exploring the premium-exclusive tasks?"
+  ],
+  "hearts": [
+    "You can earn up to 5 hearts per day for submitting solutions.",
+    "Keep up the good work to earn more hearts!",
+    "Make sure to use your daily hearts wisely!",
+    "Did you know hearts refresh daily?",
+    "Use all 5 hearts today to maximize your submissions.",
+    "Earn hearts daily and boost your submissions!",
+    "Have you used all your hearts for today?",
+    "Remember, hearts renew every 24 hours."
+  ],
+  "badges": [
+    "Badges are earned for various achievements, such as solving tasks in a specific language.",
+    "What badge are you aiming to earn?",
+    "Collect badges to showcase your achievements.",
+    "Earn badges by completing tasks in different levels.",
+    "Are you aiming for a special badge?",
+    "Badges highlight your skills. Which one will you earn next?",
+    "Are you tracking your badge progress?",
+    "Would you like to know how to earn more badges?"
+  ],
+  "certificate": [
+    "You can earn an automatic certificate when you complete all tasks in a level or language.",
+    "Want to know more about how to earn a certificate?",
+    "Certificates are awarded for significant accomplishments.",
+    "Complete all tasks in a level to unlock your certificate.",
+    "Would you like to know the diamond cost for certificates?",
+    "Certificates validate your achievements. Ready to earn one?",
+    "Have you checked the requirements for a certificate?",
+    "Showcase your skills with a certificate."
+  ],
+  "diamonds": [
+    "Diamonds are an important currency in our system, earned by submitting correct solutions.",
+    "How many diamonds do you have right now?",
+    "Submit correct solutions to earn diamonds.",
+    "Use diamonds to unlock certificates and rewards.",
+    "Want tips on earning more diamonds?",
+    "Diamonds unlock exclusive features. Need help earning more?",
+    "Check your diamond balance for progress.",
+    "Earning diamonds boosts your potential."
+  ],
+  "level": [
+    "Each level has its own set of tasks, ranging from Easy to Very Hard.",
+    "Which level are you tackling today?",
+    "Levels define the complexity of tasks. What's your current level?",
+    "Are you working on Easy or Medium level tasks?",
+    "Advance through levels to challenge yourself.",
+    "How's your progress across different levels?",
+    "Would you like to retry tasks in a completed level?",
+    "Do you want tips for the current level?"
+  ],
+  "languages": [
+    "Our system supports multiple languages. Which one are you using?",
+    "Do you want to know more about the available languages?",
+    "What programming language are you solving tasks in?",
+    "Would you like to switch to another language?",
+    "Explore tasks in different languages to diversify your skills.",
+    "Have you tried solving in a new programming language?",
+    "Languages add versatility. Need recommendations?",
+    "Challenge yourself with another language's syntax."
+  ],
+  "score": [
+    "You can track your progress in each task and level through your score.",
+    "How's your score going on the tasks?",
+    "Scores reflect your progress and achievements.",
+    "Check your score to see how far you've come.",
+    "Are you satisfied with your current score?",
+    "Improving scores boosts confidence. Keep going!",
+    "Track your daily score updates for insights.",
+    "Want tips on improving your score?"
+  ],
+  "submission": [
+    "You can submit 5 solutions per day. Don't forget to make the most of them!",
+    "Have you submitted your solutions for today?",
+    "Daily submissions help you progress. Keep submitting!",
+    "Did you know submissions reset every day?",
+    "Maximize your 5 submissions each day.",
+    "Have you planned today's submissions wisely?",
+    "Submissions drive progress. Stay consistent!",
+    "Daily limits help you strategize. Ready?"
+  ],
+  "challenge": [
+    "Are you up for a new challenge in one of the harder levels?",
+    "Let me know if you're ready to take on something harder!",
+    "Challenges help you grow. Are you ready?",
+    "Push your limits with a harder challenge.",
+    "Would you like to attempt a new challenge?",
+    "Overcoming challenges builds expertise. Try one!",
+    "Step up for a rewarding challenge.",
+    "Would you like tips for harder challenges?"
+  ],
+  "verify": [
+    "Each solution is verified against sample inputs. Make sure your code works for all cases.",
+    "Need help debugging your solution?",
+    "Verification ensures your solution is correct.",
+    "Test your code thoroughly before submission.",
+    "Would you like help with verification?",
+    "Sample inputs help refine your solutions. Need advice?",
+    "Verification is crucial. Have you checked all cases?",
+    "Struggling with verification? Let's discuss."
+  ],
+  "feedback": [
+    "You will receive feedback on your solutions soon after submission.",
+    "Do you want to check your latest feedback?",
+    "Feedback helps you improve. Have you reviewed it?",
+    "Look at your feedback for insights on your solutions.",
+    "Need assistance interpreting your feedback?",
+    "Feedback guides improvements. Ready to explore?",
+    "Feedback highlights areas for growth. Use it wisely!",
+    "Want more detailed feedback on your tasks?"
+  ],
+  "profile": [
+    "You can check your profile to see your progress and badges earned.",
+    "Would you like to see your profile?",
+    "Profiles show your achievements and stats.",
+    "Visit your profile to track your progress.",
+    "Have you updated your profile recently?",
+    "Profiles offer insights into your journey. Explore yours!",
+    "Track milestones and badges via your profile.",
+    "Is your profile showcasing all your achievements?"
+  ],
+  "congratulations": [
+    "Congratulations on completing a task!",
+    "Well done for earning a badge! Keep it up!",
+    "Amazing work! Keep solving tasks!",
+    "Your efforts paid off! Congratulations!",
+    "Great job on achieving this milestone!",
+    "You're making impressive progress. Well done!",
+    "Every step counts. Keep achieving!",
+    "You're inspiring others. Keep it up!"
+  ],
+  "progress": [
+    "Track your progress through your profile. You can see how many tasks you've solved at each level.",
+    "Are you checking your progress regularly?",
+    "Progress tracking motivates you to keep going.",
+    "How far have you progressed in your tasks?",
+    "Review your progress to set new goals.",
+    "Progress marks your journey. What's next?",
+    "Tracking progress ensures focus. How's yours?",
+    "Regular updates reflect consistency. Keep progressing!"
+  ]
+}
