@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="Style/Home/hero-section.css">
     <link rel="stylesheet" type="text/css" href="Style/Home/nav-other-button.css">
     <link rel="stylesheet" type="text/css" href="Style/For%20All/light-theme.css">
+    <link rel="stylesheet" type="text/css" href="Style/For%20All/chat-bot.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -203,6 +204,30 @@
             </div>
             <button class="form-submit-btn submit" type="submit">Submit</button>
         </form>
+    </div>
+</div>
+
+<div id="chat-bot" class="chat-bot-container">
+    <div class="chat-bot-nav-bar">
+        <div class="left-chat-header">
+            <a>Chat</a>
+            <i class="green-chat-dot chat-circle fa-solid fa-circle"></i>
+        </div>
+        <div class="close">
+            <div class="line one"></div>
+            <div class="line two"></div>
+        </div>
+    </div>
+
+    <div class="messages-area"></div>
+
+    <div class="sender-area">
+        <div class="input-place">
+            <input placeholder="Send a message." class="send-input" type="text">
+            <div class="send">
+                <svg class="send-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M481.508,210.336L68.414,38.926c-17.403-7.222-37.064-4.045-51.309,8.287C2.86,59.547-3.098,78.551,1.558,96.808 L38.327,241h180.026c8.284,0,15.001,6.716,15.001,15.001c0,8.284-6.716,15.001-15.001,15.001H38.327L1.558,415.193 c-4.656,18.258,1.301,37.262,15.547,49.595c14.274,12.357,33.937,15.495,51.31,8.287l413.094-171.409 C500.317,293.862,512,276.364,512,256.001C512,235.638,500.317,218.139,481.508,210.336z"></path></g></g></svg>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1106,4 +1131,5 @@
 <script rel="script" src="Script/Home/rank-section-text.js"></script>
 <script rel="script" src="Script/Home/button-to-top.js"></script>
 <script rel="script" src="Script/Home/set-profile-image.js"></script>
+<script rel="script" src="Script/For%20All/chat-bot-logic.js"></script>
 </html>
