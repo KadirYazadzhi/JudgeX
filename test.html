@@ -8,231 +8,10 @@
 </head>
 <body>
 <style>
-    :root {
-        --border-color-and-type: 1px solid var(--btn-color-primary);
-        --conatiner-background-color: #18202d;
-        --line-background-color: var(--btn-color-primary);
-        --background-sender-area: #0b0f15;
-        --input-background-color: #141b25;
-    }
 
-    .container {
-        width: 320px;
-        height: 360px;
-        background-color: var(--conatiner-background-color);
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        color: var(--btn-color-primary);
-    }
-
-    .nav-bar {
-        width: 100%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nav-bar a {
-        white-space: nowrap;
-        margin-left: 10px;
-        user-select: none;
-    }
-
-    .close {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-    }
-
-    .left-chat-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .left-chat-header i {
-        font-size: 8px;
-    }
-
-    .green-chat-dot {
-       color: #00be2c;
-    }
-
-    .orange-chat-dot {
-       color: #ff7300;
-    }
-
-    .line {
-        position: absolute;
-        width: 20px;
-        height: 3px;
-        background-color: var(--line-background-color);
-        border-radius: 30px;
-    }
-
-    .line.one {
-        transform: rotate(45deg)
-    }
-
-    .line.two {
-        transform: rotate(135deg)
-    }
-
-    .messages-area {
-        width: 100%;
-        height: 70%;
-        padding-bottom: 10px;
-        overflow: auto;
-    }
-
-    .sender-area {
-        background-color: var(--background-sender-area);
-        width: 100%;
-        height: 70px;
-        display: flex;
-        border-radius: 8px;
-    }
-
-    .send-input {
-        outline: none;
-        display: flex;
-        border: none;
-        background: none;
-        height: 40px;
-        width: 93%;
-        border-radius: 7px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        margin-left: 5px;
-        color: var(--btn-color-primary);
-    }
-
-    .send-input::placeholder {
-        color: var(--btn-color-primary);
-    }
-
-    .input-place {
-        display: flex;
-        flex-direction: row;
-        margin-top: 15px;
-        margin-left: 10px;
-        align-items: center;
-        background-color: var(--input-background-color);
-        border-radius: 7px;
-        height: 40px;
-        width: 280px;
-        gap: 5px;
-        border: 1px solid var(--conatiner-background-color);;
-    }
-
-    .send {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-    .send svg g g path {
-        fill: var(--btn-color-primary);
-    }
-
-    .user-messages-box, .bot-messages-box {
-        width: auto;
-        height: auto;
-        color: var(--btn-color-primary);
-        padding: 6px 10px;
-        display: flex;
-        max-width: 95%;
-    }
-
-    .user-messages-box {
-        justify-content: flex-end;
-    }
-
-    .bot-messages-box {
-        align-items: center;
-        gap: 5px;
-        justify-content: flex-start;
-    }
-
-
-    .user-messages-box p, .bot-messages-box p {
-        background-color: #1d2b3e;
-        padding: 6px 10px;
-        border-radius: 7px;
-        width: fit-content;
-        margin: 0!important;
-        max-width: 75%;
-        font-size: 15px;
-    }
-
-    .send-icon {
-        width: 17px;
-    }
-
-    .image-box {
-        width: 26px;
-        height: 26px;
-    }
-
-    .image-box img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-
-    .categories-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 5px;
-        margin-left: 39px;
-    }
-
-    .category-button, .question-button {
-        padding: 6px 10px;
-        border: 1px solid #1d2b3e;
-        font-size: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        animation: ease-in-out 0.4s;
-    }
-
-    .category-button:hover {
-        background: #1d2b3e;
-    }
-
-    .category-box {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .questions-container {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        padding: 8px 10px 5px 10px;
-    }
-
-    .question-button {
-        padding: 4px 8px;
-        font-size: 14px;
-    }
 </style>
 
-<div class="container">
+<div class="chat-bot container">
     <div class="nav-bar">
         <div class="left-chat-header">
             <a>Chat</a>
@@ -243,9 +22,9 @@
             <div class="line two"></div>
         </div>
     </div>
-    <div class="messages-area">
 
-    </div>
+    <div class="messages-area"></div>
+
     <div class="sender-area">
         <div class="input-place">
             <input placeholder="Send a message." class="send-input" type="text">
@@ -253,9 +32,6 @@
                 <svg class="send-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M481.508,210.336L68.414,38.926c-17.403-7.222-37.064-4.045-51.309,8.287C2.86,59.547-3.098,78.551,1.558,96.808 L38.327,241h180.026c8.284,0,15.001,6.716,15.001,15.001c0,8.284-6.716,15.001-15.001,15.001H38.327L1.558,415.193 c-4.656,18.258,1.301,37.262,15.547,49.595c14.274,12.357,33.937,15.495,51.31,8.287l413.094-171.409 C500.317,293.862,512,276.364,512,256.001C512,235.638,500.317,218.139,481.508,210.336z"></path></g></g></svg>
             </div>
         </div>
-    </div>
-    <div>
-
     </div>
 </div>
 
