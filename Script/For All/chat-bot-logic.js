@@ -30,6 +30,12 @@ class MessageApp {
         });
     }
 
+    // Method to send the first greeting message from the bot
+    startingMessageFromBot() {
+        const welcomeMessage = "Hello! I'm here to help you with your programming challenges. How can I assist you today?";
+        this.createMessageBox(welcomeMessage, 'bot');
+    }
+
     sendMessage() {
         if (this.isBotTyping) return;
 
@@ -346,3 +352,4 @@ class MessageApp {
 }
 
 const app = new MessageApp('.messages-area', '.send-input', '.send-icon', 'Json/chat-bot-phrases.json', '.chat-circle');
+app.startingMessageFromBot(); // Call the method to send the first message
