@@ -128,8 +128,8 @@
     justify-content: center;
     font-size: 30px;
     border: 3px solid var(--btn-border-color);
-    right: 5%;
-    bottom: 5%;
+    right: 2%;
+    bottom: 2%;
     cursor: pointer;
     box-shadow: var(--btn-box-shadow);
     opacity: 0.45;
@@ -181,17 +181,17 @@
 
 /* When the buttons are active */
 .active .extra-button-1 {
-    transform: translate(-80px, -20px);
+    transform: translate(-80px, +10px);
     opacity: 1;
 }
 
 .active .extra-button-2 {
-    transform: translate(-30px, -80px);
+    transform: translate(-50px, -60px);
     opacity: 1;
 }
 
 .active .extra-button-3 {
-    transform: translate(50px, -80px);
+    transform: translate(20px, -70px);
     opacity: 1;
 }
 
