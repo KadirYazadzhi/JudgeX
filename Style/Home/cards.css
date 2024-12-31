@@ -55,6 +55,9 @@ article {
 .swiper-slide.activeVeryHard {
     border-color: #a60000;
 }
+.swiper-slide.activeSpecial {
+    border-color: var(--golden-color);
+}
 
 @media (min-width: 1700px) {
     article {
