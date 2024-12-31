@@ -14,7 +14,7 @@
     flex-direction: column;
     color: var(--btn-color-primary);
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 999999999;
     right: 2%;
     bottom: 11%;
