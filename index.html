@@ -1050,23 +1050,6 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const buttonToTop = document.querySelector('.other-buttons');
-
-        // Toggle the buttons on click
-        buttonToTop.addEventListener('click', function() {
-            buttonToTop.classList.toggle('active'); // Add or remove the active class to trigger animation
-
-            const extraButtons = document.querySelectorAll('.extra-button');
-            extraButtons.forEach(button => {
-                button.classList.toggle('hidden'); // Show or hide the extra buttons
-            });
-        });
-    });
-
-</script>
-
 
 <footer class="footer">
     <div class="waves">
@@ -1114,6 +1097,7 @@
 <script rel="script" src="Script/Home/marquee.js"></script>
 <script rel="script" src="Script/Home/special%20cards%20change.js"></script>
 <script rel="script" src="Script/Home/more%20cards.js"></script>
+<script rel="script" src="Script/Home/footer-buttons.js"></script>
 <script rel="script" src="Script/Home/card%20click.js"></script>
 <script rel="script" src="Script/Home/button%20click.js"></script>
 <script rel="script" src="Script/Home/blur%20cards.js"></script>
