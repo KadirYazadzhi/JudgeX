@@ -33,7 +33,19 @@ class MessageApp {
     // Method to send the first greeting message from the bot
     startingMessageFromBot() {
         const welcomeMessage = "Hello! I'm here to help you with your programming challenges. How can I assist you today?";
-        this.createMessageBox(welcomeMessage, 'bot');
+        const botMessageContent = this.createMessageBox('', 'bot', true);
+
+        let index = 0;
+        const typingInterval = setInterval(() => {
+            if (index < welcomeMessage.length) {
+                botMessageContent.textContent += welcomeMessage[index];
+                index++;
+            } else {
+                clearInterval(typingInterval);
+                this.isBotTyping = false;
+                this.toggleUserInput(true);
+            }
+        }, 100);
     }
 
     sendMessage() {
@@ -352,4 +364,3 @@ class MessageApp {
 }
 
 const app = new MessageApp('.messages-area', '.send-input', '.send-icon', 'Json/chat-bot-phrases.json', '.chat-circle');
-app.startingMessageFromBot(); // Call the method to send the first message
