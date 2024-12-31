@@ -18,6 +18,11 @@
     z-index: 999999999;
     right: 2%;
     bottom: 11%;
+    transition: bottom 0.4s ease;
+}
+
+.chat-bot-container-second-position {
+    bottom: 17%;
 }
 
 .open-chat-container {
