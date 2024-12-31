@@ -1,16 +1,53 @@
-const chatBotContainer = document.getElementById("chat-bot");
-const messageContainer = document.querySelector(".messages-area");
-const chatBotCloseButton = document.querySelector(".close i");
-const chatBotOpenButton = document.querySelector(".extra-button-2");
+// Define a ChatBot class to encapsulate chatbot functionality
+class ChatBot {
+    constructor(chatBotContainerId, messageContainerSelector, closeButtonSelector, openButtonSelector) {
+        this.chatBotContainer = document.getElementById(chatBotContainerId);
+        this.messageContainer = document.querySelector(messageContainerSelector);
+        this.chatBotCloseButton = document.querySelector(closeButtonSelector);
+        this.chatBotOpenButton = document.querySelector(openButtonSelector);
 
-chatBotOpenButton.addEventListener("click", function() {
-    setTimeout(() => chatBotContainer.classList.add("open-chat-container"), 200);
+        this.initEventListeners(); // Initialize event listeners
+    }
 
-    if (messageContainer.textContent !== "") return;
+    // Initialize event listeners for opening and closing the chatbot
+    initEventListeners() {
+        this.chatBotOpenButton.addEventListener("click", () => this.openChatBot());
+        this.chatBotCloseButton.addEventListener("click", () => this.closeChatBot());
+    }
 
-    app.startingMessageFromBot(); // Call the method to send the first message
-});
+    // Open the chatbot and display the initial message if necessary
+    openChatBot() {
+        setTimeout(() => this.chatBotContainer.classList.add("open-chat-container"), 200);
 
-chatBotCloseButton.addEventListener("click", function() {
-    chatBotContainer.classList.remove("open-chat-container");
-});
+        // If the message container is empty, show the starting message
+        if (this.messageContainer.textContent === "") {
+            app.startingMessageFromBot();
+        }
+    }
+
+    secondPosition() {
+        if (!this.chatBotContainer.classList.contains("open-chat-container")) return;
+
+        if (this.chatBotContainer.classList.contains("chat-bot-container-second-position")) {
+            this.chatBotContainer.classList.remove("chat-bot-container-second-position");
+        }
+        else {
+            this.chatBotContainer.classList.add("chat-bot-container-second-position")
+        }
+
+    }
+
+    // Close the chatbot
+    closeChatBot() {
+        this.chatBotContainer.classList.remove("open-chat-container");
+    }
+
+}
+
+// Instantiate the ChatBot class with the appropriate DOM selectors
+const chatBotApp = new ChatBot(
+    "chat-bot",
+    ".messages-area",
+    ".close i",
+    ".extra-button-2"
+);
