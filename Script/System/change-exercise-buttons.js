@@ -19,7 +19,8 @@ class TaskManager {
             1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 19],
             2: [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 47],
             3: [48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 69, 70, 72, 73],
-            4: [75, 77, 79, 81, 83, 85, 87, 89, 91, 93]
+            4: [75, 77, 79, 81, 83, 85, 87, 89, 91, 93],
+            5: [93, 93, 93, 93, 93]
         };
 
         // Retrieve the currently selected level from an external function or source
@@ -50,7 +51,8 @@ class TaskManager {
         const difficultyMap = {
             2: { text: "Medium", color: "#FFDD00FF" },
             3: { text: "Hard", color: "#FF7300FF" },
-            4: { text: "Insane", color: "#DC0505FF" }
+            4: { text: "Insane", color: "#DC0505FF" },
+            5: { text: "Special", color: "#fcc200" },
         };
 
         // Get the difficulty settings for the selected level
@@ -68,15 +70,21 @@ class TaskManager {
         // Remove the active class from all task cards
         this.taskCards.forEach(c => c.classList.remove('active-task'));
 
-        // Retrieve the task value from the data attribute and update the bar position
-        const taskValue = parseInt(card.dataset.value);
-        this.barStopper.style.marginLeft = `${taskValue + 1}%`; // Adjust the bar stopper's position
+        if (parseInt(getSelectedLevel()) === 5) {
+            this.barStopper.style.marginLeft = `95%`;
+            this.barText.style.marginLeft = `86%`;
+        }
+        else {
+            // Retrieve the task value from the data attribute and update the bar position
+            const taskValue = parseInt(card.dataset.value);
+            this.barStopper.style.marginLeft = `${taskValue + 1}%`; // Adjust the bar stopper's position
 
-        // Adjust the margin of the difficulty text based on task progress
-        if (taskValue > 85) {
-            this.barText.style.marginLeft = `${taskValue - 5}%`;
-        } else {
-            this.barText.style.marginLeft = `${taskValue - 1}%`;
+            // Adjust the margin of the difficulty text based on task progress
+            if (taskValue > 85) {
+                this.barText.style.marginLeft = `${taskValue - 5}%`;
+            } else {
+                this.barText.style.marginLeft = `${taskValue - 1}%`;
+            }
         }
 
         // Add the active class to the clicked task card
