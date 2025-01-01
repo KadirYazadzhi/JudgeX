@@ -210,6 +210,30 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     break;
 
+                case "5":
+                    directory = 'Exercise/Special';
+                    switch (taskText) {
+                        case '01. The Prince\'s Treasure Hunt':
+                            fileName = '01. The Prince\'s Treasure Hunt/The Prince\'s Treasure Hunt.docx';
+                            break;
+                        case '02. The Delivery Path':
+                            fileName = '02. The Delivery Path/The Delivery Path.docx';
+                            break;
+                        case '03. The Lost Expedition':
+                            fileName = '03. The Lost Expedition/The Lost Expedition.docx';
+                            break;
+                        case '04. The Secret Network':
+                            fileName = '04. The Secret Network/The Secret Network.docx';
+                            break;
+                        case '05. Operation Data Breach':
+                            fileName = '05. Operation Data Breach/Operation Data Breach.docx';
+                            break;
+                        default:
+                            alert('No file available for this task.');
+                            return;
+                    }
+                break;
+
                 default:
                     alert('Invalid difficulty level selected.');
                     return;
