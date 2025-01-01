@@ -232,6 +232,10 @@ body {
     justify-content: center;
 }
 
+.special-bar {
+    background: #fcc200!important;
+}
+
 .bar-stopper {
     margin-left: 1%;
     width: 15px;
