@@ -66,6 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     "08. Poker Hand Ranking",
                     "09. Hexagonal Grid - Distance",
                     "10. Casino Security"
+                ],
+                5: [
+                    "01. The Prince's Treasure Hunt",
+                    "02. The Delivery Path",
+                    "03. The Lost Expedition",
+                    "04. The Secret Network",
+                    "05. Operation Data Breach"
                 ]
             };
         }
