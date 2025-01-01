@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         heartsCreate() {
             const heartBox = document.querySelector(".heart-box");
-            if (getInfinityDiamond() || getSpecialUser()) {
+            if (getInfinityHearts() || getSpecialUser()) {
                 this.createIcon(heartBox, ["fa-solid", "fa-infinity"]);
                 this.createIcon(heartBox, ["fa-solid", "fa-heart"]);
             } else {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         heartsNotActive() {
-            if (getInfinityDiamond() || getSpecialUser()) return;
+            if (getInfinityHearts() || getSpecialUser()) return;
 
             const heartsIcon = document.querySelectorAll(".fa-heart");
             for (let i = 0; i < this.callData.count; i++) {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.callData.lastDate = this.today;
             }
 
-            if (this.callData.count < 5 || getInfinityDiamond() || getSpecialUser()) {
+            if (this.callData.count < 5 || getInfinityHearts() || getSpecialUser()) {
                 this.callData.count++;
                 localStorage.setItem('callData', JSON.stringify(this.callData));
                 this.heartsNotActive();
@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     case 2: diamondReward = 20; break;
                     case 3: diamondReward = 30; break;
                     case 4: diamondReward = 50; break;
+                    case 5: diamondReward = 250; break;
                 }
 
                 if (this.testResults === "111111") {
