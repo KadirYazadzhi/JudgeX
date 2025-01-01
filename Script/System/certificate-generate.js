@@ -7,7 +7,8 @@ class CertificateGenerator {
             "1": { src: 'Image/Template/Easy-Certificate-Template.png', level: "Easy" },
             "2": { src: 'Image/Template/Medium-Certificate-Template.png', level: "Medium" },
             "3": { src: 'Image/Template/Hard-Certificate-Template.png', level: "Hard" },
-            "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" }
+            "4": { src: 'Image/Template/Insane-Certificate-Template.png', level: "Insane" },
+            "5": {src: "Image/Template/Special-Certificate-Template.png", level: "Special" }
         };
         this.selectedLevel = difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
     }

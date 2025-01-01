@@ -60,6 +60,11 @@ class Shop {
 
     // Method to buy infinite hearts
     buyInfinityHearts(diamonds) {
+        if (getInfinityHearts()) {
+            alert("You have already bought infinity heart options.");
+            return;
+        }
+
         if (diamonds <= getDiamonds()) {
             if (window.confirm(`Are you sure you want to buy ∞ hearts for ${diamonds} diamonds?`)) {
                 this.updateDiamonds(diamonds);
@@ -72,6 +77,11 @@ class Shop {
 
     // Method to activate a special plan
     activateSpecialPlan(diamonds) {
+        if (getSpecialUser()) {
+            alert("Your account is already special.");
+            return
+        }
+        
         if (diamonds <= getDiamonds()) {
             if (window.confirm(`Are you sure you want to buy 'Special Plan' for ${diamonds} diamonds?`)) {
                 localStorage.setItem('special-plan-activated', "True");

@@ -6,7 +6,7 @@ class CertificateManager {
         this.endNumber = null; // Ending number for task range
         this.compare = 15; // Threshold for the number of completed tasks to show certificate
         this.selectedLanguage = languageOptions[getSelectedLanguage()] || "C"; // Get the selected language
-        this.selectedButton = difficultyLevels[getSelectedLevel() - 1] || "Insane"; // Get the selected difficulty level
+        this.selectedButton = difficultyLevels[getSelectedLevel() - 1] || "Special"; // Get the selected difficulty level
         this.initialize(); // Initialize the certificate manager
     }
 
@@ -37,6 +37,11 @@ class CertificateManager {
                 this.endNumber = 93;
                 this.compare = 10; // Adjust the threshold for level 4
                 break;
+            case "5":
+                this.startNumber = 94;
+                this.endNumber = 98;
+                this.compare = 5
+                break;
             default:
                 console.warn("Invalid level selected"); // Log a warning if the level is invalid
         }
@@ -66,6 +71,8 @@ class CertificateManager {
     }
 
     checkUserHaveDiamondsToGenerateCertificate() {
+        if (getSpecialUser()) return true;
+
         if (getDiamonds() < PriceToGenerateCertificate[this.selectedButton]) {
             localStorage.setItem("message-to-generate-certificate", "True");
             return false;

@@ -10,7 +10,7 @@ const selectedLevel = getSelectedLevel();
 // Using for all logic certificate generation
 const PriceToGenerateCertificate = { "Easy": 100, "Medium": 250, "Hard": 350, "Insane": 500 }; // Price to generate certificate
 const languageOptions = ["C", "C++", "C#", "Python", "Java", "JavaScript", "TypeScript", "Ruby", "Go"]; // Options for programming languages
-const difficultyLevels = ["Easy", "Medium", "Hard", "Insane"]; // Options for difficulty levels
+const difficultyLevels = ["Easy", "Medium", "Hard", "Insane", "Special"]; // Options for difficulty levels
 
 const excludedIndices = [11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 71, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92]; // Indices of tasks to be excluded from counting
 
@@ -127,6 +127,6 @@ function getSpecialUser() {
     return localStorage.getItem('special-plan-activated');
 }
 
-function getInfinityDiamond() {
+function getInfinityHearts() {
     return localStorage.getItem('infinity_hearts');
 }
