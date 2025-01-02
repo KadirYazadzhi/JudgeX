@@ -706,11 +706,15 @@ main .side .weather .meta .datetime .time {
     gap: 20px;
 }
 
+.c, .cplusplus, .cSharp, .python, .java, .javascript, .typescript, .ruby, .go {
+    opacity: 0.7;
+}
+
 .c {
     fill: rgb(51, 66, 152);
 }
 
-.c:hover {
+.c:hover, .c.activeLanguageCard {
     fill: rgb(68, 86, 199);
 }
 
@@ -718,7 +722,7 @@ main .side .weather .meta .datetime .time {
     fill: rgb(23, 70, 159);
 }
 
-.cplusplus:hover {
+.cplusplus:hover, .cplusplus.activeLanguageCard {
     fill: rgb(0, 89, 255);
 }
 
@@ -726,7 +730,7 @@ main .side .weather .meta .datetime .time {
     fill: rgb(95, 30, 112);
 }
 
-.cSharp:hover {
+.cSharp:hover, .cSharp.activeLanguageCard {
     fill: rgb(129, 40, 152);
 }
 
@@ -734,7 +738,7 @@ main .side .weather .meta .datetime .time {
     fill: rgba(2, 94, 141, 0.84);
 }
 
-.python:hover {
+.python:hover, .python.activeLanguageCard {
     fill: rgba(2, 116, 175, 0.84);
 }
 
@@ -742,7 +746,7 @@ main .side .weather .meta .datetime .time {
     fill: rgba(171, 5, 5, 0.8);
 }
 
-.java:hover {
+.java:hover, .java.activeLanguageCard {
     fill: rgba(255, 0, 0, 0.8);
 }
 
@@ -750,7 +754,7 @@ main .side .weather .meta .datetime .time {
     fill: rgb(185, 190, 5);
 }
 
-.javascript:hover {
+.javascript:hover, .javascript.activeLanguageCard {
     fill: rgb(247, 255, 0);
 }
 
@@ -758,7 +762,7 @@ main .side .weather .meta .datetime .time {
     fill: rgb(6, 113, 189);
 }
 
-.typescript:hover {
+.typescript:hover, .typescript.activeLanguageCard {
     fill: rgb(0, 149, 255);
 }
 
@@ -766,7 +770,7 @@ main .side .weather .meta .datetime .time {
     fill: rgb(133, 27, 23);
 }
 
-.ruby:hover {
+.ruby:hover, .ruby.activeLanguageCard {
     fill: rgb(176, 38, 32);
 }
 
@@ -774,18 +778,14 @@ main .side .weather .meta .datetime .time {
     fill: rgb(2, 140, 176);
 }
 
-.go:hover {
+.go:hover, .go.activeLanguageCard {
     fill: rgb(0, 170, 215);
 }
 
 .activeLanguageCard {
     background: rgba(38, 52, 75, 0.7);
     border: 1px solid rgba(2, 91, 248, 0.8);
-}
-
-.activeLanguageCard:hover{
-    background: rgba(38, 52, 75, 0.7);
-    border: 1px solid rgba(2, 91, 248, 0.8);
+    opacity: 1;
 }
 
 .progress-container {
@@ -833,6 +833,7 @@ main .side .weather .meta .datetime .time {
     border: 2px solid white;
     border-radius: 50%;
     margin-left: 10%;
+    transition: margin 1s;
 }
 
 .info-progress-bar {
@@ -1469,6 +1470,9 @@ main .menu:hover .username-profile-box i {
     background: #7c0000;
 }
 
+.special {
+    background: #fcc200;
+}
 
 @media (min-width: 1024px) {
     :root {

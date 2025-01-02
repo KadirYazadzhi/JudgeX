@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Style/Home/features.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Home/features.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/Profile/progress-section.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/Profile/progress-section.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/Profile/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/Profile/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/anonymous/Date1/GitHub Projects/JudgeX&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/anonymous/Date1/GitHub Projects/JudgeX/Exercise&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -59,6 +60,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercise" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
     </key>
@@ -145,6 +147,8 @@
       <workItem from="1735499561447" duration="13731000" />
       <workItem from="1735583403706" duration="2765000" />
       <workItem from="1735597883586" duration="12826000" />
+      <workItem from="1735657485035" duration="16589000" />
+      <workItem from="1735746825346" duration="4438000" />
     </task>
     <servers />
   </component>
