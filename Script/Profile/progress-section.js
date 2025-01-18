@@ -21,6 +21,15 @@ class ProgressManager {
         });
     }
 
+    checkSpecialButton() {
+        if (!getSpecialUser()) {
+            document.querySelector(".special-box").style.display = "none";
+            return false;
+        }
+
+        return true;
+    }
+
     // Set the active card and update progress
     setActiveCard(card) {
         // Remove 'activeLanguageCard' class from all cards
@@ -36,14 +45,17 @@ class ProgressManager {
         const mediumProgress = this.calculateProgress(languageId, 2);  // Medium
         const hardProgress = this.calculateProgress(languageId, 3);  // Hard
         const insaneProgress = this.calculateProgress(languageId, 4);  // Insane
-        const specialProgress = this.calculateProgress(languageId, 5); // Special
 
         // Update progress bars and chart
         this.updateProgress('easy', easyProgress.percent, easyProgress.completed, easyProgress.total);
         this.updateProgress('medium', mediumProgress.percent, mediumProgress.completed, mediumProgress.total);
         this.updateProgress('hard', hardProgress.percent, hardProgress.completed, hardProgress.total);
         this.updateProgress('insane', insaneProgress.percent, insaneProgress.completed, insaneProgress.total);
-        this.updateProgress('special', specialProgress.percent, specialProgress.completed, specialProgress.total);
+
+        if (this.checkSpecialButton()) {
+            const specialProgress = this.calculateProgress(languageId, 5); // Special
+            this.updateProgress('special', specialProgress.percent, specialProgress.completed, specialProgress.total);
+        }
 
         // Calculate and update total progress
         const totalPercent = (easyProgress.completed + mediumProgress.completed + hardProgress.completed + insaneProgress.completed) / 55 * 100;
