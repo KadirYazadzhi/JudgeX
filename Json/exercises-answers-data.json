@@ -118,5 +118,49 @@
   "47": {
     "inputs": ["2, 48, 76", "43, 15, 87", "16, 4, 8", "4, 1, 2", "0, 0, 0"],
     "correctOutput": ["0", "10", "4", "1", "0"]
+  },
+  "48": {
+    "inputs": ["X O #\nO X O\nO # X", "X O O\nO X O\nX # O", "X X O\nO X O\nX # O", "# # #\n# # #\n# # #", "X O X\n O X O\nX O X"],
+    "correctOutput": ["Player 1 wins", "Player 2 wins", "It's a Tie", "It's a Tie", "Player 1 wins"]
+  },
+  "50": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "52": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "54": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "56": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "58": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "60": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "62": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "64": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "66": {
+    "inputs": [],
+    "correctOutput": []
+  },
+  "68": {
+    "inputs": [],
+    "correctOutput": []
   }
 }
