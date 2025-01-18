@@ -1,18 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     class Map {
-        constructor(openButton, map, closeButton) {
-            this.buttonOpen = document.getElementById(openButton);
-            this.buttonClose = document.getElementById(closeButton);
-            this.form = document.getElementById(map);
+        constructor(openButtonId, mapId, closeButtonId) {
+            this.buttonOpen = document.getElementById(openButtonId);
+            this.buttonClose = document.getElementById(closeButtonId);
+            this.form = document.getElementById(mapId);
             
-            // Add event listeners only if elements exist
-            this.buttonOpen.addEventListener('click', () => {
-                this.toggleForm();
-            });
-
-            this.buttonClose.addEventListener('click', () => {
-                this.closeForm();
-            });
+            if (this.buttonOpen && this.buttonClose && this.form) {
+                this.buttonOpen.addEventListener('click', () => this.toggleForm());
+                this.buttonClose.addEventListener('click', () => this.closeForm());
+            }
         }
 
         toggleForm() {
@@ -24,8 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        new Map('map-button', 'map', 'close-iframe');
-    });
-
+    // Създаване на инстанция на Map класа
+    new Map('map-button', 'map', 'close-iframe');
 });
