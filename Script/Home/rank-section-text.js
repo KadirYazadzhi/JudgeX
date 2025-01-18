@@ -14,40 +14,49 @@ class RankSection {
 
     // Update the diamond display
     updateDiamondDisplay() {
-        this.diamondElement.textContent = parseInt(localStorage.getItem('diamond_availability') || 0).toString();
+        const diamonds = parseInt(localStorage.getItem('diamond_availability') || 0);
+        this.diamondElement.textContent = diamonds.toString();
     }
 
     // Update the ranked people count based on diamond value
     updateRankedPeopleCount() {
-        if (getDiamonds() > JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentDiamonds) {
-            if (localStorage.getItem('RankedNumberRankSection') && getDiamonds() <= JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentDiamonds * 5) {
-                this.rankCountElement.textContent = JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentRank + " users";
-                return;
-            }
+        const diamondCount = parseInt(localStorage.getItem('diamond_availability') || 0);
+        const storedData = JSON.parse(localStorage.getItem('RankedNumberRankSection'));
+
+        // Check if stored data exists and is consistent
+        if (
+            storedData &&
+            diamondCount === parseInt(storedData.currentDiamonds)
+        ) {
+            // Use existing rank data if diamonds match
+            this.rankCountElement.textContent = `${storedData.currentRank} users`;
+            return;
         }
 
         // Generate and set new rank count based on diamond value
-        const diamondCount = parseInt(localStorage.getItem('diamond_availability') || 0);
         let rankedCount;
-
         if (diamondCount > 10000) {
             rankedCount = this.generateRandomNumber(1, 3);
-        } else if (diamondCount > 5000) {
+        }
+        else if (diamondCount > 5000) {
             rankedCount = this.generateRandomNumber(1, 10);
-        } else if (diamondCount > 1000) {
+        }
+        else if (diamondCount > 1000) {
             rankedCount = this.generateRandomNumber(10, 110);
-        } else if (diamondCount > 100) {
+        }
+        else if (diamondCount > 100) {
             rankedCount = this.generateRandomNumber(100, 600);
-        } else {
+        }
+        else {
             rankedCount = this.generateRandomNumber(600, 1100);
         }
 
-        // Set and store the rank count
-        this.rankCountElement.textContent = rankedCount.toString() + " users";
-        let data = {
+        // Update UI and store new rank data
+        this.rankCountElement.textContent = `${rankedCount} users`;
+        const data = {
             currentDiamonds: diamondCount.toString(),
-            currentRank: rankedCount.toString()
-        }
+            currentRank: rankedCount.toString(),
+        };
         localStorage.setItem('RankedNumberRankSection', JSON.stringify(data));
     }
 
@@ -62,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const diamondElement = document.querySelector(".text-bottom-box span");
     const rankCountElement = document.querySelector(".text-bottom-box b");
 
-    // Create a new instance of RankSection
-    new RankSection(diamondElement, rankCountElement);
+    // Check if elements exist
+    if (diamondElement && rankCountElement) {
+        new RankSection(diamondElement, rankCountElement);
+    }
+    else {
+        console.error("Diamond or rank count element not found. Check your selectors.");
+    }
 });

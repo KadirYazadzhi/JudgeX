@@ -262,7 +262,13 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-@media (max-width: 768px) {
+.dots {
+    display: none!important;
+}
 
+@media (max-width: 768px) {
+    .dots {
+        display: flex!important;
+    }
 }
 
