@@ -19,9 +19,11 @@ class RankSection {
 
     // Update the ranked people count based on diamond value
     updateRankedPeopleCount() {
-        if (localStorage.getItem('RankedNumberRankSection')) {
-            this.rankCountElement.textContent = localStorage.getItem('RankedNumberRankSection') + " users";
-            return;
+        if (getDiamonds() > JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentDiamonds) {
+            if (localStorage.getItem('RankedNumberRankSection') && getDiamonds() <= JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentDiamonds * 5) {
+                this.rankCountElement.textContent = JSON.parse(localStorage.getItem("RankedNumberRankSection")).currentRank + " users";
+                return;
+            }
         }
 
         // Generate and set new rank count based on diamond value
@@ -42,7 +44,11 @@ class RankSection {
 
         // Set and store the rank count
         this.rankCountElement.textContent = rankedCount.toString() + " users";
-        localStorage.setItem('RankedNumberRankSection', rankedCount.toString());
+        let data = {
+            currentDiamonds: diamondCount.toString(),
+            currentRank: rankedCount.toString()
+        }
+        localStorage.setItem('RankedNumberRankSection', JSON.stringify(data));
     }
 
     // Generate a random number between a min and max value
