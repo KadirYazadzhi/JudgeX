@@ -175,16 +175,20 @@
             </div>
         </div>
         <div class="contact-form-container">
-            <form class="contact-form">
+            <form action="https://formspree.io/f/mpzvdnbn" method="POST" class="contact-form">
                 <span id="exit" class="exit">&#10005;</span>
                 <span class="form-header">Contact us</span>
-                <form id="feedback-form">
-                    <input type="email" class="email-input" placeholder="Email" />
-                    <span class="error email-error"></span>
-                    <textarea name="feedback" cols="30" rows="5" class="message" placeholder="Message..."></textarea>
-                    <span class="error message-error"></span>
-                    <button class="submit" type="button">Submit</button>
-                </form>
+
+                <!-- Email Input -->
+                <input name="email" type="email" class="email-input" placeholder="Email" required />
+                <span class="error email-error"></span>
+
+                <!-- Message Textarea -->
+                <textarea name="feedback" cols="30" rows="5" class="message" placeholder="Message..." required></textarea>
+                <span class="error message-error"></span>
+
+                <!-- Submit Button -->
+                <button class="submit" type="submit">Submit</button>
             </form>
         </div>
     </div>
