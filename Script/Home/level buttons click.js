@@ -41,4 +41,19 @@ class ButtonManager {
             this.externalLanguageClass.triggerCardClick(cardIndex); // Trigger card click
         }
     }
+
+    restoreSelectedButton() {
+        const selectedButtonIndex = localStorage.getItem('selectedButton');
+        if (selectedButtonIndex !== null) {
+            const button = this.buttons[selectedButtonIndex - 1]; // `-1` защото индексите започват от 0
+            if (button) {
+                button.classList.add('hover-active');
+                const tooltip = button.querySelector('.tooltiptext');
+                if (tooltip) {
+                    tooltip.classList.add('active');
+                }
+            }
+        }
+    }
+
 }
