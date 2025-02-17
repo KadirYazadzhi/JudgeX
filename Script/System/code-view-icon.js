@@ -12,13 +12,12 @@ class CodeEditorManager {
 
     // Generate a unique storage key for the given task
     generateStorageKey(task) {
-        return `saveSubmitCode_${task}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        return this.getLastSubmittedCode(task, getSelectedLanguage(), getSelectedLevel());
     }
 
     // Update the code editor with saved code for the given task
     updateCodeEditorWithSavedCode(task) {
-        const savedCode = localStorage.getItem(this.generateStorageKey(task));
-        this.codeEditor.value = savedCode ? savedCode : ""; // Set editor content or clear it
+        this.codeEditor.value = this.generateStorageKey(task) ? this.generateStorageKey(task) : ""; // Set editor content or clear it
     }
 
     // Retrieve code for the specified task from localStorage
@@ -70,6 +69,17 @@ class CodeEditorManager {
             this.submitBtn.classList.add("not-allowed"); // Add the class `not-allowed` to prevent users from submitting previously saved code
             localStorage.setItem('SubmitCodeIsNotAllowed', "True"); // Save `True` in the `SubmitCodeIsNotAllowed` item in local storage to use it to prevent the system from submitting code
         }
+    }
+
+     getLastSubmittedCode(task, language, level) {
+        const baseKey = `saveSubmitCode_${task}_${language}_${level}`;
+        let index = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
+        if (index === 0) {
+            return null;
+        }
+
+        return localStorage.getItem(`${baseKey}_${index - 1}`);
     }
 }
 
