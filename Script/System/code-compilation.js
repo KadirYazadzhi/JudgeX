@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (code.length > 5000) {
-                alert("The code you upload is too big.")
+                alert("The code you upload is too big.");
                 return;
             }
 
@@ -107,7 +107,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            localStorage.setItem(`saveSubmitCode_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`, code);
+            const baseKey = `saveSubmitCode_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+            let index = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
+            localStorage.setItem(`${baseKey}_${index}`, code);
+
+            localStorage.setItem(`${baseKey}_index`, index + 1);
+
             this.setLanguageToWork();
 
             const taskData = await this.loadTaskData(this.activeTask());
@@ -148,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+
 
         async loadTaskData(taskId) {
             try {
