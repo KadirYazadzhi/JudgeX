@@ -52,6 +52,20 @@ class CardManager {
             default: return '';
         }
     }
+
+    restoreSelectedCard() {
+        const selectedCardIndex = localStorage.getItem('selectedCardIndex');
+        const selectedButton = localStorage.getItem('selectedButton');
+
+        if (selectedCardIndex !== null && selectedButton !== null) {
+            const card = this.cards[selectedCardIndex];
+            if (card) {
+                const activeClass = `active${this.mapButtonToDifficulty(selectedButton)}`;
+                card.classList.add(activeClass);
+            }
+        }
+    }
+
 }
 
 class ExternalLanguageClass {
@@ -72,7 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const externalLanguageClass = new ExternalLanguageClass(cardManager);
     const buttonManager = new ButtonManager('.button', externalLanguageClass);
 
-    // Check if level buttons are active and remove card activity if not
+    buttonManager.restoreSelectedButton();
+    cardManager.restoreSelectedCard();
+
     function checkAndRemoveInactiveCards() {
         if (!cardManager.HaveLevelButtonActive()) {
             cardManager.removeActiveClasses();
@@ -80,34 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Attach event listener to all buttons
     cardManager.buttons.forEach(button => {
         button.addEventListener('click', checkAndRemoveInactiveCards);
     });
 
-    // Ensure cards are deactivated when no active level button exists on page load
     checkAndRemoveInactiveCards();
-
-    // Logic to handle level button click
-    function levelButtonClick() {
-        const selectedButtonNumber = localStorage.getItem('selectedButton');
-        if (selectedButtonNumber) {
-            const selectedButton = document.querySelectorAll('.button')[selectedButtonNumber - 1];
-            if (selectedButton) {
-                selectedButton.click();
-            }
-        }
-    }
-
-    levelButtonClick();
-
-    // Additional safety to ensure card classes are reset if no active button exists
-    cardManager.cards.forEach(card => {
-        card.addEventListener('click', () => {
-            if (!cardManager.HaveLevelButtonActive()) {
-                cardManager.removeActiveClasses();
-                localStorage.removeItem('selectedCardIndex');
-            }
-        });
-    });
 });
