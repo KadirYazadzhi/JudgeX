@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         async submitSingleTestCase(requestData) {
             let useLocalAPI = true;
             let attempt = 0;
-            const maxAttempts = 3; // Максимален брой опити
+            const maxAttempts = 3; 
             let token = null;
 
             while (attempt < maxAttempts && !token) {
@@ -201,21 +201,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         body: JSON.stringify(requestData),
                     });
 
-                    // Ако имаме лимит (429)
                     if (response.status === 429) {
                         alert("Request limit reached: Too many requests. Please wait and try again later.");
                         console.error("Server returned 429: Too many requests.");
                         throw new Error("Request limit reached (429). Stopping further execution.");
                     }
 
-                    // Ако HTTP статусът е неуспешен
                     if (!response.ok) {
                         const errorMessage = `HTTP error! Status: ${response.status}`;
                         console.error(errorMessage);
                         throw new Error(errorMessage);
                     }
 
-                    // Извличане на резултат от успешен отговор
                     const result = await response.json();
                     token = result.token;
 
@@ -227,8 +224,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 } catch (error) {
                     console.error(`Error on attempt ${attempt + 1}: ${error.message}`);
 
-
-                    // След 2 неуспеха автоматично преминаваме към RapidAPI
                     if (attempt >= 2 && useLocalAPI) {
                         console.log("Switching to RapidAPI...");
                         useLocalAPI = false;
@@ -244,12 +239,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error(finalError); // Спираме изпълнението
             }
 
-            // Ако имаме успешен резултат
             return { token, useLocalAPI };
         }
 
         resetTestResults() {
-            this.testResults = ""; // Празни резултати за всеки нов код
+            this.testResults = "";
         }
 
         async loadTaskData(taskId) {
