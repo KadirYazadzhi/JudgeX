@@ -1,0 +1,93 @@
+.table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    color: white;
+    border-radius: 8px;
+    border: 2px solid #243656;
+}
+
+.submission-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: rgba(36, 54, 86, 0.9);
+    border: 1px solid #243656;
+    padding: 10px;
+    text-align: center;
+}
+
+.submission-header .top {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.submission-header .bottom {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.fa-check {
+    color: green;
+}
+
+.submission-header div {
+    flex: 1;
+}
+
+.submission-table {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(0, 174, 255, 0.5);
+    font-size: 16px;
+    padding: 10px;
+}
+
+.submission-table:last-child {
+    border-bottom: none;
+}
+
+.table-element {
+    flex: 1;
+    text-align: center;
+}
+
+.number p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.result i {
+    font-size: 22px;
+    font-weight: 1000;
+}
+
+.details-btn button {
+    color: white;
+    font-size: 16px;
+    font-weight: 550;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: rgba(36, 54, 86, 0.7);
+    border: 1px solid #253b61;
+    animation: background 0.4s ease-in-out;
+}
+
+.details-btn button:hover {
+    background-color: rgba(36, 54, 86, 1);
+}

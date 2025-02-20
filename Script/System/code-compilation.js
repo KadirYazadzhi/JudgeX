@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.today = new Date().toISOString().slice(0, 10);
             this.callData = JSON.parse(localStorage.getItem("callData")) || { count: 0, lastDate: this.today };
             this.testResults = "";
+            this.url = "https://dont-driven-convenience-cookies.trycloudflare.com";
 
             this.initialize();
         }
@@ -107,11 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            this.resetTestResults();
+
             const baseKey = `saveSubmitCode_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
             let index = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
-
             localStorage.setItem(`${baseKey}_${index}`, code);
-
             localStorage.setItem(`${baseKey}_index`, index + 1);
 
             this.setLanguageToWork();
@@ -122,39 +123,81 @@ document.addEventListener('DOMContentLoaded', function() {
             this.inputs = taskData.inputs;
             this.correctOutput = taskData.correctOutput;
 
-            for (let i = 0; i < this.inputs.length; i++) {
-                const stdin = this.inputs[i];
-                this.currentTaskIndex = i;
+            // Създаване на масив със заявки
+            const requests = this.inputs.map((stdin, i) => {
                 const requestData = {
                     language_id: this.languageToWork,
                     source_code: code,
                     stdin: stdin,
-                    cpu_time_limit: "1",
-                    memory_limit: "128000"
+                    cpu_time_limit: "3",
+                    memory_limit: "512000"
                 };
 
+                return this.submitSingleTestCase(requestData);
+            });
+
+            // Изпращане на всички заявки паралелно
+            const results = await Promise.all(requests);
+
+            // Обработка на резултатите
+            for (let i = 0; i < results.length; i++) {
+                const result = results[i];
+                await this.checkResult(result.token, i, result.useLocalAPI);
+            }
+        }
+
+        async submitSingleTestCase(requestData) {
+            let useLocalAPI = true;
+            let attempt = 0;
+            let maxAttempts = 5;
+            let token = null;
+
+            while (attempt < maxAttempts && !token) {
                 try {
-                    const response = await fetch(apiURL, {
+                    console.log(`Attempt ${attempt + 1} - using ${useLocalAPI ? "Local API" : "RapidAPI"}`);
+
+                    const apiUrl = useLocalAPI ? `${this.url}/submissions?base64_encoded=false&wait=true` : apiURL;
+
+                    const response = await fetch(apiUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-RapidAPI-Host': rapidAPIHost,
-                            'X-RapidAPI-Key': rapidAPIKey
+                            ...(useLocalAPI ? {} : {
+                                'X-RapidAPI-Host': rapidAPIHost,
+                                'X-RapidAPI-Key': rapidAPIKey
+                            })
                         },
                         body: JSON.stringify(requestData)
                     });
 
-                    const result = await response.json();
-                    if (result.token) {
-                        await this.checkResult(result.token, this.currentTaskIndex);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
 
+                    const result = await response.json();
+                    token = result.token;
+                    console.log("Received token:", token);
+
                 } catch (error) {
-                    console.log("Error: " + error.message + "\n");
+                    console.error(`Attempt ${attempt + 1} failed: ${error.message}`);
+                    attempt++;
+                    if (attempt >= 3 && useLocalAPI) {
+                        console.log("Switching to RapidAPI...");
+                        useLocalAPI = false;
+                    }
                 }
             }
+
+            if (!token) {
+                throw new Error("Code submission failed after multiple attempts to get token.");
+            }
+
+            return { token, useLocalAPI };
         }
 
+        resetTestResults() {
+            this.testResults = [];  // Празни резултати за всеки нов код
+        }
 
         async loadTaskData(taskId) {
             try {
@@ -164,17 +207,25 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error("Error loading task data:", error);
                 return null;
+                if (!status) {
+                    alert("Failed to retrieve execution result after multiple attempts.");
+                    return;
+                }
+
+                await this.checkResult(token, this.currentTaskIndex, useLocalAPI);
             }
         }
 
-        async checkResult(submissionId, index) {
-            const resultURL = `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
+        async checkResult(submissionId, index, useLocalAPI) {
+            const resultURL = useLocalAPI ? `${this.url}/submissions/${submissionId}?base64_encoded=false` : `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
 
             try {
                 const response = await fetch(resultURL, {
                     headers: {
-                        'X-RapidAPI-Host': rapidAPIHost,
-                        'X-RapidAPI-Key': rapidAPIKey
+                        ...(useLocalAPI ? {} : {
+                            'X-RapidAPI-Host': rapidAPIHost,
+                            'X-RapidAPI-Key': rapidAPIKey
+                        })
                     }
                 });
 
