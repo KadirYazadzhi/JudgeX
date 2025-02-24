@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadTestResult() {
         if (!getActiveTask()) return;
 
-        const txt = localStorage.getItem(`taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`);
+        const txt = getBestTestResult(getActiveTask(), getSelectedLanguage(), getSelectedLevel());
+        console.log(txt);
 
         const cards = document.querySelectorAll('.card');
 
@@ -37,6 +38,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+    }
+
+    function getBestTestResult(taskId, languageId, levelId) {
+        const baseKey = `taskResult_${taskId}_${languageId}_${levelId}`;
+        let index = parseInt(localStorage.getItem(`saveSubmitCode_${taskId}_${languageId}_${levelId}_index`), 10);
+
+        if (!index || index <= 0) {
+            console.warn("No submissions found.");
+            return null;
+        }
+
+        let bestTestResult = "";
+        let maxOnes = -1;
+
+        for (let i = 0; i < index; i++) {
+            const rawData = localStorage.getItem(`${baseKey}_${i}`);
+            if (!rawData) continue;
+
+            try {
+                const data = JSON.parse(rawData);
+                const testResults = data.testResults || "";
+                const onesCount = (testResults.match(/1/g) || []).length;
+
+                if (onesCount > maxOnes || (onesCount === maxOnes && bestTestResult && new Date(data.time) > new Date(localStorage.getItem(`${baseKey}_${i - 1}`)?.time))) {
+                    bestTestResult = testResults;
+                    maxOnes = onesCount;
+                }
+            } catch (error) {
+                console.error(`Error parsing submission at index ${i}:`, error);
+            }
+        }
+
+        return bestTestResult;
     }
 
     function loadCodeForActiveTask() {
