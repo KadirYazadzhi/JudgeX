@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     class CodeSubmissionApp {
         constructor() {
             this.inputs = [];
@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const baseKey = `saveSubmitCode_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
             let index = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
             localStorage.setItem(`${baseKey}_${index}`, code);
             localStorage.setItem(`${baseKey}_index`, index + 1);
 
@@ -162,10 +163,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            ...(useLocalAPI ? {} : {
-                                'X-RapidAPI-Host': rapidAPIHost,
-                                'X-RapidAPI-Key': rapidAPIKey
-                            })
+                            ...(useLocalAPI
+                                ? {}
+                                : {
+                                    'X-RapidAPI-Host': rapidAPIHost,
+                                    'X-RapidAPI-Key': rapidAPIKey
+                                })
                         },
                         body: JSON.stringify(requestData)
                     });
@@ -196,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         resetTestResults() {
-            this.testResults = [];  // Празни резултати за всеки нов код
+            this.testResults = ""; // Празни резултати за всеки нов код
         }
 
         async loadTaskData(taskId) {
@@ -207,25 +210,23 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error("Error loading task data:", error);
                 return null;
-                if (!status) {
-                    alert("Failed to retrieve execution result after multiple attempts.");
-                    return;
-                }
-
-                await this.checkResult(token, this.currentTaskIndex, useLocalAPI);
             }
         }
 
         async checkResult(submissionId, index, useLocalAPI) {
-            const resultURL = useLocalAPI ? `${this.url}/submissions/${submissionId}?base64_encoded=false` : `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
+            const resultURL = useLocalAPI
+                ? `${this.url}/submissions/${submissionId}?base64_encoded=false`
+                : `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
 
             try {
                 const response = await fetch(resultURL, {
                     headers: {
-                        ...(useLocalAPI ? {} : {
-                            'X-RapidAPI-Host': rapidAPIHost,
-                            'X-RapidAPI-Key': rapidAPIKey
-                        })
+                        ...(useLocalAPI
+                            ? {}
+                            : {
+                                'X-RapidAPI-Host': rapidAPIHost,
+                                'X-RapidAPI-Key': rapidAPIKey
+                            })
                     }
                 });
 
@@ -237,25 +238,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 let diamondReward = 0;
                 switch (getSelectedLevel()) {
-                    case 1: diamondReward = 10; break;
-                    case 2: diamondReward = 20; break;
-                    case 3: diamondReward = 30; break;
-                    case 4: diamondReward = 50; break;
-                    case 5: diamondReward = 250; break;
+                    case 1:
+                        diamondReward = 10;
+                        break;
+                    case 2:
+                        diamondReward = 20;
+                        break;
+                    case 3:
+                        diamondReward = 30;
+                        break;
+                    case 4:
+                        diamondReward = 50;
+                        break;
+                    case 5:
+                        diamondReward = 250;
+                        break;
                 }
 
                 if (this.testResults === "111111") {
-                    localStorage.setItem('diamond_availability', (getDiamond() + diamondReward).toString());
+                    localStorage.setItem(
+                        'diamond_availability',
+                        (getDiamond() + diamondReward).toString()
+                    );
                 }
 
-                console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"}`);
+                console.log(
+                    `Test ${index + 1}: ${
+                        output === expectedOutput ? "Passed" : "Failed"
+                    }`
+                );
 
                 if (index === this.inputs.length - 1) {
                     console.log(`Final Test Results: ${this.testResults}`);
 
-                    localStorage.setItem(`taskResult_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`, this.testResults);
-                }
+                    const baseKey = `taskResult_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+                    const currentIndex = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+                    const newKey = `${baseKey}_${currentIndex}`;
 
+                    // Съхранение на резултата с време
+                    const submissionTime = new Date().toLocaleString();
+                    const resultData = {
+                        testResults: this.testResults,
+                        time: submissionTime
+                    };
+
+                    localStorage.setItem(newKey, JSON.stringify(resultData));
+                    localStorage.setItem(`${baseKey}_index`, currentIndex + 1);
+
+                    console.log(`Saved test result as: ${newKey}`);
+                }
             } catch (error) {
                 console.log("Error: " + error.message + "\n");
             }
