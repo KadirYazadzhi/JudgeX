@@ -97,6 +97,7 @@ class TaskManager {
         this.taskCards.forEach(card => {
             card.addEventListener('click', () => {
                 this.activateCard(card); // Activate the clicked card
+                createSubmissionTable();
             });
         });
     }
