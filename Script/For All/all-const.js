@@ -35,6 +35,7 @@ const buttonToViewCode = document.getElementById('saveCode');
 
 function getActiveTask() {
     const activeCard = document.querySelector('.task-card.active-task');
+
     return activeCard ? activeCard.dataset.value : null;
 }
 
