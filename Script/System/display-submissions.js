@@ -1,127 +1,198 @@
-// Main function to generate the submission table
-function createSubmissionTable() {
-    const baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
-    const resultKey = `taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
-    let index = parseInt(localStorage.getItem(`${baseKey}_index`), 10);
-
-    // Reset the submission list before adding new elements
-    resetSubmissionList();
-
-    if (!index || index <= 0) {
-        // If there are no results, display the "no results" message
-        showNoResultsMessage();
-        return;
+class SubmissionTable {
+    constructor() {
+        this.baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        this.resultKey = `taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        this.index = parseInt(localStorage.getItem(`${this.baseKey}_index`), 10) || 0;
     }
 
-    for (let i = 0; i < index; i++) {
-        createSubmissionElement(i, baseKey, resultKey);
+    generateTable() {
+        this.resetSubmissionList();
+
+        if (this.index <= 0) {
+            this.showNoResultsMessage();
+            return;
+        }
+
+        for (let i = 0; i < this.index; i++) {
+            new SubmissionElement(i, this.baseKey, this.resultKey).create();
+        }
+    }
+
+    resetSubmissionList() {
+        document.getElementById("submission-list").innerHTML = "";
+    }
+
+    showNoResultsMessage() {
+        const submissionList = document.getElementById("submission-list");
+        const noResultsRow = document.createElement("div");
+        noResultsRow.classList.add("no-results-message");
+        noResultsRow.innerHTML = `
+            <div class="table-element no-results">
+                <p>No submissions available for this task.</p>
+            </div>
+        `;
+        submissionList.appendChild(noResultsRow);
     }
 }
 
-function createSubmissionElement(index, baseKey, resultKey) {
-    const submissionList = document.getElementById("submission-list");
-
-    const rawCodeData = localStorage.getItem(`${baseKey}_${index}`);
-    const rawResultData = localStorage.getItem(`${resultKey}_${index}`);
-
-
-    if (!rawCodeData) {
-        console.error(`Missing code data for index ${index}`);
-        return;
+class SubmissionElement {
+    constructor(index, baseKey, resultKey) {
+        this.index = index;
+        this.baseKey = baseKey;
+        this.resultKey = resultKey;
+        this.submissionList = document.getElementById("submission-list");
     }
 
-    let codeData = rawCodeData;
-    let resultData = null;
+    create() {
+        const rawCodeData = localStorage.getItem(`${this.baseKey}_${this.index}`);
+        const rawResultData = localStorage.getItem(`${this.resultKey}_${this.index}`);
 
-    try {
+        if (!rawCodeData) {
+            console.error(`Missing code data for index ${this.index}`);
+            return;
+        }
+
+        let resultData;
+        try {
+            resultData = rawResultData ? JSON.parse(rawResultData) : { time: "Unknown time", testResults: "" };
+        } catch (error) {
+            console.error(`Error parsing resultData for index ${this.index}:`, error);
+            resultData = { time: "Unknown time", testResults: "" }; // Set default if parsing fails
+        }
+
+        this.appendRow(resultData.time, resultData.testResults);
+    }
+
+    appendRow(time, testResults) {
+        const newRow = document.createElement("div");
+        newRow.classList.add("submission-table");
+        newRow.innerHTML = `
+            <div class="table-element number">
+                <p>${this.index + 1}</p>
+            </div>
+            <div class="table-element results">
+                ${ResultIcons.create(testResults)}
+            </div>
+            <div class="table-element submission-time">
+                <p>${time}</p>
+            </div>
+            <div class="table-element details-btn">
+                <button onclick="SubmissionElement.showDetails(${this.index})">Details</button>
+            </div>
+        `;
+        this.submissionList.appendChild(newRow);
+    }
+
+    static showDetails(index) {
+        const baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        const resultKey = `taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        const rawSubmissionData = localStorage.getItem(`${baseKey}_${index}`);
+        const rawResultData = localStorage.getItem(`${resultKey}_${index}`);
+
+        if (!rawSubmissionData) {
+            console.error(`Details for submission index ${index} not found.`);
+            alert("No details available for the selected submission.");
+            return;
+        }
+
+        let submissionData = rawSubmissionData;
+        let resultData = { testResults: "" };
+
         if (rawResultData) {
-            resultData = JSON.parse(rawResultData);
-        } else {
-            console.warn(`Missing result data for index ${index}, setting default values.`);
-            resultData = { time: "Unknown time", testResults: "" };
+            try {
+                resultData = JSON.parse(rawResultData);
+            } catch (error) {
+                console.error("Error parsing result data:", error);
+                alert("The result data is corrupted or invalid.");
+                return;
+            }
         }
-    } catch (error) {
-        console.error(`Error parsing resultData for index ${index}:`, error);
-        return;
-    }
 
-    const { time = "Unknown time", testResults = "" } = resultData;
+        const normalizedResults = Array.isArray(resultData.testResults)
+            ? resultData.testResults
+            : resultData.testResults.split("").map(res => res.trim());
 
-    const newRow = document.createElement("div");
-    newRow.classList.add("submission-table");
+        const modalOverlay = document.createElement("div");
+        modalOverlay.classList.add("modal-overlay");
 
-    const resultsMarkup = testResults
-        ? `<div class="result">${createResultIcons(testResults)}</div>`
-        : `<div class="result">No results</div>`;
+        // Добавяне на обработка на кликване извън модала
+        modalOverlay.addEventListener('click', function(event) {
+            if (event.target === modalOverlay) {
+                document.body.removeChild(modalOverlay);
+            }
+        });
 
-    newRow.innerHTML = `
-        <div class="table-element number">
-            <p>${index + 1}</p>
-        </div>
-        <div class="table-element results">
-            ${resultsMarkup}
-        </div>
-        <div class="table-element submission-time">
-            <p>${time}</p>
-        </div>
-        <div class="table-element details-btn">
-            <button onclick="showCodeDetails(${index})">Details</button>
-        </div>
-    `;
+        const modalContent = document.createElement("div");
+        modalContent.classList.add("modal-content");
 
-    submissionList.appendChild(newRow);
-}
+        const closeIcon = document.createElement("div");
+        closeIcon.classList.add("modal-close-icon");
+        closeIcon.innerHTML = "&times;";
+        closeIcon.onclick = () => {
+            document.body.removeChild(modalOverlay);
+        };
 
-// Function to display the code in a popup or another place
-function showCodeDetails(index) {
-    const baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
-    const rawCodeData = localStorage.getItem(`${baseKey}_${index}`);
+        const modalTitle = document.createElement("h2");
+        modalTitle.innerText = "Submission Results";
+        modalContent.appendChild(modalTitle);
 
-    alert(`Submission Code:\n\n${rawCodeData}`);
-}
+        const testResultsContainer = document.createElement("div");
+        testResultsContainer.classList.add("test-results-container");
 
-// Function to generate the result icons (checkmarks or crosses)
-function createResultIcons(testResults) {
-    if (!testResults) return "";
+        for (let i = 0; i < 6; i++) {
+            const testCard = document.createElement("div");
+            testCard.classList.add("test-result-card");
 
-    let resultsHtml = "";
+            if (normalizedResults[i] === "1") {
+                testCard.classList.add("test-passed");
+                testCard.innerText = `Test ${i + 1}: Passed`;
+            } else if (normalizedResults[i] === "0") {
+                testCard.classList.add("test-failed");
+                testCard.innerText = `Test ${i + 1}: Failed`;
+            } else {
+                testCard.classList.add("test-unknown");
+                testCard.innerText = `Test ${i + 1}: Unknown`;
+            }
 
-    // Loop through results and create icons (1 = success, 0 = failure)
-    for (let i = 0; i < testResults.length; i++) {
-        if (testResults[i] === "1") {
-            resultsHtml += '<i class="fa-solid fa-check" style="color: green;"></i>'; // Green checkmark
-        } else {
-            resultsHtml += '<i class="fa-solid fa-xmark" style="color: red;"></i>'; // Red cross
+            testResultsContainer.appendChild(testCard);
         }
+
+        const codeBlockContainer = document.createElement("div");
+        codeBlockContainer.classList.add("code-block-container");
+
+        const codeBlockTitle = document.createElement("h2");
+        codeBlockTitle.innerText = "Submission Code";
+
+        const codeBlock = document.createElement("pre");
+        codeBlock.classList.add("code-block");
+        codeBlock.innerText = submissionData;
+
+        codeBlockContainer.appendChild(codeBlockTitle);
+        codeBlockContainer.appendChild(codeBlock);
+
+        modalContent.appendChild(closeIcon);
+        modalContent.appendChild(testResultsContainer);
+        modalContent.appendChild(codeBlockContainer);
+
+        modalOverlay.appendChild(modalContent);
+        document.body.appendChild(modalOverlay);
     }
-
-    console.log("Generated result icons:", resultsHtml);
-    return resultsHtml;
 }
 
-// Reset the submission list to clear all previous entries
-function resetSubmissionList() {
-    const submissionList = document.getElementById("submission-list");
-    submissionList.innerHTML = ""; // Clear all child elements of submissionList
+class ResultIcons {
+    static create(testResults) {
+        if (!testResults) return "<div class='result'>No results</div>";
+
+        const totalTests = testResults.length;
+        const pointsPerTest = 100 / totalTests;
+        const passed = [...testResults].filter(res => res === "1").length;
+        const score = Math.round(passed * pointsPerTest);
+
+        return `<div class="result">${[...testResults].map(res => res === "1"
+            ? '<i class="fa-solid fa-check" style="color: green;"></i>'
+            : '<i class="fa-solid fa-xmark" style="color: red;"></i>'
+        ).join('')} ${score}/100</div>`;
+    }
 }
 
-// Display a message if there are no submissions available
-function showNoResultsMessage() {
-    const submissionList = document.getElementById("submission-list");
-
-    const noResultsRow = document.createElement("div");
-    noResultsRow.classList.add("no-results-message");
-
-    noResultsRow.innerHTML = `
-        <div class="table-element no-results">
-            <p>No submissions available for this task.</p>
-        </div>
-    `;
-
-    submissionList.appendChild(noResultsRow);
-}
-
-// Automatically load the submissions when the page loads
-window.onload = function () {
-    createSubmissionTable();
-};
+window.onload = () => new SubmissionTable().generateTable();
