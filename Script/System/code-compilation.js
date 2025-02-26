@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         async submitCode() {
             const code = document.getElementById('code-editor').value;
 
-            // Проверка на дължината на кода
             if (code.length < 10) {
                 alert("The code you upload must be at least 10 characters long.");
                 return;
@@ -93,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Обновяване на дневния лимит за опити
             if (this.callData.lastDate !== this.today) {
                 this.callData.count = 0;
                 this.callData.lastDate = this.today;
@@ -110,140 +108,98 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Нулиране на очакваните резултати
             this.resetTestResults();
 
-            // Определяне на езика за работа
+            const baseKey = `saveSubmitCode_${this.activeTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+            let index = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
+            localStorage.setItem(`${baseKey}_${index}`, code);
+            localStorage.setItem(`${baseKey}_index`, index + 1);
+
             this.setLanguageToWork();
 
-            // Зареждане на данни за задачата
             const taskData = await this.loadTaskData(this.activeTask());
-            if (!taskData) {
-                alert("Error: Unable to load task data. Please try again later.");
-                return; // Прекратяване при грешка
-            }
+            if (!taskData) return;
 
             this.inputs = taskData.inputs;
             this.correctOutput = taskData.correctOutput;
 
-            try {
-                let hasErrors = false; // Флаг за следене дали е възникнала грешка
+            // Създаване на масив със заявки
+            const requests = this.inputs.map((stdin, i) => {
+                const requestData = {
+                    language_id: this.languageToWork,
+                    source_code: code,
+                    stdin: stdin,
+                    cpu_time_limit: "3",
+                    memory_limit: "512000"
+                };
 
-                // Генериране на обещания за всички входове
-                const results = await Promise.allSettled(
-                    this.inputs.map((stdin, i) => {
-                        const requestData = {
-                            language_id: this.languageToWork,
-                            source_code: code,
-                            stdin: stdin,
-                            cpu_time_limit: "3",
-                            memory_limit: "512000",
-                        };
+                return this.submitSingleTestCase(requestData);
+            });
 
-                        return this.submitSingleTestCase(requestData).catch((error) => {
-                            hasErrors = true; // Отбелязваме, че има грешка
-                            return null; // Връщаме `null`, за да пропуснем грешния тест
-                        });
-                    })
-                );
+            // Изпращане на всички заявки паралелно
+            const results = await Promise.all(requests);
 
-                if (hasErrors) {
-                    // Ако има каквато и да е грешка, показваме единствено синтезирано съобщение
-                    alert("An error occurred while processing some or all of the test cases. Please try again later.");
-                    console.error("One or more test cases failed during execution.");
-                    return; // Спиране на обработката
-                }
-
-                // Обработваме само успешно изпълнените заявки
-                for (let i = 0; i < results.length; i++) {
-                    const result = results[i];
-                    if (result.status === "fulfilled") {
-                        const testResult = result.value;
-                        const success = await this.checkResult(testResult.token, i, testResult.useLocalAPI);
-
-                        if (!success) {
-                            console.error("Validation failed for a test case. Stopping further result processing.");
-                            alert("An error occurred during validation of results. Please try again later.");
-                            return;
-                        }
-                    }
-                }
-
-            } catch (error) {
-                console.error("Critical error during submission:", error.message);
-                alert(`A critical error occurred: ${error.message}. Please try again later.`);
+            // Обработка на резултатите
+            for (let i = 0; i < results.length; i++) {
+                const result = results[i];
+                await this.checkResult(result.token, i, result.useLocalAPI);
             }
         }
 
         async submitSingleTestCase(requestData) {
             let useLocalAPI = true;
             let attempt = 0;
-            const maxAttempts = 3; 
+            let maxAttempts = 5;
             let token = null;
 
             while (attempt < maxAttempts && !token) {
                 try {
                     console.log(`Attempt ${attempt + 1} - using ${useLocalAPI ? "Local API" : "RapidAPI"}`);
 
-                    const apiUrl = useLocalAPI
-                        ? `${this.url}/submissions?base64_encoded=false&wait=true`
-                        : apiURL;
+                    const apiUrl = useLocalAPI ? `${this.url}/submissions?base64_encoded=false&wait=true` : apiURL;
 
                     const response = await fetch(apiUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            ...(useLocalAPI ? {} : {
-                                'X-RapidAPI-Host': rapidAPIHost,
-                                'X-RapidAPI-Key': rapidAPIKey,
-                            }),
+                            ...(useLocalAPI
+                                ? {}
+                                : {
+                                    'X-RapidAPI-Host': rapidAPIHost,
+                                    'X-RapidAPI-Key': rapidAPIKey
+                                })
                         },
-                        body: JSON.stringify(requestData),
+                        body: JSON.stringify(requestData)
                     });
 
-                    if (response.status === 429) {
-                        alert("Request limit reached: Too many requests. Please wait and try again later.");
-                        console.error("Server returned 429: Too many requests.");
-                        throw new Error("Request limit reached (429). Stopping further execution.");
-                    }
-
                     if (!response.ok) {
-                        const errorMessage = `HTTP error! Status: ${response.status}`;
-                        console.error(errorMessage);
-                        throw new Error(errorMessage);
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
 
                     const result = await response.json();
                     token = result.token;
-
-                    if (!token && attempt >= 2) {
-                        console.log("Switching to RapidAPI...");
-                        useLocalAPI = false;
-                    }
+                    console.log("Received token:", token);
 
                 } catch (error) {
-                    console.error(`Error on attempt ${attempt + 1}: ${error.message}`);
-
-                    if (attempt >= 2 && useLocalAPI) {
+                    console.error(`Attempt ${attempt + 1} failed: ${error.message}`);
+                    attempt++;
+                    if (attempt >= 3 && useLocalAPI) {
                         console.log("Switching to RapidAPI...");
                         useLocalAPI = false;
                     }
-
-                    attempt++;
                 }
             }
 
             if (!token) {
-                const finalError = "Failed to retrieve token after all attempts.";
-                console.error(finalError);
-                throw new Error(finalError); // Спираме изпълнението
+                throw new Error("Code submission failed after multiple attempts to get token.");
             }
 
             return { token, useLocalAPI };
         }
 
         resetTestResults() {
-            this.testResults = "";
+            this.testResults = ""; // Празни резултати за всеки нов код
         }
 
         async loadTaskData(taskId) {
@@ -263,52 +219,55 @@ document.addEventListener('DOMContentLoaded', function () {
                 : `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
 
             try {
-                // Timeout check -> Races between API response and the Timeout Promise (15 seconds)
-                const timeoutPromise = new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error("Timeout")), 15000)
-                );
-
-                const resultPromise = fetch(resultURL, {
+                const response = await fetch(resultURL, {
                     headers: {
                         ...(useLocalAPI
                             ? {}
                             : {
                                 'X-RapidAPI-Host': rapidAPIHost,
-                                'X-RapidAPI-Key': rapidAPIKey,
-                            }),
-                    },
-                }).then((response) => response.json());
+                                'X-RapidAPI-Key': rapidAPIKey
+                            })
+                    }
+                });
 
-                const result = await Promise.race([resultPromise, timeoutPromise]); // Either API response or timeout
-
-                // Check for Compilation Errors
-                if (result.compile_output) {
-                    console.error("Compilation Error:", result.compile_output);
-                    alert(
-                        "There was a compilation error in your code. Please fix the error and try again."
-                    );
-
-                    this.deductHeartForUserError(); // Deduct a heart for user-induced error
-                    return;
-                }
-
-                // Check for Runtime/System Errors
-                if (result.stderr) {
-                    console.error("Runtime Error:", result.stderr);
-                    alert(
-                        "A system error occurred while evaluating your submission. No hearts were deducted. Please try again later."
-                    );
-
-                    this.rollbackHeartChange(); // Do not deduct hearts
-                    return;
-                }
-
-                // Processing the Result: Compare Output vs. Expected Output
-                const submittedOutput = result.stdout ? result.stdout.trim() : "";
+                const result = await response.json();
+                const output = result.stdout ? result.stdout.trim() : "";
                 const expectedOutput = this.correctOutput[index];
-                this.testResults += submittedOutput === expectedOutput ? "1" : "0";
 
-                // Final Test Results Handling (when reaching the last test case)
+                this.testResults += output === expectedOutput ? "1" : "0";
+
+                let diamondReward = 0;
+                switch (parseInt(getSelectedLevel())) {
+                    case 1:
+                        diamondReward = 10;
+                        break;
+                    case 2:
+                        diamondReward = 20;
+                        break;
+                    case 3:
+                        diamondReward = 30;
+                        break;
+                    case 4:
+                        diamondReward = 50;
+                        break;
+                    case 5:
+                        diamondReward = 250;
+                        break;
+                }
+
+                if (this.testResults === "111111") {
+                    localStorage.setItem(
+                        'diamond_availability',
+                        (getDiamond() + diamondReward).toString()
+                    );
+                }
+
+                console.log(
+                    `Test ${index + 1}: ${
+                        output === expectedOutput ? "Passed" : "Failed"
+                    }`
+                );
+
                 if (index === this.inputs.length - 1) {
                     console.log(`Final Test Results: ${this.testResults}`);
 
@@ -316,76 +275,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     const currentIndex = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
                     const newKey = `${baseKey}_${currentIndex}`;
 
-                    if (this.testResults === "111111") {
-                        // Reward Diamonds for Passing All Tests
-                        const diamondsEarned = this.calculateDiamondReward();
-                        const currentDiamonds = getDiamond() + diamondsEarned;
-                        localStorage.setItem("diamond_availability", currentDiamonds.toString());
-
-                        alert(`Submission successful! All test cases passed, and you've earned ${diamondsEarned} diamonds!`);
-                    } else {
-                        // Inform the user of failed tests
-                        alert("Submission completed, but some test cases failed. Review your code and try again.");
-                    }
-
-                    // Save Results in LocalStorage
+                    // Съхранение на резултата с време
                     const submissionTime = new Date().toLocaleString();
                     const resultData = {
                         testResults: this.testResults,
-                        time: submissionTime,
+                        time: submissionTime
                     };
 
                     localStorage.setItem(newKey, JSON.stringify(resultData));
                     localStorage.setItem(`${baseKey}_index`, currentIndex + 1);
+
+                    console.log(`Saved test result as: ${newKey}`);
                 }
             } catch (error) {
-                console.error("Error during submission processing:", error.message);
-
-                if (error.message === "Timeout") {
-                    // Timeout Error Handling
-                    alert("The system took too long to process your submission (15 seconds). Please try again later. No hearts were deducted.");
-
-                    this.rollbackHeartChange(); // Prevent heart deduction
-                } else {
-                    // Generic Errors
-                    alert("An unexpected error occurred while processing your submission. Please try again later.");
-                }
-            }
-        }
-
-        deductHeartForUserError() {
-            if (!getInfinityHearts() && !getSpecialUser() && this.callData.count > 0) {
-                // Deduct a heart for user-caused errors
-                this.callData.count--;
-                localStorage.setItem('callData', JSON.stringify(this.callData));
-                this.heartsNotActive();
-            }
-        }
-
-        rollbackHeartChange() {
-            if (!getInfinityHearts() && !getSpecialUser() && this.callData.count > 0) {
-                // Undo the submission count increment (prevent heart deduction)
-                this.callData.count--;
-                localStorage.setItem('callData', JSON.stringify(this.callData));
-                this.heartsNotActive();
-            }
-        }
-
-        calculateDiamondReward() {
-            console.log(getSelectedLevel())
-            switch (parseInt(getSelectedLevel())) {
-                case 1:
-                    return 10;
-                case 2:
-                    return 20;
-                case 3:
-                    return 30;
-                case 4:
-                    return 50;
-                case 5:
-                    return 250;
-                default:
-                    return 0;
+                console.log("Error: " + error.message + "\n");
             }
         }
 
