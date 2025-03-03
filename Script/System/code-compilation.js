@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.today = new Date().toISOString().slice(0, 10);
             this.callData = JSON.parse(localStorage.getItem("callData")) || { count: 0, lastDate: this.today };
             this.testResults = "";
-            this.url = "https://dont-driven-convenience-cookies.trycloudflare.com";
+            this.url = "http://78.90.252.206:2358";
 
             this.initialize();
         }
@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.addEventListener('click', () => {
                 if (localStorage.getItem('SubmitCodeIsNotAllowed')) {
                     alert("The code submission is not available while you are reviewing the submitted code.");
-                } else {
+                }
+                else {
                     this.submitCode();
                 }
             });
@@ -37,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (getInfinityHearts() || getSpecialUser()) {
                 this.createIcon(heartBox, ["fa-solid", "fa-infinity"]);
                 this.createIcon(heartBox, ["fa-solid", "fa-heart"]);
-            } else {
+            }
+            else {
                 for (let i = 0; i < 5; i++) {
                     this.createIcon(heartBox, ["fa-solid", "fa-heart"]);
                 }
@@ -103,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.heartsNotActive();
                 this.showCountdown();
                 this.removeCurrentCodeFromTextAreaAndLocalStorage();
-            } else {
+            }
+            else {
                 alert("You have exceeded the number of solutions you can upload in a day. Please wait until tomorrow to continue.");
                 return;
             }
@@ -124,26 +127,33 @@ document.addEventListener('DOMContentLoaded', function () {
             this.inputs = taskData.inputs;
             this.correctOutput = taskData.correctOutput;
 
-            // Създаване на масив със заявки
-            const requests = this.inputs.map((stdin, i) => {
-                const requestData = {
-                    language_id: this.languageToWork,
-                    source_code: code,
-                    stdin: stdin,
-                    cpu_time_limit: "3",
-                    memory_limit: "512000"
-                };
+            try {
+                const requests = this.inputs.map((stdin, i) => {
+                    const requestData = {
+                        language_id: this.languageToWork,
+                        source_code: code,
+                        stdin: stdin,
+                        cpu_time_limit: "3",
+                        memory_limit: "512000"
+                    };
 
-                return this.submitSingleTestCase(requestData);
-            });
+                    return this.submitSingleTestCase(requestData);
+                });
 
-            // Изпращане на всички заявки паралелно
-            const results = await Promise.all(requests);
+                const results = await Promise.all(requests);
 
-            // Обработка на резултатите
-            for (let i = 0; i < results.length; i++) {
-                const result = results[i];
-                await this.checkResult(result.token, i, result.useLocalAPI);
+                for (let i = 0; i < results.length; i++) {
+                    const result = results[i];
+                    await this.checkResult(result.token, i, result.useLocalAPI);
+                }
+            } catch (error) {
+                console.error("Error submitting code:", error);
+                alert("An error occurred while submitting your code. Please try again.");
+
+
+                this.callData.count--;
+                localStorage.setItem('callData', JSON.stringify(this.callData));
+                this.heartsNotActive();
             }
         }
 
@@ -199,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         resetTestResults() {
-            this.testResults = ""; // Празни резултати за всеки нов код
+            this.testResults = ""; 
         }
 
         async loadTaskData(taskId) {
@@ -209,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return tasks[taskId] || null;
             } catch (error) {
                 console.error("Error loading task data:", error);
+                alert("Error loading task data. Please try again.");
                 return null;
             }
         }
@@ -219,16 +230,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 : `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=false`;
 
             try {
-                const response = await fetch(resultURL, {
-                    headers: {
-                        ...(useLocalAPI
-                            ? {}
-                            : {
-                                'X-RapidAPI-Host': rapidAPIHost,
-                                'X-RapidAPI-Key': rapidAPIKey
-                            })
+                const response = await fetch(resultURL,
+                    {
+                    headers: { ...(useLocalAPI ? {}
+                        : {
+                            'X-RapidAPI-Host': rapidAPIHost,
+                            'X-RapidAPI-Key': rapidAPIKey
+                        })
                     }
                 });
+
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
                 const result = await response.json();
                 const output = result.stdout ? result.stdout.trim() : "";
@@ -236,37 +248,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 this.testResults += output === expectedOutput ? "1" : "0";
 
-                let diamondReward = 0;
-                switch (parseInt(getSelectedLevel())) {
-                    case 1:
-                        diamondReward = 10;
-                        break;
-                    case 2:
-                        diamondReward = 20;
-                        break;
-                    case 3:
-                        diamondReward = 30;
-                        break;
-                    case 4:
-                        diamondReward = 50;
-                        break;
-                    case 5:
-                        diamondReward = 250;
-                        break;
-                }
+                if (this.testResults === "111111") localStorage.setItem('diamond_availability', (getDiamond() + this.countDiamondsReward()).toString());
 
-                if (this.testResults === "111111") {
-                    localStorage.setItem(
-                        'diamond_availability',
-                        (getDiamond() + diamondReward).toString()
-                    );
-                }
-
-                console.log(
-                    `Test ${index + 1}: ${
-                        output === expectedOutput ? "Passed" : "Failed"
-                    }`
-                );
+                console.log(`Test ${index + 1}: ${output === expectedOutput ? "Passed" : "Failed"}`);
 
                 if (index === this.inputs.length - 1) {
                     console.log(`Final Test Results: ${this.testResults}`);
@@ -275,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const currentIndex = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
                     const newKey = `${baseKey}_${currentIndex}`;
 
-                    // Съхранение на резултата с време
                     const submissionTime = new Date().toLocaleString();
                     const resultData = {
                         testResults: this.testResults,
@@ -289,7 +272,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } catch (error) {
                 console.log("Error: " + error.message + "\n");
+                alert("An error occurred while checking your code. Please try again.");
             }
+        }
+
+        countDiamondsReward() {
+            let diamondReward = 0;
+            switch (parseInt(getSelectedLevel())) {
+                case 1:
+                    diamondReward = 10;
+                    break;
+                case 2:
+                    diamondReward = 20;
+                    break;
+                case 3:
+                    diamondReward = 30;
+                    break;
+                case 4:
+                    diamondReward = 50;
+                    break;
+                case 5:
+                    diamondReward = 250;
+                    break;
+            }
+
+            return diamondReward;
         }
 
         showCountdown() {
