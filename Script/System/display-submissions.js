@@ -207,14 +207,15 @@ class SubmissionElement {
 // Utility class for creating icons for test results
 class ResultIcons {
     static create(testResults) {
-        if (!testResults) return "<div class='result'>No results</div>";
+        if (!testResults || testResults.length === 0) {
+            return `<div class="result">${'<i class="fa-solid fa-minus" style="color: #5e5e5e;"></i>'.repeat(6)} No results</div>`;
+        }
 
         const totalTests = testResults.length;
         const pointsPerTest = 100 / totalTests;
         const passed = [...testResults].filter(res => res === "1").length;
         const score = Math.round(passed * pointsPerTest);
 
-        // Generate HTML for result icons and calculate total score
         return `<div class="result">${[...testResults].map(res => res === "1"
             ? '<i class="fa-solid fa-check" style="color: green;"></i>'
             : '<i class="fa-solid fa-xmark" style="color: red;"></i>'
