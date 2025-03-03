@@ -60,7 +60,7 @@
 
 #nav-bar {
     max-height: 748px;
-    position: absolute;
+    position: fixed;
     right: 2vw;
     top: 1.3vw;
     height: calc(100% + 0.6vw);
