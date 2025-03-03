@@ -6,6 +6,8 @@ class CertificateManager {
 
     // Initialize the certificate generation process
     generateCertificates() {
+        let count = 0;
+
         for (let i = 0; i < this.languages.length; i++) {
             for (let j = 1; j <= this.levels.length; j++) {
                 const path = localStorage.getItem(`savedCertificate_${i}_${j}`);
@@ -13,11 +15,24 @@ class CertificateManager {
                     const certificateLanguage = this.getLanguage(i);
                     const certificateLevel = this.getLevel(j);
                     const messageCertificate = `${certificateLanguage} ${certificateLevel} Level`;
+                    count++;
 
                     // Call function to create and display the certificate
                     this.createCertificateElement(path, messageCertificate);
                 }
             }
+        }
+
+        if (count === 0) {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('certificate-box');
+
+            const container = document.querySelector('.certificate-container');
+            container.appendChild(newDiv);
+
+            const newSpan = document.createElement('span');
+            container.appendChild(newSpan);
+            newSpan.innerHTML = "You don't have any certificates yet.";
         }
     }
 
