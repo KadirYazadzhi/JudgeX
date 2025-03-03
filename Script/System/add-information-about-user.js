@@ -3,7 +3,7 @@ const navFooterContent = document.getElementById('nav-footer-content');
 const elementsToAdd = [
     getDiamonds(),
     getFirstVisitDate(),
-    getUserRank(),
+    JSON.parse(getUserRank()).currentRank,
     countEarnedCertificate(),
     countSolvedTasks()
 ]
