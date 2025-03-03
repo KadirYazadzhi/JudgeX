@@ -8,9 +8,9 @@ class ImageHandler {
         this.closeButton = document.querySelector(closeButtonSelector);
 
         // Attach event listeners
-        this.expandButton.addEventListener('click', () => this.openFullscreen());
-        this.closeButton.addEventListener('click', () => this.closeFullscreen());
-        this.downloadButton.addEventListener('click', () => this.convertImageToPDF());
+        if (this.expandButton) this.expandButton.addEventListener('click', () => this.openFullscreen());
+        if (this.closeButton) this.closeButton.addEventListener('click', () => this.closeFullscreen());
+        if (this.downloadButton) this.downloadButton.addEventListener('click', () => this.convertImageToPDF());
     }
 
     // Method to open the image in fullscreen
