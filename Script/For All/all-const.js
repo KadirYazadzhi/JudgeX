@@ -131,3 +131,29 @@ function getSpecialUser() {
 function getInfinityHearts() {
     return localStorage.getItem('infinity_hearts');
 }
+
+function encryptPassword(password) {
+    const secretKey = CryptoJS.enc.Utf8.parse("JudgeXJudgeX1234");
+    const iv = CryptoJS.enc.Utf8.parse("1234567890123456");
+
+    const encrypted = CryptoJS.AES.encrypt(password, secretKey, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+    });
+
+    return encrypted.toString();
+}
+
+function decryptPassword(encryptedPassword) {
+    const secretKey = CryptoJS.enc.Utf8.parse("JudgeXJudgeX1234");
+    const iv = CryptoJS.enc.Utf8.parse("1234567890123456");
+
+    const decrypted = CryptoJS.AES.decrypt(encryptedPassword, secretKey, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+    });
+
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
