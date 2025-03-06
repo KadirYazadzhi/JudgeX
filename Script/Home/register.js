@@ -1,4 +1,6 @@
-// Define the RegisterForm class
+// Import the CryptoJS library (if using npm)
+// const CryptoJS = require("crypto-js");
+
 class RegisterForm {
     constructor(toggleButtonId, formSelector, closeButtonId, signUpInputId, formTitleId, registerBtnId, forgetPasswordTextId) {
         // Initialize elements from the DOM
@@ -73,10 +75,13 @@ class RegisterForm {
         if (this.isSignUpMode) {
             // Registration check
             if (this.validateField(this.userName) && this.validateField(this.userEmail) && this.validateField(this.userPassword)) {
+                // Encrypt the password before saving
+                const encryptedPassword = encryptPassword(this.userPassword.value);
+
                 // Save data on successful registration
                 localStorage.setItem('currentUsername', this.userName.value);
                 localStorage.setItem('currentEmail', this.userEmail.value);
-                localStorage.setItem('currentPassword', this.userPassword.value);
+                localStorage.setItem('currentPassword', encryptedPassword);
                 localStorage.setItem("user-register", "True");
 
                 this.resetFields();
@@ -166,7 +171,10 @@ class RegisterForm {
 
     validateLogin(username, password) {
         const storedUsername = localStorage.getItem('currentUsername');
-        const storedPassword = localStorage.getItem('currentPassword');
+        const storedEncryptedPassword = localStorage.getItem('currentPassword');
+
+        // Decrypt the stored password
+        const storedPassword = decryptPassword(storedEncryptedPassword);
 
         return username === storedUsername && password === storedPassword;
     }
@@ -215,4 +223,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('phone-user-icon').addEventListener('click', () => registerForm.toggleForm());
     document.getElementById('open-register-form').addEventListener('click', () => registerForm.toggleForm());
 });
-
