@@ -25,6 +25,10 @@ class ButtonHandler {
             else {
                 alert("To use the system, please first register or log in to your account.");
                 window.location.href = "#";
+
+                setTimeout(function () {
+                    document.querySelector('.register-form-box').classList.add('openForm');
+                }, 1000);
             }
         }
     }
