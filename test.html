@@ -1,82 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submissions Table</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+    <title>LLM Stream</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
-    </style>
+    <link rel="stylesheet" type="text/css" href="Style/For%20All/chat-bot.css">
+    <link rel="stylesheet" type="text/css" href="Style/System/ai-feedback-modal.css">
+
 </head>
 <body>
 
-<div class="table-container">
-    <div class="submission-header">
-        <div>#</div>
-        <div>Results</div>
-        <div>Submission Time</div>
-        <div>Details</div>
-    </div>
 
-    <div id="submission-list">
-        <div class="submission-table">
-            <div class="table-element number">
-                <p>1</p>
-            </div>
-            <div class="table-element results">
-                <div class="result">
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <p>100/100</p>
-                </div>
-            </div>
-            <div class="table-element submission-time">
-                <p>23:02:58 14.02.2025</p>
-            </div>
-            <div class="table-element details-btn">
-                <button>Details</button>
-            </div>
-        </div>
-    </div>
+<style>
 
-    <button class="add-row-btn" onclick="addRow()">Add Row</button>
-</div>
+</style>
+
+<button class="ai-button">AI Анализ</button>
 
 <script>
-    function addRow() {
-        const submissionList = document.getElementById("submission-list");
-        const newIndex = submissionList.children.length + 1;
 
-        const newRow = document.createElement("div");
-        newRow.classList.add("submission-table");
-
-        newRow.innerHTML = `
-            <div class="table-element number">
-                <p>${newIndex}</p>
-            </div>
-            <div class="table-element results">
-                <div class="result">
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <i class="fa-solid fa-check"></i>
-                    <p>100/100</p>
-                </div>
-            </div>
-            <div class="table-element submission-time">
-                <p>${new Date().toLocaleTimeString()} ${new Date().toLocaleDateString()}</p>
-            </div>
-            <div class="table-element details-btn">
-                <button>Details</button>
-            </div>
-        `;
-
-        submissionList.appendChild(newRow);
-    }
 </script>
 
+
+
 </body>
+<script src="Script/For%20All/all-const.js"></script>
 </html>
