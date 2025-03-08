@@ -250,6 +250,14 @@ body {
     margin-left: 0;
 }
 
+.document-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
 .document-button {
     width: 50px;
     height: 50px;
@@ -264,6 +272,26 @@ body {
 }
 
 .document-button:hover {
+    background-color: #171717;
+    box-shadow: 1px 1px 5px #00a8ff;
+}
+
+.ai-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #070707;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00a8ff;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    color: white;
+    font-size: 20px;
+}
+
+.ai-button:hover {
     background-color: #171717;
     box-shadow: 1px 1px 5px #00a8ff;
 }
