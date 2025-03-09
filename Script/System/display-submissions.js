@@ -9,8 +9,15 @@ class SubmissionTable {
         this.index = parseInt(localStorage.getItem(`${this.baseKey}_index`), 10) || 0;
     }
 
+    updateKeys() {
+        this.baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        this.resultKey = `taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
+        this.index = parseInt(localStorage.getItem(`${this.baseKey}_index`), 10) || 0;
+    }
+
     // Generates the submission table based on the stored submissions
     generateTable() {
+        this.updateKeys();
         this.resetSubmissionList(); // Clear any existing data in the submission table
 
         // If no submissions exist, show a "No results" message and exit
