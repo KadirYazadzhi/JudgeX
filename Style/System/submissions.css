@@ -206,3 +206,35 @@
     right: 1%;
     cursor: pointer;
 }
+
+#pagination-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.pagination-button {
+    width: 30px;
+    height: 30px;
+    background: rgba(31, 41, 58, 0.7);
+    border-radius: 50%;
+    border: 1px solid rgba(31, 41, 58, 0.3);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagination-button:hover {
+    background: rgba(31, 41, 58, 0.9);
+}
+
+.pagination-button.active {
+    background: rgba(31, 41, 58, 1);
+}
+
+.pagination-arrow {
+    background: rgba(31, 41, 58, 1);
+}
