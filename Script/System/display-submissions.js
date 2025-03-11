@@ -1,12 +1,13 @@
 // Main class responsible for generating and handling the submission table
 class SubmissionTable {
     constructor() {
-        // Keys to access submission and results data in localStorage (specific to the active task, language, and level)
         this.baseKey = `saveSubmitCode_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
         this.resultKey = `taskResult_${getActiveTask()}_${getSelectedLanguage()}_${getSelectedLevel()}`;
-
-        // Retrieve the count of submissions or default to 0
         this.index = parseInt(localStorage.getItem(`${this.baseKey}_index`), 10) || 0;
+
+        // Pagination settings
+        this.itemsPerPage = 5; // Number of submissions to show per page
+        this.currentPage = 1; // Current page number
     }
 
     updateKeys() {
@@ -15,29 +16,29 @@ class SubmissionTable {
         this.index = parseInt(localStorage.getItem(`${this.baseKey}_index`), 10) || 0;
     }
 
-    // Generates the submission table based on the stored submissions
     generateTable() {
         this.updateKeys();
-        this.resetSubmissionList(); // Clear any existing data in the submission table
+        this.resetSubmissionList();
 
-        // If no submissions exist, show a "No results" message and exit
         if (this.index <= 0) {
             this.showNoResultsMessage();
             return;
         }
 
-        // Generate a new submission element for each submission stored in localStorage
-        for (let i = 0; i < this.index; i++) {
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = Math.min(startIndex + this.itemsPerPage, this.index);
+
+        for (let i = startIndex; i < endIndex; i++) {
             new SubmissionElement(i, this.baseKey, this.resultKey).create();
         }
+
+        this.generatePagination();
     }
 
-    // Clears the current content of the table
     resetSubmissionList() {
         document.getElementById("submission-list").innerHTML = "";
     }
 
-    // Displays a friendly message when no submissions are available
     showNoResultsMessage() {
         const submissionList = document.getElementById("submission-list");
         const noResultsRow = document.createElement("div");
@@ -48,6 +49,86 @@ class SubmissionTable {
             </div>
         `;
         submissionList.appendChild(noResultsRow);
+    }
+
+    generatePagination() {
+        const paginationContainer = document.getElementById("pagination-container");
+        paginationContainer.innerHTML = ""; // Clear existing buttons
+
+        const totalPages = Math.ceil(this.index / this.itemsPerPage);
+
+        // Add "First Page" button
+        const firstButton = document.createElement("button");
+        firstButton.id = "first-page";
+        firstButton.classList.add("pagination-button", "pagination-arrow");
+        firstButton.innerHTML = `<i class="fa-solid fa-angles-left"></i>`; // Double left arrow
+        firstButton.disabled = this.currentPage === 1; // Disable if on the first page
+        firstButton.addEventListener("click", () => {
+            if (this.currentPage > 1) {
+                this.currentPage = 1;
+                this.generateTable();
+            }
+        });
+        paginationContainer.appendChild(firstButton);
+
+        // Add "Previous" button
+        const prevButton = document.createElement("button");
+        prevButton.id = "prev-page";
+        prevButton.classList.add("pagination-button", "pagination-arrow");
+        prevButton.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`; // Left arrow
+        prevButton.disabled = this.currentPage === 1; // Disable if on the first page
+        prevButton.addEventListener("click", () => {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.generateTable();
+            }
+        });
+        paginationContainer.appendChild(prevButton);
+
+        // Add page number buttons
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement("button");
+            button.innerText = i;
+            button.classList.add("pagination-button");
+            if (i === this.currentPage) {
+                button.classList.add("active");
+            }
+
+            button.addEventListener("click", () => {
+                this.currentPage = i;
+                this.generateTable();
+            });
+
+            paginationContainer.appendChild(button);
+        }
+
+        // Add "Next" button
+        const nextButton = document.createElement("button");
+        nextButton.id = "next-page";
+        nextButton.classList.add("pagination-button", "pagination-arrow");
+        nextButton.innerHTML = "<i class=\"fa-solid fa-angles-right\"></i>"; // Right arrow
+        nextButton.disabled = this.currentPage === totalPages; // Disable if on the last page
+        nextButton.addEventListener("click", () => {
+            if (this.currentPage < totalPages) {
+                this.currentPage++;
+                this.generateTable();
+            }
+        });
+        paginationContainer.appendChild(nextButton);
+
+        // Add "Last Page" button
+        const lastButton = document.createElement("button");
+        lastButton.id = "last-page";
+        lastButton.classList.add("pagination-button", "pagination-arrow");
+        lastButton.innerHTML = `<i class="fa-solid fa-arrow-right"></i>`; // Double right arrow
+        lastButton.disabled = this.currentPage === totalPages; // Disable if on the last page
+        lastButton.addEventListener("click", () => {
+            if (this.currentPage < totalPages) {
+                this.currentPage = totalPages;
+                this.generateTable();
+            }
+        });
+        paginationContainer.appendChild(lastButton);
     }
 }
 
