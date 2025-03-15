@@ -17,6 +17,7 @@
     border: 1px solid #243656;
     padding: 10px;
     text-align: center;
+    align-items: center;
 }
 
 .submission-header .top {
