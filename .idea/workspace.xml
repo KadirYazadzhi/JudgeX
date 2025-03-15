@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fe710986-2a75-4272-8a90-78e67d4f0bb2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/System/change-exercise-buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/change-exercise-buttons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script/System/display-submissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/System/display-submissions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style/System/submissions.css" beforeDir="false" afterPath="$PROJECT_DIR$/Style/System/submissions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anonymous/Data/GitHub Projects/JudgeX&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anonymous/Data/GitHub Projects/JudgeX/Exercise/Easy/01. Even Number Check&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -61,6 +60,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercise/Easy/01. Even Number Check" />
       <recent name="$PROJECT_DIR$/Exercise" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image" />
       <recent name="C:\Users\HPPavilion\Documents\JudgeX\Image\Template" />
@@ -156,6 +156,9 @@
       <workItem from="1739894358504" duration="7318000" />
       <workItem from="1740982901631" duration="1728000" />
       <workItem from="1741263463639" duration="12557000" />
+      <workItem from="1741594208046" duration="15818000" />
+      <workItem from="1741941705264" duration="579000" />
+      <workItem from="1741778118207" duration="584000" />
     </task>
     <servers />
   </component>
