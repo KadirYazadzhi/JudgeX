@@ -155,3 +155,10 @@
     font-weight: 550;
     cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+    .language-selector {
+        min-width: 80px;
+    }
+}
