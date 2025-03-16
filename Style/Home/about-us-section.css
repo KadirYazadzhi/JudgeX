@@ -276,3 +276,28 @@
     align-items: center;
     justify-content: center;
 }
+
+
+@media (max-width: 768px) {
+   .why-us {
+       width: 100%;
+       margin-left: 0;
+       align-items: center;
+       justify-content: center;
+   }
+
+    .why-us span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .example-1 {
+        margin: 0!important;
+        padding: 0!important;
+    }
+
+    .about-us-buttons {
+        flex-direction: column;
+    }
+}
