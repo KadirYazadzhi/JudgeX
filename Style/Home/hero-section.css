@@ -310,20 +310,20 @@
 
 .mountains > div:nth-child(1) {
     bottom: -240%;
-    translate: -6em 2em;
+    translate: -9em 2em;
     animation: mountainload1 2s ease-out 2.4s forwards;
 }
 
 .mountains > div:nth-child(2) {
     bottom: -240%;
-    translate: -2em 0em;
+    translate: -5em 0em;
     width: 14em; height: 20em;
     animation: mountainload2 2s ease-out 2.2s forwards;
 }
 
 .mountains > div:nth-child(3) {
     bottom: -240%;
-    translate: 6em 3em;
+    translate: 3em 3em;
     animation: mountainload1 2s ease-out 2s forwards;
 }
 
