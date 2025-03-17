@@ -205,7 +205,7 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 16rem;
+    bottom: 13rem;
 }
 
 .time-text {
@@ -242,7 +242,7 @@ body {
     display: flex;
     position: absolute;
     background: #1a2333;
-    bottom: 13rem;
+    bottom: 9rem;
     width: 500px;
     height: 35px;
     border-radius: 10px;
@@ -263,12 +263,29 @@ body {
 }
 
 .dots {
-    display: none!important;
+    display: none;
 }
 
 @media (max-width: 768px) {
     .dots {
         display: flex!important;
+    }
+
+    .container {
+        margin-bottom: 100px!important;
+    }
+
+    .bottom-box {
+        bottom: 6rem!important;
+        width: 90%;
+    }
+
+    .clock {
+        bottom: 9rem!important;
+    }
+
+    .cube {
+        width: 310px;
     }
 }
 
