@@ -1,54 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cardsContainer = document.querySelector(".cards");
-    const cards = document.querySelectorAll(".card");
+    class CardSlider {
+        constructor(containerSelector, cardSelector) {
+            this.cardsContainer = document.querySelector(containerSelector);
+            this.cards = document.querySelectorAll(cardSelector);
 
-    // Задаване на ширината на картите
-    cards.forEach(card => {
-        card.style.width = window.innerWidth + 'px';
-    });
+            this.startX = 0;
+            this.currentIndex = 0;
+            this.isDragging = false;
 
-    cardsContainer.style.width = window.innerWidth * 3 + 'px';
+            if (window.innerWidth >= 768) return;
 
-    let startX = 0;
-    let currentIndex = 0;
-    let isDragging = false;
+            this.init();
+            this.addEventListeners();
+        }
 
-    function updatePosition(smooth = true) {
-        cardsContainer.style.transition = smooth ? "transform 0.3s ease" : "none";
-        cardsContainer.style.transform = `translateX(${-currentIndex * window.innerWidth}px)`;
+        // Initialize slider by setting the correct width for cards
+        init() {
+            this.cards.forEach(card => {
+                card.style.width = window.innerWidth + 'px';
+            });
+            this.cardsContainer.style.width = this.cards.length * window.innerWidth + 'px';
+            this.updatePosition();
+        }
+
+        // Update card position with optional smooth transition
+        updatePosition(smooth = true) {
+            this.cardsContainer.style.transition = smooth ? "transform 0.3s ease" : "none";
+            this.cardsContainer.style.transform = `translateX(${-this.currentIndex * window.innerWidth}px)`;
+        }
+
+        // Handle touch start
+        onTouchStart(e) {
+            this.startX = e.touches[0].clientX;
+            this.isDragging = true;
+            this.cardsContainer.style.transition = "none";
+        }
+
+        // Handle touch move
+        onTouchMove(e) {
+            if (!this.isDragging) return;
+            let moveX = e.touches[0].clientX - this.startX;
+
+            let nextPosition = -this.currentIndex * window.innerWidth + moveX;
+            if (nextPosition <= 0 && nextPosition >= -(this.cards.length - 1) * window.innerWidth) {
+                this.cardsContainer.style.transform = `translateX(${nextPosition}px)`;
+            }
+        }
+
+        // Handle touch end
+        onTouchEnd(e) {
+            if (!this.isDragging) return;
+            this.isDragging = false;
+
+            let moveX = e.changedTouches[0].clientX - this.startX;
+
+            if (moveX < -50 && this.currentIndex < this.cards.length - 1) {
+                this.currentIndex++; // Move to the next card
+            } else if (moveX > 50 && this.currentIndex > 0) {
+                this.currentIndex--; // Move to the previous card
+            }
+
+            this.updatePosition();
+        }
+
+        // Add event listeners for touch interactions
+        addEventListeners() {
+            this.cardsContainer.addEventListener("touchstart", (e) => this.onTouchStart(e));
+            this.cardsContainer.addEventListener("touchmove", (e) => this.onTouchMove(e));
+            this.cardsContainer.addEventListener("touchend", (e) => this.onTouchEnd(e));
+        }
     }
 
-    cardsContainer.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-        cardsContainer.style.transition = "none"; // Деактивиране на анимацията при плъзгане
-    });
-
-    cardsContainer.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
-        let moveX = e.touches[0].clientX - startX;
-
-        // Ограничаване на движението в рамките на първата и последната карта
-        let nextPosition = -currentIndex * window.innerWidth + moveX;
-        if (nextPosition <= 0 && nextPosition >= -(cards.length - 1) * window.innerWidth) {
-            cardsContainer.style.transform = `translateX(${nextPosition}px)`;
-        }
-    });
-
-    cardsContainer.addEventListener("touchend", (e) => {
-        if (!isDragging) return;
-        isDragging = false;
-
-        let moveX = e.changedTouches[0].clientX - startX;
-
-        if (moveX < -50 && currentIndex < cards.length - 1) {
-            currentIndex++; // Следваща карта
-        } else if (moveX > 50 && currentIndex > 0) {
-            currentIndex--; // Предишна карта
-        }
-
-        updatePosition();
-    });
-
-    updatePosition();
+    new CardSlider(".cards", ".card");
 });
