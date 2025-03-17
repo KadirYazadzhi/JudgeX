@@ -117,3 +117,21 @@
     max-height: 1000px;
     padding: 10px 10px 10px 15px;
 }
+
+@media (max-width: 768px) {
+    .about-us {
+        flex-direction: column;
+    }
+
+    .right-section, .left-section {
+        width: 100%;
+    }
+
+    .faq {
+        width: 90%;
+    }
+
+    .faq-question-text-box {
+        width: 90%;
+    }
+}
