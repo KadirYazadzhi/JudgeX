@@ -235,3 +235,14 @@ canvas#particleCanvas {
     width: 100%;
 }
 
+
+@media (max-width: 768px) {
+
+    button.contact-btn {
+        display: none;
+    }
+
+    .accent-lines {
+        display: none;
+    }
+}
