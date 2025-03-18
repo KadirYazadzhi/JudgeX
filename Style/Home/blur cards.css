@@ -86,6 +86,7 @@
 
 
 
+
 @media(max-width: 768px) {
     .blur-card {
         width: calc(100% - 100px)!important;
