@@ -644,6 +644,10 @@ body {
     box-shadow: 1px 1px 8px #ff0000!important;
 }
 
+.special-bar {
+    background: linear-gradient(90deg, rgba(231,178,0,1) 0%, rgba(238,184,0,0.9) 35%, rgba(252,194,0,1) 100%)!important;
+}
+
 @media (max-width: 1100px) and (min-width: 900px) {
     #savedCertificateImg {
         width: 80%;
