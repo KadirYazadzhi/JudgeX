@@ -30,6 +30,56 @@ body {
     transform-style: preserve-3d;
 }
 
+@media (min-width: 768px) {
+    @media (max-width: 1600px) {
+        .cube {
+            width: 330px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .cube {
+            width: 310px;
+        }
+
+        .point-text {
+            width: 90%;
+        }
+
+        .big-container {
+            gap: 80px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .cube {
+            width: 300px;
+        }
+
+        .point-text {
+            width: 85%;
+        }
+
+        .big-container {
+            gap: 60px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .cube {
+            width: 290px;
+        }
+
+        .point-text {
+            width: 75%;
+        }
+
+        .big-container {
+            gap: 50px;
+        }
+    }
+}
+
 .side {
     position: absolute;
     width: 100%;
@@ -285,7 +335,7 @@ body {
     }
 
     .cube {
-        width: 310px;
+        width: 100%;
     }
 }
 
