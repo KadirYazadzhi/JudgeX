@@ -5,6 +5,8 @@ class Carousel {
         this.currentIndex = 0;
         this.startX = 0;
         this.endX = 0;
+
+        // Initialize the carousel
         this.init();
     }
 
@@ -44,9 +46,15 @@ class Carousel {
 
     showCard(index) {
         this.cards.forEach((card, i) => {
-            card.classList.toggle('activeCard', i === index);
-            this.dots[i].classList.toggle('activeCard', i === index);
+            card.classList.toggle('activeCard', i === index);  // Activate the corresponding card
         });
+
+        this.dots.forEach((dot, i) => {
+            // Add both 'active' and 'activeCard' classes to the dot
+            dot.classList.toggle('active', i === index);  // This highlights the active dot
+            dot.classList.toggle('activeCard', i === index);  // This activates the dot with the card
+        });
+
         this.currentIndex = index;
     }
 
@@ -61,12 +69,40 @@ class Carousel {
     }
 
     autoSlide() {
-        setInterval(() => this.nextCard(), 9000);
+        this.autoSlideInterval = setInterval(() => this.nextCard(), 9000);
+    }
+
+    stopAutoSlide() {
+        clearInterval(this.autoSlideInterval);
+    }
+
+    startAutoSlide() {
+        this.autoSlide();
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize the carousel if the screen width is smaller than 768px
+let carouselInstance = null;
+
+function initializeCarousel() {
     if (window.innerWidth < 768) {
-        new Carousel('.blur-card', '.dot');
+        if (!carouselInstance) {
+            carouselInstance = new Carousel('.blur-card', '.blur-dot');
+        }
+    } else {
+        if (carouselInstance) {
+            carouselInstance.stopAutoSlide();
+            carouselInstance = null;
+        }
     }
+}
+
+// Call the function once on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeCarousel();
+});
+
+// Reinitialize on window resize
+window.addEventListener('resize', () => {
+    initializeCarousel();
 });
