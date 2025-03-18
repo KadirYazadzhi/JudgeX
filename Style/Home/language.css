@@ -8,3 +8,19 @@
     width: 100%;
     height: 100%;
 }
+
+
+@media (max-width: 768px) {
+    .language-cards {
+        justify-content: flex-start;
+        justify-items: flex-start;
+    }
+
+    .more-text {
+        display: none;
+    }
+
+    .swiper-wrapper {
+        height: 60%!important;
+    }
+}
