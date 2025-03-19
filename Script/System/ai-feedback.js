@@ -199,28 +199,10 @@ class PDFHandler {
         }
 
         const taskText = activeTask.textContent.trim();
-        const level = getSelectedLevel();
-        let directory = "";
-        let fileName = "";
+        let directory = ReturnTaskDocument(taskText).directory;
+        let fileName = ReturnTaskDocument(taskText).fileName;
 
-        switch (level) {
-            case "1":
-                directory = "Exercise/Easy";
-                switch (taskText) {
-                    case "01. Even Number Check":
-                        fileName = "01. Even Number Check/Even Number Check.docx";
-                        break;
-                    default:
-                        alert("No file available for this task.");
-                        return;
-                }
-                break;
-            default:
-                alert("Invalid difficulty level.");
-                return;
-        }
-
-        const filePath = `${directory}/${fileName.replace(".docx", ".pdf")}`;
+        const filePath = `${directory}/${fileName}`;
         const text = await this.pdfProcessor.extractTextFromPDF(filePath);
         console.log("Text extracted from PDF:", text);
 
