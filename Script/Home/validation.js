@@ -27,8 +27,9 @@ class FormValidator {
         this.formElement = formElement;
         this.fields = fields;
 
-        const submitButton = formElement.querySelector('.submit');
-        submitButton.addEventListener('click', (event) => this.handleSubmit(event));
+        const submitButton = formElement?.querySelector('.submit');
+
+        if (submitButton) submitButton.addEventListener('click', (event) => this.handleSubmit(event));
     }
 
     handleSubmit(event) {
