@@ -15,7 +15,7 @@ class UserDataManager {
             let storedValue = localStorage.getItem(`current${this.capitalize(field)}`) || '';
 
             if (field === "password" && storedValue) {
-                storedValue = decryptPassword(storedValue); // Декриптира паролата
+                storedValue = decryptPassword(storedValue);
             }
 
             if (element && storedValue) {
@@ -48,7 +48,7 @@ class UserDataManager {
 
         if (field === 'password') {
             event.target.setAttribute('data-password', newValue);
-            newValue = '*'.repeat(newValue.length); // Показване на маскирана парола
+            newValue = '*'.repeat(newValue.length);
         }
 
         if (newValue === '' && field === 'password') {
