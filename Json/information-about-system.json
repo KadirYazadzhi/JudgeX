@@ -1,3 +1,4 @@
+
 [
   {
     "type": "most-important",
@@ -6,12 +7,92 @@
   },
   {
     "type": "important",
-    "message": "This system doesn't have a database and saves information in local storage. Please do not clear your local storage or browser cookies.",
-    "iconClass": "fa-solid fa-database strikethrough-icon"
+    "message": "Your code must run within a specific memory limit. If it exceeds the allowed memory, you will receive a Memory Limit Exceeded (MLE) error.",
+    "iconClass": "fa-solid fa-memory"
   },
   {
     "type": "non-essential",
-    "message": "This system doesn't have a database and saves information in local storage. Please do not clear your local storage or browser cookies.",
-    "iconClass": "fa-solid fa-database strikethrough-icon"
+    "message": "Premium users enjoy unlimited submissions, access to Special Level challenges, and additional rewards.",
+    "iconClass": "fa-solid fa-star"
+  },
+  {
+    "type": "most-important",
+    "message": "Each solution is tested with 5 input cases. If even one test case fails, the entire solution is incorrect.",
+    "iconClass": "fa-solid fa-bug"
+  },
+  {
+    "type": "important",
+    "message": "Badges and achievements are awarded for consistent activity, solving challenges, and reaching milestones.",
+    "iconClass": "fa-solid fa-award"
+  },
+  {
+    "type": "non-essential",
+    "message": "For the best experience, use Chrome, Firefox, or Edge. Safari and other browsers may have compatibility issues.",
+    "iconClass": "fa-brands fa-firefox-browser"
+  },
+  {
+    "type": "most-important",
+    "message": "You have a daily limit of 5 submissions. Once exhausted, you must wait until the next day or use diamonds for extra attempts.",
+    "iconClass": "fa-solid fa-hourglass-half"
+  },
+  {
+    "type": "important",
+    "message": "Challenges are categorized into five difficulty levels: Easy, Medium, Hard, Very Hard, and Special. Special Level is exclusive to premium users.",
+    "iconClass": "fa-solid fa-layer-group"
+  },
+  {
+    "type": "most-important",
+    "message": "Correct solutions earn diamonds, which can be used for certificates, special challenges, or extra submissions.",
+    "iconClass": "fa-solid fa-gem"
+  },
+  {
+    "type": "non-essential",
+    "message": "Dark mode is available in settings for better visibility in low-light conditions.",
+    "iconClass": "fa-solid fa-moon"
+  },
+  {
+    "type": "most-important",
+    "message": "Completing a set number of challenges or all challenges at a specific level will automatically grant you a certificate.",
+    "iconClass": "fa-solid fa-certificate"
+  },
+  {
+    "type": "important",
+    "message": "Each submission is subject to a time limit. If execution exceeds the limit, the test case will be marked as Time Limit Exceeded (TLE).",
+    "iconClass": "fa-solid fa-clock"
+  },
+  {
+    "type": "non-essential",
+    "message": "The platform supports multiple programming languages, allowing you to solve tasks in your preferred language.",
+    "iconClass": "fa-solid fa-code"
+  },
+  {
+    "type": "important",
+    "message": "Anonymous testing allows you to run local tests without submitting your solution, but only within your browser.",
+    "iconClass": "fa-solid fa-eye-slash"
+  },
+  {
+    "type": "non-essential",
+    "message": "Sharing solutions and using automated scripts for submissions is strictly prohibited.",
+    "iconClass": "fa-solid fa-user-shield"
+  },
+  {
+    "type": "important",
+    "message": "Leaderboard rankings update daily based on user performance and earned diamonds.",
+    "iconClass": "fa-solid fa-trophy"
+  },
+  {
+    "type": "most-important",
+    "message": "Attempting to exploit or cheat the system will result in an account ban.",
+    "iconClass": "fa-solid fa-ban"
+  },
+  {
+    "type": "important",
+    "message": "You can report bugs or suggest improvements via the feedback section.",
+    "iconClass": "fa-solid fa-comment-alt"
+  },
+  {
+    "type": "non-essential",
+    "message": "You can customize your profile with a username, avatar, and bio.",
+    "iconClass": "fa-solid fa-user-edit"
   }
 ]
