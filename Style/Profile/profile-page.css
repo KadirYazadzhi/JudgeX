@@ -132,6 +132,7 @@ main .menu .avatar .thumb {
     border-radius: 50%;
     width: 100%;
     max-width: 40px;
+    cursor: pointer;
 }
 main .menu .avatar .name {
     color: var(--c-elements);
