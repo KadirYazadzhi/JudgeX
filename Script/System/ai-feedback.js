@@ -236,7 +236,7 @@ class PDFHandler {
 // Initialize components
 const chatUI = new ChatUI("ai-modal", "messages-area", "modal-title");
 const pdfProcessor = new PDFProcessor("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js");
-const ollamaStreamer = new OllamaStreamer("https://lying-refused-implement-despite.trycloudflare.com", chatUI);
+const ollamaStreamer = new OllamaStreamer("https://glory-swedish-cam-concerning.trycloudflare.com/api/generate", chatUI);
 const pdfHandler = new PDFHandler(pdfProcessor, ollamaStreamer);
 
 // Add event listener
