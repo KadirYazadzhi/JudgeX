@@ -101,6 +101,7 @@
     padding-bottom: 10px;
     padding-top: 5px;
     overflow: auto;
+    position: relative;
 }
 
 .sender-area {
