@@ -1,8 +1,6 @@
 // Define a class for managing progress and charts
 class ProgressManager {
     constructor() {
-        // Initialize the excluded indices and query all cards
-        this.excludedIndices = [11, 13, 15, 17, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 71, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92];
         this.cards = document.querySelectorAll(".language-card-modal");
         this.init();
     }
@@ -93,17 +91,7 @@ class ProgressManager {
                 break;
         }
 
-        // Iterate over all tasks and count completed ones
-        for (let task = startPoint; task <= endPoint; task++) {
-            if (!this.excludedIndices.includes(task)) {
-                const taskKey = `taskResult_${task}_${languageId}_${difficulty}`;
-                const taskValue = localStorage.getItem(taskKey);
-
-                if (taskValue) {
-                    completedTasks++;
-                }
-            }
-        }
+        completedTasks = calculateResultSum(startPoint, endPoint, languageId, difficulty);
 
         // Calculate percentage of completed tasks
         const percent = (completedTasks / totalTasks) * 100;
