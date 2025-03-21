@@ -27,6 +27,19 @@ class RegisterForm {
         // Add event listeners
         this.toggleButton.addEventListener('click', () => this.toggleMode());
         this.closeButton.addEventListener('click', () => this.closeForm());
+
+        // Handle form submission on Enter or Space key press
+        const handleKeyPress = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault(); // Prevent default behavior (e.g., scrolling on Space)
+                this.handleFormSubmit(e);
+            }
+        };
+
+        // Add keydown event listener to the entire document
+        document.addEventListener('keydown', handleKeyPress);
+
+        // Add click event listener to the register button
         this.registerBtn.addEventListener('click', (e) => this.handleFormSubmit(e));
 
         // Add validation events
