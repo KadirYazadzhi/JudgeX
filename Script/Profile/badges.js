@@ -110,19 +110,9 @@ class BadgesManager {
     // Check if a level badge should be activated
     levelsBadge(level, start, end, sum) {
         for (let language = 0; language <= 8; language++) {
-            let completed = 0;
-            for (let task = start; task <= end; task++) {
-                if (!this.excludedIndices.includes(task)) {
-                    const taskKey = `taskResult_${task}_${language}_${level}`;
-                    const taskValue = localStorage.getItem(taskKey);
-                    if (taskValue) {
-                        completed++;
-                    }
-                }
-            }
-            if (completed >= sum) {
-                return true;
-            }
+            let completed = calculateResultSum(start, end, language, level);
+
+            if (completed >= sum) return true;
         }
         return false;
     }
@@ -130,15 +120,30 @@ class BadgesManager {
     // Check if a language badge should be activated
     languageBadge(level, language, start, end) {
         for (let task = start; task <= end; task++) {
-            if (!this.excludedIndices.includes(task)) {
-                const taskKey = `taskResult_${task}_${language}_${level}`;
-                const taskValue = localStorage.getItem(taskKey);
-                if (taskValue) {
-                    return true;
+            if (excludedIndices.includes(task)) continue;
+
+            const baseKey = `taskResult_${task}_${language}_${level}`;
+            const submissionCount = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
+            for (let j = 0; j < submissionCount; j++) {
+                const storedResult = localStorage.getItem(`${baseKey}_${j}`);
+
+                if (storedResult) {
+                    try {
+                        const resultData = JSON.parse(storedResult);
+                        if (resultData.testResults === "111111") {
+                            return true;
+                        }
+                    }
+                    catch (error) {
+                        console.error(error);
+                    }
                 }
             }
         }
+
         return false;
+
     }
 
 }
