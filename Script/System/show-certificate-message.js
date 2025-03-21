@@ -13,7 +13,7 @@ class CertificateManager {
     // Initializes the task range, calculates completed tasks, and checks certificate eligibility
     initialize() {
         this.setTaskRange(); // Set the range of tasks based on the selected level
-        this.calculateSum(); // Calculate the number of completed tasks
+        this.sum = calculateResultSum(this.startNumber, this.endNumber, getSelectedLanguage(), getSelectedLevel()); // Calculate the number of completed tasks
         this.checkCertificateEligibility(); // Check if the user is eligible for a certificate
     }
 
@@ -44,17 +44,6 @@ class CertificateManager {
                 break;
             default:
                 console.warn("Invalid level selected"); // Log a warning if the level is invalid
-        }
-    }
-
-    // Calculates the number of completed tasks, excluding certain indices
-    calculateSum() {
-        for (let i = this.startNumber; i <= this.endNumber; i++) {
-            // Check if the task is not excluded and has the expected result
-            if (!excludedIndices.includes(i) &&
-                localStorage.getItem(`taskResult_${i}_${getSelectedLanguage()}_${getSelectedLevel()}`) === "111111") {
-                this.sum++; // Increment the count of completed tasks
-            }
         }
     }
 
@@ -93,7 +82,6 @@ class CertificateManager {
             return;
         }
 
-        if (this.getCertificateMessageStatus() == "True") return;
 
         if (this.sum >= this.compare || getSavedCertificate() !== null) { // Check if the number of completed tasks meets the threshold
             // Check if the certificate needs to be shown
