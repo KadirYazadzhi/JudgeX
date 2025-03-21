@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.languageOptionsElement.addEventListener('mouseenter', () => {
                 if (this.languageOptionsElement.classList.contains('disabled-language')) {
                     const tooltip = document.createElement('div');
-                    tooltip.className = 'tooltip';
+                    tooltip.className = 'tooltip-bg';
                     tooltip.textContent = this.languageOptionsElement.getAttribute('data-tooltip');
                     document.body.appendChild(tooltip);
 
@@ -104,7 +104,7 @@ style.innerHTML = `
         cursor: not-allowed!important;
         opacity: 0.5;
     }
-    .tooltip {
+    .tooltip-bg {
         position: absolute;
         background: black;
         color: white;
