@@ -28,6 +28,7 @@ class ChatUI {
         this.modalBody = document.querySelector(`.${modalBodyClass}`);
         this.modalTitle = document.getElementById(modalTitleId);
         this.closeButton = document.querySelector(".close i");
+        this.loaderContainer = this.createLoaderContainer(); // Create loader container with text
         this.initCloseEvent();
     }
 
@@ -51,6 +52,34 @@ class ChatUI {
         this.modalBody.innerHTML = "";
     }
 
+    // Create a loader container with a spinner and text
+    createLoaderContainer() {
+        const container = document.createElement("div");
+        container.classList.add("loader-container");
+
+        // Create the loader element
+        const loader = document.createElement("span");
+        loader.classList.add("loader");
+        container.appendChild(loader);
+
+        // Create the text element
+        const text = document.createElement("p");
+        text.textContent = "Please wait a few seconds while we process your request...";
+        text.classList.add("loader-text");
+        container.appendChild(text);
+
+        return container;
+    }
+
+    showLoader() {
+        this.modalBody.appendChild(this.loaderContainer); // Add loader container to modal body
+        this.loaderContainer.style.display = "flex"; // Show loader container
+    }
+
+    hideLoader() {
+        this.loaderContainer.style.display = "none"; // Hide loader container
+    }
+
     addMessage(text, sender = "bot") {
         const messageBox = document.createElement("div");
         messageBox.classList.add(`${sender}-messages-box`);
@@ -67,7 +96,6 @@ class ChatUI {
         }
 
         const messageContent = document.createElement("p");
-        // Format the text: handle new lines, bold, underline, and code blocks
         const formattedText = this.formatMessage(text);
         messageContent.innerHTML = formattedText;
 
@@ -77,18 +105,10 @@ class ChatUI {
     }
 
     formatMessage(text) {
-        // Replace new lines with <br>
         text = text.replace(/\n/g, "<br>");
-
-        // Format bold text: **bold** -> <strong>bold</strong>
         text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-
-        // Format underlined text: __underline__ -> <u>underline</u>
         text = text.replace(/__(.*?)__/g, "<u>$1</u>");
-
-        // Format code blocks: ```code``` -> <pre><code>code</code></pre>
         text = text.replace(/```(.*?)```/gs, "<pre><code>$1</code></pre>");
-
         return text;
     }
 }
@@ -107,6 +127,7 @@ class OllamaStreamer {
         }
 
         this.isRequestInProgress = true;
+        this.chatUI.showLoader(); // Show loader with text
 
         try {
             const processedPrompt = isSpecialUser
@@ -136,6 +157,7 @@ class OllamaStreamer {
                         const parsed = JSON.parse(line);
                         if (parsed.response) {
                             accumulatedText += parsed.response + " ";
+                            this.chatUI.hideLoader(); // Hide loader when response starts
                             this.chatUI.clearMessages();
                             this.chatUI.addMessage(accumulatedText.trim(), "bot");
                         }
@@ -145,32 +167,29 @@ class OllamaStreamer {
                 }
             }
 
-            // Save the response to localStorage with a consistent key
             const cacheKey = generateCacheKey(prompt);
             localStorage.setItem(cacheKey, accumulatedText.trim());
         } catch (e) {
             console.error("Error streaming Ollama:", e);
+            this.chatUI.hideLoader(); // Hide loader on error
             this.chatUI.addMessage("An error occurred while processing your request. Please try again later.", "bot");
             decrementRequestCount();
         } finally {
             this.isRequestInProgress = false;
+            this.chatUI.hideLoader(); // Hide loader when done
         }
     }
 }
 
-// Helper function for generating cache keys
 function generateCacheKey(text) {
-    // Create a hash from the first 100 characters to use as a key
     const hashKey = text.substring(0, 100).replace(/\s+/g, '_');
     return `response_${hashKey}`;
 }
 
-// Function to get daily request count
 function getDailyRequestCount() {
-    const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    const today = new Date().toISOString().split('T')[0];
     const countData = JSON.parse(localStorage.getItem("requestCountData") || '{"date":"","count":0}');
 
-    // Reset count if it's a new day
     if (countData.date !== today) {
         return { date: today, count: 0 };
     }
@@ -178,7 +197,6 @@ function getDailyRequestCount() {
     return countData;
 }
 
-// Function to increment request count
 function incrementRequestCount() {
     const countData = getDailyRequestCount();
     countData.count += 1;
@@ -212,30 +230,26 @@ class PDFHandler {
 
         const filePath = `${directory}/${fileName}`;
         const text = await this.pdfProcessor.extractTextFromPDF(filePath);
-        console.log("Text extracted from PDF:", text);
 
         chatUI.showModal(taskText);
+        chatUI.showLoader(); // Show loader with text
 
-        // Generate a consistent cache key for this content
         const cacheKey = generateCacheKey(text);
-
-        // Check if the response is already in localStorage
         const savedResponse = localStorage.getItem(cacheKey);
         if (savedResponse) {
+            chatUI.hideLoader(); // Hide loader if cached response exists
             chatUI.addMessage(savedResponse, "bot");
             return;
         }
 
-        // Check daily request limit
         const countData = getDailyRequestCount();
         if (countData.count >= 3 && !getSpecialUser()) {
+            chatUI.hideLoader(); // Hide loader if daily limit is reached
             chatUI.addMessage("You have reached the daily limit of 3 requests. Please try again tomorrow.", "bot");
             return;
         }
 
-        // Increment request count
         incrementRequestCount();
-
         const isSpecialUser = getSpecialUser();
         this.ollamaStreamer.streamOllama(text, isSpecialUser);
     }
@@ -252,11 +266,6 @@ document.querySelector(".ai-button").addEventListener("click", () => pdfHandler.
 
 // Initialize the request count on page load
 (function initializeRequestCount() {
-    // Make sure we have today's date in the count data
     const countData = getDailyRequestCount();
     localStorage.setItem("requestCountData", JSON.stringify(countData));
 })();
-
-
-
-
