@@ -157,3 +157,36 @@ function decryptPassword(encryptedPassword) {
 
     return decrypted.toString(CryptoJS.enc.Utf8);
 }
+
+function calculateResultSum(startNumber, endNumber, language, level) {
+    let sum = 0;
+
+    for (let i = startNumber; i <= endNumber; i++) {
+        if (excludedIndices.includes(i)) continue;
+
+        const baseKey = `taskResult_${i}_${language}_${level}`;
+        const submissionCount = parseInt(localStorage.getItem(`${baseKey}_index`) || "0");
+
+        let taskCompleted = false;
+
+        for (let j = 0; j < submissionCount; j++) {
+            const storedResult = localStorage.getItem(`${baseKey}_${j}`);
+
+            if (storedResult) {
+                try {
+                    const resultData = JSON.parse(storedResult);
+                    if (resultData.testResults === "111111") {
+                        taskCompleted = true;
+                        break;
+                    }
+                } catch (error) {
+                    console.warn(`Invalid JSON for task ${i}, submission ${j}:`, error);
+                }
+            }
+        }
+
+        if (taskCompleted) sum++;
+    }
+
+    return sum;
+}
