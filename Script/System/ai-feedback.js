@@ -151,6 +151,7 @@ class OllamaStreamer {
         } catch (e) {
             console.error("Error streaming Ollama:", e);
             this.chatUI.addMessage("An error occurred while processing your request. Please try again later.", "bot");
+            decrementRequestCount();
         } finally {
             this.isRequestInProgress = false;
         }
@@ -181,6 +182,13 @@ function getDailyRequestCount() {
 function incrementRequestCount() {
     const countData = getDailyRequestCount();
     countData.count += 1;
+    localStorage.setItem("requestCountData", JSON.stringify(countData));
+    return countData.count;
+}
+
+function decrementRequestCount() {
+    const countData = getDailyRequestCount();
+    countData.count -= 1;
     localStorage.setItem("requestCountData", JSON.stringify(countData));
     return countData.count;
 }
@@ -220,7 +228,7 @@ class PDFHandler {
 
         // Check daily request limit
         const countData = getDailyRequestCount();
-        if (countData.count >= 3) {
+        if (countData.count >= 3 && !getSpecialUser()) {
             chatUI.addMessage("You have reached the daily limit of 3 requests. Please try again tomorrow.", "bot");
             return;
         }
