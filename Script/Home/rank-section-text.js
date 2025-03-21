@@ -68,14 +68,20 @@ class RankSection {
 
 // Initialize rank section on DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function() {
+    const rankSectionText = document.getElementById('rank-section-text');
     const diamondElement = document.querySelector(".text-bottom-box span");
     const rankCountElement = document.querySelector(".text-bottom-box b");
 
-    // Check if elements exist
-    if (diamondElement && rankCountElement) {
-        new RankSection(diamondElement, rankCountElement);
+    if (getUsernameValue() === null) {
+        rankSectionText.innerText = "Sign up to start earning points and see your ranking.";
     }
     else {
-        console.error("Diamond or rank count element not found. Check your selectors.");
+        if (diamondElement && rankCountElement) {
+            new RankSection(diamondElement, rankCountElement);
+        }
+        else {
+            console.error("Diamond or rank count element not found. Check your selectors.");
+        }
     }
+
 });
