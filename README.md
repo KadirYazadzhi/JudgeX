@@ -1,4 +1,4 @@
-# JudgeX - Advanced Web Platform for Programming Challenges
+# JudgeX - Advanced Web Platform for Programming Challenges 🚀
 
 JudgeX is an innovative web platform designed for programming enthusiasts. It offers a wide range of features including a code compilation system, user authentication, various difficulty levels, leaderboards, and a unique online resume builder. The platform is built using pure HTML, CSS, and JavaScript, and it leverages `localStorage` for all data persistence, making it a completely serverless application in terms of user data management. For code evaluation, it integrates with the Judge0 API.
 
@@ -11,43 +11,43 @@ JudgeX is an innovative web platform designed for programming enthusiasts. It of
 Here is a detailed tree structure of the project:
 
 ```
-.
-├── 403.html
-├── 404.html
-├── index.html
-├── JudgeX-preview-github.png
-├── LICENSE
-├── profile.html
-├── README.md
-├── system.html
-├── test.html
-├── Exercise/
-│   ├── BG/
-│   │   ├── Easy/
-│   │   ├── Hard/
-│   │   ├── Insane/
-│   │   ├── Medium/
-│   │   └── Special/
-│   └── EN/
-│       ├── Easy/
-│       ├── Hard/
-│       ├── Insane/
-│       ├── Medium/
-│       └── Special/
-├── Image/
-│   ├── Badges/
-│   └── Template/
-├── Json/
-│   ├── chat-bot-phrases.json
-│   ├── exercises-answers-data.json
-│   └── information-about-system.json
-├── Script/
-│   ├── For All/
-│   ├── Home/
-│   ├── Other/
-│   ├── Profile/
-│   └── System/
-└── Style/
+    .
+    ├── 403.html
+    ├── 404.html
+    ├── index.html
+    ├── JudgeX-preview-github.png
+    ├── LICENSE
+    ├── profile.html
+    ├── README.md
+    ├── system.html
+    ├── test.html
+    ├── Exercise/
+    │   ├── BG/
+    │   │   ├── Easy/
+    │   │   ├── Hard/
+    │   │   ├── Insane/
+    │   │   ├── Medium/
+    │   │   └── Special/
+    │   └── EN/
+    │       ├── Easy/
+    │       ├── Hard/
+    │       ├── Insane/
+    │       ├── Medium/
+    │       └── Special/
+    ├── Image/
+    │   ├── Badges/
+    │   └── Template/
+    ├── Json/
+    │   ├── chat-bot-phrases.json
+    │   ├── exercises-answers-data.json
+    │   └── information-about-system.json
+    ├── Script/
+    │   ├── For All/
+    │   ├── Home/
+    │   ├── Other/
+    │   ├── Profile/
+    │   └── System/
+    └── Style/
     ├── For All/
     ├── Home/
     ├── Other/
@@ -169,143 +169,53 @@ This detailed structure provides a clear roadmap of the JudgeX platform's archit
 
 ---
 
-## 📊 Project Line Counts
+## ✨ System Features & Future Development
 
-This table shows the number of lines for each non-binary, non-document file in the project.
+This section outlines the current features of JudgeX and explores potential avenues for future development.
 
-| File                                                                              | Lines     |
-|-----------------------------------------------------------------------------------|-----------|
-| Style/Profile/profile-page.css                                                    | 1555      |
-| index.html                                                                        | 1127      |
-| profile.html                                                                      | 898       |
-| Style/System/system.css                                                           | 769       |
-| system.html                                                                       | 617       |
-| Style/System/nav system.css                                                       | 569       |
-| Script/Profile/online-resume.js                                                   | 405       |
-| Script/For All/chat-bot-logic.js                                                  | 366       |
-| Style/Home/hero-section.css                                                       | 352       |
-| Style/Home/leaderboard.css                                                        | 341       |
-| Script/System/code-compilation.js                                                 | 323       |
-| Script/System/display-submissions.js                                              | 318       |
-| Style/Home/about-us-section.css                                                   | 302       |
-| Style/Home/contact.css                                                            | 277       |
-| Script/System/ai-feedback.js                                                      | 270       |
-| Script/System/download-exercise-document.js                                       | 257       |
-| Style/For All/chat-bot.css                                                        | 248       |
-| Style/Home/header.css                                                             | 247       |
-| Style/System/submissions.css                                                      | 240       |
-| Style/For All/footer.css                                                          | 237       |
-| Script/Home/register.js                                                           | 237       |
-| Script/System/system-sidebar.js                                                   | 199       |
-| Style/Home/responsive-styles.css                                                  | 195       |
-| Style/Home/register.css                                                           | 195       |
-| Style/Home/cards.css                                                              | 195       |
-| Script/For All/all-const.js                                                       | 191       |
-| Script/Profile/profile-notification.js                                            | 182       |
-| Json/chat-bot-phrases.json                                                        | 172       |
-| Style/System/time-card.css                                                        | 169       |
-| README.md                                                                         | 168       |
-| Style/For All/navbar phone.css                                                    | 167       |
-| Json/exercises-answers-data.json                                                  | 166       |
-| Style/Home/levels-buttons.css                                                     | 165       |
-| Script/System/sidebar-information-card-logic.js                                   | 165       |
-| Style/Home/nav-other-button.css                                                   | 163       |
-| Style/Home/features.css                                                           | 163       |
-| Style/Home/contact-phone.css                                                      | 160       |
-| Script/Profile/badges.js                                                          | 156       |
-| Script/Profile/progress-section.js                                                | 152       |
-| Script/For All/pages-start-time.js                                                | 152       |
-| Style/System/sidebar-information-modal.css                                        | 151       |
-| Style/Home/marquee.css                                                            | 146       |
-| Script/Home/features.js                                                           | 144       |
-| Style/Home/scroll-driven.css                                                      | 141       |
-| Script/Profile/search-bar.js                                                      | 140       |
-| Style/Profile/profile-right-menu.css                                              | 138       |
-| Script/System/system-contact-validation.js                                        | 138       |
-| Style/Home/special section.css                                                    | 136       |
-| Style/Home/faq.css                                                                | 136       |
-| Style/Home/blur cards.css                                                         | 136       |
-| Style/System/system-message-container.css                                         | 134       |
-| Script/System/change-exercise-name.js                                             | 134       |
-| Script/Profile/information-section-field-changing.js                              | 134       |
-| Style/Home/search.css                                                             | 131       |
-| Script/System/local-storage-download-and-restore.js                               | 123       |
-| Script/System/save-code-from-textarea.js                                          | 118       |
-| Script/System/certificate-generate.js                                             | 118       |
-| Script/System/show-certificate-message.js                                         | 117       |
-| Style/Home/content-section.css                                                    | 116       |
-| Script/Home/pages-translation.js                                                  | 116       |
-| Script/System/change-exercise-buttons.js                                          | 110       |
-| Script/Home/blur cards.js                                                         | 108       |
-| Script/Profile/shop-section-buy-hearts.js                                         | 104       |
-| Script/Home/language card click.js                                                | 104       |
-| Script/Other/prevent-console-modification.js                                      | 103       |
-| Script/Profile/profile-menu.js                                                    | 99        |
-| Json/information-about-system.json                                                | 98        |
-| Style/Other/404.css                                                               | 94        |
-| Script/System/sidebar-phone.js                                                    | 93        |
-| Script/System/code-view-icon.js                                                   | 90        |
-| Script/Profile/certificate-section-show-certificate.js                            | 89        |
-| Script/Home/rank-section-text.js                                                  | 87        |
-| Script/Home/leaderboard.js                                                        | 87        |
-| Script/Home/script.js                                                             | 84        |
-| Style/System/certificate-message.css                                              | 83        |
-| Script/Home/validation.js                                                         | 76        |
-| Script/System/add-information-about-user.js                                       | 74        |
-| Style/Home/style-two.css                                                          | 73        |
-| Script/System/change-language-in-system.js                                        | 69        |
-| Script/Profile/change-user-image.js                                               | 69        |
-| Style/System/loader.css                                                           | 68        |
-| Style/System/ai-feedback-modal.css                                                | 68        |
-| Script/Home/generate-special-level-button.js                                      | 68        |
-| Script/Profile/function-for-certificate-image.js                                  | 67        |
-| Script/Home/leaderboard-year.js                                                   | 67        |
-| Script/Profile/profile-right-information-times.js                                 | 64        |
-| Script/Home/level buttons click.js                                                | 59        |
-| Script/Profile/settings.js                                                        | 58        |
-| Script/Profile/profile-right-section-buttons.js                                   | 58        |
-| Script/For All/clock.js                                                           | 54        |
-| Script/Profile/user-details.js                                                    | 53        |
-| Script/For All/chat-bot-container.js                                              | 53        |
-| Style/Home/page-property.css                                                      | 50        |
-| Style/For All/light-theme.css                                                     | 49        |
-| Script/Home/open-profile-page.js                                                  | 49        |
-| Script/Home/special-button.js                                                     | 48        |
-| Script/Profile/special-account-setup.js                                           | 44        |
-| Script/Home/footer-buttons.js                                                     | 43        |
-| Script/Profile/online-resume-image.js                                             | 42        |
-| 403.html                                                                          | 42        |
-| Script/Other/404.js                                                               | 41        |
-| 404.html                                                                          | 41        |
-| Script/System/show-and-hide-time-type.js                                          | 40        |
-| Script/System/null-test-alert-message.js                                          | 39        |
-| Style/For All/cards-color.css                                                     | 38        |
-| Script/System/time-card-current-time.js                                           | 37        |
-| Script/Home/slider.js                                                             | 36        |
-| Script/Home/more cards.js                                                         | 36        |
-| Script/System/system-phone-alert.js                                               | 33        |
-| Style/Home/map.css                                                                | 32        |
-| Script/Home/faq-section.js                                                        | 32        |
-| Script/System/open-system-protection.js                                           | 31        |
-| Script/System/buttons-hover-text.js                                               | 31        |
-| Script/Home/set-profile-image.js                                                  | 31        |
-| Script/Home/scroll-driven.js                                                      | 31        |
-| Script/System/sidebar-other-menu.js                                               | 30        |
-| Script/Profile/profile-page-protection.js                                         | 30        |
-| Style/For All/system-scroll-style.css                                             | 27        |
-| Script/System/view-certificate.js                                                 | 27        |
-| Script/Home/contact.js                                                            | 26        |
-| Style/Home/language.css                                                           | 25        |
-| Script/System/special-bar-color.js                                                | 25        |
-| Script/Home/map.js                                                                | 25        |
-| Script/System/system-sidebar-profile.js                                           | 24        |
-| Script/Home/special cards change.js                                               | 24        |
-| Script/Home/search.js                                                             | 19        |
-| Script/Home/navbar-phone.js                                                       | 19        |
-| Script/System/container-width-control.js                                          | 16        |
-| Script/Profile/deactivate-shop-cards.js                                           | 16        |
-| Script/Home/pointer.js                                                            | 15        |
-| Style/Home/feedback.css                                                           | 11        |
-| Script/Home/button-to-top.js                                                      | 4         |
-| Script/Profile/resume-template.js                                                 | 1         |
-| **Total Lines (Source Code)**                                                     | **16589**     |
+### 🌟 What JudgeX Currently Offers:
+
+- **Code Compilation System**: Utilizes the Judge0 API to compile and run user code against predefined test cases.
+- **AI-Powered Feedback**: Integrates with the Ollama API to provide users with AI-generated feedback on their code submissions.
+- **User Authentication**: A complete registration and login system with client-side password encryption using CryptoJS.
+- **Persistent Data**: All user data, progress, and settings are stored in the browser's `localStorage`, making it a serverless solution.
+- **Multi-Language Support**: The platform supports both Bulgarian 🇧🇬 and English 🇬🇧 for the UI and exercise descriptions.
+- **Variety of Challenges**: Exercises are categorized into five difficulty levels: Easy, Medium, Hard, Insane, and Special.
+- **Gamification Elements**: Users can earn badges for their achievements and spend points in a shop for in-game items like hearts.
+- **Dynamic Profile Page**: A comprehensive user profile that includes statistics, progress bars, earned badges, and generated certificates.
+- **Online Resume Builder**: A unique feature that allows users to create and customize an online resume based on their achievements on the platform.
+
+### 🚀 Potential New Features & Improvements:
+
+- **Full-Stack Conversion**: Transition from `localStorage` to a proper backend with a database (e.g., Node.js with MongoDB/PostgreSQL). This would enable user data to be persistent across different devices.
+- **User vs. User Challenges**: Implement a feature where two users can compete in real-time to solve the same problem the fastest.
+- **Expanded Language Support**: Add support for more programming languages in the code compilation system.
+- **Community Features**: Introduce a forum or a comment section for each exercise to allow users to discuss solutions and help each other.
+- **System-Wide Dark Mode**: While the home page has a theme switcher, the system page could also benefit from a dark mode for a more consistent user experience.
+- **Refactor CSS**: Convert the existing CSS to a preprocessor like SASS for better organization and maintainability.
+
+### 🤝 How to Contribute
+
+Contributions are welcome! If you have an idea for a new feature or an improvement, feel free to fork the repository, make your changes, and submit a pull request. Please ensure that your code follows the existing style and conventions of the project.
+
+---
+
+## 📊 Project Line Counts (Summarized)
+
+Here is a summary of the project's line counts, grouped by file type.
+
+| File Type | Total Lines |
+|-----------|-------------|
+| `.css`    | 8692        |
+| `.js`     | 7647        |
+| `.html`   | 2725        |
+| `.json`   | 436         |
+| **Total** | **19500**   |
+
+---
+
+## 🙏 Acknowledgements
+
+A big thank you to everyone who has contributed to this project, provided feedback, or used it to learn and grow their programming skills. Your support is what makes this platform possible!
+
+Happy Coding! 🎉
