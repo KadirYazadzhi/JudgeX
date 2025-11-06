@@ -194,7 +194,7 @@ This section outlines the current features of JudgeX and explores potential aven
 - **System-Wide Dark Mode**: While the home page has a theme switcher, the system page could also benefit from a dark mode for a more consistent user experience.
 - **Refactor CSS**: Convert the existing CSS to a preprocessor like SASS for better organization and maintainability.
 
-### 🤝 How to Contribute
+## 🤝 How to Contribute
 
 Contributions are welcome! If you have an idea for a new feature or an improvement, feel free to fork the repository, make your changes, and submit a pull request. Please ensure that your code follows the existing style and conventions of the project.
 
@@ -212,8 +212,9 @@ This achievement has also granted me admission to four esteemed universities in 
 
 ---
 
-### 🏅 Certificates
-Certificates from the competition, showcasing the recognition of this project (Clicking these links will open them in a **new tab**):
+## 🏅 Certificates
+
+Certificates from the competition, showcasing the recognition of this project:
 
 <a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%202.webp" target="_blank">Certificate of Participation in the National Information Technology Competition - SWU</a>
 <br>
