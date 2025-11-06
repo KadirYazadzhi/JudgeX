@@ -205,19 +205,25 @@ Contributions are welcome! If you have an idea for a new feature or an improveme
 This project, JudgeX, was proudly presented at the **XVII National Competition in Information Technologies** in the **Websites category**. I am honored to have secured **First Place** in this prestigious competition! 🥇
 
 This achievement has also granted me admission to four esteemed universities in Bulgaria:
--   South-West University "Neofit Rilski" (SWU) - Blagoevgrad
--   Technical University (TU) - Sofia
--   University of Library Studies and Information Technologies (UNIBIT) - Sofia
--   Plovdiv University "Paisii Hilendarski"
-
-Certificates from the competition, showcasing the recognition of this project:
-- [Certificate of Participation in the National Information Technology Competition - SWU](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%202.webp)
-- [Certificate of Participation in the National Information Technology Competition - SWU](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%201.webp)
-- [Certificate of Participation in the National Information Technology Competition - UNIBIT](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20UNIBIT.webp)
-- [Certificate of Participation in the National Information Technology Competition](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition.webp)
-- [Certificate for First Place in the National Information Technology Competition - Website Category](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20for%20First%20Place%20in%20the%20National%20Information%20Technology%20Competition%20-%20Website%20Category.webp)
+* South-West University "Neofit Rilski" (SWU) - Blagoevgrad
+* Technical University (TU) - Sofia
+* University of Library Studies and Information Technologies (UNIBIT) - Sofia
+* Plovdiv University "Paisii Hilendarski"
 
 ---
+
+### 🏅 Certificates
+Certificates from the competition, showcasing the recognition of this project (Clicking these links will open them in a **new tab**):
+
+<a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%202.webp" target="_blank">Certificate of Participation in the National Information Technology Competition - SWU</a>
+<br>
+<a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%201.webp" target="_blank">Certificate of Participation in the National Information Technology Competition - SWU</a>
+<br>
+<a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20UNIBIT.webp" target="_blank">Certificate of Participation in the National Information Technology Competition - UNIBIT</a>
+<br>
+<a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition.webp" target="_blank">Certificate of Participation in the National Information Technology Competition</a>
+<br>
+<a href="https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20for%20First%20Place%20in%20the%20National%20Information%20Technology%20Competition%20-%20Website%20Category.webp" target="_blank">Certificate for First Place in the National Information Technology Competition - Website Category</a>
 
 ## 📊 Project Line Counts (Summarized)
 
