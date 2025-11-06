@@ -2,7 +2,7 @@
 
 JudgeX is an innovative web platform designed for programming enthusiasts. It offers a wide range of features including a code compilation system, user authentication, various difficulty levels, leaderboards, and a unique online resume builder. The platform is built using pure HTML, CSS, and JavaScript, and it leverages `localStorage` for all data persistence, making it a completely serverless application in terms of user data management. For code evaluation, it integrates with the Judge0 API.
 
-![JudgeX-preview-github.png](JudgeX-preview-github.png)
+![JudgeX-preview-github.png](img/JudgeX-preview-github.png)
 
 ---
 
@@ -197,6 +197,25 @@ This section outlines the current features of JudgeX and explores potential aven
 ### 🤝 How to Contribute
 
 Contributions are welcome! If you have an idea for a new feature or an improvement, feel free to fork the repository, make your changes, and submit a pull request. Please ensure that your code follows the existing style and conventions of the project.
+
+---
+
+## 🏆 Achievements
+
+This project, JudgeX, was proudly presented at the **XVII National Competition in Information Technologies** in the **Websites category**. I am honored to have secured **First Place** in this prestigious competition! 🥇
+
+This achievement has also granted me admission to four esteemed universities in Bulgaria:
+-   South-West University "Neofit Rilski" (SWU) - Blagoevgrad
+-   Technical University (TU) - Sofia
+-   University of Library Studies and Information Technologies (UNIBIT) - Sofia
+-   Plovdiv University "Paisii Hilendarski"
+
+Certificates from the competition, showcasing the recognition of this project:
+- [Certificate of Participation in the National Information Technology Competition - SWU](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%202.webp)
+- [Certificate of Participation in the National Information Technology Competition - SWU](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20SWU%20-%201.webp)
+- [Certificate of Participation in the National Information Technology Competition - UNIBIT](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition%20-%20UNIBIT.webp)
+- [Certificate of Participation in the National Information Technology Competition](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20of%20Participation%20in%20the%20National%20Information%20Technology%20Competition.webp)
+- [Certificate for First Place in the National Information Technology Competition - Website Category](https://kadiryazadzhi.github.io/portfolio/Image/Certificate/Other/Certificate%20for%20First%20Place%20in%20the%20National%20Information%20Technology%20Competition%20-%20Website%20Category.webp)
 
 ---
 
