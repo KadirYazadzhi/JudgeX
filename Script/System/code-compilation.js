@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.today = new Date().toISOString().slice(0, 10);
             this.callData = JSON.parse(localStorage.getItem("callData")) || { count: 0, lastDate: this.today };
             this.testResults = "";
-            this.url = "http://78.90.252.206:2358";
+            this.url = config.LOCAL_API_URL;
 
             this.initialize();
         }
