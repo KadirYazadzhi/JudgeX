@@ -1,7 +1,7 @@
 //Using in `code-compile.js`
-const apiURL = 'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true';
-const rapidAPIHost = 'judge0-ce.p.rapidapi.com';
-const rapidAPIKey = 'a4a8e6d2d7mshd11918bb81caf74p1f7e3fjsn9f85774f50f6';
+const apiURL = config.API_URL;
+const rapidAPIHost = config.RAPIDAPI_HOST;
+const rapidAPIKey = config.RAPIDAPI_KEY;
 
 //Using in the most of the js file that using in system
 const selectedLanguage = getSelectedLanguage();
@@ -133,8 +133,8 @@ function getInfinityHearts() {
 }
 
 function encryptPassword(password) {
-    const secretKey = CryptoJS.enc.Utf8.parse("JudgeXJudgeX1234");
-    const iv = CryptoJS.enc.Utf8.parse("1234567890123456");
+    const secretKey = CryptoJS.enc.Utf8.parse(config.SECRET_KEY);
+    const iv = CryptoJS.enc.Utf8.parse(config.IV);
 
     const encrypted = CryptoJS.AES.encrypt(password, secretKey, {
         iv: iv,
@@ -146,8 +146,8 @@ function encryptPassword(password) {
 }
 
 function decryptPassword(encryptedPassword) {
-    const secretKey = CryptoJS.enc.Utf8.parse("JudgeXJudgeX1234");
-    const iv = CryptoJS.enc.Utf8.parse("1234567890123456");
+    const secretKey = CryptoJS.enc.Utf8.parse(config.SECRET_KEY);
+    const iv = CryptoJS.enc.Utf8.parse(config.IV);
 
     const decrypted = CryptoJS.AES.decrypt(encryptedPassword, secretKey, {
         iv: iv,
