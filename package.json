@@ -1,0 +1,16 @@
+{
+  "name": "judgex",
+  "version": "1.0.0",
+  "description": "JudgeX is an innovative web platform designed for programming enthusiasts. It offers a wide range of features including a code compilation system, user authentication, various difficulty levels, leaderboards, and a unique online resume builder. The platform is built using pure HTML, CSS, and JavaScript, and it leverages `localStorage` for all data persistence, making it a completely serverless application in terms of user data management. For code evaluation, it integrates with the Judge0 API.",
+  "main": "index.js",
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build-config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
