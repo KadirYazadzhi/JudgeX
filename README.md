@@ -6,6 +6,75 @@ JudgeX is an innovative web platform designed for programming enthusiasts. It of
 
 ---
 
+## 🚀 Getting Started
+
+Follow these instructions to set up and run the project on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (which includes npm) must be installed on your system.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/JudgeX.git
+    cd JudgeX
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+### Configuration
+
+1.  **Create a `.env` file** in the root of the project. This file will store your secret keys and configuration variables.
+
+2.  **Add the following variables** to your `.env` file:
+
+    ```env
+    RAPIDAPI_KEY=your_rapidapi_key
+    RAPIDAPI_HOST=judge0-ce.p.rapidapi.com
+    API_URL=https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true
+    SECRET_KEY=your_strong_secret_key
+    IV=your_16_character_iv
+    LOCAL_API_URL=http://localhost:2358
+    ```
+
+### Explanation of Configuration Variables
+
+-   `RAPIDAPI_KEY`: Your API key for the Judge0 CE API on RapidAPI.
+    -   **How to get it:**
+        1.  Go to the [Judge0 CE page on RapidAPI](https://rapidapi.com/judge0-official/api/judge0-ce).
+        2.  Click on the "Subscribe to Test" button to get your API key.
+        3.  Copy the key from the "X-RapidAPI-Key" header field.
+
+-   `RAPIDAPI_HOST`: The host for the Judge0 CE API. The default value is `judge0-ce.p.rapidapi.com`.
+
+-   `API_URL`: The URL for the Judge0 CE API submissions endpoint. The default value is `https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true`.
+
+-   `SECRET_KEY`: A strong secret key used for encrypting user passwords. You can generate a random string for this.
+
+-   `IV`: A 16-character initialization vector for encryption. This should also be a random string.
+
+-   `LOCAL_API_URL`: The URL for a local installation of Judge0. This is used as a fallback if the RapidAPI service is unavailable.
+    -   If you have Judge0 running locally on the default port, the value will be `http://localhost:2358`.
+    -   If you don't have a local Judge0 installation, you can leave this as is, but the fallback functionality will not work.
+
+### Running the Application
+
+1.  **Build the configuration file:**
+    ```bash
+    npm run build
+    ```
+    This command reads your `.env` file and generates `Script/config.js`, which makes your configuration available to the frontend.
+
+2.  **Open `index.html` in your browser:**
+    You can open the `index.html` file directly in your web browser to start using the application.
+
+---
+
 ## 📂 Project Structure
 
 Here is a detailed tree structure of the project:
